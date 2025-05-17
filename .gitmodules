@@ -1,0 +1,3 @@
+[submodule "lifbt"]
+	path = libft
+	url = https://github.com/iDarkAxe/Libft
