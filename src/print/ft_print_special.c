@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/20 10:01:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/14 15:27:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_print.h"
-#include "so_long.h"
+#include "libft.h"
+#include "cube3d.h"
 
 ssize_t	ft_print_position(int x, int y)
 {

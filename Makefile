@@ -18,10 +18,8 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 #############################################################################################
 # Source directories
 P_SRC = src/
-P_DRAW = draw/
 P_MAP_VERIF = map_verif/
-P_UTILS = utils/
-P_PLAYER = player/
+P_PARSING = parsing/
 P_PRINT = print/
 
 # Object directories
@@ -29,7 +27,7 @@ P_OBJ = .obj/
 
 # Header directories
 P_INC = inc/
-P_INC_MLX = inc_mlx/
+P_INC_MLX = $(P_MLX)
 
 P_INCS = \
 	$(P_INC) \
@@ -39,6 +37,7 @@ P_INCS = \
 # Libraries directories
 P_LIB = lib/
 P_LIBFT = libft/
+P_MLX = minilibx-linux/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -46,9 +45,8 @@ P_LIBFT = libft/
 #############################################################################################
 # Headers
 INC = \
+	cube3d.h \
 	ft_keys.h \
-	so_long.h \
-	ft_textures.h \
 	ft_print.h
 
 INC_MLX = \
@@ -58,55 +56,25 @@ INC_MLX = \
 SRC = \
 	main.c \
 	cub3d.c \
-	ft_hooks.c \
-
-DRAW = \
-	ft_draw.c \
-	ft_draw_map.c \
-	ft_store_textures.c
 
 MAP_VERIF = \
-	ft_map_dimensions.c \
-	ft_map_fill.c \
-	ft_verify_access.c
+	ft_map_check.c \
 
-UTILS = \
-	ft_map_utils.c \
-	ft_random.c \
-	ft_free.c \
-	ft_exit.c \
-	ft_strdup.c
-
-PLAYER = \
-	ft_player.c
+PARSING = \
+	check_args.c \
 
 PRINT = \
-	ft_print.c \
-	ft_print_special.c
-
-LIBS = \
-	libmlx_Linux.a \
-	libso_long.a
-
-IMG = \
-	parquet_versailles.xpm \
-	end_portal_off.xpm \
-	end_portal_on.xpm \
-	player_fl_end_portal_off.xpm \
-	player_fr_end_portal_off.xpm \
-	stone_bricks_v2.xpm 
-
-IMG_UNUSED = \
-	player.xpm \
-	settings.xpm
+	ft_print_special.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \
-	-Lminilibx-linux -lmlx_Linux \
+	-L$(P_MLX) -lmlx_Linux \
 	-lXext \
 	-lX11
 
-LIBFT = $(P_LIBFT)libft.a
+LIBFT = \
+	$(P_LIBFT)libft.a \
+
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -114,10 +82,8 @@ LIBFT = $(P_LIBFT)libft.a
 #############################################################################################
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
-	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
-	$(addprefix $(P_SRC)$(P_UTILS), $(UTILS)) \
-	$(addprefix $(P_SRC)$(P_PLAYER), $(PLAYER)) \
+	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)
@@ -140,8 +106,8 @@ INCS = \
 all:
 	@$(MAKE) $(NAME)
 
-# Create so_long executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_LIB)libmlx_Linux.a
+# Create cube3d executable
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx_Linux.a
 	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_INC_MLX) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS); then \
 		echo "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
@@ -163,12 +129,8 @@ $(LIBFT): force
 	@$(MAKE) -C $(P_LIBFT)
 
 # Create mlx library
-$(P_LIB)libmlx_Linux.a:
-	@mkdir -p $(P_LIB)
-	@$(MAKE) -C minilibx-linux
-	@cp minilibx-linux/libmlx_Linux.a $(P_LIB)
-	@cp minilibx-linux/mlx.h inc_mlx/
-	@cp /usr/include/X11/X.h inc_mlx/
+$(P_MLX)libmlx_Linux.a: force
+	@$(MAKE) -C $(P_MLX) --silent CFLAGS="$(CFLAGS_MLX)" CC="gcc"
 
 #############################################################################################
 #                                                                                           #
@@ -180,7 +142,7 @@ clean:
 	@rm -rfd $(P_OBJ)
 	@rm -rfd $(OBJS)
 	@rm -rfd $(DEPS)
-	@$(MAKE) -C minilibx-linux clean > /dev/null 2>&1
+	@$(MAKE) -C $(P_MLX) clean > /dev/null 2>&1
 	@echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)"
 
 clean-lib:
@@ -201,7 +163,7 @@ fclean:
 	@$(MAKE) clean-obj
 	@$(MAKE) clean-lib
 	@$(MAKE) clean-bin
-	@$(MAKE) -C minilibx-linux clean > /dev/null 2>&1
+	@$(MAKE) -C $(P_MLX) clean > /dev/null 2>&1
 
 re:
 	@$(MAKE) fclean
@@ -220,10 +182,10 @@ flcear: fclean
 #############################################################################################
 # Debugging rules
 debug:
-	@$(MAKE) $(OBJS) CFLAGS="$(CFLAGS_DEBUG)"
+	@$(MAKE) $(NAME) CFLAGS="$(CFLAGS_DEBUG)"
 
 debug-cc:
-	@$(MAKE) $(OBJS) CFLAGS="$(CC_DEBUG_CFLAGS)" CC="$(CC_DEBUG)" Cyan="$(Yellow)" Green="$(Purple)"
+	@$(MAKE) $(NAME) CFLAGS="$(CC_DEBUG_CFLAGS)" CC="$(CC_DEBUG)" Cyan="$(Yellow)" Green="$(Purple)"
 
 # Debugging print
 debug-print:
@@ -280,4 +242,4 @@ On_Purple=\033[45m
 On_Cyan=\033[46m
 On_White=\033[47m
 
--include $(DEPS)%
+-include $(DEPS)
