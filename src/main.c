@@ -6,21 +6,21 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 12:33:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 18:46:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/14 14:33:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "cube3d.h"
 
 /**
  * @brief Main function of the program.
- * Calls only the so_long function.
+ * Calls only the cube3d function.
  *
  * @param argc Number of arguments.
  * @param argv Array of arguments.
- * @return int Return values of the so_long function.
+ * @return int Return values of the cube3d function.
  */
 int	main(int argc, char **argv)
 {
-	return (so_long(argc, argv));
+	return (cube3d(argc, argv));
 }
