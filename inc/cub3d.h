@@ -136,20 +136,6 @@ int					handle_keypress(int keycode, void *param);
  */
 
 /**
- * @brief Structure used to store the map dimensions and metadata.
- *
- */
-typedef struct s_map_size
-{
-	int				fd;
-	char			*map_name;
-	size_t			line_len;
-	size_t			prev_line_len;
-	size_t			count_line;
-	int				error_occured;
-}					t_map_size;
-
-/**
  * @brief Check the dimensions of the map.
  *
  * @param map Map structure to modify.
