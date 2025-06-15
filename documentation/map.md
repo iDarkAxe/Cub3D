@@ -64,7 +64,7 @@ strict tel que :
 Texture nord :
 
 ```txt
-NO ./path_to_the_north_texture/texture.cub
+NO ./path_to_the_north_texture/texture
 ```
 
 Les balises acceptées sont donc :

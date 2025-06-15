@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/14 15:54:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/15 13:18:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  *
  */
 
-# include "cube3d.h"
+# include "cub3d.h"
 # include <unistd.h>
 
 /**

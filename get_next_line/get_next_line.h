@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 12:33:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 13:18:52 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2024/11/27 15:19:29 by ppontet           #+#    #+#             */
+/*   Updated: 2025/04/23 16:30:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-/**
- * @brief Main function of the program.
- * Calls only the cub3d function.
- *
- * @param argc Number of arguments.
- * @param argv Array of arguments.
- * @return int Return values of the cub3d function.
- */
-int	main(int argc, char **argv)
-{
-	return (cub3d(argc, argv));
-}
+# include <stddef.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char		*get_next_line(int fd);
+
+#endif
