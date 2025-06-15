@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 13:20:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/15 15:35:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_coordinates	t_coordinates;
 typedef struct s_map			t_map;
 typedef struct s_store			t_store;
 typedef union u_color			t_color;
-typedef struct s_map_size		t_map_size;
 
 /**
  * @brief Union used to store color information.

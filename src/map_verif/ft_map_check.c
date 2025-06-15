@@ -6,13 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 13:18:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/15 16:17:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "ft_print.h"
 #include "ft_printf.h"
+#include <string.h>
+#include <errno.h>
 
 static int	try_to_open_close_map(char *map_name);
 
@@ -63,6 +65,12 @@ int	try_to_open_close_map(char *map_name)
 	fd = safe_open(map_name);
 	if (fd < 0)
 		return (0);
+	if (read(fd, NULL, 0) < 0)
+	{
+		ft_dprintf(2, RED"Error"RESET"\nRead fd %d: %s\n", fd, strerror(errno));
+		safe_close(&fd);
+		return (0);
+	}
 	fd = safe_close(&fd);
 	if (fd != 0)
 		return (0);
