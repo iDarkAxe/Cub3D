@@ -11,8 +11,8 @@
 **/*.s
 **/*.gch
 **/*.gdb_history
-**/cube3d
-**/cube3d_tests
+**/cub3d
+**/cub3d_tests
 **/compile_commands.json 
 
 **/*.clang

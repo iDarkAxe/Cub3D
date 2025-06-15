@@ -6,13 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/14 15:53:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/15 13:18:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_keys.h"
 #include "mlx.h"
-#include "cube3d.h"
+#include "cub3d.h"
 #include "libft.h"
 #include "ft_printf.h"
 #include "ft_print.h"
@@ -22,13 +22,13 @@
 #include <unistd.h>
 
 /**
- * @brief Main function of the cube3d project
+ * @brief Main function of the cub3d project
  *
  * @param argc number of arguments
  * @param argv array of string arguments
  * @return int 0 if the program ends correctly, -1 otherwise
  */
-int	cube3d(int argc, char **argv)
+int	cub3d(int argc, char **argv)
 {
 	t_map	map;
 	t_mlx	mlx;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/14 14:33:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/15 13:18:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 /**
  * @file ft_keys.h
- * @brief Header file for the key used in cube3d.
+ * @brief Header file for the key used in cub3d.
  *
 */
 

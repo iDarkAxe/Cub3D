@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cube3d.h                                          :+:      :+:    :+:   */
+/*   cub3d.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUBE3D_H
-# define CUBE3D_H
+#ifndef CUB3D_H
+# define CUB3D_H
 
 /**
- * @file cube3d.h
- * @brief Header file for the cube3d project.
+ * @file cub3d.h
+ * @brief Header file for the cub3d project.
  *
  * Contains all structures, function prototypes,
  *	and constants used in the project.
  */
 
+# include "data_structure.h"
 # include <stddef.h>
 # include <unistd.h>
 
@@ -31,83 +32,13 @@
  */
 
 /**
- * @brief Structure used to store an image
- * (buffer that contain image, and size).
- *
- */
-typedef struct s_img
-{
-	void			*ptr;
-	int				width;
-	int				height;
-}					t_img;
-
-/**
- * @brief Strcuture that handle the textures of the game.
- *
- */
-typedef struct s_textures
-{
-	t_img			north;
-	t_img			east;
-	t_img			west;
-	t_img			south;
-}					t_textures;
-
-/**
- * @brief Structure that handle the mlx instance.
- *
- */
-typedef struct s_mlx
-{
-	void			*mlx_ptr;
-	void			*win_ptr;
-	// void			*win_settings_ptr;
-}					t_mlx;
-
-/**
- * @brief Structure used to store the coordinates (positive only).
- *
- */
-typedef struct s_coordinates
-{
-	size_t			x;
-	size_t			y;
-}					t_coordinates;
-
-/**
- * @brief Structure that handle the map informations.
- *
- */
-typedef struct s_map
-{
-	char			**map;
-	int				error;
-	size_t			number_of_moves;
-	t_coordinates	exit;
-	size_t			width;
-	size_t			height;
-	t_textures		textures;
-}					t_map;
-
-/**
- * @brief Structure used to store the mlx and map structures.
- *
- */
-typedef struct s_store
-{
-	t_mlx			*mlx;
-	t_map			*map;
-}					t_store;
-
-/**
  * @brief Entry point of the program.
  *
  * @param argc Argument count.
  * @param argv Argument vector.
  * @return int 0 on success, -1 on failure.
  */
-int					cube3d(int argc, char **argv);
+int					cub3d(int argc, char **argv);
 
 /**
  * @brief Check the arguments passed to the program.
@@ -117,6 +48,29 @@ int					cube3d(int argc, char **argv);
  * @return int 1 OK, -1 if error
  */
 int					check_args(int argc, char **argv);
+
+/**
+ * @brief Free the strings of the file
+ * 
+ * @param map map structur
+ */
+void				ft_free_file(t_map *map);
+
+/**
+ * @brief Read the map file line by line and return an array of strings.
+ * 
+ * @param map_name map file name to read
+ * @return char** array of strings containing the map lines
+ */
+char				**read_file_lines(t_map *map, char *map_name);
+
+/**
+ * @brief Simple function to count the number of lines in a file.
+ * 
+ * @param file_name file name to count lines in
+ * @return size_t 
+ */
+size_t				count_file_lines(char *file_name);
 
 /**
  * @brief Exit the program.
@@ -212,6 +166,8 @@ t_map				ft_map_check(t_map *map, char *map_name);
  * @{
  */
 
+int					safe_open(char *file_name);
+int					safe_close(int *fd);
 /** @} */
 
 /**
