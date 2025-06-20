@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 16:22:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 16:38:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	print_error(t_map *map, enum e_fx_error error)
 		ft_dprintf(2, RED "Error" RESET "\nAt check_args\n");
 	else if (error == FT_MAP_CHECK)
 		ft_dprintf(2, RED "Error" RESET "\nAt ft_map_check\n");
-	ft_free_file(map);
+	if (error != FT_MAP_CHECK)
+		ft_free_file(map);
 	return (1);
 }
