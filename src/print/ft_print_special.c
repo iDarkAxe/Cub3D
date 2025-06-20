@@ -6,14 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 16:16:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 18:02:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "libft.h"
-#include "cub3d.h"
 #include <stdio.h>
 
 ssize_t	ft_print_position(int x, int y)
@@ -101,7 +101,27 @@ ssize_t	ft_print_map(t_map *map)
 	return (count_printed);
 }
 
-ssize_t	ft_print_number_of_moves(size_t number_of_moves)
+ssize_t	ft_print_floor_ceiling(t_map *map)
 {
-	return (printf("Number of moves: %zu\n", number_of_moves));
+	ssize_t	count_printed;
+	ssize_t	temp;
+
+	if (map == NULL || map->map == NULL)
+	{
+		ft_dprintf(2, RED "Error" RESET "\nMap or map->map is NULL\n");
+		return (-1);
+	}
+	temp = ft_printf("Floor is r:%d g:%d b:%d, rgba:%d\n",
+			map->textures.floor.s_rgb.red, map->textures.floor.s_rgb.green,
+			map->textures.floor.s_rgb.blue, map->textures.floor.rgba);
+	if (temp < 0)
+		return (temp);
+	count_printed = temp;
+	temp = ft_printf("Ceiling is r:%d g:%d b:%d, rgba:%d\n",
+			map->textures.ceiling.s_rgb.red, map->textures.ceiling.s_rgb.green,
+			map->textures.ceiling.s_rgb.blue, map->textures.ceiling.rgba);
+	if (temp < 0)
+		return (temp);
+	count_printed += temp;
+	return (count_printed);
 }

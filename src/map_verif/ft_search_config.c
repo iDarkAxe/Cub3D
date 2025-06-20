@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 16:23:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 18:00:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "libft.h"
+#include <stdlib.h>
+
+static t_map	ft_check_textures(t_map *map);
 
 size_t	is_config_line(char *line)
 {
@@ -57,4 +60,42 @@ char	**fill_config_region(t_map *map)
 	if (nbr_config != 6)
 		print_map_error(map, CONFIG_MISSING_PARAMETERS);
 	return (map->config);
+}
+
+t_map	ft_check_config(t_map *map)
+{
+	if (!map || !map->file)
+		return ((t_map){.error = -1});
+	*map = ft_check_textures(map);
+	if (map->error != 0)
+		return (*map);
+	*map = ft_check_floor_ceiling(map);
+	if (map->error != 0)
+		return (*map);
+	return (*map);
+}
+
+t_map	ft_check_textures(t_map *map)
+{
+	char	*str;
+	size_t	index;
+	int		ret;
+
+	if (!map)
+		return ((t_map){.error = -1});
+	index = 0;
+	while (map->error == 0 && map->config[index] && index < 4)
+	{
+		str = ft_strtrim(&map->config[index][3], " \t\v\n\f\r");
+		ret = try_to_open_close_file(str);
+		if (str)
+			free(str);
+		if (ret != 1)
+		{
+			map->error = 1;
+			return (*map);
+		}
+		index++;
+	}
+	return (*map);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 16:24:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 18:03:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ enum							e_map_error
 enum							e_fx_error
 {
 	FT_MAP_CHECK,
-	CHECK_ARGS
+	CHECK_ARGS,
+	CONFIG_ERROR
 };
 /** @} */
 
@@ -69,7 +70,7 @@ ssize_t	ft_print_position(int x, int y);
 ssize_t	ft_print_file(t_map *map);
 ssize_t	ft_print_config(t_map *map);
 ssize_t	ft_print_map(t_map *map);
-ssize_t	ft_print_number_of_moves(size_t number_of_moves);
+ssize_t	ft_print_floor_ceiling(t_map *map);
 // ERRORS
 void	print_map_error(t_map *map, enum e_map_error error);
 int		print_error(t_map *map, enum e_fx_error error);

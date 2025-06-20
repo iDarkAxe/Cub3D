@@ -6,20 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 15:29:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 18:01:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_keys.h"
-#include "mlx.h"
 #include "cub3d.h"
-#include "libft.h"
-#include "ft_printf.h"
 #include "ft_print.h"
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 /**
  * @brief Main function of the cub3d project
@@ -39,6 +31,9 @@ int	cub3d(int argc, char **argv)
 	map = ft_map_check(&map, argv[1]);
 	if (map.error != 0)
 		return (print_error(&map, CHECK_ARGS));
+	map = ft_check_config(&map);
+	if (map.error != 0)
+		return (print_error(&map, CONFIG_ERROR));
 	ft_free_file(&map);
 	return (0);
 }
