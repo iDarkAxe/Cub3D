@@ -60,12 +60,14 @@ SRC = \
 	cub3d.c \
 	ft_safe.c \
 	ft_free.c \
+	ft-utils.c
 
 MAP_VERIF = \
 	ft_file_fill.c \
 	ft_map_check.c \
 	ft_search_config.c \
 	ft_search_map.c \
+	ft_check_colors.c \
 
 PARSING = \
 	check_args.c \

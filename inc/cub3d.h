@@ -161,6 +161,22 @@ int					handle_keypress(int keycode, void *param);
 t_map				ft_map_check(t_map *map, char *map_name);
 
 /**
+ * @brief Check if the config is properly formatted or not
+ * 
+ * @param map map structure
+ * @return t_map map structure
+ */
+t_map				ft_check_config(t_map *map);
+
+/**
+ * @brief Check the floor and ceiling colors
+ * 
+ * @param map map structure
+ * @return t_map map structure
+ */
+t_map				ft_check_floor_ceiling(t_map *map);
+
+/**
  * @brief Return a positive number if a config line is detected
  *
  * @param line line to check
@@ -175,8 +191,30 @@ size_t				is_config_line(char *line);
  * @{
  */
 
+/**
+ * @brief Try to open the map file specified by map_name.
+ * 
+ * @param file_name file name to open
+ * @return int fd=OK, -1 if an error occurred
+ */
 int					safe_open(char *file_name);
+
+/**
+ * @brief Close safely the file descriptor
+ * Modify the file descriptor to -1 after closing it
+ * 
+ * @param fd pointer to the file descriptor to close
+ * @return int 0 OK, -1 if an error occurred
+ */
 int					safe_close(int *fd);
+
+/**
+ * @brief Try to open the file specified by file_name.
+ * 
+ * @param file_name map file name to open
+ * @return int 1 OK, 0 if an error occurred
+ */
+int					try_to_open_close_file(char *file_name);
 /** @} */
 
 /**
