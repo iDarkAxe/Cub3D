@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 15:35:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 16:20:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_mlx			t_mlx;
 typedef struct s_coordinates	t_coordinates;
 typedef struct s_map			t_map;
 typedef struct s_store			t_store;
+
 typedef union u_color			t_color;
 
 /**
@@ -98,6 +99,7 @@ struct s_map
 	char			**file;
 	size_t			file_nb_lines;
 	char			**map;
+	char			*config[6];
 	int				error;
 	size_t			number_of_moves;
 	t_coordinates	exit;

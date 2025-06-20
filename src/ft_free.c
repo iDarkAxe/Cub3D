@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 13:21:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 15:30:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ void	ft_free_file(t_map *map)
 			free(map->file[index++]);
 		free(map->file);
 		map->file = NULL;
+	}
+	if (map->map != NULL)
+	{
+		free(map->map);
+		map->map = NULL;
 	}
 	map->file_nb_lines = 0;
 }
