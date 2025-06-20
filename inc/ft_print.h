@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 12:04:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 16:24:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,37 @@
 /** @} */
 
 /**
+ * @defgroup ERROR_TYPES Error types
+ * @brief Error types
+ * @{
+ */
+enum							e_map_error
+{
+	CONFIG_TOO_MANY_PARAMETERS,
+	CONFIG_ALREADY_STORED,
+	CONFIG_MISSING_PARAMETERS
+};
+
+enum							e_fx_error
+{
+	FT_MAP_CHECK,
+	CHECK_ARGS
+};
+/** @} */
+
+/**
  * @defgroup Print Print functions
  * @brief All the functions used to print.
  * @{
  */
 ssize_t	ft_print_position(int x, int y);
-ssize_t	ft_print_map(t_map *map, char **map_to_print);
+ssize_t	ft_print_file(t_map *map);
+ssize_t	ft_print_config(t_map *map);
+ssize_t	ft_print_map(t_map *map);
 ssize_t	ft_print_number_of_moves(size_t number_of_moves);
+// ERRORS
+void	print_map_error(t_map *map, enum e_map_error error);
+int		print_error(t_map *map, enum e_fx_error error);
 /** @} */
 
 #endif

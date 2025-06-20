@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 13:18:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 15:29:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ int	cub3d(int argc, char **argv)
 
 	(void)mlx;
 	if (check_args(argc, argv) != 1)
-		return ((void)ft_dprintf(2, RED"Error"RESET"\nAt check_args\n"), -1);
+		return (print_error(&map, FT_MAP_CHECK));
 	map = ft_map_check(&map, argv[1]);
-	if (map.error == -1)
-		return ((void)ft_dprintf(2, RED"Error"RESET"\nAt ft_map_check\n"), -1);
+	if (map.error != 0)
+		return (print_error(&map, CHECK_ARGS));
+	ft_free_file(&map);
 	return (0);
 }

@@ -64,11 +64,14 @@ SRC = \
 MAP_VERIF = \
 	ft_file_fill.c \
 	ft_map_check.c \
+	ft_search_config.c \
+	ft_search_map.c \
 
 PARSING = \
 	check_args.c \
 
 PRINT = \
+	ft_print_errors.c \
 	ft_print_special.c \
 
 LIBS = \

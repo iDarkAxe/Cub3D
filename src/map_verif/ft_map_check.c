@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 16:17:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/20 16:17:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ t_map	ft_map_check(t_map *map, char *map_name)
 		map->error = -1;
 		return (*map);
 	}
-	ft_print_map(map, map->file);
-	ft_free_file(map);
+	if (fill_config_region(map) == NULL || map->error != 0)
+		return (*map);
+	if (fill_map_region(map) == NULL || map->error != 0)
+		return (*map);
+	ft_print_config(map);
+	ft_print_map(map);
 	return (*map);
 }
 

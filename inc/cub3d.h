@@ -50,9 +50,25 @@ int					cub3d(int argc, char **argv);
 int					check_args(int argc, char **argv);
 
 /**
+ * @brief Fill the config region of the file
+ * 
+ * @param map map structure
+ * @return char** NULL if error, config otherwise
+ */
+char				**fill_config_region(t_map *map);
+
+/**
+ * @brief Fill the map region of the file
+ * 
+ * @param map map structure
+ * @return char** NULL if error, map otherwise
+ */
+char				**fill_map_region(t_map *map);
+
+/**
  * @brief Free the strings of the file
  * 
- * @param map map structur
+ * @param map map structure
  */
 void				ft_free_file(t_map *map);
 
@@ -144,6 +160,13 @@ int					handle_keypress(int keycode, void *param);
  */
 t_map				ft_map_check(t_map *map, char *map_name);
 
+/**
+ * @brief Return a positive number if a config line is detected
+ *
+ * @param line line to check
+ * @return int 0 not config line, positive number otherwise
+ */
+size_t				is_config_line(char *line);
 /** @} */
 
 /**
