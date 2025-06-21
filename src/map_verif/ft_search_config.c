@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 18:00:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/21 13:25:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdlib.h>
 
 static t_map	ft_check_textures(t_map *map);
+// TODO SHOULD BE IN .h
+char	*store_textures_names(t_map *map);
 
 size_t	is_config_line(char *line)
 {
@@ -99,3 +101,49 @@ t_map	ft_check_textures(t_map *map)
 	}
 	return (*map);
 }
+
+char	*store_textures_names(t_map *map)
+{
+	if (!map)
+		return (NULL);
+	if (map->textures.north.path || map->textures.south.path
+		|| map->textures.west.path || map->textures.east.path)
+	{
+		ft_dprintf(2,
+			RED "Error" RESET "\nAt least one texture is already in path\n");
+		return (NULL);
+	}
+	map->textures.north.path = ft_strtrim(&map->config[0][3], " \t\v\n\f\r");
+	if (!map->textures.north.path)
+		return (NULL);
+	map->textures.south.path = ft_strtrim(&map->config[1][3], " \t\v\n\f\r");
+	if (!map->textures.south.path)
+		return (NULL);
+	map->textures.west.path = ft_strtrim(&map->config[2][3], " \t\v\n\f\r");
+	if (!map->textures.west.path)
+		return (NULL);
+	map->textures.east.path = ft_strtrim(&map->config[3][3], " \t\v\n\f\r");
+	if (!map->textures.east.path)
+		return (NULL);
+	return (map->textures.north.path);
+}
+
+/*
+map->textures.north.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
+	map->config[0], &(map->textures.wall.width),
+	&(map->textures.wall.height));
+if (map->textures.wall.ptr == NULL)
+	return (NULL);
+map->textures.floor.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
+		TEXTURE_FLOOR, &(map->textures.floor.width),
+		&(map->textures.floor.height));
+if (map->textures.floor.ptr == NULL)
+	return (NULL);
+if	(store_textures_exit(mlx, map) == NULL)
+	return (NULL);
+map->textures.collectible.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
+		TEXTURE_COLLECTIBLE, &(map->textures.collectible.width),
+		&(map->textures.collectible.height));
+if (map->textures.collectible.ptr == NULL)
+	return (NULL);
+*/
