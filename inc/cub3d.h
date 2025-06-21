@@ -66,13 +66,6 @@ char	**fill_config_region(t_map *map);
 char	**fill_map_region(t_map *map);
 
 /**
- * @brief Free the strings of the file
- *
- * @param map map structure
- */
-void	ft_free_file(t_map *map);
-
-/**
  * @brief Read the map file line by line and return an array of strings.
  *
  * @param map_name map file name to read
@@ -87,6 +80,14 @@ char	**read_file_lines(t_map *map, char *map_name);
  * @return size_t
  */
 size_t	count_file_lines(char *file_name);
+
+/**
+ * @brief Store the textures names in the structure
+ * 
+ * @param map map structure
+ * @return char* NULL if error, OK otherwise
+ */
+char	*store_textures_names(t_map *map);
 
 /**
  * @brief Exit the program.
@@ -215,6 +216,28 @@ int		safe_close(int *fd);
  * @return int 1 OK, 0 if an error occurred
  */
 int		try_to_open_close_file(char *file_name);
+
+/**
+ * @brief Free the strings of the file
+ *
+ * @param map map structure
+ */
+void	ft_free_file(t_map *map);
+
+/**
+ * @brief Free all the textures stored in mlx structure and map struct
+ * 
+ * @param mlx mlx structure
+ * @param map map structure
+ */
+void	ft_free_textures(t_mlx *mlx, t_map *map);
+
+/**
+ * @brief Free the path (name) of the textures in memory
+ * 
+ * @param map map structure
+ */
+void	ft_free_textures_path(t_map *map);
 /** @} */
 
 /**
