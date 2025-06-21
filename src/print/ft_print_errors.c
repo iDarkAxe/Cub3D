@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 11:10:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/21 13:25:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include "data_structure.h"
 #include "ft_print.h"
 #include "ft_printf.h"
+
+// TODO SHOULD BE IN .h
+void	ft_free_textures_path(t_map *map);
 
 void	print_map_error(t_map *map, enum e_map_error error)
 {
@@ -42,7 +45,11 @@ int	print_error(t_map *map, enum e_fx_error error)
 		ft_dprintf(2, RED "Error" RESET "\nAt ft_map_check\n");
 	else if (error == CONFIG_ERROR)
 		ft_dprintf(2, RED "Error" RESET "\nAt ft_check_config\n");
+	else if (error == STORE_TEXTURES_NAMES)
+		ft_dprintf(2, RED "Error" RESET "\nAt store_textures_names\n");
 	if (error != FT_MAP_CHECK)
 		ft_free_file(map);
+	if (error == STORE_TEXTURES_NAMES)
+		ft_free_textures_path(map);
 	return (1);
 }

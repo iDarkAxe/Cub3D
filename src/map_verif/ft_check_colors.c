@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 11:23:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/21 15:09:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	has_line_an_error(t_map *map, char **array, const char *line)
 	if (array && array[0] && array[1] && array[2] && array[3])
 	{
 		ft_dprintf(2,
-			RED "Error" RESET "\nColor of	%s has too many parameters\n",
+			RED "Error" RESET "\nColor of %s has too many parameters\n",
 			line);
 		free_array(array);
 		map->error = 1;
