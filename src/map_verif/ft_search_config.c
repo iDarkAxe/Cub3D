@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 13:25:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/21 15:14:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include <stdlib.h>
 
 static t_map	ft_check_textures(t_map *map);
-// TODO SHOULD BE IN .h
-char	*store_textures_names(t_map *map);
 
 size_t	is_config_line(char *line)
 {
