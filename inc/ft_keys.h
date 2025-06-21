@@ -17,7 +17,7 @@
  * @file ft_keys.h
  * @brief Header file for the key used in cub3d.
  *
-*/
+ */
 
 /**
  * @defgroup Events Events macro
@@ -25,7 +25,7 @@
  * (originally in X.h but copied to avoid dependancy)
  * @{
  */
-// # define DestroyNotify 17 
+// # define DestroyNotify 17
 // # define StructureNotifyMask (1L<<17)
 // # define KeyPress 2
 // # define KeyPressMask (1L<<0)
@@ -40,7 +40,7 @@
 /**
  * @brief Keycode for the escape key.
  */
-# define KEY_ESCAPE 65307 
+# define KEY_ESCAPE 65307
 /**
  * @brief Keycode for the enter key.
  */
@@ -50,20 +50,20 @@
  */
 # define KEY_SPACE 32
 /**
-* @brief Keycode for the left key.
-*/
+ * @brief Keycode for the left key.
+ */
 # define KEY_LEFT 65361
 /**
-* @brief Keycode for the up key.
-*/
+ * @brief Keycode for the up key.
+ */
 # define KEY_UP 65362
 /**
-* @brief Keycode for the right key.
-*/
+ * @brief Keycode for the right key.
+ */
 # define KEY_RIGHT 65363
 /**
-* @brief Keycode for the down key.
-*/
+ * @brief Keycode for the down key.
+ */
 # define KEY_DOWN 65364
 /**
  * @brief Keycode for the A key.

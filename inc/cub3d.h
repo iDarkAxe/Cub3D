@@ -38,7 +38,7 @@
  * @param argv Argument vector.
  * @return int 0 on success, -1 on failure.
  */
-int					cub3d(int argc, char **argv);
+int		cub3d(int argc, char **argv);
 
 /**
  * @brief Check the arguments passed to the program.
@@ -47,46 +47,46 @@ int					cub3d(int argc, char **argv);
  * @param argv array of arguments
  * @return int 1 OK, -1 if error
  */
-int					check_args(int argc, char **argv);
+int		check_args(int argc, char **argv);
 
 /**
  * @brief Fill the config region of the file
- * 
+ *
  * @param map map structure
  * @return char** NULL if error, config otherwise
  */
-char				**fill_config_region(t_map *map);
+char	**fill_config_region(t_map *map);
 
 /**
  * @brief Fill the map region of the file
- * 
+ *
  * @param map map structure
  * @return char** NULL if error, map otherwise
  */
-char				**fill_map_region(t_map *map);
+char	**fill_map_region(t_map *map);
 
 /**
  * @brief Free the strings of the file
- * 
+ *
  * @param map map structure
  */
-void				ft_free_file(t_map *map);
+void	ft_free_file(t_map *map);
 
 /**
  * @brief Read the map file line by line and return an array of strings.
- * 
+ *
  * @param map_name map file name to read
  * @return char** array of strings containing the map lines
  */
-char				**read_file_lines(t_map *map, char *map_name);
+char	**read_file_lines(t_map *map, char *map_name);
 
 /**
  * @brief Simple function to count the number of lines in a file.
- * 
+ *
  * @param file_name file name to count lines in
- * @return size_t 
+ * @return size_t
  */
-size_t				count_file_lines(char *file_name);
+size_t	count_file_lines(char *file_name);
 
 /**
  * @brief Exit the program.
@@ -94,7 +94,7 @@ size_t				count_file_lines(char *file_name);
  * @param mlx Pointer to the mlx structure.
  * @param map Pointer to the map structure.
  */
-void				ft_exit(t_mlx mlx, t_map *map);
+void	ft_exit(t_mlx mlx, t_map *map);
 /** @} */
 
 /**
@@ -118,7 +118,7 @@ void				ft_exit(t_mlx mlx, t_map *map);
  * @param mlx Pointer to the mlx structure.
  * @param direction Direction to move (UP, DOWN, LEFT OR RIGHT).
  */
-void				can_player_move(t_mlx *mlx, t_map *map, int direction);
+void	can_player_move(t_mlx *mlx, t_map *map, int direction);
 /** @} */
 
 /**
@@ -133,7 +133,7 @@ void				can_player_move(t_mlx *mlx, t_map *map, int direction);
  * @param param Parameter passed to the close function, needs t_mlx pointer.
  * @return int Status code.
  */
-int					close_window(void *param);
+int		close_window(void *param);
 
 /**
  * @brief Handle keypress events.
@@ -142,7 +142,7 @@ int					close_window(void *param);
  * @param param Parameter passed to the function, needs t_store pointer.
  * @return int Keycode of the pressed key.
  */
-int					handle_keypress(int keycode, void *param);
+int		handle_keypress(int keycode, void *param);
 /** @} */
 
 /**
@@ -158,23 +158,23 @@ int					handle_keypress(int keycode, void *param);
  * @param map_name Name of the map file.
  * @return t_map_size Structure containing the map dimensions and metadata.
  */
-t_map				ft_map_check(t_map *map, char *map_name);
+t_map	ft_map_check(t_map *map, char *map_name);
 
 /**
  * @brief Check if the config is properly formatted or not
- * 
+ *
  * @param map map structure
  * @return t_map map structure
  */
-t_map				ft_check_config(t_map *map);
+t_map	ft_check_config(t_map *map);
 
 /**
  * @brief Check the floor and ceiling colors
- * 
+ *
  * @param map map structure
  * @return t_map map structure
  */
-t_map				ft_check_floor_ceiling(t_map *map);
+t_map	ft_check_floor_ceiling(t_map *map);
 
 /**
  * @brief Return a positive number if a config line is detected
@@ -182,7 +182,7 @@ t_map				ft_check_floor_ceiling(t_map *map);
  * @param line line to check
  * @return int 0 not config line, positive number otherwise
  */
-size_t				is_config_line(char *line);
+size_t	is_config_line(char *line);
 /** @} */
 
 /**
@@ -193,28 +193,28 @@ size_t				is_config_line(char *line);
 
 /**
  * @brief Try to open the map file specified by map_name.
- * 
+ *
  * @param file_name file name to open
  * @return int fd=OK, -1 if an error occurred
  */
-int					safe_open(char *file_name);
+int		safe_open(char *file_name);
 
 /**
  * @brief Close safely the file descriptor
  * Modify the file descriptor to -1 after closing it
- * 
+ *
  * @param fd pointer to the file descriptor to close
  * @return int 0 OK, -1 if an error occurred
  */
-int					safe_close(int *fd);
+int		safe_close(int *fd);
 
 /**
  * @brief Try to open the file specified by file_name.
- * 
+ *
  * @param file_name map file name to open
  * @return int 1 OK, 0 if an error occurred
  */
-int					try_to_open_close_file(char *file_name);
+int		try_to_open_close_file(char *file_name);
 /** @} */
 
 /**

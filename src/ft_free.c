@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "data_structure.h"
+#include <stdlib.h>
 
 void	ft_free_file(t_map *map);
 

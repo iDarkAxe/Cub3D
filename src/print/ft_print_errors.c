@@ -6,14 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 17:51:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/21 11:10:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "ft_printf.h"
-#include "ft_print.h"
 #include "data_structure.h"
+#include "ft_print.h"
+#include "ft_printf.h"
 
 void	print_map_error(t_map *map, enum e_map_error error)
 {

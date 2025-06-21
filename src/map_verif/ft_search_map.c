@@ -63,7 +63,7 @@ char	**fill_map_region(t_map *map)
 
 /**
  * @brief Check if the string contains only whitespace characters
- * 
+ *
  * @param str string to check
  * @return t_bool 1 all whitespace, 0 otherwise
  */

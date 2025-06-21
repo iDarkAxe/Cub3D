@@ -17,7 +17,7 @@
 /**
  * @brief Check the map structure and try to open the map file.
  * sets error to -1 if an error occurred.
- * 
+ *
  * @param map map structure to check and initialize
  * @param map_name map file name to open
  * @return t_map map structure

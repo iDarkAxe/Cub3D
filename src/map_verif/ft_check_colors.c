@@ -6,14 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 18:03:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/21 11:23:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "libft.h"
 #include "ft_print.h"
 #include "ft_printf.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static void	free_array(char **array);
@@ -50,7 +50,7 @@ t_map	ft_check_floor_ceiling(t_map *map)
 /**
  * @brief Check if a line has an error
  * the split shouldn't contain more than 3 strings
- * 
+ *
  * @param map map structure
  * @param array array of strings
  * @param line line to check
@@ -63,7 +63,8 @@ int	has_line_an_error(t_map *map, char **array, const char *line)
 	if (array && array[0] && array[1] && array[2] && array[3])
 	{
 		ft_dprintf(2,
-			RED "Error" RESET "\nColor of %s has too many parameters\n", line);
+			RED "Error" RESET "\nColor of	%s has too many parameters\n",
+			line);
 		free_array(array);
 		map->error = 1;
 		return (1);
