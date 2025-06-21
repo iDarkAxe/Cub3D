@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 18:03:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/21 11:01:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@
  * @brief Error types
  * @{
  */
-enum							e_map_error
+enum	e_map_error
 {
 	CONFIG_TOO_MANY_PARAMETERS,
 	CONFIG_ALREADY_STORED,
 	CONFIG_MISSING_PARAMETERS
 };
 
-enum							e_fx_error
+enum	e_fx_error
 {
 	FT_MAP_CHECK,
 	CHECK_ARGS,
@@ -70,7 +70,8 @@ ssize_t	ft_print_position(int x, int y);
 ssize_t	ft_print_file(t_map *map);
 ssize_t	ft_print_config(t_map *map);
 ssize_t	ft_print_map(t_map *map);
-ssize_t	ft_print_floor_ceiling(t_map *map);
+void	ft_print_floor_ceiling(t_map *map);
+void	ft_print_color(t_color *color);
 // ERRORS
 void	print_map_error(t_map *map, enum e_map_error error);
 int		print_error(t_map *map, enum e_fx_error error);

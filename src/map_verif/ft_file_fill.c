@@ -11,8 +11,8 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include <stdlib.h>
 #include "get_next_line.h"
+#include <stdlib.h>
 
 size_t	count_file_lines(char *file_name)
 {

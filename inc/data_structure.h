@@ -28,18 +28,18 @@ typedef union u_color			t_color;
  * @brief Union used to store color information.
  * It can be used to store color in RGBA format
  * or as a separate RGB and alpha values.
- * 
+ *
  */
-union u_color
+union							u_color
 {
-	int	rgba;
+	int							rgba;
 	struct
 	{
-		unsigned char	red;
-		unsigned char	green;
-		unsigned char	blue;
-		unsigned char	alpha;
-	}s_rgb;
+		unsigned char			red;
+		unsigned char			green;
+		unsigned char			blue;
+		unsigned char			alpha;
+	} s_rgb;
 };
 
 /**
@@ -47,36 +47,36 @@ union u_color
  * (buffer that contain image, and size).
  *
  */
-struct s_img
+struct							s_img
 {
-	char			*path;
-	void			*ptr;
-	int				width;
-	int				height;
+	char						*path;
+	void						*ptr;
+	int							width;
+	int							height;
 };
 
 /**
  * @brief Strcuture that handle the textures of the game.
  *
  */
-struct s_textures
+struct							s_textures
 {
-	t_img			north;
-	t_img			east;
-	t_img			west;
-	t_img			south;
-	t_color			floor;
-	t_color			ceiling;
+	t_img						north;
+	t_img						east;
+	t_img						west;
+	t_img						south;
+	t_color						floor;
+	t_color						ceiling;
 };
 
 /**
  * @brief Structure that handle the mlx instance.
  *
  */
-struct s_mlx
+struct							s_mlx
 {
-	void			*mlx_ptr;
-	void			*win_ptr;
+	void						*mlx_ptr;
+	void						*win_ptr;
 	// void			*win_settings_ptr;
 };
 
@@ -84,36 +84,36 @@ struct s_mlx
  * @brief Structure used to store the coordinates (positive only).
  *
  */
-struct s_coordinates
+struct							s_coordinates
 {
-	size_t			x;
-	size_t			y;
+	size_t						x;
+	size_t						y;
 };
 
 /**
  * @brief Structure that handle the map informations.
  *
  */
-struct s_map
+struct							s_map
 {
-	char			**file;
-	size_t			file_nb_lines;
-	char			**map;
-	char			*config[6];
-	int				error;
-	size_t			number_of_moves;
-	t_coordinates	exit;
-	t_textures		textures;
+	char						**file;
+	size_t						file_nb_lines;
+	char						**map;
+	char						*config[6];
+	int							error;
+	size_t						number_of_moves;
+	t_coordinates				exit;
+	t_textures					textures;
 };
 
 /**
  * @brief Structure used to store the mlx and map structures.
  *
  */
-struct s_store
+struct							s_store
 {
-	t_mlx			*mlx;
-	t_map			*map;
+	t_mlx						*mlx;
+	t_map						*map;
 };
 
 #endif

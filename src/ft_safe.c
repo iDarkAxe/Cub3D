@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "ft_print.h"
-#include <fcntl.h>
+#include "ft_printf.h"
 #include <errno.h>
+#include <fcntl.h>
 #include <string.h>
 
 int	safe_open(char *file_name);
@@ -29,7 +29,8 @@ int	safe_open(char *file_name)
 	if (fd < 0)
 	{
 		fd = errno;
-		ft_dprintf(2, RED"Error"RESET"\nFailed to open file '%s'\n", file_name);
+		ft_dprintf(2, RED "Error" RESET "\nFailed to open file '%s'\n",
+			file_name);
 		ft_dprintf(2, RED "Code:" RESET " %s\n", strerror(fd));
 		return (-1);
 	}

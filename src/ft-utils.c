@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "ft_printf.h"
 #include "ft_print.h"
-#include <string.h>
+#include "ft_printf.h"
 #include <errno.h>
+#include <string.h>
 
 int	try_to_open_close_file(char *file_name)
 {
@@ -27,7 +27,8 @@ int	try_to_open_close_file(char *file_name)
 		return (0);
 	if (read(fd, NULL, 0) < 0)
 	{
-		ft_dprintf(2, RED"Error"RESET"\nRead fd %d: %s\n", fd, strerror(errno));
+		ft_dprintf(2, RED "Error" RESET "\nRead fd %d: %s\n", fd,
+			strerror(errno));
 		safe_close(&fd);
 		return (0);
 	}
