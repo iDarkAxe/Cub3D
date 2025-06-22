@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 12:37:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 16:02:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
  * @brief Print macros used to print.
  * @{
  */
+
 # define RESET "\033[0m"
 # define RESET_COLOR RESET
 # define BOLD "\033[1m"
@@ -46,6 +47,11 @@
  * @brief Error types
  * @{
  */
+
+/**
+ * @brief Enum used for map related errors
+ * 
+ */
 enum	e_map_error
 {
 	CONFIG_TOO_MANY_PARAMETERS,
@@ -53,6 +59,10 @@ enum	e_map_error
 	CONFIG_MISSING_PARAMETERS
 };
 
+/**
+ * @brief Enum used for main functions related errors
+ * 
+ */
 enum	e_fx_error
 {
 	FT_MAP_CHECK,
@@ -67,17 +77,18 @@ enum	e_fx_error
  * @brief All the functions used to print.
  * @{
  */
+
 ssize_t	ft_print_position(int x, int y);
 ssize_t	ft_print_file(t_map *map);
 ssize_t	ft_print_config(t_map *map);
 ssize_t	ft_print_map(t_map *map);
 void	ft_print_floor_ceiling(t_map *map);
 void	ft_print_color(t_color *color);
+void	print_visited(char **visited, char **map);
 // ERRORS
 void	print_map_error(t_map *map, enum e_map_error error);
 int		print_error(t_map *map, enum e_fx_error error);
 void	print_leak_map(char **map, size_t y, size_t x);
-void	print_visited(char **visited, char **map);
 /** @} */
 
 #endif
