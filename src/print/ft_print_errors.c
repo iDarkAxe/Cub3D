@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 12:41:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 15:50:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,12 @@ void	print_leak_map(char **map, size_t y, size_t x)
 {
 	size_t	index;
 
-	if (!map)
-		return ;
-	if (y >= count_array_length(map) || x >= ft_strlen(map[y]))
+	if (!map || y >= count_array_length(map) || x >= ft_strlen(map[y]))
 	{
 		ft_dprintf(2,
-			RED "Error" RESET " invalid access: y=%u, x=%u are out of bounds\n",
-			(unsigned int)y, (unsigned int)x);
+			RED "Error\n" RESET
+			"invalid access: y=%u, x=%u are out of bounds\n", (unsigned int)y,
+			(unsigned int)x);
 		return ;
 	}
 	ft_printf("Character " RED "'%c'" RESET " in x=%u y=%u is invalid\n",
