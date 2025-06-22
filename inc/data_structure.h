@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 16:03:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 18:20:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,17 +76,6 @@ struct							s_textures
 };
 
 /**
- * @brief Structure that handle the mlx instance.
- *
- */
-struct							s_mlx
-{
-	void						*mlx_ptr;
-	void						*win_ptr;
-	// void			*win_settings_ptr;
-};
-
-/**
  * @brief Structure used to store the coordinates (positive only).
  *
  */
@@ -94,6 +83,20 @@ struct							s_coordinates
 {
 	size_t						x;
 	size_t						y;
+};
+
+/**
+ * @brief Structure that handle the mlx instance.
+ *
+ */
+struct							s_mlx
+{
+	void						*mlx_ptr;
+	void						*win_ptr;
+	void						*win_settings_ptr;
+	int							mouse_x;
+	int							mouse_y;
+	t_coordinates				win_size;
 };
 
 /**

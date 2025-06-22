@@ -22,6 +22,8 @@ P_SRC = src/
 P_MAP_VERIF = map_verif/
 P_FT_MLX = ft_mlx/
 P_PARSING = parsing/
+P_SETTINGS = settings/
+P_DRAW = draw/
 P_PRINT = print/
 
 # Object directories
@@ -78,6 +80,13 @@ MAP_VERIF = \
 PARSING = \
 	check_args.c \
 
+SETTINGS = \
+	ft_settings.c \
+	ft_settings-hooks.c
+
+DRAW = \
+	ft_draw_circle.c
+
 PRINT = \
 	ft_print_errors.c \
 	ft_print_special.c \
@@ -101,8 +110,10 @@ GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
-	$(addprefix $(P_SRC)$(P_MLX), $(MLX)) \
+	$(addprefix $(P_SRC)$(P_FT_MLX), $(FT_MLX)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
+	$(addprefix $(P_SRC)$(P_SETTINGS), $(SETTINGS)) \
+	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)

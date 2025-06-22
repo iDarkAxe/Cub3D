@@ -6,12 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 12:40:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 18:24:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "ft_print.h"
+#include "ft_printf.h"
+
+int		ft_mlx_init(t_mlx *mlx);
 
 /**
  * @brief Main function of the cub3d project
@@ -36,6 +39,8 @@ int	cub3d(int argc, char **argv)
 		return (print_error(&map, CONFIG_ERROR));
 	if (store_textures_names(&map) == NULL)
 		return (print_error(&map, STORE_TEXTURES_NAMES));
+	if (ft_mlx_init(&mlx) != 0)
+		ft_dprintf(2, "Erreur mlx\n");
 	ft_free_textures_path(&map);
 	ft_free_file(&map);
 	return (0);
