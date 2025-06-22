@@ -17,8 +17,7 @@
  * @file cub3d.h
  * @brief Header file for the cub3d project.
  *
- * Contains all structures, function prototypes,
- *	and constants used in the project.
+ * Contains all function prototypes used in the project.
  */
 
 # include "data_structure.h"

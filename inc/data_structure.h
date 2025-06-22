@@ -6,12 +6,18 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 16:20:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 16:03:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DATA_STRUCTURE_H
 # define DATA_STRUCTURE_H
+
+/**
+ * @file data_structure.h
+ * @brief Header file for all the types and structures of the project.
+ *
+ */
 
 # include <stddef.h>
 
