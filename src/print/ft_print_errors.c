@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 15:14:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 12:41:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	print_error(t_map *map, enum e_fx_error error)
 	if (error == CHECK_ARGS)
 		ft_dprintf(2, RED "Error" RESET "\nAt check_args\n");
 	else if (error == FT_MAP_CHECK)
-		ft_dprintf(2, RED "Error" RESET "\nAt ft_map_check\n");
+		ft_dprintf(2, RED "Error" RESET "\nAt ft_map_check_dimensions\n");
 	else if (error == CONFIG_ERROR)
 		ft_dprintf(2, RED "Error" RESET "\nAt ft_check_config\n");
 	else if (error == STORE_TEXTURES_NAMES)
@@ -49,4 +49,33 @@ int	print_error(t_map *map, enum e_fx_error error)
 	if (error == STORE_TEXTURES_NAMES)
 		ft_free_textures_path(map);
 	return (1);
+}
+
+void	print_leak_map(char **map, size_t y, size_t x)
+{
+	size_t	index;
+
+	if (!map)
+		return ;
+	if (y >= count_array_length(map) || x >= ft_strlen(map[y]))
+	{
+		ft_dprintf(2,
+			RED "Error" RESET " invalid access: y=%u, x=%u are out of bounds\n",
+			(unsigned int)y, (unsigned int)x);
+		return ;
+	}
+	ft_printf("Character " RED "'%c'" RESET " in x=%u y=%u is invalid\n",
+		map[y][x], (unsigned int)y, (unsigned int)x);
+	index = 0;
+	while (index++ < y - 1 && map[index])
+		ft_printf("%s", map[index]);
+	ft_printf(RED "%s" RESET, map[y]);
+	index = 0;
+	while (index++ < x)
+		ft_printf(" ");
+	ft_printf("↑ here\n");
+	index = y + 1;
+	while (map[index])
+		ft_printf("%s", map[index++]);
+	ft_printf("\n");
 }

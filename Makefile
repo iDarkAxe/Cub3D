@@ -20,6 +20,7 @@ CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-
 # Source directories
 P_SRC = src/
 P_MAP_VERIF = map_verif/
+P_FT_MLX = ft_mlx/
 P_PARSING = parsing/
 P_PRINT = print/
 
@@ -62,12 +63,17 @@ SRC = \
 	ft_free.c \
 	ft-utils.c
 
+FT_MLX = \
+	ft_init_mlx.c
+
 MAP_VERIF = \
 	ft_file_fill.c \
 	ft_map_check.c \
 	ft_search_config.c \
 	ft_search_map.c \
 	ft_check_colors.c \
+	ft_map_boundaries.c \
+	ft_validate_map.c \
 
 PARSING = \
 	check_args.c \
@@ -95,6 +101,7 @@ GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
+	$(addprefix $(P_SRC)$(P_MLX), $(MLX)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
