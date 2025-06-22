@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 11:49:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 12:37:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	ft_print_color(t_color *color);
 // ERRORS
 void	print_map_error(t_map *map, enum e_map_error error);
 int		print_error(t_map *map, enum e_fx_error error);
+void	print_leak_map(char **map, size_t y, size_t x);
+void	print_visited(char **visited, char **map);
 /** @} */
 
 #endif

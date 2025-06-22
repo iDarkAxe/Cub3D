@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 16:43:15 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 16:44:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 11:59:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,16 @@ int	try_to_open_close_file(char *file_name)
 	if (fd != 0)
 		return (0);
 	return (1);
+}
+
+size_t	count_array_length(char **array)
+{
+	size_t	index;
+
+	if (array == NULL)
+		return (0);
+	index = 0;
+	while (array[index] != NULL)
+		index++;
+	return (index);
 }

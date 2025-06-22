@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 15:14:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/22 12:10:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,23 +125,3 @@ char	*store_textures_names(t_map *map)
 		return (NULL);
 	return (map->textures.north.path);
 }
-
-/*
-map->textures.north.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
-	map->config[0], &(map->textures.wall.width),
-	&(map->textures.wall.height));
-if (map->textures.wall.ptr == NULL)
-	return (NULL);
-map->textures.floor.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
-		TEXTURE_FLOOR, &(map->textures.floor.width),
-		&(map->textures.floor.height));
-if (map->textures.floor.ptr == NULL)
-	return (NULL);
-if	(store_textures_exit(mlx, map) == NULL)
-	return (NULL);
-map->textures.collectible.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
-		TEXTURE_COLLECTIBLE, &(map->textures.collectible.width),
-		&(map->textures.collectible.height));
-if (map->textures.collectible.ptr == NULL)
-	return (NULL);
-*/
