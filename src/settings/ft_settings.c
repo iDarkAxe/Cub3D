@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 09:22:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 13:11:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 static int			settings_loop_hook(void *param);
 static void			settings_hooks(t_mlx *mlx);
 enum e_screen_size	circle_state(int x, int y);
+void				ft_free_settings(t_mlx *mlx);
+void				main_hooks(t_mlx *mlx);
 
 void	*ft_settings(t_mlx *mlx)
 {
@@ -39,12 +41,14 @@ void	*ft_settings(t_mlx *mlx)
 		free(mlx->mlx_ptr);
 		return (NULL);
 	}
-	mlx->mouse_x = -1;
-	mlx->mouse_y = -1;
-	mlx->settings_state = 0;
-	mlx->win_size = (t_coordinates){0, 0};
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_settings_ptr, img.ptr, 0, 0);
 	mlx_destroy_image(mlx->mlx_ptr, img.ptr);
+	mlx->circle_no.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			"img/circle-unselected.xpm", &img.width, &img.width);
+	mlx->circle_yes.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			"img/circle-selected.xpm", &img.width, &img.width);
+	ft_put_all_circle_to_win(mlx, mlx->win_settings_ptr, 0);
+	ft_put_circle_specific(mlx, mlx->win_settings_ptr, mlx->settings_state, 1);
 	settings_hooks(mlx);
 	return (mlx->win_settings_ptr);
 }
@@ -60,35 +64,32 @@ void	settings_hooks(t_mlx *mlx)
 	mlx_hook(mlx->win_settings_ptr, 17, 0, hook_settings_close_window, mlx);
 	mlx_hook(mlx->win_settings_ptr, ButtonPress, ButtonPressMask,
 		hook_settings_handle_mouse_click, mlx);
-	ft_draw_all_circle(mlx, mlx->win_settings_ptr, 0);
 	mlx_loop_hook(mlx->mlx_ptr, settings_loop_hook, mlx);
 }
 
-void				main_hooks(t_mlx *mlx);
-
 int	settings_loop_hook(void *param)
 {
-	static enum e_screen_size	state_prev = SIZE_NONE;
-	static enum e_screen_size	state_actual = SIZE_NONE;
+	static enum e_screen_size	state_prev = SIZE_FULL_SCREEN;
+	static enum e_screen_size	state_actual = SIZE_FULL_SCREEN;
 	t_mlx						*mlx;
 
 	mlx = (t_mlx *)param;
 	if (mlx->win_size.x != 0 || mlx->win_size.y != 0)
 	{
 		mlx_loop_hook(mlx->mlx_ptr, NULL, NULL);
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_settings_ptr);
 		mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, (int)mlx->win_size.x,
 				(int)mlx->win_size.y, "Cub3d");
 		if (mlx->win_ptr == NULL)
 			return (-1);
+		ft_free_settings(mlx);
 		main_hooks(mlx);
 	}
 	state_actual = circle_state(mlx->mouse_x, mlx->mouse_y);
 	if (state_actual == state_prev || state_actual == 0)
 		return (0);
 	mlx->settings_state = state_actual;
-	ft_draw_all_circle(mlx, mlx->win_settings_ptr, 0);
-	ft_draw_all_circle(mlx, mlx->win_settings_ptr, state_actual);
+	ft_put_circle_specific(mlx, mlx->win_settings_ptr, state_prev, 0);
+	ft_put_circle_specific(mlx, mlx->win_settings_ptr, state_actual, 1);
 	state_prev = state_actual;
 	return (0);
 }

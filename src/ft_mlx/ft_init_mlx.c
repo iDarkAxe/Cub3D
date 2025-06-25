@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 09:19:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 13:01:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int	ft_mlx_init(t_mlx *mlx)
 	if (!mlx)
 		return (-1);
 	ft_bzero(mlx, sizeof(t_mlx));
+	mlx->mouse_x = -1;
+	mlx->mouse_y = -1;
+	mlx->settings_state = SIZE_FULL_SCREEN;
+	mlx->win_size = (t_coordinates){0, 0};
 	mlx->mlx_ptr = mlx_init();
 	if (mlx->mlx_ptr == NULL)
 		return ((void)write(2, "Error\nInit MLX\n", 14), -1);

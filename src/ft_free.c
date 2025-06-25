@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 09:19:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 13:02:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_free_file(t_map *map);
 void	ft_free_textures(t_mlx *mlx, t_map *map);
 void	ft_free_textures_path(t_map *map);
 void	ft_mlx_end(t_mlx *mlx);
+void	ft_free_settings(t_mlx *mlx);
 
 void	ft_free_file(t_map *map)
 {
@@ -104,4 +105,25 @@ void	ft_mlx_end(t_mlx *mlx)
 		mlx_destroy_display(mlx->mlx_ptr);
 	free(mlx->mlx_ptr);
 	mlx->win_ptr = NULL;
+}
+
+void	ft_free_settings(t_mlx *mlx)
+{
+	if (!mlx)
+		return ;
+	if (mlx->circle_no.ptr)
+	{
+		mlx_destroy_image(mlx->mlx_ptr, mlx->circle_no.ptr);
+		mlx->circle_no.ptr = NULL;
+	}
+	if (mlx->circle_yes.ptr)
+	{
+		mlx_destroy_image(mlx->mlx_ptr, mlx->circle_yes.ptr);
+		mlx->circle_yes.ptr = NULL;
+	}
+	if (mlx->win_settings_ptr)
+	{
+		mlx_destroy_window(mlx->mlx_ptr, mlx->win_settings_ptr);
+		mlx->win_settings_ptr = NULL;
+	}
 }

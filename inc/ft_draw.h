@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:18:12 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 09:10:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 13:02:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_DRAW_H
 
 # include "data_structure.h"
+# include <stdbool.h>
 
 /**
  * @file ft_draw.h
@@ -30,7 +31,9 @@ typedef struct s_circle
 }		t_circle;
 
 void	ft_draw_circle(t_mlx *mlx, void *win_ptr, t_circle element);
-void	ft_draw_all_circle(t_mlx *mlx, void *win_settings_ptr,
-			enum e_screen_size num);
+void	ft_put_circle_specific(t_mlx *mlx, void *win_settings_ptr,
+			enum e_screen_size num, bool is_enabled);
+void	ft_put_all_circle_to_win(t_mlx *mlx, void *win_settings_ptr,
+			bool is_enabled);
 
 #endif

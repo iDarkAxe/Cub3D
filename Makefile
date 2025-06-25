@@ -83,10 +83,12 @@ PARSING = \
 
 SETTINGS = \
 	ft_settings.c \
-	ft_settings-hooks.c
+	ft_settings-hooks.c \
+	ft_settings_draw_img.c
 
 DRAW = \
-	ft_draw_circle.c
+	ft_draw_circle.c \
+	ft_draw_img.c
 
 PRINT = \
 	ft_print_errors.c \

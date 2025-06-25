@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 09:01:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 09:47:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ struct							s_mlx
 	void						*win_ptr;
 	void						*win_settings_ptr;
 	enum e_screen_size			settings_state;
+	t_img						circle_yes;
+	t_img						circle_no;
 	int							mouse_x;
 	int							mouse_y;
 	t_coordinates				win_size;
