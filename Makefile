@@ -66,7 +66,8 @@ SRC = \
 	ft-utils.c
 
 FT_MLX = \
-	ft_init_mlx.c
+	ft_init_mlx.c \
+	ft_hooks.c
 
 MAP_VERIF = \
 	ft_file_fill.c \

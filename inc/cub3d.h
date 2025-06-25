@@ -95,6 +95,14 @@ char			*store_textures_names(t_map *map);
  * @param map Pointer to the map structure.
  */
 void			ft_exit(t_mlx mlx, t_map *map);
+
+/**
+ * @brief Initialize the mlx structure.
+ *
+ * @param mlx mlx structure
+ * @return int
+ */
+int				ft_mlx_init(t_mlx *mlx);
 /** @} */
 
 /**
@@ -103,6 +111,37 @@ void			ft_exit(t_mlx mlx, t_map *map);
  * @{
  */
 
+/** @} */
+
+/**
+ * @defgroup Settings Settings functions
+ * @brief All the functions used for settings.
+ * @{
+ */
+
+/**
+ * @brief Generate the window settings for the program.
+ *
+ * @param mlx mlx structure
+ * @return void* win_settings_ptr if success, NULL if error
+ */
+void			*ft_settings(t_mlx *mlx);
+/** @} */
+
+/**
+ * @defgroup Hooks Hooks functions
+ * @brief All the functions used to use hooks on windows.
+ * @{
+ */
+
+int				hook_handle_mouse_motion(int x, int y, void *param);
+int				hook_close_window(void *param);
+int				hook_handle_keypress(int keycode, void *param);
+// Settings hooks
+int				hook_settings_handle_mouse_click(int button, int x, int y,
+					void *param);
+int				hook_settings_close_window(void *param);
+int				hook_settings_handle_keypress(int keycode, void *param);
 /** @} */
 
 /**
@@ -185,9 +224,9 @@ t_map			ft_check_floor_ceiling(t_map *map);
 size_t			is_config_line(char *line);
 
 /**
- * @brief Check if the map has only acceptable characters 
+ * @brief Check if the map has only acceptable characters
  * and if there is borders everywhere, as it should be
- * 
+ *
  * @param map map structure
  * @return t_map map structure
  */
@@ -195,7 +234,7 @@ t_map			check_map_chars_borders(t_map *map);
 
 /**
  * @brief Find the position of the player with charset in the map
- * 
+ *
  * @param map map structure
  * @param charset strings of autorized characters for player
  * @return t_coordinates coordinates of player
@@ -204,7 +243,7 @@ t_coordinates	find_position(t_map *map, const char *charset);
 
 /**
  * @brief Validate if the map has unclosed holes or an unfinished outer layer
- * 
+ *
  * @param map map structure
  * @return int 1 OK, error otherwise
  */
@@ -212,7 +251,7 @@ int				validate_map(t_map *map);
 
 /**
  * @brief Check if a character is walkable or not
- * 
+ *
  * @param c character
  * @return int 1 OK, error otherwise
  */
@@ -220,7 +259,7 @@ int				is_walkable(char c);
 
 /**
  * @brief Check if a position is in bounds of map or not
- * 
+ *
  * @param map array of strings representing map
  * @param y y axis (number of lines)
  * @param x x axis (length of line)

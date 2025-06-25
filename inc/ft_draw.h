@@ -6,12 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:18:12 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 18:20:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 09:10:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_DRAW_H
 # define FT_DRAW_H
+
+# include "data_structure.h"
 
 /**
  * @file ft_draw.h
@@ -27,7 +29,8 @@ typedef struct s_circle
 	int	color;
 }		t_circle;
 
-void	ft_draw_circle(void *mlx_ptr, void *win_ptr, t_circle element);
-void	ft_draw_all_circle(void *mlx_ptr, void *win_settings_ptr, int num);
+void	ft_draw_circle(t_mlx *mlx, void *win_ptr, t_circle element);
+void	ft_draw_all_circle(t_mlx *mlx, void *win_settings_ptr,
+			enum e_screen_size num);
 
 #endif
