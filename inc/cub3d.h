@@ -37,7 +37,7 @@
  * @param argv Argument vector.
  * @return int 0 on success, -1 on failure.
  */
-int				cub3d(int argc, char **argv);
+int					cub3d(int argc, char **argv);
 
 /**
  * @brief Check the arguments passed to the program.
@@ -46,7 +46,7 @@ int				cub3d(int argc, char **argv);
  * @param argv array of arguments
  * @return int 1 OK, -1 if error
  */
-int				check_args(int argc, char **argv);
+int					check_args(int argc, char **argv);
 
 /**
  * @brief Fill the config region of the file
@@ -54,7 +54,7 @@ int				check_args(int argc, char **argv);
  * @param map map structure
  * @return char** NULL if error, config otherwise
  */
-char			**fill_config_region(t_map *map);
+char				**fill_config_region(t_map *map);
 
 /**
  * @brief Fill the map region of the file
@@ -62,7 +62,7 @@ char			**fill_config_region(t_map *map);
  * @param map map structure
  * @return char** NULL if error, map otherwise
  */
-char			**fill_map_region(t_map *map);
+char				**fill_map_region(t_map *map);
 
 /**
  * @brief Read the map file line by line and return an array of strings.
@@ -70,7 +70,7 @@ char			**fill_map_region(t_map *map);
  * @param map_name map file name to read
  * @return char** array of strings containing the map lines
  */
-char			**read_file_lines(t_map *map, char *map_name);
+char				**read_file_lines(t_map *map, char *map_name);
 
 /**
  * @brief Simple function to count the number of lines in a file.
@@ -78,7 +78,7 @@ char			**read_file_lines(t_map *map, char *map_name);
  * @param file_name file name to count lines in
  * @return size_t
  */
-size_t			count_file_lines(char *file_name);
+size_t				count_file_lines(char *file_name);
 
 /**
  * @brief Store the textures names in the structure
@@ -86,7 +86,7 @@ size_t			count_file_lines(char *file_name);
  * @param map map structure
  * @return char* NULL if error, OK otherwise
  */
-char			*store_textures_names(t_map *map);
+char				*store_textures_names(t_map *map);
 
 /**
  * @brief Exit the program.
@@ -94,7 +94,7 @@ char			*store_textures_names(t_map *map);
  * @param mlx Pointer to the mlx structure.
  * @param map Pointer to the map structure.
  */
-void			ft_exit(t_mlx mlx, t_map *map);
+void				ft_exit(t_mlx mlx, t_map *map);
 
 /**
  * @brief Initialize the mlx structure.
@@ -102,7 +102,7 @@ void			ft_exit(t_mlx mlx, t_map *map);
  * @param mlx mlx structure
  * @return int
  */
-int				ft_mlx_init(t_mlx *mlx);
+int					ft_mlx_init(t_mlx *mlx);
 /** @} */
 
 /**
@@ -125,7 +125,12 @@ int				ft_mlx_init(t_mlx *mlx);
  * @param mlx mlx structure
  * @return void* win_settings_ptr if success, NULL if error
  */
-void			*ft_settings(t_mlx *mlx);
+void				*ft_settings(t_mlx *mlx);
+
+enum e_screen_size	circle_state(int x, int y);
+int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
+void				ft_free_settings(t_mlx *mlx);
+void				main_hooks(t_mlx *mlx);
 /** @} */
 
 /**
@@ -134,14 +139,16 @@ void			*ft_settings(t_mlx *mlx);
  * @{
  */
 
-int				hook_handle_mouse_motion(int x, int y, void *param);
-int				hook_close_window(void *param);
-int				hook_handle_keypress(int keycode, void *param);
+int					hook_handle_mouse_motion(int x, int y, void *param);
+int					hook_close_window(void *param);
+int					hook_handle_keypress(int keycode, void *param);
 // Settings hooks
-int				hook_settings_handle_mouse_click(int button, int x, int y,
-					void *param);
-int				hook_settings_close_window(void *param);
-int				hook_settings_handle_keypress(int keycode, void *param);
+int					hook_settings_handle_mouse_click(int button, int x, int y,
+						void *param);
+int					hook_settings_handle_mouse_motion(int x, int y,
+						void *param);
+int					hook_settings_close_window(void *param);
+int					hook_settings_handle_keypress(int keycode, void *param);
 /** @} */
 
 /**
@@ -157,7 +164,7 @@ int				hook_settings_handle_keypress(int keycode, void *param);
  * @param mlx Pointer to the mlx structure.
  * @param direction Direction to move (UP, DOWN, LEFT OR RIGHT).
  */
-void			can_player_move(t_mlx *mlx, t_map *map, int direction);
+void				can_player_move(t_mlx *mlx, t_map *map, int direction);
 /** @} */
 
 /**
@@ -172,7 +179,7 @@ void			can_player_move(t_mlx *mlx, t_map *map, int direction);
  * @param param Parameter passed to the close function, needs t_mlx pointer.
  * @return int Status code.
  */
-int				close_window(void *param);
+int					close_window(void *param);
 
 /**
  * @brief Handle keypress events.
@@ -181,7 +188,7 @@ int				close_window(void *param);
  * @param param Parameter passed to the function, needs t_store pointer.
  * @return int Keycode of the pressed key.
  */
-int				handle_keypress(int keycode, void *param);
+int					handle_keypress(int keycode, void *param);
 /** @} */
 
 /**
@@ -197,7 +204,7 @@ int				handle_keypress(int keycode, void *param);
  * @param map_name Name of the map file.
  * @return t_map_size Structure containing the map dimensions and metadata.
  */
-t_map			ft_map_check_dimensions(t_map *map, char *map_name);
+t_map				ft_map_check_dimensions(t_map *map, char *map_name);
 
 /**
  * @brief Check if the config is properly formatted or not
@@ -205,7 +212,7 @@ t_map			ft_map_check_dimensions(t_map *map, char *map_name);
  * @param map map structure
  * @return t_map map structure
  */
-t_map			ft_check_config(t_map *map);
+t_map				ft_check_config(t_map *map);
 
 /**
  * @brief Check the floor and ceiling colors
@@ -213,7 +220,7 @@ t_map			ft_check_config(t_map *map);
  * @param map map structure
  * @return t_map map structure
  */
-t_map			ft_check_floor_ceiling(t_map *map);
+t_map				ft_check_floor_ceiling(t_map *map);
 
 /**
  * @brief Return a positive number if a config line is detected
@@ -221,7 +228,7 @@ t_map			ft_check_floor_ceiling(t_map *map);
  * @param line line to check
  * @return int 0 not config line, positive number otherwise
  */
-size_t			is_config_line(char *line);
+size_t				is_config_line(char *line);
 
 /**
  * @brief Check if the map has only acceptable characters
@@ -230,7 +237,7 @@ size_t			is_config_line(char *line);
  * @param map map structure
  * @return t_map map structure
  */
-t_map			check_map_chars_borders(t_map *map);
+t_map				check_map_chars_borders(t_map *map);
 
 /**
  * @brief Find the position of the player with charset in the map
@@ -239,7 +246,7 @@ t_map			check_map_chars_borders(t_map *map);
  * @param charset strings of autorized characters for player
  * @return t_coordinates coordinates of player
  */
-t_coordinates	find_position(t_map *map, const char *charset);
+t_coordinates		find_position(t_map *map, const char *charset);
 
 /**
  * @brief Validate if the map has unclosed holes or an unfinished outer layer
@@ -247,7 +254,7 @@ t_coordinates	find_position(t_map *map, const char *charset);
  * @param map map structure
  * @return int 1 OK, error otherwise
  */
-int				validate_map(t_map *map);
+int					validate_map(t_map *map);
 
 /**
  * @brief Check if a character is walkable or not
@@ -255,7 +262,7 @@ int				validate_map(t_map *map);
  * @param c character
  * @return int 1 OK, error otherwise
  */
-int				is_walkable(char c);
+int					is_walkable(char c);
 
 /**
  * @brief Check if a position is in bounds of map or not
@@ -265,7 +272,7 @@ int				is_walkable(char c);
  * @param x x axis (length of line)
  * @return int 1 OK, error otherwise
  */
-int				is_in_bounds(char **map, size_t y, size_t x);
+int					is_in_bounds(char **map, size_t y, size_t x);
 /** @} */
 
 /**
@@ -280,7 +287,7 @@ int				is_in_bounds(char **map, size_t y, size_t x);
  * @param file_name file name to open
  * @return int fd=OK, -1 if an error occurred
  */
-int				safe_open(char *file_name);
+int					safe_open(char *file_name);
 
 /**
  * @brief Close safely the file descriptor
@@ -289,7 +296,7 @@ int				safe_open(char *file_name);
  * @param fd pointer to the file descriptor to close
  * @return int 0 OK, -1 if an error occurred
  */
-int				safe_close(int *fd);
+int					safe_close(int *fd);
 
 /**
  * @brief Try to open the file specified by file_name.
@@ -297,7 +304,7 @@ int				safe_close(int *fd);
  * @param file_name map file name to open
  * @return int 1 OK, 0 if an error occurred
  */
-int				try_to_open_close_file(char *file_name);
+int					try_to_open_close_file(char *file_name);
 
 /**
  * @brief Count the number of strings that an array have
@@ -306,14 +313,14 @@ int				try_to_open_close_file(char *file_name);
  * @param array array of strings
  * @return size_t number of strings
  */
-size_t			count_array_length(char **array);
+size_t				count_array_length(char **array);
 
 /**
  * @brief Free the strings of the file
  *
  * @param map map structure
  */
-void			ft_free_file(t_map *map);
+void				ft_free_file(t_map *map);
 
 /**
  * @brief Free all the textures stored in mlx structure and map struct
@@ -321,14 +328,14 @@ void			ft_free_file(t_map *map);
  * @param mlx mlx structure
  * @param map map structure
  */
-void			ft_free_textures(t_mlx *mlx, t_map *map);
+void				ft_free_textures(t_mlx *mlx, t_map *map);
 
 /**
  * @brief Free the path (name) of the textures in memory
  *
  * @param map map structure
  */
-void			ft_free_textures_path(t_map *map);
+void				ft_free_textures_path(t_map *map);
 /** @} */
 
 /**

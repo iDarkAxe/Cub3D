@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 11:14:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 11:57:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@
 
 static int			settings_loop_hook(void *param);
 static void			settings_hooks(t_mlx *mlx);
-enum e_screen_size	circle_state(int x, int y);
-void				ft_free_settings(t_mlx *mlx);
-void				main_hooks(t_mlx *mlx);
-int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
 
 void	*ft_settings(t_mlx *mlx)
 {
@@ -59,7 +55,7 @@ void	settings_hooks(t_mlx *mlx)
 	if (!mlx)
 		return ;
 	mlx_hook(mlx->win_settings_ptr, MotionNotify, PointerMotionMask,
-		hook_handle_mouse_motion, mlx);
+		hook_settings_handle_mouse_motion, mlx);
 	mlx_hook(mlx->win_settings_ptr, KeyPress, KeyPressMask,
 		hook_settings_handle_keypress, mlx);
 	mlx_hook(mlx->win_settings_ptr, 17, 0, hook_settings_close_window, mlx);
@@ -85,10 +81,9 @@ int	settings_loop_hook(void *param)
 		ft_free_settings(mlx);
 		main_hooks(mlx);
 	}
-	state_actual = circle_state(mlx->mouse_x, mlx->mouse_y);
+	state_actual = mlx->settings_state;
 	if (state_actual == state_prev || state_actual == 0)
 		return (0);
-	mlx->settings_state = state_actual;
 	ft_put_circle_specific(mlx, mlx->win_settings_ptr, state_prev, 0);
 	ft_put_circle_specific(mlx, mlx->win_settings_ptr, state_actual, 1);
 	state_prev = state_actual;
