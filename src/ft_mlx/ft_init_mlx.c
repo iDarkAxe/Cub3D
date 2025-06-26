@@ -6,13 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 13:01:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 11:24:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "mlx.h"
 #include "libft.h"
+#include "mlx.h"
+
+t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map);
 
 int	ft_mlx_init(t_mlx *mlx)
 {

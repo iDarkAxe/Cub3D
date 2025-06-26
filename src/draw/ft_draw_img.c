@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 17:59:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 11:16:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 #include "data_structure.h"
 #include "ft_draw.h"
 #include "mlx.h"
+#include "libft.h"
 #include <errno.h>
 
 /**
@@ -42,7 +43,7 @@ void	ft_put_pixel_to_img(t_img *img, int x, int y, int color)
 	char	*pixel;
 
 	pixel = img->addr + (y * img->width + x * (img->bits_per_pixel / 8));
-	*(unsigned int *)pixel = color;
+	ft_memcpy(pixel, &color, sizeof(unsigned int));
 }
 
 /**
@@ -58,11 +59,19 @@ void	ft_put_pixel_to_img_24bp(t_img *img, int x, int y, int color)
 	char	*pixel;
 
 	pixel = img->addr + (y * img->width) + (x * (img->bits_per_pixel / 8));
-	pixel[0] = (color >> 16) & 0xFF;
-	pixel[1] = (color >> 8) & 0xFF;
-	pixel[2] = color & 0xFF;
+	pixel[0] = (char)((color >> 16) & 0xFF);
+	pixel[1] = (char)((color >> 8) & 0xFF);
+	pixel[2] = (char)(color & 0xFF);
 }
 
+/**
+ * @brief Put a circle to the image.
+ * 
+ * @param mlx mlx structure
+ * @param win_ptr window pointer
+ * @param img img structure
+ * @param element circle element to draw
+ */
 void	ft_put_circle_to_img(t_mlx *mlx, void *win_ptr, t_img *img,
 		t_circle element)
 {

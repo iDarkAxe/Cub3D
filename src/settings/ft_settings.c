@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 13:11:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 11:14:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void			settings_hooks(t_mlx *mlx);
 enum e_screen_size	circle_state(int x, int y);
 void				ft_free_settings(t_mlx *mlx);
 void				main_hooks(t_mlx *mlx);
+int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
 
 void	*ft_settings(t_mlx *mlx)
 {

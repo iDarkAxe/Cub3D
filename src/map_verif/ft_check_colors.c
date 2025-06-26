@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 11:06:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 11:25:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void		free_array(char **array);
-static int		has_line_an_error(t_map *map, char **array, const char *line);
+static void				free_array(char **array);
+static int				has_line_an_error(t_map *map, char **array,
+							const char *line);
+static unsigned char	safe_atoi(char *str, int *error, unsigned char flag);
+static int				change_color_values(t_color *color, char **split,
+							int *error);
 
 unsigned char	safe_atoi(char *str, int *error, unsigned char flag)
 {
