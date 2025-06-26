@@ -23,7 +23,7 @@
 **/input
 **/output
 
-**/test
+./test
 **/res
 **/resultat
 **/log
