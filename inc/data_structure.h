@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 09:47:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 18:01:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ union							u_color
 		unsigned char			green;
 		unsigned char			blue;
 		unsigned char			alpha;
-	} s_rgb;
+	};
 };
 
 /**

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 13:10:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 17:59:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@
  * It will result as undefined behavior if used on images with other bit depths.
  * it's because of alignment issues with the pixel data.
  *
- * @param img
- * @param x
- * @param y
- * @param color
+ * @param img image structure
+ * @param x x axis
+ * @param y y axis
+ * @param color color
  */
 void	ft_put_pixel_to_img(t_img *img, int x, int y, int color)
 {
