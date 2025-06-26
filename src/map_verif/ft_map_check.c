@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 13:11:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 14:23:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,6 @@ static int	has_player_already_been_found(char **map, t_coordinates pos,
 				t_bool *player);
 static int	check_autorized_chars(char **map);
 
-/**
- * @brief Check the map structure and try to open the map file.
- * sets error to -1 if an error occurred.
- *
- * @param map map structure to check and initialize
- * @param map_name map file name to open
- * @return t_map map structure
- */
 t_map	ft_map_check_dimensions(t_map *map, char *map_name)
 {
 	if (map == NULL)

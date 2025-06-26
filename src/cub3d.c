@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 13:39:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 14:20:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,6 @@
 #include "ft_printf.h"
 #include "mlx.h"
 
-/**
- * @brief Main function of the cub3d project
- *
- * @param argc number of arguments
- * @param argv array of string arguments
- * @return int 0 if the program ends correctly, -1 otherwise
- */
 int	cub3d(int argc, char **argv)
 {
 	t_data	data;

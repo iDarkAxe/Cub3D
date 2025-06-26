@@ -31,11 +31,11 @@
  */
 
 /**
- * @brief Entry point of the program.
+ * @brief Main function of the cub3d project
  *
- * @param argc Argument count.
- * @param argv Argument vector.
- * @return int 0 on success, -1 on failure.
+ * @param argc number of arguments
+ * @param argv array of string arguments
+ * @return int 0 if the program ends correctly, -1 otherwise
  */
 int					cub3d(int argc, char **argv);
 
@@ -67,6 +67,7 @@ char				**fill_map_region(t_map *map);
 /**
  * @brief Read the map file line by line and return an array of strings.
  *
+ * @param map map structure to store the lines
  * @param map_name map file name to read
  * @return char** array of strings containing the map lines
  */
@@ -175,41 +176,18 @@ void				can_player_move(t_mlx *mlx, t_map *map, int direction);
 /** @} */
 
 /**
- * @defgroup Hooks Hooks functions
- * @brief All the functions used to handle events.
- * @{
- */
-
-/**
- * @brief Close the program window.
- *
- * @param param Parameter passed to the close function, needs t_mlx pointer.
- * @return int Status code.
- */
-int					close_window(void *param);
-
-/**
- * @brief Handle keypress events.
- *
- * @param keycode Keycode of the pressed key.
- * @param param Parameter passed to the function, needs t_store pointer.
- * @return int Keycode of the pressed key.
- */
-int					handle_keypress(int keycode, void *param);
-/** @} */
-
-/**
  * @defgroup Map_verif Map verification functions
  * @brief All the functions used to verify the map.
  * @{
  */
 
 /**
- * @brief Check the dimensions of the map.
+ * @brief Check the map structure and try to open the map file.
+ * sets error to -1 if an error occurred.
  *
- * @param map Map structure to modify.
- * @param map_name Name of the map file.
- * @return t_map_size Structure containing the map dimensions and metadata.
+ * @param map map structure to check and initialize
+ * @param map_name name of the map file.
+ * @return t_map Structure containing the map dimensions and metadata.
  */
 t_map				ft_map_check_dimensions(t_map *map, char *map_name);
 
