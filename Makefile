@@ -63,7 +63,8 @@ SRC = \
 	cub3d.c \
 	ft_safe.c \
 	ft_free.c \
-	ft-utils.c
+	ft-utils.c \
+	ft_keys.c
 
 FT_MLX = \
 	ft_init_mlx.c \
@@ -94,6 +95,7 @@ PRINT = \
 	ft_print_errors.c \
 	ft_print_special.c \
 	ft_print_color.c \
+	ft_print.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 16:02:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 14:13:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ ssize_t	ft_print_map(t_map *map);
 void	ft_print_floor_ceiling(t_map *map);
 void	ft_print_color(t_color *color);
 void	print_visited(char **visited, char **map);
+void	ft_print_key(int keycode);
 // ERRORS
 void	print_map_error(t_map *map, enum e_map_error error);
 int		print_error(t_map *map, enum e_fx_error error);

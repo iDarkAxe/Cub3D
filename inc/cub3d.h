@@ -103,6 +103,13 @@ void				ft_exit(t_mlx mlx, t_map *map);
  * @return int
  */
 int					ft_mlx_init(t_mlx *mlx);
+
+/**
+ * @brief Close and free the mlx structure.
+ *
+ * @param mlx mlx structure
+ */
+void				ft_mlx_end(t_mlx *mlx);
 /** @} */
 
 /**

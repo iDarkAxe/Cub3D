@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:45:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 12:46:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 13:44:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int	validate_map(t_map *map)
 		ft_frees((void **)visited);
 		return (-1);
 	}
-	print_visited(visited, map->map);
 	ft_frees((void **)visited);
 	return (0);
 }

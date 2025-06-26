@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 08:56:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 13:39:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "mlx.h"
-
-int		ft_mlx_init(t_mlx *mlx);
-
-void	ft_mlx_end(t_mlx *mlx);
 
 /**
  * @brief Main function of the cub3d project

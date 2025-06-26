@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 09:17:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 13:57:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 #include "ft_keys.h"
 #include "ft_printf.h"
+#include "ft_print.h"
 #include "mlx.h"
 #include <X11/X.h>
 
@@ -55,7 +56,7 @@ int	hook_handle_keypress(int keycode, void *param)
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)param;
-	ft_printf("Key: %d\n", keycode);
+	ft_print_key(keycode);
 	if (keycode == KEY_ESCAPE)
 		mlx_loop_end(mlx->mlx_ptr);
 	if (keycode != KEY_ENTER)
