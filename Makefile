@@ -12,6 +12,15 @@ CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
 CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes
 
+# Flag to hide output
+# 0 = Show output, 1 = Hide output
+# HIDE_STDOUT is used to redirect the output of the make command
+HIDE ?= 1
+ifeq ($(HIDE),1)
+HIDE_STDOUT =>/dev/null
+else
+HIDE_STDOUT =
+endif
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -180,16 +189,21 @@ $(P_MLX)libmlx_Linux.a: force
 #############################################################################################
 # Rules for clean up
 clean:
+ifeq ($(HIDE),1)
+	@echo "$(Green)Cleaned P_OBJ, OBJS, DEPS and minilibx-linux$(Color_Off)"
+else
+	@echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)"
+endif
 	@rm -rfd $(P_OBJ)
 	@rm -rfd $(OBJS)
 	@rm -rfd $(DEPS)
 	@$(MAKE) -C $(P_MLX) clean HIDE=0
-	@echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)"
+# @echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)" $(HIDE_STDOUT)
 
 clean-lib:
 	@rm -rfd $(P_LIB)
-	$(MAKE) -C $(P_LIBFT) fclean
-	@echo "$(Green)Cleaned $(P_LIB)$(Color_Off)"
+	$(MAKE) -C $(P_LIBFT) fclean $(HIDE_STDOUT)
+	@echo "$(Green)Cleaned $(P_LIB)$(Color_Off)" 
 	@echo "$(Green)Cleaned $(P_LIBFT)$(Color_Off)"
 
 clean-bin:
@@ -259,16 +273,6 @@ debug-print-project:
 #                                         COSMETIC                                          #
 #                                                                                           #
 #############################################################################################
-# Flag to hide output
-# 0 = Show output, 1 = Hide output
-# HIDE_STDOUT is used to redirect the output of the make command
-HIDE ?= 1
-ifeq ($(HIDE),1)
-HIDE_STDOUT =>/dev/null
-else
-HIDE_STDOUT =
-endif
-
 # Reset
 Color_Off=\033[0m	# Text Reset
 
