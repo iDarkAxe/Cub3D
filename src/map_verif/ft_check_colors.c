@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 15:09:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 11:25:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,53 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void	free_array(char **array);
-static int	has_line_an_error(t_map *map, char **array, const char *line);
+static void				free_array(char **array);
+static int				has_line_an_error(t_map *map, char **array,
+							const char *line);
+static unsigned char	safe_atoi(char *str, int *error, unsigned char flag);
+static int				change_color_values(t_color *color, char **split,
+							int *error);
+
+unsigned char	safe_atoi(char *str, int *error, unsigned char flag)
+{
+	int	value;
+
+	value = ft_atoi(str);
+	if (value < 0 || value > 255)
+	{
+		ft_dprintf(2, RED "Error" RESET "\nColor out of range: %d\n", value);
+		ft_dprintf(2, "Should be 0-255\n");
+		if (error)
+			*error = (1 << flag) + *error;
+	}
+	return ((unsigned char)value);
+}
+
+int	change_color_values(t_color *color, char **split, int *error)
+{
+	int	ret;
+
+	if (!color || !split || !split[0] || !split[1] || !split[2] || !error)
+	{
+		ft_dprintf(2, RED "Error" RESET "\nInvalid color values\n");
+		return (1);
+	}
+	ret = 0;
+	color->red = safe_atoi(split[0], error, 0);
+	color->green = safe_atoi(split[1], error, 1);
+	color->blue = safe_atoi(split[2], error, 2);
+	if (*error != 0)
+	{
+		if (*error & 1)
+			ft_dprintf(2, RED "Error" RESET "\nRed color is invalid\n");
+		if (*error & 2)
+			ft_dprintf(2, RED "Error" RESET "\nGreen color is invalid\n");
+		if (*error & 4)
+			ft_dprintf(2, RED "Error" RESET "\nBlue color is invalid\n");
+		return (1);
+	}
+	return (0);
+}
 
 t_map	ft_check_floor_ceiling(t_map *map)
 {
@@ -30,20 +75,17 @@ t_map	ft_check_floor_ceiling(t_map *map)
 		map->error = 1;
 	if (has_line_an_error(map, split, "floor") == 1)
 		return (*map);
-	map->textures.floor.s_rgb.red = (unsigned char)ft_atoi(split[0]);
-	map->textures.floor.s_rgb.green = (unsigned char)ft_atoi(split[1]);
-	map->textures.floor.s_rgb.blue = (unsigned char)ft_atoi(split[2]);
+	change_color_values(&map->textures.floor, split, &map->error);
 	free_array(split);
+	if (map->error != 0)
+		return (*map);
 	split = ft_split(&map->config[5][2], ',');
 	if (!split || !split[0] || !split[1] || !split[2])
 		map->error = 1;
 	if (has_line_an_error(map, split, "ceiling") == 1)
 		return (*map);
-	map->textures.ceiling.s_rgb.red = (unsigned char)ft_atoi(split[0]);
-	map->textures.ceiling.s_rgb.green = (unsigned char)ft_atoi(split[1]);
-	map->textures.ceiling.s_rgb.blue = (unsigned char)ft_atoi(split[2]);
+	change_color_values(&map->textures.floor, split, &map->error);
 	free_array(split);
-	ft_print_floor_ceiling(map);
 	return (*map);
 }
 
@@ -62,9 +104,8 @@ int	has_line_an_error(t_map *map, char **array, const char *line)
 		return (1);
 	if (array && array[0] && array[1] && array[2] && array[3])
 	{
-		ft_dprintf(2,
-			RED "Error" RESET "\nColor of %s has too many parameters\n",
-			line);
+		ft_dprintf(2, RED "Error" RESET
+			"\nColor of %s has too many parameters\n", line);
 		free_array(array);
 		map->error = 1;
 		return (1);

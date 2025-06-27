@@ -12,6 +12,15 @@ CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 CC_DEBUG = clang
 CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes
 
+# Flag to hide output
+# 0 = Show output, 1 = Hide output
+# HIDE_STDOUT is used to redirect the output of the make command
+HIDE ?= 1
+ifeq ($(HIDE),1)
+HIDE_STDOUT =>/dev/null
+else
+HIDE_STDOUT =
+endif
 #############################################################################################
 #                                                                                           #
 #                                         DIRECTORIES                                       #
@@ -22,6 +31,8 @@ P_SRC = src/
 P_MAP_VERIF = map_verif/
 P_FT_MLX = ft_mlx/
 P_PARSING = parsing/
+P_SETTINGS = settings/
+P_DRAW = draw/
 P_PRINT = print/
 
 # Object directories
@@ -61,10 +72,12 @@ SRC = \
 	cub3d.c \
 	ft_safe.c \
 	ft_free.c \
-	ft-utils.c
+	ft-utils.c \
+	ft_keys.c
 
 FT_MLX = \
-	ft_init_mlx.c
+	ft_init_mlx.c \
+	ft_hooks.c
 
 MAP_VERIF = \
 	ft_file_fill.c \
@@ -78,10 +91,20 @@ MAP_VERIF = \
 PARSING = \
 	check_args.c \
 
+SETTINGS = \
+	ft_settings.c \
+	ft_settings-hooks.c \
+	ft_settings_draw_img.c
+
+DRAW = \
+	ft_draw_circle.c \
+	ft_draw_img.c
+
 PRINT = \
 	ft_print_errors.c \
 	ft_print_special.c \
 	ft_print_color.c \
+	ft_print.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \
@@ -101,8 +124,10 @@ GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
 SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
-	$(addprefix $(P_SRC)$(P_MLX), $(MLX)) \
+	$(addprefix $(P_SRC)$(P_FT_MLX), $(FT_MLX)) \
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
+	$(addprefix $(P_SRC)$(P_SETTINGS), $(SETTINGS)) \
+	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)
@@ -164,16 +189,21 @@ $(P_MLX)libmlx_Linux.a: force
 #############################################################################################
 # Rules for clean up
 clean:
+ifeq ($(HIDE),1)
+	@echo "$(Green)Cleaned P_OBJ, OBJS, DEPS and minilibx-linux$(Color_Off)"
+else
+	@echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)"
+endif
 	@rm -rfd $(P_OBJ)
 	@rm -rfd $(OBJS)
 	@rm -rfd $(DEPS)
 	@$(MAKE) -C $(P_MLX) clean HIDE=0
-	@echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)"
+# @echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)" $(HIDE_STDOUT)
 
 clean-lib:
 	@rm -rfd $(P_LIB)
-	$(MAKE) -C $(P_LIBFT) fclean
-	@echo "$(Green)Cleaned $(P_LIB)$(Color_Off)"
+	$(MAKE) -C $(P_LIBFT) fclean $(HIDE_STDOUT)
+	@echo "$(Green)Cleaned $(P_LIB)$(Color_Off)" 
 	@echo "$(Green)Cleaned $(P_LIBFT)$(Color_Off)"
 
 clean-bin:
@@ -243,16 +273,6 @@ debug-print-project:
 #                                         COSMETIC                                          #
 #                                                                                           #
 #############################################################################################
-# Flag to hide output
-# 0 = Show output, 1 = Hide output
-# HIDE_STDOUT is used to redirect the output of the make command
-HIDE ?= 1
-ifeq ($(HIDE),1)
-HIDE_STDOUT =>/dev/null
-else
-HIDE_STDOUT =
-endif
-
 # Reset
 Color_Off=\033[0m	# Text Reset
 

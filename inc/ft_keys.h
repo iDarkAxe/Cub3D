@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/15 13:18:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/26 14:12:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
  * @brief Header file for the key used in cub3d.
  *
  */
+
+# include <stdbool.h>
 
 /**
  * @defgroup Events Events macro
@@ -37,6 +39,14 @@
  * @{
  */
 
+enum	e_movement
+{
+	MV_UP,
+	MV_LEFT,
+	MV_RIGHT,
+	MV_DOWN
+};
+
 /**
  * @brief Keycode for the escape key.
  */
@@ -52,23 +62,37 @@
 /**
  * @brief Keycode for the left key.
  */
-# define KEY_LEFT 65361
+# define KEY_ARROW_LEFT 65361
 /**
  * @brief Keycode for the up key.
  */
-# define KEY_UP 65362
+# define KEY_ARROW_UP 65362
 /**
  * @brief Keycode for the right key.
  */
-# define KEY_RIGHT 65363
+# define KEY_ARROW_RIGHT 65363
 /**
  * @brief Keycode for the down key.
  */
-# define KEY_DOWN 65364
+# define KEY_ARROW_DOWN 65364
 /**
  * @brief Keycode for the A key.
  */
 # define KEY_A 97
+/**
+ * @brief Keycode for the W key.
+ */
+# define KEY_W 119
+/**
+ * @brief Keycode for the D key.
+ */
+# define KEY_D 100
+/**
+ * @brief Keycode for the S key.
+ */
+# define KEY_S 115
 /** @} */
+
+bool	is_mv_key(enum e_movement expected, int keycode);
 
 #endif

@@ -23,9 +23,12 @@
 **/input
 **/output
 
-**/test
+./test
 **/res
 **/resultat
 **/log
 
 **/cub3d
+img-dev/
+doxy-log-err.txt
+doxy-log.txt

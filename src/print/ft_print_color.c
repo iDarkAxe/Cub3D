@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 11:10:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/06/25 18:04:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 void	ft_print_color(t_color *color)
 {
-	printf("r:%3d g:%3d b:%3d, rgba:#%02x%02x%02x%02x\n", color->s_rgb.red,
-		color->s_rgb.green, color->s_rgb.blue, color->s_rgb.red,
-		color->s_rgb.green, color->s_rgb.blue, color->s_rgb.alpha);
+	printf("r:%3d g:%3d b:%3d, rgba:#%02x%02x%02x%02x\n", color->red,
+		color->green, color->blue, color->red,
+		color->green, color->blue, color->alpha);
 }
 
 void	ft_print_floor_ceiling(t_map *map)
