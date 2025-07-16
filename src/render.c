@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/16 14:55:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/16 19:21:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	hitwall_loop(int *hit_wall, t_pos2 *map, t_vec2 *side_dist,
 void	cub_render(t_cub *cub)
 {
 	int				x;
-	float			cam_x;
 	t_vec2			plane;
 	const t_vec2	pos = cub->player.pos;
 	t_pos2			map;
@@ -57,7 +56,6 @@ void	cub_render(t_cub *cub)
 	{
 		map.x = (int)pos.x;
 		map.y = (int)pos.y;
-		cam_x = 2 * x / (float)WINDOW_WIDTH - 1.f;
 		ray_dir = raycalc(x, cub->player.angle, plane, &delta_dist);
 		raycalc_2(&ray_dir, &side_dist, &delta_dist, &map, &step, &pos);
 		hit_wall = 0;
@@ -82,7 +80,7 @@ void	cub_render(t_cub *cub)
 			line_point.y = 0;
 		line_draw_height = height / 2 + WINDOW_HEIGHT / 2;
 		if (line_draw_height >= WINDOW_HEIGHT)
-			line_draw_height = WINDOW_HEIGHT - 10;
+			line_draw_height = WINDOW_HEIGHT;
 		line_point.x = x;
 		line_draw_height = (line_draw_height - line_point.y);
 		hitside_color(hit_side, &step, &color);

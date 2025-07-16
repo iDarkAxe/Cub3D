@@ -1,7 +1,10 @@
 NAME:=cubtest
 
 CC:=clang
-CFLAGS:=-Wall -Wextra -Werror -g
+CFLAGS=-Wall -Wextra -Werror
+# CFLAGS_DEBUG:=-Wall -Wextra -g
+# Uncomment the line below to use DWARF-4 debugging information on WSL2
+CFLAGS_DEBUG:=-Wall -Wextra -gdwarf-4
 DEPFLAGS=-MMD -MF $(DEP_DIR)/$*.d
 
 SRC:=main.c\
@@ -52,6 +55,9 @@ $(MLX):
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) all
+
+debug:
+	@$(MAKE) $(NAME) CFLAGS="$(CFLAGS_DEBUG)"
 
 clean:
 	rm -rf $(OBJ_DIR) $(DEP_DIR)
