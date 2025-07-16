@@ -10,6 +10,8 @@ SRC:=main.c\
 	 render.c\
 	 loop.c\
 	 render_more.c\
+	 hitside_color.c\
+	 hitwall.c\
 	 mlx/init.c\
 	 mlx/render.c\
 	 mlx/render_line.c\
