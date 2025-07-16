@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/16 23:22:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 00:03:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ typedef struct s_cub
 	t_cubmlx	*mlx;
 	t_input		input;
 	t_player	player;
+	int			ceil_color;
+	int			floor_color;
 }	t_cub;
 
 typedef struct s_raydata
@@ -90,8 +92,8 @@ typedef struct s_raydata
 	t_pos2	step;
 	int		hit_wall;
 	int		hit_side;
-	int	ceil_color;
-	int	floor_color;
+	int		ceil_color;
+	int		floor_color;
 }	t_raydata;
 
 t_map		*parse_map(int fd);

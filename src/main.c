@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/21 11:48:19 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/17 00:01:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <X11/X.h>
+
+#define CEIL_COLOR 0xff6494ed
+#define FLOOR_COLOR 0xffdddddd
 
 static int	check_args_open(int argc, char **argv)
 {
@@ -54,6 +57,8 @@ int	main(int argc, char **argv)
 	cub->player.pos.x = 2.f;
 	cub->player.pos.y = 1.5f;
 	cub->player.angle = -0.66f;
+	cub->ceil_color = CEIL_COLOR;
+	cub->floor_color = FLOOR_COLOR;
 	cub_loop(cub);
 	cub_free(cub);
 }

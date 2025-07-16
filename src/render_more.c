@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/16 23:40:44 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/07/17 09:47:02 by ppontet           #+#    #+#             */
+/*   Updated: 2025/07/17 09:47:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,19 @@ void	raycalc_set_ray_dir(t_raydata *rdata, const t_vec2 *pos)
 	else
 	{
 		rdata->step.x = 1;
-		rdata->side_dist.x = (rdata->map.x + 1.f - pos->x) * rdata->delta_dist.x;
+		rdata->side_dist.x = (rdata->map.x + 1.f - pos->x)
+			* rdata->delta_dist.x;
 	}
 	if (rdata->ray_dir.y < 0)
 	{
 		rdata->step.y = -1;
-		rdata->side_dist.y = (pos->y - rdata->map.y) * rdata->delta_dist.y;
+		rdata->side_dist.y = (pos->y - rdata->map.y)
+			* rdata->delta_dist.y;
 	}
 	else
 	{
 		rdata->step.y = 1;
-		rdata->side_dist.y = (rdata->map.y + 1.f - pos->y) * rdata->delta_dist.y;
+		rdata->side_dist.y = (rdata->map.y + 1.f - pos->y)
+			* rdata->delta_dist.y;
 	}
 }
