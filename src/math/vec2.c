@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_draw.c                                          :+:      :+:    :+:   */
+/*   vec2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 17:05:47 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/17 14:13:37 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/06/22 18:38:30 by rdesprez          #+#    #+#             */
+/*   Updated: 2025/06/22 18:42:07 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_keys.h"
-#include "mlx.h"
-#include "so_long.h"
+#include "cubtest.h"
+#include <math.h>
 
-void	ft_draw_tile(t_mlx *mlx, t_img img, t_coordinates coords)
+t_vec2	vec2rotate(t_vec2 vec, float angle)
 {
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, img.ptr, img.width
-		* (int)coords.x, img.height * (int)coords.y);
+	t_vec2	res;
+
+	res.x = vec.x * cos(angle) - sin(angle) * vec.y;
+	res.y = vec.x * sin(angle) + cos(angle) * vec.y;
+	return (res);
 }

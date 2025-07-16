@@ -29,3 +29,16 @@
 **/log
 
 **/cub3d
+
+####
+# Raoul1808 gitignore
+*.o
+*.a
+dep/
+obj/
+cubtest
+
+# Clangd files
+compile_flags.txt
+compile_commands.json
+.clangd

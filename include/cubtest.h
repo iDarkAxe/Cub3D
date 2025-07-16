@@ -1,0 +1,103 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cubtest.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
+/*   Updated: 2025/06/25 12:55:47 by rdesprez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef CUBTEST_H
+# define CUBTEST_H
+
+# include <stddef.h>
+
+# define WINDOW_WIDTH 1280
+# define WINDOW_HEIGHT 720
+# define PI 3.141592653589793238462643383279502884197169399375105820974944592307
+
+typedef struct s_pos2
+{
+	int	x;
+	int	y;
+}	t_pos2;
+
+typedef struct s_vec2
+{
+	float	x;
+	float	y;
+}	t_vec2;
+
+typedef struct s_map
+{
+	int		*walls;
+	size_t	width;
+	size_t	height;
+	t_pos2	start_pos;
+	float	start_angle;
+}	t_map;
+
+typedef struct s_img
+{
+	void	*img;
+	char	*pxls;
+	int		bits_per_pixel;
+	int		width;
+	int		height;
+	int		endian;
+}	t_img;
+
+typedef struct s_cubmlx
+{
+	void	*mlx;
+	void	*win;
+	t_img	backbuffer;
+}	t_cubmlx;
+
+typedef struct s_input
+{
+	int	fwd;
+	int	bckwd;
+	int	left;
+	int	right;
+}	t_input;
+
+typedef struct s_player
+{
+	t_vec2	pos;
+	float	angle;
+	float	fov;
+}	t_player;
+
+typedef struct s_cub
+{
+	t_map		*map;
+	t_cubmlx	*mlx;
+	t_input		input;
+	t_player	player;
+}	t_cub;
+
+t_map		*parse_map(int fd);
+t_cubmlx	*cubmlx_init(void);
+void		*cubmlx_free(t_cubmlx *mlx);
+void		cubmlx_present(t_cubmlx *mlx);
+void		cubmlx_putpixel(t_cubmlx *mlx, int x, int y, unsigned int color);
+void		cubmlx_putvertline(t_cubmlx *mlx, t_pos2 pos, int len,
+				unsigned int color);
+void		cubmlx_putline(t_cubmlx *mlx, t_pos2 p1, t_pos2 p2,
+				unsigned int color);
+void		cubmlx_clear(t_cubmlx *mlx, unsigned int color);
+t_cub		*cub_init(int fd);
+void		cub_render(t_cub *cub);
+void		cub_free(t_cub *cub);
+
+void		cub_loop(t_cub *cub);
+void		cub_render_minimap(t_cub *cub);
+
+float		absf(float n);
+t_vec2		vec2rotate(t_vec2 vec, float angle);
+
+#endif

@@ -3,24 +3,57 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 12:33:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/01/18 18:46:51 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/06/17 20:50:35 by rdesprez          #+#    #+#             */
+/*   Updated: 2025/06/21 11:48:19 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "cubtest.h"
+#include <fcntl.h>
+#include "libft.h"
+#include <malloc.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <X11/X.h>
 
-/**
- * @brief Main function of the program.
- * Calls only the so_long function.
- *
- * @param argc Number of arguments.
- * @param argv Array of arguments.
- * @return int Return values of the so_long function.
- */
+static int	check_args_open(int argc, char **argv)
+{
+	int	fd;
+
+	if (argc != 2)
+	{
+		ft_dprintf(2, "Usage: %s <.cub file>\n", argv[0]);
+		return (-1);
+	}
+	fd = open(argv[1], O_RDONLY);
+	if (fd < 0)
+	{
+		perror("Error opening file");
+		return (-1);
+	}
+	return (fd);
+}
+
 int	main(int argc, char **argv)
 {
-	return (so_long(argc, argv));
+	t_cub	*cub;
+	int		fd;
+
+	fd = check_args_open(argc, argv);
+	if (fd < 0)
+		return (1);
+	cub = cub_init(fd);
+	close(fd);
+	if (cub == NULL)
+	{
+		ft_dprintf(2, "Map error\n");
+		return (1);
+	}
+	cub->player.pos.x = 2.f;
+	cub->player.pos.y = 1.5f;
+	cub->player.angle = -0.66f;
+	cub_loop(cub);
+	cub_free(cub);
 }
