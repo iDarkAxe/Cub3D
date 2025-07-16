@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/16 14:34:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/16 19:40:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 // Blue for now
 #define HITSIDE_COLOR_EAST 0xff0000ff
 
-void	hitside_color(int hitside, t_pos2 *step, int *color)
+void	hitside_color(int hitside, const t_pos2 *step, int *color)
 {
 	if (hitside)
 	{

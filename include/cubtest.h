@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cubtest.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/25 12:55:47 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/16 23:22:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,20 @@ typedef struct s_cub
 	t_input		input;
 	t_player	player;
 }	t_cub;
+
+typedef struct s_raydata
+{
+	t_vec2	ray_dir;
+	t_vec2	side_dist;
+	t_vec2	delta_dist;
+	t_vec2	pos;
+	t_pos2	map;
+	t_pos2	step;
+	int		hit_wall;
+	int		hit_side;
+	int	ceil_color;
+	int	floor_color;
+}	t_raydata;
 
 t_map		*parse_map(int fd);
 t_cubmlx	*cubmlx_init(void);
