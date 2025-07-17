@@ -6,6 +6,8 @@ CFLAGS=-Wall -Wextra -Werror
 # Uncomment the line below to use DWARF-4 debugging information on WSL2
 CFLAGS_DEBUG:=-Wall -Wextra -gdwarf-4
 DEPFLAGS=-MMD -MF $(DEP_DIR)/$*.d
+NO_DIR = --no-print-directory
+MAKE := $(MAKE) -j $(NO_DIR)
 
 SRC:=main.c\
 	 parse.c\
@@ -22,7 +24,7 @@ SRC:=main.c\
 	 math/vec2.c\
 	 render/minimap.c\
 
-INCLUDE=include mlx $(LIBFT_DIR)/include
+INCLUDE=include mlx $(LIBFT_DIR)/inc $(GNL_DIR)/
 LIBRARIES:=X11 Xext m
 
 SRC_DIR:=src
@@ -30,6 +32,7 @@ OBJ_DIR:=obj
 DEP_DIR:=dep
 MLX_DIR:=mlx
 LIBFT_DIR:=libft
+GNL_DIR:=get_next_line
 
 SRCS:=$(addprefix $(SRC_DIR)/,$(SRC))
 OBJS:=$(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
@@ -39,11 +42,12 @@ LIBS:=$(foreach l,$(LIBRARIES),-l$l)
 
 MLX:=$(MLX_DIR)/libmlx.a
 LIBFT:=$(LIBFT_DIR)/libft.a
+GNL:=$(GNL_DIR)/libgnl.a
 
-all: makelibft $(NAME)
+all: makelibft makegnl $(NAME)
 
-$(NAME): $(OBJS) $(MLX) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(MLX) $(LIBFT) $(LIBS) -o $(NAME)
+$(NAME): $(OBJS) $(MLX) $(LIBFT) $(GNL)
+	$(CC) $(CFLAGS) $(OBJS) $(MLX) $(GNL) $(LIBFT) $(LIBS) -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
@@ -55,6 +59,9 @@ $(MLX):
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) all
+
+$(GNL):
+	$(MAKE) -C $(GNL_DIR) all
 
 debug:
 	@$(MAKE) $(NAME) CFLAGS="$(CFLAGS_DEBUG)"
@@ -77,6 +84,9 @@ clangflags:
 makelibft:
 	$(MAKE) -C $(LIBFT_DIR) all
 
+makegnl:
+	$(MAKE) -C $(GNL_DIR) all
+
 -include $(DEPS)
 
-.PHONY: all clean fclean re clangflags makelibft
+.PHONY: all clean fclean re clangflags makelibft makegnl

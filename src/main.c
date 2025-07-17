@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 11:50:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 13:20:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
+#include "ft_printf.h"
 #include "libft.h"
 #include <X11/X.h>
 #include <fcntl.h>

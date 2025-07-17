@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:52:04 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/17 21:45:00 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/17 13:25:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
 #include "libft.h"
+#include "get_next_line.h"
 #include "libft_collections.h"
 #include <malloc.h>
 #include <unistd.h>
@@ -22,7 +23,7 @@ static int	push_line(t_ptrvec *vec, int fd)
 	int		i;
 	int		n;
 
-	line = ft_get_next_line(fd);
+	line = get_next_line(fd);
 	if (line == NULL)
 		return (0);
 	i = 0;
