@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 00:03:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 11:50:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 720
 # define PI 3.141592653589793238462643383279502884197169399375105820974944592307
+
+# define MINIMAP_PLAYER_COLOR 0xffffff00
+# define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
+# define ENABLE_FIELD_OF_VIEW 0
+# define MINIMAP_FLOOR_COLOR 0xff000000
+# define MINIMAP_WALL_COLOR 0xffffffff
 
 typedef struct s_pos2
 {
@@ -88,6 +94,7 @@ typedef struct s_raydata
 	t_vec2	side_dist;
 	t_vec2	delta_dist;
 	t_vec2	pos;
+	t_vec2	plane;
 	t_pos2	map;
 	t_pos2	step;
 	int		hit_wall;

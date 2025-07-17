@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 00:02:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 11:53:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,14 @@ static void	calc_line(float wall_dist, int x, t_pos2 *line_point,
 void	cub_render(t_cub *cub)
 {
 	int			x;
-	t_vec2		plane;
 	t_raydata	rdata;
 
 	x = 0;
-	plane.x = 0;
-	plane.y = 0.66f;
-	plane = vec2rotate(plane, cub->player.angle);
+	rdata.plane = vec2rotate((t_vec2){0, cub->player.fov * 0.5f},
+			cub->player.angle);
 	while (x < WINDOW_WIDTH)
 	{
-		if (!raycast_column(cub, x, plane, &rdata))
+		if (!raycast_column(cub, x, rdata.plane, &rdata))
 		{
 			cubmlx_putvertline(cub->mlx, (t_pos2){x, 0}, WINDOW_HEIGHT / 2,
 				cub->ceil_color);
@@ -69,9 +67,9 @@ static int	raycast_column(t_cub *cub, int x, t_vec2 plane, t_raydata *rdata)
 }
 
 static void	calc_line(float wall_dist, int x, t_pos2 *line_point,
-	int *line_draw_height)
+		int *line_draw_height)
 {
-	float		height;
+	float	height;
 
 	height = WINDOW_HEIGHT / wall_dist;
 	line_point->y = -height / 2 + WINDOW_HEIGHT / 2;
@@ -86,10 +84,10 @@ static void	calc_line(float wall_dist, int x, t_pos2 *line_point,
 
 static void	draw_column(t_cub *cub, int x, const t_raydata *rdata)
 {
-	float		wall_dist;
-	t_pos2		line_point;
-	int			line_draw_height;
-	int			color;
+	float	wall_dist;
+	t_pos2	line_point;
+	int		line_draw_height;
+	int		color;
 
 	if (rdata->hit_side == 0)
 		wall_dist = rdata->side_dist.x - rdata->delta_dist.x;
@@ -102,8 +100,7 @@ static void	draw_column(t_cub *cub, int x, const t_raydata *rdata)
 			cub->ceil_color);
 	cubmlx_putvertline(cub->mlx, line_point, line_draw_height, color);
 	if ((line_point.y + line_draw_height + 1) < WINDOW_HEIGHT)
-		cubmlx_putvertline(cub->mlx,
-			(t_pos2){x, line_point.y + line_draw_height},
-			WINDOW_HEIGHT - (line_point.y + line_draw_height),
-			cub->floor_color);
+		cubmlx_putvertline(cub->mlx, (t_pos2){x, line_point.y
+			+ line_draw_height}, WINDOW_HEIGHT - (line_point.y
+				+ line_draw_height), cub->floor_color);
 }
