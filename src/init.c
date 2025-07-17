@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/21 11:51:00 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/17 14:56:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ t_cub	*cub_init(int fd)
 		return (NULL);
 	}
 	cub->map = map;
+	cub->win_size.x = WINDOW_WIDTH;
+	cub->win_size.y = WINDOW_HEIGHT;
 	cub->mlx = cubmlx_init();
 	if (cub->mlx == NULL)
 	{

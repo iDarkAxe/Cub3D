@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 13:40:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 14:54:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ typedef struct s_cub
 	t_player	player;
 	int			ceil_color;
 	int			floor_color;
+	t_pos2		win_size;
 }	t_cub;
 
 typedef struct s_raydata
