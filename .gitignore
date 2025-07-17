@@ -11,8 +11,8 @@
 **/*.s
 **/*.gch
 **/*.gdb_history
-**/cube3d
-**/cube3d_tests
+**/cub3d
+**/cub3d_tests
 **/compile_commands.json 
 
 **/*.clang
@@ -28,6 +28,8 @@
 **/log
 
 **/cub3d
+doxy-log-err.txt
+doxy-log.txt
 
 ####
 # Raoul1808 gitignore
@@ -41,3 +43,4 @@ cubtest
 compile_flags.txt
 compile_commands.json
 .clangd
+img-dev/

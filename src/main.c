@@ -5,62 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 20:50:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 13:20:53 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/06/17 20:50:35 by ppontet           #+#    #+#             */
+/*   Updated: 2025/07/17 16:42:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
-#include "ft_printf.h"
-#include "libft.h"
-#include <X11/X.h>
-#include <fcntl.h>
-#include <malloc.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "cub3d.h"
 
-#define CEIL_COLOR 0xff6494ed
-#define FLOOR_COLOR 0xffdddddd
+int	cub3d_raoul(int argc, char **argv);
 
-static int	check_args_open(int argc, char **argv)
-{
-	int	fd;
-
-	if (argc != 2)
-	{
-		ft_dprintf(2, "Usage: %s <.cub file>\n", argv[0]);
-		return (-1);
-	}
-	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-	{
-		perror("Error opening file");
-		return (-1);
-	}
-	return (fd);
-}
+/**
+ * @brief Main function of the program.
+ * Calls only the cub3d function.
+ *
+ * @param argc Number of arguments.
+ * @param argv Array of arguments.
+ * @return int Return values of the cub3d function.
+ */
+// int	main(int argc, char **argv)
+// {
+// 	return (cub3d(argc, argv));
+// }
 
 int	main(int argc, char **argv)
 {
-	t_cub	*cub;
-	int		fd;
-
-	fd = check_args_open(argc, argv);
-	if (fd < 0)
-		return (1);
-	cub = cub_init(fd);
-	close(fd);
-	if (cub == NULL)
-	{
-		ft_dprintf(2, "Map error\n");
-		return (1);
-	}
-	cub->player.pos.x = 2.f;
-	cub->player.pos.y = 1.5f;
-	cub->player.angle = -0.66f;
-	cub->player.fov = PI / 2.0f;
-	cub->ceil_color = CEIL_COLOR;
-	cub->floor_color = FLOOR_COLOR;
-	cub_loop(cub);
-	cub_free(cub);
+	return (cub3d_raoul(argc, argv));
 }

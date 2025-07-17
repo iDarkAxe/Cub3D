@@ -6,13 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:52:04 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 13:25:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 16:42:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
-#include "libft.h"
 #include "get_next_line.h"
+#include "libft.h"
 #include "libft_collections.h"
 #include <malloc.h>
 #include <unistd.h>
@@ -41,7 +41,7 @@ static int	push_line(t_ptrvec *vec, int fd)
 	return (i);
 }
 
-static int	get_walls(t_map *map, t_ptrvec *vec, int fd)
+static int	get_walls(t_map_raoul *map, t_ptrvec *vec, int fd)
 {
 	int	i;
 	int	flag;
@@ -64,7 +64,7 @@ static int	get_walls(t_map *map, t_ptrvec *vec, int fd)
 	return (1);
 }
 
-static t_map	*map_finalize(t_map *map, t_ptrvec *vec)
+static t_map_raoul	*map_finalize(t_map_raoul *map, t_ptrvec *vec)
 {
 	int		*tab;
 	size_t	i;
@@ -87,9 +87,9 @@ static t_map	*map_finalize(t_map *map, t_ptrvec *vec)
 	return (map);
 }
 
-t_map	*parse_map(int fd)
+t_map_raoul	*parse_map(int fd)
 {
-	t_map		*map;
+	t_map_raoul	*map;
 	t_ptrvec	*vec;
 
 	map = ft_calloc(1, sizeof(t_map));

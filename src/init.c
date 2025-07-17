@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 14:56:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 16:12:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	cub_free(t_cub *cub)
 
 t_cub	*cub_init(int fd)
 {
-	t_map	*map;
-	t_cub	*cub;
+	t_map_raoul	*map;
+	t_cub		*cub;
 
 	map = parse_map(fd);
 	if (map == NULL)
