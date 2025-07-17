@@ -6,16 +6,17 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 14:23:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 13:13:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "ft_print.h"
 #include "ft_printf.h"
+#include <stdbool.h>
 
 static int	has_player_already_been_found(char **map, t_coordinates pos,
-				t_bool *player);
+				bool *player);
 static int	check_autorized_chars(char **map);
 
 t_map	ft_map_check_dimensions(t_map *map, char *map_name)
@@ -71,7 +72,7 @@ t_map	check_map_chars_borders(t_map *map)
 
 /**
  * @brief Check if the player has already been found
- * if first time, set player as TRUE
+ * if first time, set player as true
  * if not, return 1 as error
  * 
  * @param map array of strings representing map
@@ -79,18 +80,18 @@ t_map	check_map_chars_borders(t_map *map)
  * @param player player boolean
  * @return int 0 OK, error otherwise
  */
-int	has_player_already_been_found(char **map, t_coordinates pos, t_bool *player)
+int	has_player_already_been_found(char **map, t_coordinates pos, bool *player)
 {
 	if (!map)
 		return (1);
 	if (pos.x == 0 && pos.y == 0)
-		*player = FALSE;
+		*player = false;
 	if (ft_strchr("NSEW", map[pos.y][pos.x]) == NULL)
 		return (0);
 	else
 	{
-		if (*player == FALSE)
-			*player = TRUE;
+		if (*player == false)
+			*player = true;
 		else
 		{
 			ft_dprintf(2, RED "Error" RESET
@@ -111,7 +112,7 @@ int	has_player_already_been_found(char **map, t_coordinates pos, t_bool *player)
 int	check_autorized_chars(char **map)
 {
 	t_coordinates	pos;
-	t_bool			player;
+	bool			player;
 
 	if (!map)
 		return (0);

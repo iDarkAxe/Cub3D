@@ -6,15 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:15:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/20 16:24:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 13:14:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "libft.h"
 #include <stdlib.h>
+#include <stdbool.h>
 
-static t_bool	is_only_whitespace(const char *str);
+static bool		is_only_whitespace(const char *str);
 static size_t	count_map_size(t_map *map);
 
 size_t	count_map_size(t_map *map)
@@ -28,7 +29,7 @@ size_t	count_map_size(t_map *map)
 	count = 0;
 	while (map->file[index])
 	{
-		if (is_only_whitespace(map->file[index]) == FALSE)
+		if (is_only_whitespace(map->file[index]) == false)
 			count++;
 		index++;
 	}
@@ -50,7 +51,7 @@ char	**fill_map_region(t_map *map)
 	while (map->file[index] && map->error == 0)
 	{
 		if (is_config_line(map->file[index]) == 0
-			&& is_only_whitespace(map->file[index]) == FALSE)
+			&& is_only_whitespace(map->file[index]) == false)
 		{
 			map->map[nb_lines] = map->file[index];
 			nb_lines++;
@@ -65,20 +66,20 @@ char	**fill_map_region(t_map *map)
  * @brief Check if the string contains only whitespace characters
  *
  * @param str string to check
- * @return t_bool 1 all whitespace, 0 otherwise
+ * @return bool 1 all whitespace, 0 otherwise
  */
-t_bool	is_only_whitespace(const char *str)
+bool	is_only_whitespace(const char *str)
 {
 	size_t	i;
 
 	i = 0;
 	if (str == NULL)
-		return (FALSE);
+		return (false);
 	while (str[i])
 	{
 		if (!ft_isspace((unsigned char)str[i]))
-			return (FALSE);
+			return (false);
 		i++;
 	}
-	return (TRUE);
+	return (true);
 }
