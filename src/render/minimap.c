@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 13:39:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 12:00:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	render_square(t_cub *cub, t_pos2 pos, int size, unsigned int color)
 		x = 0;
 		while (x < size)
 		{
-			cubmlx_putpixel(cub->mlx, pos.x + x, pos.y + y, color);
+			cubmlx_putpixel(cub, pos.x + x, pos.y + y, color);
 			x++;
 		}
 		y++;
@@ -46,9 +46,9 @@ void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
 		+ cub->player.pos.x * tile_size;
 	line_right.y = 8 * sin(cub->player.angle + cub->player.fov * 0.5)
 		+ cub->player.pos.y * tile_size;
-	cubmlx_putline(cub->mlx, pos, line_left,
+	cubmlx_putline(cub, pos, line_left,
 		MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
-	cubmlx_putline(cub->mlx, pos, line_right,
+	cubmlx_putline(cub, pos, line_right,
 		MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
 }
 
@@ -60,7 +60,7 @@ void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
 
 	len.x = 8 * cos(cub->player.angle) + cub->player.pos.x * tile_size;
 	len.y = 8 * sin(cub->player.angle) + cub->player.pos.y * tile_size;
-	cubmlx_putline(cub->mlx, pos, len, MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR);
+	cubmlx_putline(cub, pos, len, MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR);
 }
 
 #endif

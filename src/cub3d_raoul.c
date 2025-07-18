@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 16:42:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 12:03:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,13 @@ static int	check_args_open(int argc, char **argv)
 	return (fd);
 }
 
+// TODO Modifier position du joueur
+/* 
+Position by default nice for testing:
+cub->player.pos.x = 10.f;
+cub->player.pos.y = 8.5f; 
+*/
+// TODO MODIFIER ANGLE PAR DEFAUT avec player char on map
 int	cub3d_raoul(int argc, char **argv)
 {
 	t_cub	*cub;
@@ -57,8 +64,8 @@ int	cub3d_raoul(int argc, char **argv)
 		ft_dprintf(2, "Map error\n");
 		return (1);
 	}
-	cub->player.pos.x = 2.f;
-	cub->player.pos.y = 1.5f;
+	cub->player.pos.x = 10.f;
+	cub->player.pos.y = 8.5f;
 	cub->player.angle = -0.66f;
 	cub->player.fov = PI / 2.0f;
 	cub->ceil_color = CEIL_COLOR;

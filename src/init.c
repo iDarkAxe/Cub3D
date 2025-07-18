@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 16:12:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 10:45:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_cub	*cub_init(int fd)
 	cub->map = map;
 	cub->win_size.x = WINDOW_WIDTH;
 	cub->win_size.y = WINDOW_HEIGHT;
-	cub->mlx = cubmlx_init();
+	cub->mlx = cubmlx_init(cub);
 	if (cub->mlx == NULL)
 	{
 		cub_free(cub);

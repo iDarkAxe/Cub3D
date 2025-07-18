@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 14:59:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 11:59:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 // TODO REMOVE all the hardcoded prototypes
 // TODO Check all the pointers values before using them
 // Function prototypes
-void		raycalc(int x, float cam_angle, t_vec2 plane, t_raydata *rdata);
+void		raycalc(const t_pos2 win_size, int x, float cam_angle,
+				t_raydata *rdata);
 
 void		hitside_color(int hitside, const t_pos2 *step, int *color);
 
 void		hitwall_loop(const t_cub *cub, t_raydata *rdata);
 
-static int	raycast_column(t_cub *cub, int x, t_vec2 plane, t_raydata *rdata);
+static int	raycast_column(t_cub *cub, int x, t_raydata *rdata);
 static void	draw_column(t_cub *cub, int x, const t_raydata *rdata);
 static int	calc_line(t_pos2 win_size, float wall_dist, int x,
 				t_pos2 *line_point);
@@ -39,11 +40,11 @@ void	cub_render(t_cub *cub)
 			cub->player.angle);
 	while (x < cub->win_size.x)
 	{
-		if (!raycast_column(cub, x, rdata.plane, &rdata))
+		if (!raycast_column(cub, x, &rdata))
 		{
-			cubmlx_putvertline(cub->mlx, (t_pos2){x, 0}, cub->win_size.y / 2,
+			cubmlx_putvertline(cub, (t_pos2){x, 0}, cub->win_size.y / 2,
 				cub->ceil_color);
-			cubmlx_putvertline(cub->mlx, (t_pos2){x, cub->win_size.y / 2},
+			cubmlx_putvertline(cub, (t_pos2){x, cub->win_size.y / 2},
 				cub->win_size.y / 2, cub->floor_color);
 			x++;
 			continue ;
@@ -55,12 +56,12 @@ void	cub_render(t_cub *cub)
 	cubmlx_present(cub->mlx);
 }
 
-static int	raycast_column(t_cub *cub, int x, t_vec2 plane, t_raydata *rdata)
+static int	raycast_column(t_cub *cub, int x, t_raydata *rdata)
 {
 	rdata->pos = cub->player.pos;
 	rdata->map.x = (int)rdata->pos.x;
 	rdata->map.y = (int)rdata->pos.y;
-	raycalc(x, cub->player.angle, plane, rdata);
+	raycalc(cub->win_size, x, cub->player.angle, rdata);
 	rdata->hit_wall = 0;
 	hitwall_loop(cub, rdata);
 	return (rdata->hit_wall);
@@ -98,11 +99,11 @@ static void	draw_column(t_cub *cub, int x, const t_raydata *rdata)
 	line_draw_height = calc_line(cub->win_size, wall_dist, x, &line_point);
 	hitside_color(rdata->hit_side, &rdata->step, &color);
 	if (line_point.y > 0)
-		cubmlx_putvertline(cub->mlx, (t_pos2){x, 0}, line_point.y,
+		cubmlx_putvertline(cub, (t_pos2){x, 0}, line_point.y,
 			cub->ceil_color);
-	cubmlx_putvertline(cub->mlx, line_point, line_draw_height, color);
+	cubmlx_putvertline(cub, line_point, line_draw_height, color);
 	if ((line_point.y + line_draw_height + 1) < cub->win_size.y)
-		cubmlx_putvertline(cub->mlx, (t_pos2){x, line_point.y
+		cubmlx_putvertline(cub, (t_pos2){x, line_point.y
 			+ line_draw_height}, cub->win_size.y - (line_point.y
 				+ line_draw_height), cub->floor_color);
 }

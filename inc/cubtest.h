@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 16:30:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 12:00:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,14 +100,14 @@ typedef struct s_raydata
 }				t_raydata;
 
 t_map_raoul		*parse_map(int fd);
-t_cubmlx		*cubmlx_init(void);
+t_cubmlx		*cubmlx_init(t_cub *cub);
 void			*cubmlx_free(t_cubmlx *mlx);
 void			cubmlx_present(t_cubmlx *mlx);
-void			cubmlx_putpixel(t_cubmlx *mlx, int x, int y,
+void			cubmlx_putpixel(t_cub *cub, int x, int y,
 					unsigned int color);
-void			cubmlx_putvertline(t_cubmlx *mlx, t_pos2 pos, int len,
+void			cubmlx_putvertline(t_cub *cub, t_pos2 pos, int len,
 					unsigned int color);
-void			cubmlx_putline(t_cubmlx *mlx, t_pos2 p1, t_pos2 p2,
+void			cubmlx_putline(t_cub *cub, t_pos2 p1, t_pos2 p2,
 					unsigned int color);
 void			cubmlx_clear(t_cubmlx *mlx, unsigned int color);
 t_cub			*cub_init(int fd);

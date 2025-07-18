@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render.c                                           :+:      :+:    :+:   */
+/*   ft_mlx_render.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/25 14:59:38 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/18 12:00:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ void	cubmlx_clear(t_cubmlx *mlx, unsigned int color)
 	}
 }
 
-void	cubmlx_putpixel(t_cubmlx *mlx, int x, int y, unsigned int color)
+void	cubmlx_putpixel(t_cub *cub, int x, int y, unsigned int color)
 {
 	char	*dst;
 
-	if (x < 0 || x >= WINDOW_WIDTH || y < 0 || y >= WINDOW_HEIGHT)
+	if (x < 0 || x >= cub->win_size.x || y < 0 || y >= cub->win_size.y)
 		return ;
-	dst = mlx->backbuffer.pxls + (y * mlx->backbuffer.width + x
-			* (mlx->backbuffer.bits_per_pixel / 8));
+	dst = cub->mlx->backbuffer.pxls + (y * cub->mlx->backbuffer.width + x
+			* (cub->mlx->backbuffer.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
-void	cubmlx_putvertline(t_cubmlx *mlx, t_pos2 pos, int len,
+void	cubmlx_putvertline(t_cub *cub, t_pos2 pos, int len,
 			unsigned int color)
 {
 	int		y;
@@ -49,12 +49,12 @@ void	cubmlx_putvertline(t_cubmlx *mlx, t_pos2 pos, int len,
 
 	y = pos.y;
 	dst = y + len;
-	px = mlx->backbuffer.pxls + (pos.y * mlx->backbuffer.width + pos.x
-			* (mlx->backbuffer.bits_per_pixel / 8));
-	step = mlx->backbuffer.width;
+	px = cub->mlx->backbuffer.pxls + (pos.y * cub->mlx->backbuffer.width + pos.x
+			* (cub->mlx->backbuffer.bits_per_pixel / 8));
+	step = cub->mlx->backbuffer.width;
 	while (y < dst)
 	{
-		if (y >= WINDOW_HEIGHT)
+		if (y >= cub->win_size.y)
 			return ;
 		*(unsigned int *)px = color;
 		px += step;

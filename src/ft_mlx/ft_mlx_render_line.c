@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_line.c                                      :+:      :+:    :+:   */
+/*   ft_mlx_render_line.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 17:38:10 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/22 18:08:54 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/18 12:01:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
 
-void	cubmlx_putline(t_cubmlx *mlx, t_pos2 p1, t_pos2 p2, unsigned int color)
+void	cubmlx_putline(t_cub *cub, t_pos2 p1, t_pos2 p2, unsigned int color)
 {
 	t_vec2	delta;
 	t_vec2	pos;
@@ -30,9 +30,9 @@ void	cubmlx_putline(t_cubmlx *mlx, t_pos2 p1, t_pos2 p2, unsigned int color)
 	i = 0;
 	while (i <= length)
 	{
-		if (pos.x >= 0 && pos.x < WINDOW_WIDTH && pos.y >= 0
-			&& pos.y < WINDOW_HEIGHT)
-			cubmlx_putpixel(mlx, (int)pos.x, (int)pos.y, color);
+		if (pos.x >= 0 && pos.x < cub->win_size.x && pos.y >= 0
+			&& pos.y < cub->win_size.y)
+			cubmlx_putpixel(cub, (int)pos.x, (int)pos.y, color);
 		pos.x += delta.x;
 		pos.y += delta.y;
 		i++;

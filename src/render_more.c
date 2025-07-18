@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 09:47:02 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 10:41:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 10:40:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 static void	raycalc_set_ray_dir(t_raydata *rdata, const t_vec2 *pos);
 
-void	raycalc(int x, float cam_angle, t_raydata *rdata)
+void	raycalc(const t_pos2 win_size, int x, float cam_angle, t_raydata *rdata)
 {
 	float	cam_x;
 
-	cam_x = 2 * x / (float)WINDOW_WIDTH - 1.f;
+	cam_x = 2 * x / (float)win_size.x - 1.f;
 	rdata->ray_dir.x = cos(cam_angle) + rdata->plane.x * cam_x;
 	rdata->ray_dir.y = sin(cam_angle) + rdata->plane.y * cam_x;
 	if (rdata->ray_dir.x == 0.f)

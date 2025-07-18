@@ -84,9 +84,9 @@ SRC = \
 FT_MLX = \
 	ft_init_mlx.c \
 	ft_hooks.c \
-	init.c \
-	render.c\
-	render_line.c\
+	ft_mlx_init.c \
+	ft_mlx_render.c \
+	ft_mlx_render_line.c\
 
 MAP_VERIF = \
 	ft_file_fill.c \
