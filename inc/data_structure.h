@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 15:46:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/17 17:02:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ enum							e_screen_size
 	SIZE_FULL_SCREEN = 1,
 	SIZE_4K = 2,
 	SIZE_2K = 3,
-	SIZE_1080P = 4
+	SIZE_1080P = 4,
+	SIZE_720P = 5,
+	SIZE_480P = 6,
 };
 
 /**

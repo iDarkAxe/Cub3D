@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 14:11:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 10:27:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,26 @@ int	hook_settings_close_window(void *param)
 	return (0);
 }
 
+/**
+ * @brief Handle mouse click in the settings window.
+ * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
+ * 
+ * @param keycode 
+ * @param param 
+ * @return int 
+ */
 int	hook_settings_handle_keypress(int keycode, void *param)
 {
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)param;
 	ft_print_key(keycode);
-	if (is_mv_key(MV_DOWN, keycode) && mlx->settings_state == SIZE_1080P)
+	if (is_mv_key(MV_DOWN, keycode) && mlx->settings_state == SIZE_480P)
 		mlx->settings_state = SIZE_FULL_SCREEN;
 	else if (is_mv_key(MV_UP, keycode)
 		&& mlx->settings_state == SIZE_FULL_SCREEN)
-		mlx->settings_state = SIZE_1080P;
-	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings_state < SIZE_1080P)
+		mlx->settings_state = SIZE_480P;
+	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings_state < SIZE_480P)
 		mlx->settings_state++;
 	else if (is_mv_key(MV_UP, keycode)
 		&& mlx->settings_state > SIZE_FULL_SCREEN)

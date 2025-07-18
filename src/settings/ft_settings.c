@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 15:46:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/18 10:29:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,10 @@ int	ft_set_screen_size(t_mlx *mlx, enum e_screen_size size)
 		mlx->win_size = (t_coordinates){2560, 1440};
 	else if (size == SIZE_1080P)
 		mlx->win_size = (t_coordinates){1920, 1080};
+	else if (size == SIZE_720P)
+		mlx->win_size = (t_coordinates){1280, 720};
+	else if (size == SIZE_480P)
+		mlx->win_size = (t_coordinates){640, 480};
 	else
 		return (-1);
 	return (0);
@@ -110,14 +114,18 @@ enum e_screen_size	circle_state(int x, int y)
 {
 	if (x > 15 && x < 55)
 	{
-		if (y > 120 && y < 160)
+		if (y > 60 && y < 100)
 			return (SIZE_FULL_SCREEN);
-		else if (y > 190 && y < 230)
+		if (y > 120 && y < 160)
 			return (SIZE_4K);
-		else if (y > 260 && y < 300)
+		else if (y > 190 && y < 230)
 			return (SIZE_2K);
-		else if (y > 340 && y < 380)
+		else if (y > 260 && y < 300)
 			return (SIZE_1080P);
+		else if (y > 340 && y < 380)
+			return (SIZE_720P);
+		else if (y > 420 && y < 460)
+			return (SIZE_480P);
 	}
 	return (SIZE_NONE);
 }
