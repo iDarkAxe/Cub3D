@@ -6,14 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/18 12:00:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 12:31:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUBTEST_H
 # define CUBTEST_H
-
-// TODO AJOUTER 720p dans settings
 
 # include "data_structure.h"
 # include <stddef.h>
