@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 17:02:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:03:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_mlx			t_mlx;
 typedef struct s_coordinates	t_coordinates;
 typedef struct s_map			t_map;
 typedef struct s_data			t_data;
+typedef struct s_settings		t_settings;
 
 typedef union u_color			t_color;
 
@@ -105,6 +106,18 @@ struct							s_coordinates
 };
 
 /**
+ * @brief Structure that handle the settings of the game.
+ * 
+ */
+struct s_settings
+{
+	void						*win_ptr;
+	enum e_screen_size			state;
+	t_img						circle_yes;
+	t_img						circle_no;
+};
+
+/**
  * @brief Structure that handle the mlx instance.
  *
  */
@@ -112,14 +125,13 @@ struct							s_mlx
 {
 	void						*mlx_ptr;
 	void						*win_ptr;
-	void						*win_settings_ptr;
-	enum e_screen_size			settings_state;
-	t_img						circle_yes;
-	t_img						circle_no;
+	t_settings					settings;
 	int							mouse_x;
 	int							mouse_y;
 	t_coordinates				win_size;
 };
+
+
 
 /**
  * @brief Structure that handle the map informations.

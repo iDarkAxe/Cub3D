@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/18 12:00:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:13:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	render_square(t_cub *cub, t_pos2 pos, int size, unsigned int color)
 
 #if ENABLE_FIELD_OF_VIEW == 1
 
-void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
+static void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
 {
 	t_pos2	line_left;
 	t_pos2	line_right;
@@ -54,7 +54,7 @@ void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
 
 #else
 
-void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
+static void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
 {
 	t_pos2	len;
 
@@ -82,7 +82,7 @@ void	cub_render_minimap(t_cub *cub)
 	size_t		x;
 	size_t		y;
 	t_pos2		pos;
-	const int	tile_size = 16;
+	const int	tile_size = MINIMAP_TILE_SIZE;
 
 	y = 0;
 	while (y < cub->map->height)

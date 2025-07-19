@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 16:35:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:03:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ int	ft_mlx_init(t_mlx *mlx)
 	ft_bzero(mlx, sizeof(t_mlx));
 	mlx->mouse_x = -1;
 	mlx->mouse_y = -1;
-	mlx->settings_state = SIZE_FULL_SCREEN;
+	mlx->settings.state = SIZE_FULL_SCREEN;
 	mlx->win_size = (t_coordinates){0, 0};
 	mlx->mlx_ptr = mlx_init();
 	if (mlx->mlx_ptr == NULL)
 		return (-1);
-	mlx->win_settings_ptr = ft_settings(mlx);
+	mlx->settings.win_ptr = ft_settings(mlx);
 	return (0);
 }
 

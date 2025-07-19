@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:52:04 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/17 16:42:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:09:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ static int	push_line(t_ptrvec *vec, int fd)
 
 static int	get_walls(t_map_raoul *map, t_ptrvec *vec, int fd)
 {
-	int	i;
-	int	flag;
+	size_t	i;
+	int		flag;
 
 	flag = push_line(vec, fd);
 	if (flag < 0)
 		return (0);
-	map->width = flag;
+	map->width = (size_t)flag;
 	i = 1;
 	while (flag)
 	{

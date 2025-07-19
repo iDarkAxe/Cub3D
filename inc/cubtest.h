@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/19 12:31:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:15:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
 # define MINIMAP_FLOOR_COLOR 0xff000000
 # define MINIMAP_WALL_COLOR 0xffffffff
+# define MINIMAP_TILE_SIZE 16
 # define ENABLE_FIELD_OF_VIEW 1
 
 typedef struct s_pos2

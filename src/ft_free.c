@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 15:46:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:03:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,19 +111,19 @@ void	ft_free_settings(t_mlx *mlx)
 {
 	if (!mlx)
 		return ;
-	if (mlx->circle_no.img)
+	if (mlx->settings.circle_no.img)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, mlx->circle_no.img);
-		mlx->circle_no.img = NULL;
+		mlx_destroy_image(mlx->mlx_ptr, mlx->settings.circle_no.img);
+		mlx->settings.circle_no.img = NULL;
 	}
-	if (mlx->circle_yes.img)
+	if (mlx->settings.circle_yes.img)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, mlx->circle_yes.img);
-		mlx->circle_yes.img = NULL;
+		mlx_destroy_image(mlx->mlx_ptr, mlx->settings.circle_yes.img);
+		mlx->settings.circle_yes.img = NULL;
 	}
-	if (mlx->win_settings_ptr)
+	if (mlx->settings.win_ptr)
 	{
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_settings_ptr);
-		mlx->win_settings_ptr = NULL;
+		mlx_destroy_window(mlx->mlx_ptr, mlx->settings.win_ptr);
+		mlx->settings.win_ptr = NULL;
 	}
 }

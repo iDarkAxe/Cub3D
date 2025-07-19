@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/18 10:29:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:00:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	ft_put_circle_to_win(t_mlx *mlx, void *win_ptr, t_circle element,
 	if (!mlx || !mlx->mlx_ptr || !win_ptr)
 		return ;
 	if (is_enabled == 1)
-		mlx_put_image_to_window(mlx->mlx_ptr, win_ptr, mlx->circle_yes.img,
+		mlx_put_image_to_window(mlx->mlx_ptr, win_ptr, mlx->settings.circle_yes.img,
 			element.x - element.radius, element.y - element.radius);
 	else
-		mlx_put_image_to_window(mlx->mlx_ptr, win_ptr, mlx->circle_no.img,
+		mlx_put_image_to_window(mlx->mlx_ptr, win_ptr, mlx->settings.circle_no.img,
 			element.x - element.radius, element.y - element.radius);
 }
 

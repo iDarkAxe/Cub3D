@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/18 10:29:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 14:03:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,34 +32,34 @@ void	*ft_settings(t_mlx *mlx)
 		free(mlx->mlx_ptr);
 		return (NULL);
 	}
-	mlx->win_settings_ptr = mlx_new_window(mlx->mlx_ptr, 500, 500, "Settings");
-	if (mlx->win_settings_ptr == NULL)
+	mlx->settings.win_ptr = mlx_new_window(mlx->mlx_ptr, 500, 500, "Settings");
+	if (mlx->settings.win_ptr == NULL)
 	{
 		free(mlx->mlx_ptr);
 		return (NULL);
 	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_settings_ptr, img.img, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->settings.win_ptr, img.img, 0, 0);
 	mlx_destroy_image(mlx->mlx_ptr, img.img);
-	mlx->circle_no.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+	mlx->settings.circle_no.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
 			"img/circle-unselected.xpm", &img.width, &img.width);
-	mlx->circle_yes.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+	mlx->settings.circle_yes.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
 			"img/circle-selected.xpm", &img.width, &img.width);
-	ft_put_all_circle_to_win(mlx, mlx->win_settings_ptr, 0);
-	ft_put_circle_specific(mlx, mlx->win_settings_ptr, mlx->settings_state, 1);
+	ft_put_all_circle_to_win(mlx, mlx->settings.win_ptr, 0);
+	ft_put_circle_specific(mlx, mlx->settings.win_ptr, mlx->settings.state, 1);
 	settings_hooks(mlx);
-	return (mlx->win_settings_ptr);
+	return (mlx->settings.win_ptr);
 }
 
 void	settings_hooks(t_mlx *mlx)
 {
 	if (!mlx)
 		return ;
-	mlx_hook(mlx->win_settings_ptr, MotionNotify, PointerMotionMask,
+	mlx_hook(mlx->settings.win_ptr, MotionNotify, PointerMotionMask,
 		hook_settings_handle_mouse_motion, mlx);
-	mlx_hook(mlx->win_settings_ptr, KeyPress, KeyPressMask,
+	mlx_hook(mlx->settings.win_ptr, KeyPress, KeyPressMask,
 		hook_settings_handle_keypress, mlx);
-	mlx_hook(mlx->win_settings_ptr, 17, 0, hook_settings_close_window, mlx);
-	mlx_hook(mlx->win_settings_ptr, ButtonPress, ButtonPressMask,
+	mlx_hook(mlx->settings.win_ptr, 17, 0, hook_settings_close_window, mlx);
+	mlx_hook(mlx->settings.win_ptr, ButtonPress, ButtonPressMask,
 		hook_settings_handle_mouse_click, mlx);
 	mlx_loop_hook(mlx->mlx_ptr, settings_loop_hook, mlx);
 }
@@ -81,11 +81,11 @@ int	settings_loop_hook(void *param)
 		ft_free_settings(mlx);
 		main_hooks(mlx);
 	}
-	state_actual = mlx->settings_state;
+	state_actual = mlx->settings.state;
 	if (state_actual == state_prev || state_actual == 0)
 		return (0);
-	ft_put_circle_specific(mlx, mlx->win_settings_ptr, state_prev, 0);
-	ft_put_circle_specific(mlx, mlx->win_settings_ptr, state_actual, 1);
+	ft_put_circle_specific(mlx, mlx->settings.win_ptr, state_prev, 0);
+	ft_put_circle_specific(mlx, mlx->settings.win_ptr, state_actual, 1);
 	state_prev = state_actual;
 	return (0);
 }
