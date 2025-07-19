@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 11:25:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/19 20:40:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,11 @@ unsigned char	safe_atoi(char *str, int *error, unsigned char flag)
 
 int	change_color_values(t_color *color, char **split, int *error)
 {
-	int	ret;
-
 	if (!color || !split || !split[0] || !split[1] || !split[2] || !error)
 	{
 		ft_dprintf(2, RED "Error" RESET "\nInvalid color values\n");
 		return (1);
 	}
-	ret = 0;
 	color->red = safe_atoi(split[0], error, 0);
 	color->green = safe_atoi(split[1], error, 1);
 	color->blue = safe_atoi(split[2], error, 2);
