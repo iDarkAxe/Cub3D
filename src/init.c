@@ -44,6 +44,8 @@ t_cub	*cub_init(int fd)
 	cub->map = map;
 	cub->win_size.x = WINDOW_WIDTH;
 	cub->win_size.y = WINDOW_HEIGHT;
+	cub->minimap_size.x = cub->map->width * MINIMAP_TILE_SIZE;
+	cub->minimap_size.y = cub->map->height * MINIMAP_TILE_SIZE;
 	cub->mlx = cubmlx_init(cub);
 	if (cub->mlx == NULL)
 	{

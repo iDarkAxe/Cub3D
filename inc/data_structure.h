@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/19 14:03:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/20 12:19:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,9 @@ struct							s_coordinates
 
 /**
  * @brief Structure that handle the settings of the game.
- * 
+ *
  */
-struct s_settings
+struct							s_settings
 {
 	void						*win_ptr;
 	enum e_screen_size			state;
@@ -130,8 +130,6 @@ struct							s_mlx
 	int							mouse_y;
 	t_coordinates				win_size;
 };
-
-
 
 /**
  * @brief Structure that handle the map informations.

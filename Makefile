@@ -37,6 +37,7 @@ P_PARSING = parsing/
 P_SETTINGS = settings/
 P_DRAW = draw/
 P_PRINT = print/
+P_RENDER = render/
 
 # Object directories
 P_OBJ = .obj/
@@ -72,14 +73,18 @@ SRC = \
 	ft_keys.c \
 	parse.c \
 	init.c \
-	render.c \
 	loop.c \
-	render_more.c \
 	hitside_color.c \
 	hitwall.c \
 	math/utils.c \
 	math/vec2.c \
-	render/minimap.c \
+	
+
+RENDER = \
+	minimap.c \
+	render.c \
+	render_more.c \
+	draw_column.c \
 
 FT_MLX = \
 	ft_init_mlx.c \
@@ -138,6 +143,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_SETTINGS), $(SETTINGS)) \
 	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
+	$(addprefix $(P_SRC)$(P_RENDER), $(RENDER)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)

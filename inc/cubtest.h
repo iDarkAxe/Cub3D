@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/19 14:15:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/20 12:27:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define WINDOW_HEIGHT 720
 # define PI 3.141592653589793238462643383279502884197169399375105820974944592307
 
+# define ENABLE_MINIMAP 1
 # define MINIMAP_PLAYER_COLOR 0xffffff00
 # define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
 # define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
@@ -81,6 +82,7 @@ typedef struct s_cub
 	int			ceil_color;
 	int			floor_color;
 	t_pos2		win_size;
+	t_pos2		minimap_size;
 }				t_cub;
 
 typedef struct s_raydata
