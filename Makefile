@@ -74,6 +74,7 @@ SRC = \
 	parse.c \
 	init.c \
 	loop.c \
+	player.c \
 	hitside_color.c \
 	hitwall.c \
 	math/utils.c \

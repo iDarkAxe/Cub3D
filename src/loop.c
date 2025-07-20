@@ -6,14 +6,13 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/25 14:12:58 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/20 17:37:48 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
 #include "mlx.h"
 #include <X11/X.h>
-#include <math.h>
 
 static void	set_key(int keycode, t_input *input, int set)
 {
@@ -50,24 +49,7 @@ static int	loop_hook(void	*param)
 	t_cub	*cub;
 
 	cub = (t_cub *)param;
-	if (cub->input.fwd)
-	{
-		cub->player.pos.x += 0.01f * cos(cub->player.angle);
-		cub->player.pos.y += 0.01f * sin(cub->player.angle);
-	}
-	if (cub->input.bckwd)
-	{
-		cub->player.pos.x -= 0.01f * cos(cub->player.angle);
-		cub->player.pos.y -= 0.01f * sin(cub->player.angle);
-	}
-	if (cub->input.left)
-		cub->player.angle -= 0.01f;
-	if (cub->input.right)
-		cub->player.angle += 0.01f;
-	if (cub->player.angle >= (2.f * PI))
-		cub->player.angle -= (2.f * PI);
-	if (cub->player.angle < 0.f)
-		cub->player.angle += (2.f * PI);
+	cub_player_update(cub);
 	cub_render(cub);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/20 12:27:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/20 17:37:19 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void			cub_render(t_cub *cub);
 void			cub_free(t_cub *cub);
 
 void			cub_loop(t_cub *cub);
+void			cub_player_update(t_cub *cub);
 void			cub_render_minimap(t_cub *cub);
 
 float			absf(float n);
