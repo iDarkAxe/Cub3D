@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/20 12:27:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/20 16:45:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,6 @@ void		hitwall_loop(const t_cub *cub, t_raydata *rdata);
 
 static int	raycast_column(t_cub *cub, int x, t_raydata *rdata);
 void		draw_column(t_cub *cub, int x, const t_raydata *rdata);
-
-#if ENABLE_MINIMAP == 1
-
-int			calc_line(t_pos2 win_size, float wall_dist, int x,
-				t_pos2 *line_point, t_pos2 minimap_size);
-
-#else
-
-int			calc_line(t_pos2 win_size, float wall_dist, int x,
-				t_pos2 *line_point);
-
-#endif
 
 void	cub_render(t_cub *cub)
 {
