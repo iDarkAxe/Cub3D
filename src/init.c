@@ -6,18 +6,18 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/18 10:45:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 15:32:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
 #include "libft.h"
+#include "mlx.h"
 #include <stdlib.h>
 
 void	cub_free(t_cub *cub)
 {
-	if (cub->mlx)
-		cubmlx_free(cub->mlx);
+	cubmlx_free(&cub->mlx);
 	if (cub->map)
 	{
 		free(cub->map->walls);
@@ -26,7 +26,21 @@ void	cub_free(t_cub *cub)
 	free(cub);
 }
 
-t_cub	*cub_init(int fd)
+static int	setup_backbuffer(t_cub *cub, t_cubmlx *mlx)
+{
+	mlx->backbuffer.img = mlx_new_image(mlx->mlx, cub->win_size.x,
+			cub->win_size.y);
+	if (mlx->backbuffer.img == NULL)
+		return (0);
+	mlx->backbuffer.pxls = mlx_get_data_addr(mlx->backbuffer.img,
+			&mlx->backbuffer.bits_per_pixel, &mlx->backbuffer.width,
+			&mlx->backbuffer.endian);
+	mlx->backbuffer.height = (cub->win_size.x * cub->win_size.y)
+		/ mlx->backbuffer.width;
+	return (1);
+}
+
+t_cub	*cub_init(t_mlx *mlx, int fd)
 {
 	t_map_raoul	*map;
 	t_cub		*cub;
@@ -42,15 +56,13 @@ t_cub	*cub_init(int fd)
 		return (NULL);
 	}
 	cub->map = map;
-	cub->win_size.x = WINDOW_WIDTH;
-	cub->win_size.y = WINDOW_HEIGHT;
+	cub->win_size.x = mlx->win_size.x;
+	cub->win_size.y = mlx->win_size.y;
 	cub->minimap_size.x = cub->map->width * MINIMAP_TILE_SIZE;
 	cub->minimap_size.y = cub->map->height * MINIMAP_TILE_SIZE;
-	cub->mlx = cubmlx_init(cub);
-	if (cub->mlx == NULL)
-	{
-		cub_free(cub);
-		return (NULL);
-	}
+	cub->mlx.mlx = mlx->mlx_ptr;
+	cub->mlx.win = mlx->win_ptr;
+	if (setup_backbuffer(cub, &cub->mlx) == 0)
+		return (cubmlx_free(&cub->mlx));
 	return (cub);
 }

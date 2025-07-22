@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/20 12:26:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 15:29:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	cubmlx_putpixel(t_cub *cub, int x, int y, unsigned int color)
 
 	if (x < 0 || x >= cub->win_size.x || y < 0 || y >= cub->win_size.y)
 		return ;
-	dst = cub->mlx->backbuffer.pxls + (y * cub->mlx->backbuffer.width + x
-			* (cub->mlx->backbuffer.bits_per_pixel / 8));
+	dst = cub->mlx.backbuffer.pxls + (y * cub->mlx.backbuffer.width + x
+			* (cub->mlx.backbuffer.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
@@ -49,9 +49,9 @@ void	cubmlx_putvertline(t_cub *cub, t_pos2 pos, int len,
 
 	y = pos.y;
 	dst = y + len;
-	px = cub->mlx->backbuffer.pxls + (pos.y * cub->mlx->backbuffer.width + pos.x
-			* (cub->mlx->backbuffer.bits_per_pixel / 8));
-	step = cub->mlx->backbuffer.width;
+	px = cub->mlx.backbuffer.pxls + (pos.y * cub->mlx.backbuffer.width + pos.x
+			* (cub->mlx.backbuffer.bits_per_pixel / 8));
+	step = cub->mlx.backbuffer.width;
 	while (y < dst)
 	{
 		if (y >= cub->win_size.y)

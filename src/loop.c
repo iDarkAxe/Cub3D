@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loop.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/20 17:37:48 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/22 15:38:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ static int	loop_hook(void	*param)
 
 void	cub_loop(t_cub *cub)
 {
-	mlx_hook(cub->mlx->win, DestroyNotify, StructureNotifyMask, &mlx_loop_end,
-		cub->mlx->mlx);
-	mlx_hook(cub->mlx->win, KeyPress, KeyPressMask, &cub_keydown_hook,
+	mlx_hook(cub->mlx.win, DestroyNotify, StructureNotifyMask, &mlx_loop_end,
+		cub->mlx.mlx);
+	mlx_hook(cub->mlx.win, KeyPress, KeyPressMask, &cub_keydown_hook,
 		&cub->input);
-	mlx_hook(cub->mlx->win, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
+	mlx_hook(cub->mlx.win, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
 		&cub->input);
-	mlx_loop_hook(cub->mlx->mlx, &loop_hook, cub);
-	mlx_loop(cub->mlx->mlx);
+	mlx_loop_hook(cub->mlx.mlx, &loop_hook, cub);
+	mlx_loop(cub->mlx.mlx);
 }

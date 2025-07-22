@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/18 12:03:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 15:30:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "cubtest.h"
 #include "ft_printf.h"
 #include "libft.h"
+#include "mlx.h"
 #include <X11/X.h>
 #include <fcntl.h>
 #include <malloc.h>
@@ -24,40 +25,39 @@
 #define CEIL_COLOR 0xff6494ed
 #define FLOOR_COLOR 0xffdddddd
 
-static int	check_args_open(int argc, char **argv)
-{
-	int	fd;
+t_cub	*cub_init(t_mlx *mlx, int fd);
 
-	if (argc != 2)
+void	free_cub(t_cub *cub)
+{
+	if (cub == NULL)
+		return ;
+	if (cub->map)
 	{
-		ft_dprintf(2, "Usage: %s <.cub file>\n", argv[0]);
-		return (-1);
+		free(cub->map->walls);
+		free(cub->map);
 	}
-	fd = open(argv[1], O_RDONLY);
+	if (cub->mlx.backbuffer.img)
+	{
+		mlx_destroy_image(cub->mlx.mlx, cub->mlx.backbuffer.img);
+		cub->mlx.backbuffer.img = NULL;
+	}
+	free(cub);
+	cub = NULL;
+}
+
+// TODO: Needs to use the map stored in t_data->t_map->map
+int	cub3d_rendu(t_mlx *mlx)
+{
+	int		fd;
+	t_cub	*cub;
+
+	fd = open("testmap.cub", O_RDONLY);
 	if (fd < 0)
 	{
 		perror("Error opening file");
 		return (-1);
 	}
-	return (fd);
-}
-
-// TODO Modifier position du joueur
-/* 
-Position by default nice for testing:
-cub->player.pos.x = 10.f;
-cub->player.pos.y = 8.5f; 
-*/
-// TODO MODIFIER ANGLE PAR DEFAUT avec player char on map
-int	cub3d_raoul(int argc, char **argv)
-{
-	t_cub	*cub;
-	int		fd;
-
-	fd = check_args_open(argc, argv);
-	if (fd < 0)
-		return (1);
-	cub = cub_init(fd);
+	cub = cub_init(mlx, fd);
 	close(fd);
 	if (cub == NULL)
 	{
@@ -71,6 +71,6 @@ int	cub3d_raoul(int argc, char **argv)
 	cub->ceil_color = CEIL_COLOR;
 	cub->floor_color = FLOOR_COLOR;
 	cub_loop(cub);
-	cub_free(cub);
+	free_cub(cub);
 	return (0);
 }

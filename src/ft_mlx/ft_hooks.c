@@ -6,14 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 13:57:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 15:17:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 #include "ft_keys.h"
-#include "ft_printf.h"
 #include "ft_print.h"
+#include "ft_printf.h"
 #include "mlx.h"
 #include <X11/X.h>
 
@@ -29,7 +29,8 @@ void	main_hooks(t_mlx *mlx)
 	mlx_hook(mlx->win_ptr, MotionNotify, PointerMotionMask,
 		hook_handle_mouse_motion, mlx);
 	mlx_hook(mlx->win_ptr, KeyPress, KeyPressMask, hook_handle_keypress, mlx);
-	mlx_hook(mlx->win_ptr, 17, 0, hook_close_window, mlx);
+	mlx_hook(mlx->win_ptr, DestroyNotify, StructureNotifyMask,
+		hook_close_window, mlx);
 }
 
 int	hook_handle_mouse_motion(int x, int y, void *param)

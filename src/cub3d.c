@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 16:41:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 16:32:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "mlx.h"
+
+int	cub3d_rendu(t_mlx *mlx);
 
 int	cub3d(int argc, char **argv)
 {

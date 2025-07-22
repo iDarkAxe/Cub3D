@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/20 16:45:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 15:27:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	cub_render(t_cub *cub)
 	}
 	if (ENABLE_MINIMAP == 1)
 		cub_render_minimap(cub);
-	cubmlx_present(cub->mlx);
+	cubmlx_present(&cub->mlx);
 }
 
 static int	raycast_column(t_cub *cub, int x, t_raydata *rdata)

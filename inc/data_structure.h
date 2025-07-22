@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/20 12:19:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/22 15:23:00 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ enum							e_screen_size
  */
 union							u_color
 {
-	int							rgba;
+	int							argb;
 	struct
 	{
+		unsigned char			alpha;
 		unsigned char			red;
 		unsigned char			green;
 		unsigned char			blue;
-		unsigned char			alpha;
 	};
 };
 
@@ -129,6 +129,8 @@ struct							s_mlx
 	int							mouse_x;
 	int							mouse_y;
 	t_coordinates				win_size;
+	t_coordinates				minimap_size;
+	t_img						backbuffer;
 };
 
 /**
