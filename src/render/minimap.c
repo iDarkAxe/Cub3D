@@ -6,14 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/20 11:23:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 13:26:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
+#include "cub3d.h"
 #include <math.h>
 
-//TODO Taille de la minimap
+//TODO:Taille de la minimap
 
 static void	render_square(t_cub *cub, t_pos2 pos, int size, unsigned int color)
 {

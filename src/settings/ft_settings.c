@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/22 16:10:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 14:02:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static int			settings_loop_hook(void *param);
 static void			settings_hooks(t_mlx *mlx);
-int					cub3d_rendu(t_mlx *mlx);
+int					cub3d_render(t_mlx *mlx);
 
 void	*ft_settings(t_mlx *mlx)
 {
@@ -81,7 +81,7 @@ int	settings_loop_hook(void *param)
 			return (-1);
 		ft_free_settings(mlx);
 		main_hooks(mlx);
-		cub3d_rendu(mlx);
+		cub3d_render(mlx);
 	}
 	state_actual = mlx->settings.state;
 	if (state_actual == state_prev || state_actual == 0)

@@ -6,14 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/20 16:55:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 13:48:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
+#include "cub3d.h"
 #include <math.h>
 
-//TODO REMOVE PROTOTYPE
+//TODO: REMOVE PROTOTYPE
 void		hitside_color(int hitside, const t_pos2 *step, int *color);
 
 #if ENABLE_MINIMAP == 1

@@ -6,10 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/22 15:32:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 13:07:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "cubtest.h"
 #include "libft.h"
 #include "mlx.h"

@@ -6,18 +6,19 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/22 15:27:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 13:08:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "cubtest.h"
 #include <math.h>
 
-// TODO REMOVE all the hardcoded colors
-// TODO REMOVE all the hardcoded values
-// TODO REMOVE all the hardcoded prototypes
-// TODO Check all the pointers values before using them
-// TODO Utilser ENABLE_MINIMAP pour minimap (enlever vars)
+// TODO: REMOVE all the hardcoded colors
+// TODO: REMOVE all the hardcoded values
+// TODO: REMOVE all the hardcoded prototypes
+// TODO: Check all the pointers values before using them
+// TODO: Utilser ENABLE_MINIMAP pour minimap (enlever vars)
 // Function prototypes
 void		raycalc(const t_pos2 win_size, int x, float cam_angle,
 				t_raydata *rdata);

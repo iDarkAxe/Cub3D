@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/22 15:26:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 14:14:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,10 @@
 # define CUBTEST_H
 
 # include "data_structure.h"
+# include <stdbool.h>
 # include <stddef.h>
 
-# define WINDOW_WIDTH 1280
-# define WINDOW_HEIGHT 720
-# define PI 3.141592653589793238462643383279502884197169399375105820974944592307
-
-# define ENABLE_MINIMAP 1
-# define MINIMAP_PLAYER_COLOR 0xffffff00
-# define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
-# define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
-# define MINIMAP_FLOOR_COLOR 0xff000000
-# define MINIMAP_WALL_COLOR 0xffffffff
-# define MINIMAP_TILE_SIZE 16
-# define ENABLE_FIELD_OF_VIEW 1
-
-typedef struct s_pos2
-{
-	int			x;
-	int			y;
-}				t_pos2;
-
-typedef struct s_vec2
-{
-	float		x;
-	float		y;
-}				t_vec2;
-
-// TODO NEEDS TO BE MERGED
+// TODO: NEEDS TO BE MERGED
 typedef struct s_map_raoul
 {
 	int			*walls;
@@ -60,10 +36,12 @@ typedef struct s_cubmlx
 
 typedef struct s_input
 {
-	int			fwd;
-	int			bckwd;
-	int			left;
-	int			right;
+	bool		fwd;
+	bool		bckwd;
+	bool		left;
+	bool		right;
+	bool		turn_left;
+	bool		turn_right;
 }				t_input;
 
 typedef struct s_player
@@ -104,8 +82,7 @@ t_map_raoul		*parse_map(int fd);
 t_cubmlx		*cubmlx_init(t_cub *cub);
 void			*cubmlx_free(t_cubmlx *mlx);
 void			cubmlx_present(t_cubmlx *mlx);
-void			cubmlx_putpixel(t_cub *cub, int x, int y,
-					unsigned int color);
+void			cubmlx_putpixel(t_cub *cub, int x, int y, unsigned int color);
 void			cubmlx_putvertline(t_cub *cub, t_pos2 pos, int len,
 					unsigned int color);
 void			cubmlx_putline(t_cub *cub, t_pos2 p1, t_pos2 p2,

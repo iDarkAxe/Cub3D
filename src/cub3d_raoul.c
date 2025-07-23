@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/22 15:30:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 14:03:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 // Raoul's includes
+#include "cub3d.h"
 #include "cubtest.h"
 #include "ft_printf.h"
 #include "libft.h"
@@ -21,7 +22,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-// TODO SUPPRIMER CEIL_COLOR ET FLOOR_COLOR
+// TODO: SUPPRIMER CEIL_COLOR ET FLOOR_COLOR
 #define CEIL_COLOR 0xff6494ed
 #define FLOOR_COLOR 0xffdddddd
 
@@ -46,7 +47,7 @@ void	free_cub(t_cub *cub)
 }
 
 // TODO: Needs to use the map stored in t_data->t_map->map
-int	cub3d_rendu(t_mlx *mlx)
+int	cub3d_render(t_mlx *mlx)
 {
 	int		fd;
 	t_cub	*cub;

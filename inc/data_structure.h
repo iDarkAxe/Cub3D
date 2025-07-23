@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/22 15:23:00 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 13:02:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,26 @@ struct							s_coordinates
 	size_t						x;
 	size_t						y;
 };
+
+/**
+ * @brief Structure that handle positions in the map.
+ * Same as t_coordinates but with signed integers.
+ */
+typedef struct s_pos2
+{
+	int			x;
+	int			y;
+}				t_pos2;
+
+/**
+ * @brief Structure that handle vector coordinates in 2D space.
+ * 
+ */
+typedef struct s_vec2
+{
+	float		x;
+	float		y;
+}				t_vec2;
 
 /**
  * @brief Structure that handle the settings of the game.

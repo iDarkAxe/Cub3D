@@ -25,6 +25,26 @@
 # include <unistd.h>
 
 /**
+ * @defgroup Macros Macros Functions
+ * @brief Macros used in the project.
+ * @{
+ * 
+ */
+# define PI 3.141592653589793238462643383279502884197169399375105820974944592307
+
+# define ENABLE_MINIMAP 1
+# define MINIMAP_PLAYER_COLOR 0xffffff00
+# define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
+# define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
+# define MINIMAP_FLOOR_COLOR 0xff000000
+# define MINIMAP_WALL_COLOR 0xffffffff
+# define MINIMAP_TILE_SIZE 16
+# define ENABLE_FIELD_OF_VIEW 1
+
+# define DEBUG_PRINT_KEYCODE 0
+/** @} */
+
+/**
  * @defgroup Main Main Functions
  * @brief Core functionality of the program.
  * @{
