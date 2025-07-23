@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/23 13:48:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 14:58:35 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cubtest.h"
 #include "cub3d.h"
-#include <math.h>
 
 //TODO: REMOVE PROTOTYPE
 void		hitside_color(int hitside, const t_pos2 *step, int *color);
@@ -26,10 +25,10 @@ static int	calc_line(t_cub *cub, float wall_dist, int x, t_pos2 *line_point)
 
 	height = cub->win_size.y / wall_dist;
 	line_point->y = -height / 2 + cub->win_size.y / 2;
-	if (line_point->y < 0)
-		line_point->y = 0;
-	else if (x < cub->minimap_size.x && line_point->y < cub->minimap_size.y)
+	if (x < cub->minimap_size.x && line_point->y < cub->minimap_size.y)
 		line_point->y = cub->minimap_size.y;
+	else if (line_point->y < 0)
+		line_point->y = 0;
 	line_draw_height = height / 2 + cub->win_size.y / 2;
 	if (line_draw_height >= cub->win_size.y)
 		line_draw_height = cub->win_size.y;

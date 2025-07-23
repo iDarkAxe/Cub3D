@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/23 13:08:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/23 14:58:45 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cubtest.h"
-#include <math.h>
 
 // TODO: REMOVE all the hardcoded colors
 // TODO: REMOVE all the hardcoded values
