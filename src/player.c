@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/23 14:42:49 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/23 16:16:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@ void	solve_collision_y(t_cub *cub, float y_vel);
 
 static void	update_camera(t_cub *cub)
 {
-	if (cub->input.turn_left && cub->input.turn_right)
-		;
-	else if (cub->input.turn_left)
+	static const float	two_pi = 2.f * PI;
+
+	if (cub->input.turn_left)
 		cub->player.angle -= 0.01f;
-	else if (cub->input.turn_right)
+	if (cub->input.turn_right)
 		cub->player.angle += 0.01f;
-	if (cub->player.angle >= (2.f * PI))
-		cub->player.angle -= (2.f * PI);
+	if (cub->player.angle >= (two_pi))
+		cub->player.angle -= (two_pi);
 	if (cub->player.angle < 0.f)
-		cub->player.angle += (2.f * PI);
+		cub->player.angle += (two_pi);
 }
 
 // TODO: Needs to implement a left and right movement
 static void	update_movement(t_cub *cub)
 {
-	t_vec2	vel;
+	static const float	half_pi = PI * 0.5f;
+	t_vec2				vel;
 
 	vel = (t_vec2){0, 0};
 	if (cub->input.fwd)
@@ -44,7 +45,7 @@ static void	update_movement(t_cub *cub)
 		vel.x += 0.01f;
 	if (cub->input.right)
 		vel.x -= 0.01f;
-	vel = vec2rotate(vel, cub->player.angle - PI * 0.5f);
+	vel = vec2rotate(vel, cub->player.angle - half_pi);
 	cub->player.pos.x += vel.x;
 	if (vel.x != 0.f)
 		solve_collision_x(cub, vel.x);
