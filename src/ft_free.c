@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/22 10:25:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 11:40:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,18 @@ void	ft_free_textures_path(t_map *map)
 
 void	ft_mlx_end(t_mlx *mlx)
 {
-	if (!mlx)
+	if (!mlx || !mlx->mlx_ptr)
 		return ;
 	if (mlx->backbuffer.img)
+	{
 		mlx_destroy_image(mlx->mlx_ptr, mlx->backbuffer.img);
+		mlx->backbuffer.img = NULL;
+	}
 	if (mlx->mlx_ptr != NULL && mlx->win_ptr != NULL)
+	{
 		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-	mlx->win_ptr = NULL;
+		mlx->win_ptr = NULL;
+	}
 	if (mlx->mlx_ptr != NULL)
 		mlx_destroy_display(mlx->mlx_ptr);
 	free(mlx->mlx_ptr);
@@ -111,7 +116,7 @@ void	ft_mlx_end(t_mlx *mlx)
 
 void	ft_free_settings(t_mlx *mlx)
 {
-	if (!mlx)
+	if (!mlx || !mlx->mlx_ptr)
 		return ;
 	if (mlx->settings.circle_no.img)
 	{

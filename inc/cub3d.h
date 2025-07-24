@@ -42,8 +42,12 @@
 # define ENABLE_FIELD_OF_VIEW 1
 
 # define DEBUG_PRINT_KEYCODE 0
-/** @} */
 
+// If you want to follow closely to the subject, you need to set these to 0
+# define CROSS_APPLY_SETTINGS 0
+# define ESCAPE_APPLY_SETTINGS 0
+
+/** @} */
 /**
  * @defgroup Main Main Functions
  * @brief Core functionality of the program.

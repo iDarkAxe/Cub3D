@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_settings-hooks.c                                :+:      :+:    :+:   */
+/*   ft_settings_hooks.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/19 14:03:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 11:59:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	hook_settings_close_window(void *param)
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)param;
-	mlx_get_screen_size(mlx->mlx_ptr, (int *)&mlx->win_size.x,
-		(int *)&mlx->win_size.y);
+	if (CROSS_APPLY_SETTINGS)
+		ft_set_screen_size(mlx, mlx->settings.state);
+	else
+		mlx_loop_end(mlx->mlx_ptr);
 	return (0);
 }
 
@@ -41,7 +43,17 @@ int	hook_settings_handle_keypress(int keycode, void *param)
 
 	mlx = (t_mlx *)param;
 	ft_print_key(keycode);
-	if (is_mv_key(MV_DOWN, keycode) && mlx->settings.state == SIZE_480P)
+	if (keycode == KEY_ESCAPE && ESCAPE_APPLY_SETTINGS == 0)
+	{
+		mlx_loop_end(mlx->mlx_ptr);
+		return (keycode);
+	}
+	if (keycode == KEY_ESCAPE && mlx->settings.state == 0)
+		ft_set_screen_size(mlx, SIZE_FULL_SCREEN);
+	else if ((keycode == KEY_ESCAPE || keycode == KEY_ENTER
+			|| keycode == KEY_SPACE) && mlx->settings.state != 0)
+		ft_set_screen_size(mlx, mlx->settings.state);
+	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings.state == SIZE_480P)
 		mlx->settings.state = SIZE_FULL_SCREEN;
 	else if (is_mv_key(MV_UP, keycode)
 		&& mlx->settings.state == SIZE_FULL_SCREEN)
@@ -51,11 +63,6 @@ int	hook_settings_handle_keypress(int keycode, void *param)
 	else if (is_mv_key(MV_UP, keycode)
 		&& mlx->settings.state > SIZE_FULL_SCREEN)
 		mlx->settings.state--;
-	else if (keycode == KEY_ESCAPE && mlx->settings.state == 0)
-		return (ft_set_screen_size(mlx, SIZE_FULL_SCREEN));
-	else if ((keycode == KEY_ESCAPE || keycode == KEY_ENTER
-			|| keycode == KEY_SPACE) && mlx->settings.state != 0)
-		return (ft_set_screen_size(mlx, mlx->settings.state));
 	return (keycode);
 }
 
