@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/23 14:14:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 10:55:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void			cubmlx_putvertline(t_cub *cub, t_pos2 pos, int len,
 void			cubmlx_putline(t_cub *cub, t_pos2 p1, t_pos2 p2,
 					unsigned int color);
 void			cubmlx_clear(t_cubmlx *mlx, unsigned int color);
-// t_cub			*cub_init(int fd);
+t_cub			*cub_init(t_mlx *mlx, int fd);
 void			cub_render(t_cub *cub);
 void			cub_free(t_cub *cub);
 

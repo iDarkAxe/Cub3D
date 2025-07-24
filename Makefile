@@ -69,13 +69,13 @@ SRC = \
 	cub3d_raoul.c \
 	ft_safe.c \
 	ft_free.c \
-	ft-utils.c \
+	ft_utils.c \
 	ft_keys.c \
 	parse.c \
 	init.c \
 	loop.c \
 	player.c \
-	player-utils.c \
+	player_utils.c \
 	hitside_color.c \
 	hitwall.c \
 	math/utils.c \
@@ -109,7 +109,7 @@ PARSING = \
 
 SETTINGS = \
 	ft_settings.c \
-	ft_settings-hooks.c \
+	ft_settings_hooks.c \
 	ft_settings_draw_img.c
 
 DRAW = \

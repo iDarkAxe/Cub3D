@@ -6,15 +6,15 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/23 13:26:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 11:23:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
 #include "cub3d.h"
+#include "cubtest.h"
 #include <math.h>
 
-//TODO:Taille de la minimap
+// TODO:Taille de la minimap
 
 static void	render_square(t_cub *cub, t_pos2 pos, int size, unsigned int color)
 {
@@ -49,10 +49,8 @@ static void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
 		+ cub->player.pos.x * tile_size;
 	line_right.y = 8 * sin(cub->player.angle + cub->player.fov * 0.5)
 		+ cub->player.pos.y * tile_size;
-	cubmlx_putline(cub, pos, line_left,
-		MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
-	cubmlx_putline(cub, pos, line_right,
-		MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
+	cubmlx_putline(cub, pos, line_left, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
+	cubmlx_putline(cub, pos, line_right, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
 }
 
 #else
@@ -61,8 +59,10 @@ static void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
 {
 	t_pos2	len;
 
-	len.x = 8 * cos(cub->player.angle) + cub->player.pos.x * tile_size;
-	len.y = 8 * sin(cub->player.angle) + cub->player.pos.y * tile_size;
+	len.x = 8 * cos((double)cub->player.angle) + (int)(cub->player.pos.x)
+		* tile_size;
+	len.y = 8 * sin((double)cub->player.angle) + (int)(cub->player.pos.y)
+		* tile_size;
 	cubmlx_putline(cub, pos, len, MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR);
 }
 
@@ -75,17 +75,17 @@ static void	render_minimap_player(t_cub *cub, int tile_size)
 	pos.x = cub->player.pos.x * tile_size - 2;
 	pos.y = cub->player.pos.y * tile_size - 2;
 	render_square(cub, pos, 4, MINIMAP_PLAYER_COLOR);
-	pos.x = (int)(cub->player.pos.x * tile_size);
-	pos.y = (int)(cub->player.pos.y * tile_size);
+	pos.x = cub->player.pos.x * tile_size;
+	pos.y = cub->player.pos.y * tile_size;
 	render_line_of_sight(cub, pos, tile_size);
 }
 
 void	cub_render_minimap(t_cub *cub)
 {
-	size_t		x;
-	size_t		y;
-	t_pos2		pos;
-	const int	tile_size = MINIMAP_TILE_SIZE;
+	static const int	tile_size = MINIMAP_TILE_SIZE;
+	size_t				x;
+	size_t				y;
+	t_pos2				pos;
 
 	y = 0;
 	while (y < cub->map->height)

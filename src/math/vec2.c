@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:38:30 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/06/22 18:42:07 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/24 11:24:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_vec2	vec2rotate(t_vec2 vec, float angle)
 {
 	t_vec2	res;
 
-	res.x = vec.x * cos(angle) - sin(angle) * vec.y;
-	res.y = vec.x * sin(angle) + cos(angle) * vec.y;
+	res.x = vec.x * (float)(cos(angle)) - (float)(sin(angle)) *vec.y;
+	res.y = vec.x * (float)(sin(angle)) + (float)(cos(angle)) *vec.y;
 	return (res);
 }

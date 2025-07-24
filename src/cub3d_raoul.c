@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/23 14:03:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 11:01:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@
 #define FLOOR_COLOR 0xffdddddd
 
 t_cub	*cub_init(t_mlx *mlx, int fd);
+int		cub3d_render(t_mlx *mlx);
 
-void	free_cub(t_cub *cub)
+static void	free_cub(t_cub *cub)
 {
 	if (cub == NULL)
 		return ;
@@ -68,7 +69,7 @@ int	cub3d_render(t_mlx *mlx)
 	cub->player.pos.x = 10.f;
 	cub->player.pos.y = 8.5f;
 	cub->player.angle = -0.66f;
-	cub->player.fov = PI / 2.0f;
+	cub->player.fov = (float)(PI) / 2.0f;
 	cub->ceil_color = CEIL_COLOR;
 	cub->floor_color = FLOOR_COLOR;
 	cub_loop(cub);
