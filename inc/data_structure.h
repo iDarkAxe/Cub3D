@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 14:24:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 13:05:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
  */
 
 # include <stddef.h>
+# include <endian.h>
 
 typedef struct s_img			t_img;
 typedef struct s_textures		t_textures;
@@ -47,16 +48,18 @@ enum							e_screen_size
 	SIZE_480P = 6,
 };
 
+# if __BYTE_ORDER == __BIG_ENDIAN
+
 /**
  * @brief Union used to store color information.
  * It can be used to store color in RGBA format
  * or as a separate RGB and alpha values.
- *
+ * Used for big-endian systems.
  */
 union							u_color
 {
 	int							argb;
-	struct
+	struct __attribute__((packed))
 	{
 		unsigned char			alpha;
 		unsigned char			red;
@@ -64,6 +67,27 @@ union							u_color
 		unsigned char			blue;
 	};
 };
+
+# else
+
+/**
+ * @brief Union used to store color information.
+ * It can be used to store color in RGBA format
+ * or as a separate RGB and alpha values.
+ * Used for little-endian systems.
+ */
+union							u_color
+{
+	int							argb;
+	struct __attribute__((packed))
+	{
+		unsigned char			blue;
+		unsigned char			green;
+		unsigned char			red;
+		unsigned char			alpha;
+	};
+};
+# endif
 
 /**
  * @brief Structure used to store an image
