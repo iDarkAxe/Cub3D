@@ -325,6 +325,13 @@ int					try_to_open_close_file(char *file_name);
 size_t				count_array_length(char **array);
 
 /**
+ * @brief Free all the memory allocated for the data structure.
+ *
+ * @param data data structure
+ */
+void				ft_free_all(t_data *data);
+
+/**
  * @brief Free the strings of the file
  *
  * @param map map structure

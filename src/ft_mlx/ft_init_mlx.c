@@ -6,14 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/19 14:03:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 14:37:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "ft_printf.h"
 #include "libft.h"
 #include "mlx.h"
 
+void	settings_hooks(t_mlx *mlx);
 t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map);
 
 int	ft_mlx_init(t_mlx *mlx)
@@ -28,7 +30,12 @@ int	ft_mlx_init(t_mlx *mlx)
 	mlx->mlx_ptr = mlx_init();
 	if (mlx->mlx_ptr == NULL)
 		return (-1);
-	mlx->settings.win_ptr = ft_settings(mlx);
+	if (ft_settings(mlx) == NULL)
+	{
+		ft_dprintf(2, "Error creating settings window\n");
+		return (-1);
+	}
+	settings_hooks(mlx);
 	return (0);
 }
 

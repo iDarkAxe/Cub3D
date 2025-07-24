@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/23 13:02:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 14:24:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ struct							s_settings
 {
 	void						*win_ptr;
 	enum e_screen_size			state;
+	t_img						background;
 	t_img						circle_yes;
 	t_img						circle_no;
 };

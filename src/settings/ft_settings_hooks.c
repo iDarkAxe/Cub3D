@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 11:59:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 14:57:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,24 +30,13 @@ int	hook_settings_close_window(void *param)
 }
 
 /**
- * @brief Handle mouse click in the settings window.
- * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
- * 
+ * @brief State machine for the settings window.
+ *
  * @param keycode keycode of the key pressed
- * @param param Pointer to the mlx structure
- * @return int 
+ * @param mlx Pointer to the mlx structure
  */
-int	hook_settings_handle_keypress(int keycode, void *param)
+static void	state_machine(int keycode, t_mlx *mlx)
 {
-	t_mlx	*mlx;
-
-	mlx = (t_mlx *)param;
-	ft_print_key(keycode);
-	if (keycode == KEY_ESCAPE && ESCAPE_APPLY_SETTINGS == 0)
-	{
-		mlx_loop_end(mlx->mlx_ptr);
-		return (keycode);
-	}
 	if (keycode == KEY_ESCAPE && mlx->settings.state == 0)
 		ft_set_screen_size(mlx, SIZE_FULL_SCREEN);
 	else if ((keycode == KEY_ESCAPE || keycode == KEY_ENTER
@@ -63,6 +52,27 @@ int	hook_settings_handle_keypress(int keycode, void *param)
 	else if (is_mv_key(MV_UP, keycode)
 		&& mlx->settings.state > SIZE_FULL_SCREEN)
 		mlx->settings.state--;
+}
+
+/**
+ * @brief Handle mouse click in the settings window.
+ * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
+ *
+ * @param keycode keycode of the key pressed
+ * @param param Pointer to the mlx structure
+ * @return int
+ */
+int	hook_settings_handle_keypress(int keycode, void *param)
+{
+	t_mlx	*mlx;
+
+	mlx = (t_mlx *)param;
+	if (DEBUG_PRINT_KEYCODE == 1)
+		ft_print_key(keycode);
+	if (keycode == KEY_ESCAPE && ESCAPE_APPLY_SETTINGS == 0)
+		mlx_loop_end(mlx->mlx_ptr);
+	else
+		state_machine(keycode, mlx);
 	return (keycode);
 }
 

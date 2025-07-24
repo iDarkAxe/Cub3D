@@ -6,10 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 11:40:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 14:36:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "data_structure.h"
 #include "mlx.h"
 #include <stdlib.h>
@@ -17,8 +18,15 @@
 void	ft_free_file(t_map *map);
 void	ft_free_textures(t_mlx *mlx, t_map *map);
 void	ft_free_textures_path(t_map *map);
-void	ft_mlx_end(t_mlx *mlx);
-void	ft_free_settings(t_mlx *mlx);
+void	ft_free_all(t_data *data);
+
+void	ft_free_all(t_data *data)
+{
+	ft_free_settings(&data->mlx);
+	ft_mlx_end(&data->mlx);
+	ft_free_textures_path(&data->map);
+	ft_free_file(&data->map);
+}
 
 void	ft_free_file(t_map *map)
 {
@@ -44,7 +52,7 @@ void	ft_free_file(t_map *map)
 
 void	ft_free_textures(t_mlx *mlx, t_map *map)
 {
-	if (map == NULL || mlx == NULL)
+	if (map == NULL || mlx == NULL || mlx->mlx_ptr == NULL)
 		return ;
 	if (map->textures.north.img != NULL)
 	{
@@ -91,46 +99,5 @@ void	ft_free_textures_path(t_map *map)
 	{
 		free(map->textures.east.path);
 		map->textures.east.path = NULL;
-	}
-}
-
-void	ft_mlx_end(t_mlx *mlx)
-{
-	if (!mlx || !mlx->mlx_ptr)
-		return ;
-	if (mlx->backbuffer.img)
-	{
-		mlx_destroy_image(mlx->mlx_ptr, mlx->backbuffer.img);
-		mlx->backbuffer.img = NULL;
-	}
-	if (mlx->mlx_ptr != NULL && mlx->win_ptr != NULL)
-	{
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->win_ptr = NULL;
-	}
-	if (mlx->mlx_ptr != NULL)
-		mlx_destroy_display(mlx->mlx_ptr);
-	free(mlx->mlx_ptr);
-	mlx->mlx_ptr = NULL;
-}
-
-void	ft_free_settings(t_mlx *mlx)
-{
-	if (!mlx || !mlx->mlx_ptr)
-		return ;
-	if (mlx->settings.circle_no.img)
-	{
-		mlx_destroy_image(mlx->mlx_ptr, mlx->settings.circle_no.img);
-		mlx->settings.circle_no.img = NULL;
-	}
-	if (mlx->settings.circle_yes.img)
-	{
-		mlx_destroy_image(mlx->mlx_ptr, mlx->settings.circle_yes.img);
-		mlx->settings.circle_yes.img = NULL;
-	}
-	if (mlx->settings.win_ptr)
-	{
-		mlx_destroy_window(mlx->mlx_ptr, mlx->settings.win_ptr);
-		mlx->settings.win_ptr = NULL;
 	}
 }

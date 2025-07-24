@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/23 14:02:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 14:57:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,35 +19,32 @@
 #include <stdlib.h>
 
 static int			settings_loop_hook(void *param);
-static void			settings_hooks(t_mlx *mlx);
 int					cub3d_render(t_mlx *mlx);
 
 void	*ft_settings(t_mlx *mlx)
 {
-	t_img	img;
-
-	img.img = mlx_xpm_file_to_image(mlx->mlx_ptr, "img/settings.xpm",
-			&img.width, &img.width);
-	if (img.img == NULL)
-	{
-		free(mlx->mlx_ptr);
+	mlx->settings.background.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			"img/settings.xpm", &mlx->settings.background.width,
+			&mlx->settings.background.width);
+	if (mlx->settings.background.img == NULL)
 		return (NULL);
-	}
-	mlx->settings.win_ptr = mlx_new_window(mlx->mlx_ptr, 500, 500, "Settings");
+	mlx->settings.win_ptr = mlx_new_window(mlx->mlx_ptr,
+			mlx->settings.background.width, mlx->settings.background.width,
+			"Settings");
 	if (mlx->settings.win_ptr == NULL)
-	{
-		free(mlx->mlx_ptr);
 		return (NULL);
-	}
-	mlx_put_image_to_window(mlx->mlx_ptr, mlx->settings.win_ptr, img.img, 0, 0);
-	mlx_destroy_image(mlx->mlx_ptr, img.img);
+	mlx_put_image_to_window(mlx->mlx_ptr, mlx->settings.win_ptr,
+		mlx->settings.background.img, 0, 0);
+	mlx_destroy_image(mlx->mlx_ptr, mlx->settings.background.img);
+	mlx->settings.background.img = NULL;
 	mlx->settings.circle_no.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			"img/circle-unselected.xpm", &img.width, &img.width);
+			"img/circle-unselected.xpm", &mlx->settings.background.width,
+			&mlx->settings.background.width);
 	mlx->settings.circle_yes.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			"img/circle-selected.xpm", &img.width, &img.width);
+			"img/circle-selected.xpm", &mlx->settings.background.width,
+			&mlx->settings.background.width);
 	ft_put_all_circle_to_win(mlx, mlx->settings.win_ptr, 0);
 	ft_put_circle_specific(mlx, mlx->settings.win_ptr, mlx->settings.state, 1);
-	settings_hooks(mlx);
 	return (mlx->settings.win_ptr);
 }
 
@@ -59,7 +56,8 @@ void	settings_hooks(t_mlx *mlx)
 		hook_settings_handle_mouse_motion, mlx);
 	mlx_hook(mlx->settings.win_ptr, KeyPress, KeyPressMask,
 		hook_settings_handle_keypress, mlx);
-	mlx_hook(mlx->settings.win_ptr, 17, 0, hook_settings_close_window, mlx);
+	mlx_hook(mlx->settings.win_ptr, DestroyNotify, StructureNotifyMask,
+		hook_settings_close_window, mlx);
 	mlx_hook(mlx->settings.win_ptr, ButtonPress, ButtonPressMask,
 		hook_settings_handle_mouse_click, mlx);
 	mlx_loop_hook(mlx->mlx_ptr, settings_loop_hook, mlx);
