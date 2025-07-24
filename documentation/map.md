@@ -3,10 +3,10 @@
 La map suivante est donné en exemple :
 
 ```clojure
-NO ./img/BRICK_3B.PNG
-SO ./img/BRICK_3D.PNG
-WE ./img/TILE_1A.PNG
-EA ./img/TILE_2C.PNG
+NO ./img/BRICK_3B.xpm
+SO ./img/BRICK_3D.xpm
+WE ./img/TILE_1A.xpm
+EA ./img/TILE_2C.xpm
 
 F 220,100,0
 C 225,30,0
@@ -64,7 +64,7 @@ strict tel que :
 Texture nord :
 
 ```txt
-NO ./img/BRICK_3B.PNG/texture
+NO ./img/BRICK_3B.xpm/texture
 ```
 
 Les balises acceptées sont donc :

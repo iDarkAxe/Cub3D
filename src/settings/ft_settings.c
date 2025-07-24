@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 14:57:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 16:26:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <stdlib.h>
 
 static int			settings_loop_hook(void *param);
-int					cub3d_render(t_mlx *mlx);
+int					cub3d_init_render(t_mlx *mlx);
 
 void	*ft_settings(t_mlx *mlx)
 {
@@ -79,7 +79,7 @@ int	settings_loop_hook(void *param)
 			return (-1);
 		ft_free_settings(mlx);
 		main_hooks(mlx);
-		cub3d_render(mlx);
+		cub3d_init_render(mlx);
 	}
 	state_actual = mlx->settings.state;
 	if (state_actual == state_prev || state_actual == 0)

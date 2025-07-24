@@ -26,8 +26,10 @@
 **/res
 **/resultat
 **/log
+testing/
 
 **/cub3d
+**/cub3D
 doxy-log-err.txt
 doxy-log.txt
 

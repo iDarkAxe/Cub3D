@@ -6,7 +6,7 @@ DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
 NAME_TEST = test
-NAME = cub3d
+NAME = cub3D
 
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1

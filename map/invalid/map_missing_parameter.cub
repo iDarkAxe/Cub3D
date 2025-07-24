@@ -1,6 +1,6 @@
-NO ./img/BRICK_3B.PNG
-SO ./img/BRICK_3D.PNG
-WE ./img/TILE_1A.PNG
+NO ./img/BRICK_3B.xpm
+SO ./img/BRICK_3D.xpm
+WE ./img/TILE_1A.xpm
 
 F 220,100,0
 C 225,30,0

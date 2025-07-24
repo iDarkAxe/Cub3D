@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 11:01:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 16:26:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 #define FLOOR_COLOR 0xffdddddd
 
 t_cub	*cub_init(t_mlx *mlx, int fd);
-int		cub3d_render(t_mlx *mlx);
+int		cub3d_init_render(t_mlx *mlx);
 
 static void	free_cub(t_cub *cub)
 {
@@ -48,7 +48,7 @@ static void	free_cub(t_cub *cub)
 }
 
 // TODO: Needs to use the map stored in t_data->t_map->map
-int	cub3d_render(t_mlx *mlx)
+int	cub3d_init_render(t_mlx *mlx)
 {
 	int		fd;
 	t_cub	*cub;

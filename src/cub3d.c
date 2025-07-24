@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 14:33:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 16:14:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	cub3d(int argc, char **argv)
 		return (print_error(&data.map, CONFIG_ERROR));
 	if (store_textures_names(&data.map) == NULL)
 		return (print_error(&data.map, STORE_TEXTURES_NAMES));
-	if (ft_mlx_init(&data.mlx) != 0)
+	if (ft_mlx_init(&data) != 0)
 	{
 		ft_dprintf(2, "Erreur Init mlx\n");
 		ft_free_all(&data);

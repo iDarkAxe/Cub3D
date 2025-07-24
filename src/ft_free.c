@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 14:36:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/24 16:15:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_free_all(t_data *data);
 void	ft_free_all(t_data *data)
 {
 	ft_free_settings(&data->mlx);
+	ft_free_textures(&data->mlx, &data->map);
 	ft_mlx_end(&data->mlx);
 	ft_free_textures_path(&data->map);
 	ft_free_file(&data->map);

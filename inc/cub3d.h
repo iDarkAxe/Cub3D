@@ -122,12 +122,12 @@ char				*store_textures_names(t_map *map);
 void				ft_exit(t_mlx mlx, t_map *map);
 
 /**
- * @brief Initialize the mlx structure.
+ * @brief Initialize the mlx structure, create settings window, and load game
  *
- * @param mlx mlx structure
+ * @param data data structure
  * @return int
  */
-int					ft_mlx_init(t_mlx *mlx);
+int					ft_mlx_init(t_data *data);
 
 /**
  * @brief Close and free the mlx structure.
