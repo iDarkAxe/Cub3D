@@ -163,6 +163,8 @@ enum e_screen_size	circle_state(int x, int y);
 int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
 void				ft_free_settings(t_mlx *mlx);
 void				main_hooks(t_mlx *mlx);
+void				settings_hooks(t_data *data);
+void				state_machine(int keycode, t_mlx *mlx);
 /** @} */
 
 /**
@@ -189,14 +191,6 @@ int					hook_settings_handle_keypress(int keycode, void *param);
  * @{
  */
 
-/**
- * @brief Check if the player can move in the given direction.
- *
- * @param map Pointer to the map structure.
- * @param mlx Pointer to the mlx structure.
- * @param direction Direction to move (UP, DOWN, LEFT OR RIGHT).
- */
-void				can_player_move(t_mlx *mlx, t_map *map, int direction);
 /** @} */
 
 /**
@@ -352,6 +346,13 @@ void				ft_free_textures(t_mlx *mlx, t_map *map);
  * @param map map structure
  */
 void				ft_free_textures_path(t_map *map);
+
+/**
+ * @brief Free the map structure
+ *
+ * @param map map structure
+ */
+void				ft_free_map(t_map_raoul *map);
 /** @} */
 
 /**

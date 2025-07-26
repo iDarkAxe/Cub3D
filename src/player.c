@@ -6,15 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:15:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-
-void		solve_collision_x(t_data *data, float x_vel);
-void		solve_collision_y(t_data *data, float y_vel);
 
 static void	update_camera(t_data *data)
 {
@@ -30,7 +27,6 @@ static void	update_camera(t_data *data)
 		data->player.angle += (two_pi);
 }
 
-// TODO: Needs to implement a left and right movement
 static void	update_movement(t_data *data)
 {
 	static const float	half_pi = (float)(PI)*0.5f;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 15:44:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:54:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
  * @brief Clear the backbuffer with a specific color.
  * @deprecated This function is not used.
- * 
+ *
  */
 // void	cubmlx_clear(t_cubmlx *mlx, unsigned int color)
 // {
@@ -37,7 +37,8 @@ void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color)
 {
 	char	*dst;
 
-	if (x < 0 || x >= data->mlx.win_size.x || y < 0 || y >= data->mlx.win_size.y)
+	if (x < 0 || x >= data->mlx.win_size.x || y < 0
+		|| y >= data->mlx.win_size.y)
 		return ;
 	dst = data->mlx.backbuffer.pxls + (y * data->mlx.backbuffer.width + x
 			* (data->mlx.backbuffer.bits_per_pixel / 8));
@@ -45,7 +46,7 @@ void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color)
 }
 
 void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
-			unsigned int color)
+		unsigned int color)
 {
 	int		y;
 	int		dst;

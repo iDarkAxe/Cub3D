@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:16:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:23:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 #include "libft.h"
 #include "mlx.h"
 
-void	settings_hooks(t_mlx *mlx);
-t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map);
+static t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map);
 
 int	ft_mlx_init(t_data *data)
 {
@@ -35,7 +34,7 @@ int	ft_mlx_init(t_data *data)
 		return (print_error(&data->map, STORE_TEXTURES_IMG));
 	if (ft_settings(&data->mlx) == NULL)
 		return (print_error(&data->map, FT_SETTINGS));
-	settings_hooks(&data->mlx);
+	settings_hooks(data);
 	return (0);
 }
 

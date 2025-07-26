@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:42:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:58:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
  *
  */
 
+# include <endian.h>
 # include <stdbool.h>
 # include <stddef.h>
-# include <endian.h>
 
 typedef struct s_img			t_img;
 typedef struct s_textures		t_textures;
@@ -33,8 +33,9 @@ typedef struct s_settings		t_settings;
 
 typedef union u_color			t_color;
 typedef struct s_raydata		t_raydata;
-typedef struct s_input t_input;
-typedef struct s_player t_player;
+typedef struct s_input			t_input;
+typedef struct s_player			t_player;
+typedef struct s_map_raoul		t_map_raoul;
 
 /**
  * @brief Enum used to store the screen size.
@@ -139,43 +140,43 @@ struct							s_coordinates
  */
 typedef struct s_pos2
 {
-	int			x;
-	int			y;
-}				t_pos2;
+	int							x;
+	int							y;
+}								t_pos2;
 
 /**
  * @brief Structure that handle vector coordinates in 2D space.
- * 
+ *
  */
 typedef struct s_vec2
 {
-	float		x;
-	float		y;
-}				t_vec2;
+	float						x;
+	float						y;
+}								t_vec2;
 
 /**
  * @brief Structure that handle the input of the player.
- * 
+ *
  */
-struct s_input
+struct							s_input
 {
-	bool		fwd;
-	bool		bckwd;
-	bool		left;
-	bool		right;
-	bool		turn_left;
-	bool		turn_right;
+	bool						fwd;
+	bool						bckwd;
+	bool						left;
+	bool						right;
+	bool						turn_left;
+	bool						turn_right;
 };
 
 /**
  * @brief Structure that handle the player information.
- * 
+ *
  */
-struct s_player
+struct							s_player
 {
-	t_vec2		pos;
-	float		angle;
-	float		fov;
+	t_vec2						pos;
+	float						angle;
+	float						fov;
 };
 
 /**
@@ -207,25 +208,14 @@ struct							s_mlx
 	t_img						backbuffer;
 };
 
-// TODO: NEEDS TO BE CHANGED
-typedef struct s_map_raoul
+struct s_map_raoul
 {
-	int			*walls;
-	size_t		width;
-	size_t		height;
-	t_pos2		start_pos;
-	float		start_angle;
-}				t_map_raoul;
-
-// TODO: NEEDS TO BE CHANGED
-// typedef struct s_cubmlx
-// {
-// 	void		*mlx;
-// 	void		*win;
-// 	t_pos2		win_size;
-// 	t_pos2		minimap_size;
-// 	t_img		backbuffer;
-// }				t_cubmlx;
+	int							*walls;
+	size_t						width;
+	size_t						height;
+	t_pos2						start_pos;
+	float						start_angle;
+};
 
 /**
  * @brief Structure that handle the map informations.
@@ -261,19 +251,19 @@ struct							s_data
  * It contains all the information needed to cast a ray.
  *
  */
-struct s_raydata
+struct							s_raydata
 {
-	t_vec2		ray_dir;
-	t_vec2		side_dist;
-	t_vec2		delta_dist;
-	t_vec2		pos;
-	t_vec2		plane;
-	t_pos2		map;
-	t_pos2		step;
-	int			hit_wall;
-	int			hit_side;
-	int			ceil_color;
-	int			floor_color;
+	t_vec2						ray_dir;
+	t_vec2						side_dist;
+	t_vec2						delta_dist;
+	t_vec2						pos;
+	t_vec2						plane;
+	t_pos2						map;
+	t_pos2						step;
+	int							hit_wall;
+	int							hit_side;
+	int							ceil_color;
+	int							floor_color;
 };
 
 #endif

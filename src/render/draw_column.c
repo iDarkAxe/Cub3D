@@ -6,15 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:12:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-
-// TODO: REMOVE PROTOTYPE
-void		hitside_color(int hitside, const t_pos2 *step, int *color);
 
 #if ENABLE_MINIMAP == 1
 
@@ -25,7 +22,8 @@ static int	calc_line(t_data *data, float wall_dist, int x, t_pos2 *line_point)
 
 	height = data->mlx.win_size.y / wall_dist;
 	line_point->y = -height / 2 + data->mlx.win_size.y / 2;
-	if (x < data->mlx.minimap_size.x && line_point->y < data->mlx.minimap_size.y)
+	if (x < data->mlx.minimap_size.x
+		&& line_point->y < data->mlx.minimap_size.y)
 		line_point->y = data->mlx.minimap_size.y;
 	else if (line_point->y < 0)
 		line_point->y = 0;
@@ -51,7 +49,8 @@ void	draw_column(t_data *data, int x, const t_raydata *rdata)
 	line_draw_height = calc_line(data, wall_dist, x, &line_point);
 	hitside_color(rdata->hit_side, &rdata->step, &color);
 	if (line_point.y > 0 && x >= data->mlx.minimap_size.x)
-		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y, data->map.textures.ceiling.argb);
+		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y,
+			data->map.textures.ceiling.argb);
 	else if (line_point.y > 0)
 	{
 		cubmlx_putvertline(data, (t_pos2){x, data->mlx.minimap_size.y},
@@ -98,7 +97,8 @@ void	draw_column(t_data *data, int x, const t_raydata *rdata)
 	line_draw_height = calc_line(data->mlx.win_size, wall_dist, x, &line_point);
 	hitside_color(rdata->hit_side, &rdata->step, &color);
 	if (line_point.y > 0)
-		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y, data->map.textures.ceiling.argb);
+		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y,
+			data->map.textures.ceiling.argb);
 	cubmlx_putvertline(data, line_point, line_draw_height, color);
 	if ((line_point.y + line_draw_height + 1) < data->mlx.win_size.y)
 		cubmlx_putvertline(data, (t_pos2){x, line_point.y + line_draw_height},

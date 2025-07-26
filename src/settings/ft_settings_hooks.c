@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 14:57:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:40:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,6 @@ int	hook_settings_close_window(void *param)
 	else
 		mlx_loop_end(mlx->mlx_ptr);
 	return (0);
-}
-
-/**
- * @brief State machine for the settings window.
- *
- * @param keycode keycode of the key pressed
- * @param mlx Pointer to the mlx structure
- */
-static void	state_machine(int keycode, t_mlx *mlx)
-{
-	if (keycode == KEY_ESCAPE && mlx->settings.state == 0)
-		ft_set_screen_size(mlx, SIZE_FULL_SCREEN);
-	else if ((keycode == KEY_ESCAPE || keycode == KEY_ENTER
-			|| keycode == KEY_SPACE) && mlx->settings.state != 0)
-		ft_set_screen_size(mlx, mlx->settings.state);
-	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings.state == SIZE_480P)
-		mlx->settings.state = SIZE_FULL_SCREEN;
-	else if (is_mv_key(MV_UP, keycode)
-		&& mlx->settings.state == SIZE_FULL_SCREEN)
-		mlx->settings.state = SIZE_480P;
-	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings.state < SIZE_480P)
-		mlx->settings.state++;
-	else if (is_mv_key(MV_UP, keycode)
-		&& mlx->settings.state > SIZE_FULL_SCREEN)
-		mlx->settings.state--;
 }
 
 /**

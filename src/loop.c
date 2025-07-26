@@ -6,17 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:16:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
 #include "ft_keys.h"
+#include "ft_print.h"
 #include "mlx.h"
 #include <X11/X.h>
-
-void		ft_print_key(int keycode);
 
 static void	set_key(int keycode, t_input *input, bool set)
 {
@@ -34,15 +33,19 @@ static void	set_key(int keycode, t_input *input, bool set)
 		input->turn_right = set;
 }
 
-// TODO : Needs to change param as it can't modify mlx for closing window
 static int	cub_keydown_hook(int keycode, void *param)
 {
-	t_input	*input;
+	t_data	*data;
 
-	input = (t_input *)param;
+	data = (t_data *)param;
 	if (DEBUG_PRINT_KEYCODE == 1)
 		ft_print_key(keycode);
-	set_key(keycode, input, true);
+	if (keycode == KEY_ESCAPE)
+	{
+		mlx_loop_end(data->mlx.mlx_ptr);
+		return (0);
+	}
+	set_key(keycode, &data->input, true);
 	return (0);
 }
 
@@ -67,10 +70,10 @@ static int	loop_hook(void *param)
 
 void	cub_loop(t_data *data)
 {
-	mlx_hook(data->mlx.win_ptr, DestroyNotify, StructureNotifyMask, &mlx_loop_end,
-		data->mlx.mlx_ptr);
+	mlx_hook(data->mlx.win_ptr, DestroyNotify, StructureNotifyMask,
+		&mlx_loop_end, data->mlx.mlx_ptr);
 	mlx_hook(data->mlx.win_ptr, KeyPress, KeyPressMask, &cub_keydown_hook,
-		&data->input);
+		data);
 	mlx_hook(data->mlx.win_ptr, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
 		&data->input);
 	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);

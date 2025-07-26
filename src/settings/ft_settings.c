@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:17:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:44:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "cub3d_render.h"
 #include "data_structure.h"
 #include "ft_draw.h"
 #include "ft_keys.h"
@@ -19,7 +20,7 @@
 #include <stdlib.h>
 
 static int			settings_loop_hook(void *param);
-int					cub3d_init_render(t_mlx *mlx);
+static void			settings_changed(t_data *data);
 
 void	*ft_settings(t_mlx *mlx)
 {
@@ -71,16 +72,7 @@ int	settings_loop_hook(void *param)
 
 	data = (t_data *)param;
 	if (data->mlx.win_size.x != 0 || data->mlx.win_size.y != 0)
-	{
-		mlx_loop_hook(data->mlx.mlx_ptr, NULL, NULL);
-		data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr,
-				(int)data->mlx.win_size.x, (int)data->mlx.win_size.y, "Cub3D");
-		if (data->mlx.win_ptr == NULL)
-			return (-1);
-		ft_free_settings(&data->mlx);
-		main_hooks(&data->mlx);
-		cub3d_init_render(&data->mlx);
-	}
+		settings_changed(data);
 	state_actual = data->mlx.settings.state;
 	if (state_actual == state_prev || state_actual == 0)
 		return (0);
@@ -90,6 +82,19 @@ int	settings_loop_hook(void *param)
 		1);
 	state_prev = state_actual;
 	return (0);
+}
+
+static void	settings_changed(t_data *data)
+{
+	mlx_loop_hook(data->mlx.mlx_ptr, NULL, NULL);
+	data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr,
+			data->mlx.win_size.x, (int)data->mlx.win_size.y, "Cub3D");
+	if (data->mlx.win_ptr == NULL)
+		mlx_loop_end(data->mlx.mlx_ptr);
+	ft_free_settings(&data->mlx);
+	main_hooks(&data->mlx);
+	if (cub3d_init_render(data) != 0)
+		mlx_loop_end(data->mlx.mlx_ptr);
 }
 
 int	ft_set_screen_size(t_mlx *mlx, enum e_screen_size size)
@@ -110,24 +115,4 @@ int	ft_set_screen_size(t_mlx *mlx, enum e_screen_size size)
 	else
 		return (-1);
 	return (0);
-}
-
-enum e_screen_size	circle_state(int x, int y)
-{
-	if (x > 15 && x < 55)
-	{
-		if (y > 60 && y < 100)
-			return (SIZE_FULL_SCREEN);
-		if (y > 120 && y < 160)
-			return (SIZE_4K);
-		else if (y > 190 && y < 230)
-			return (SIZE_2K);
-		else if (y > 260 && y < 300)
-			return (SIZE_1080P);
-		else if (y > 340 && y < 380)
-			return (SIZE_720P);
-		else if (y > 420 && y < 460)
-			return (SIZE_480P);
-	}
-	return (SIZE_NONE);
 }

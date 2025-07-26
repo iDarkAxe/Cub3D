@@ -6,15 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 09:47:02 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:53:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_render.h"
 #include <math.h>
 
-void		raycalc(const t_pos2 win_size, int x, float cam_angle,
-				t_raydata *rdata);
 static void	raycalc_set_ray_dir(t_raydata *rdata, const t_vec2 *pos);
 
 // TODO: What is 1e30 magic number ? Maybe define a const or macro

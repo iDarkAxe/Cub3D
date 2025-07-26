@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:04:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 #include "cub3d_render.h"
 #include <math.h>
 
-// TODO:Taille de la minimap
-
-static void	render_square(t_data *data, t_pos2 pos, int size, unsigned int color)
+static void	render_square(t_data *data, t_pos2 pos, int size,
+	unsigned int color)
 {
 	int	x;
 	int	y;
@@ -87,6 +86,8 @@ void	cub_render_minimap(t_data *data)
 	size_t				y;
 	t_pos2				pos;
 
+	if (!data || !data->map.map)
+		return ;
 	y = 0;
 	while (y < data->map.map->height)
 	{

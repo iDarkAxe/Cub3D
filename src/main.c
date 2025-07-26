@@ -6,13 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:35 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/22 11:39:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:15:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	cub3d_raoul(int argc, char **argv);
 
 /**
  * @brief Main function of the program.
@@ -26,8 +24,3 @@ int	main(int argc, char **argv)
 {
 	return (cub3d(argc, argv));
 }
-
-// int	main(int argc, char **argv)
-// {
-// 	return (cub3d_raoul(argc, argv));
-// }

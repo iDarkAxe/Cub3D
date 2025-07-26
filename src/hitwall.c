@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:54:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ void	hitwall_loop(const t_data *data, t_raydata *rdata)
 			|| rdata->map.x >= (int)data->map.map->width
 			|| rdata->map.y >= (int)data->map.map->height)
 			break ;
-		if (data->map.map->walls[rdata->map.y * data->map.map->width + rdata->map.x] > 0)
+		if (data->map.map->walls[rdata->map.y * data->map.map->width
+				+ rdata->map.x] > 0)
 			rdata->hit_wall = 1;
 	}
 }

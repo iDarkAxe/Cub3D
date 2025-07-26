@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:35:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:17:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 #include "data_structure.h"
 #include "mlx.h"
 #include <stdlib.h>
-
-void	ft_free_file(t_map *map);
-void	ft_free_textures(t_mlx *mlx, t_map *map);
-void	ft_free_textures_path(t_map *map);
-void	ft_free_all(t_data *data);
-void	ft_free_map(t_map_raoul *map);
 
 void	ft_free_all(t_data *data)
 {

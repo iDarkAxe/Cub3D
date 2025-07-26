@@ -1,7 +1,7 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 
 CC = cc
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -Ofast
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
@@ -13,7 +13,7 @@ CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 # Uncomment the line below to use DWARF-4 debugging information on WSL2
 CFLAGS_DEBUG =-Wall -Wextra -gdwarf-4 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes -Wno-packed
 
 # Flag to hide output
 # 0 = Show output, 1 = Hide output
@@ -59,8 +59,11 @@ P_MLX = mlx/
 # Headers
 INC = \
 	cub3d.h \
+	cub3d_render.h \
+	data_structure.h \
 	ft_keys.h \
-	ft_print.h
+	ft_print.h \
+	ft_draw.h
 
 # Source files
 SRC = \
@@ -92,7 +95,6 @@ RENDER = \
 FT_MLX = \
 	ft_init_mlx.c \
 	ft_hooks.c \
-	ft_mlx_init.c \
 	ft_mlx_render.c \
 	ft_mlx_render_line.c\
 
@@ -111,6 +113,7 @@ PARSING = \
 SETTINGS = \
 	ft_settings.c \
 	ft_settings_hooks.c \
+	ft_settings_state.c \
 	ft_settings_draw_img.c
 
 DRAW = \
