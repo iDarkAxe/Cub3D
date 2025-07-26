@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_settings-hooks.c                                :+:      :+:    :+:   */
+/*   ft_settings_hooks.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 14:11:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:40:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,32 @@ int	hook_settings_close_window(void *param)
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)param;
-	mlx_get_screen_size(mlx->mlx_ptr, (int *)&mlx->win_size.x,
-		(int *)&mlx->win_size.y);
+	if (CROSS_APPLY_SETTINGS)
+		ft_set_screen_size(mlx, mlx->settings.state);
+	else
+		mlx_loop_end(mlx->mlx_ptr);
 	return (0);
 }
 
+/**
+ * @brief Handle mouse click in the settings window.
+ * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
+ *
+ * @param keycode keycode of the key pressed
+ * @param param Pointer to the mlx structure
+ * @return int
+ */
 int	hook_settings_handle_keypress(int keycode, void *param)
 {
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)param;
-	ft_print_key(keycode);
-	if (is_mv_key(MV_DOWN, keycode) && mlx->settings_state == SIZE_1080P)
-		mlx->settings_state = SIZE_FULL_SCREEN;
-	else if (is_mv_key(MV_UP, keycode)
-		&& mlx->settings_state == SIZE_FULL_SCREEN)
-		mlx->settings_state = SIZE_1080P;
-	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings_state < SIZE_1080P)
-		mlx->settings_state++;
-	else if (is_mv_key(MV_UP, keycode)
-		&& mlx->settings_state > SIZE_FULL_SCREEN)
-		mlx->settings_state--;
-	else if (keycode == KEY_ESCAPE && mlx->settings_state == 0)
-		return (ft_set_screen_size(mlx, SIZE_FULL_SCREEN));
-	else if ((keycode == KEY_ESCAPE || keycode == KEY_ENTER
-			|| keycode == KEY_SPACE) && mlx->settings_state != 0)
-		return (ft_set_screen_size(mlx, mlx->settings_state));
+	if (DEBUG_PRINT_KEYCODE == 1)
+		ft_print_key(keycode);
+	if (keycode == KEY_ESCAPE && ESCAPE_APPLY_SETTINGS == 0)
+		mlx_loop_end(mlx->mlx_ptr);
+	else
+		state_machine(keycode, mlx);
 	return (keycode);
 }
 
@@ -59,7 +59,7 @@ int	hook_settings_handle_mouse_click(int button, int x, int y, void *param)
 	(void)x;
 	(void)y;
 	if (button == 1)
-		return (ft_set_screen_size(mlx, mlx->settings_state));
+		return (ft_set_screen_size(mlx, mlx->settings.state));
 	return (0);
 }
 
@@ -73,6 +73,6 @@ int	hook_settings_handle_mouse_motion(int x, int y, void *param)
 	mlx->mouse_y = y;
 	state = circle_state(x, y);
 	if (state != 0)
-		mlx->settings_state = state;
+		mlx->settings.state = state;
 	return (0);
 }

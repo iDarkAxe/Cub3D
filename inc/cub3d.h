@@ -25,6 +25,30 @@
 # include <unistd.h>
 
 /**
+ * @defgroup Macros Macros Functions
+ * @brief Macros used in the project.
+ * @{
+ *
+ */
+# define PI 3.141592653589793238462643383279502884197169399375105820974944592307
+
+# define ENABLE_MINIMAP 1
+# define MINIMAP_PLAYER_COLOR 0xffffff00
+# define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
+# define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
+# define MINIMAP_FLOOR_COLOR 0xff000000
+# define MINIMAP_WALL_COLOR 0xffffffff
+# define MINIMAP_TILE_SIZE 16
+# define ENABLE_FIELD_OF_VIEW 1
+
+# define DEBUG_PRINT_KEYCODE 0
+
+// If you want to follow closely to the subject, you need to set these to 0
+# define CROSS_APPLY_SETTINGS 0
+# define ESCAPE_APPLY_SETTINGS 0
+
+/** @} */
+/**
  * @defgroup Main Main Functions
  * @brief Core functionality of the program.
  * @{
@@ -98,12 +122,12 @@ char				*store_textures_names(t_map *map);
 void				ft_exit(t_mlx mlx, t_map *map);
 
 /**
- * @brief Initialize the mlx structure.
+ * @brief Initialize the mlx structure, create settings window, and load game
  *
- * @param mlx mlx structure
+ * @param data data structure
  * @return int
  */
-int					ft_mlx_init(t_mlx *mlx);
+int					ft_mlx_init(t_data *data);
 
 /**
  * @brief Close and free the mlx structure.
@@ -139,6 +163,8 @@ enum e_screen_size	circle_state(int x, int y);
 int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
 void				ft_free_settings(t_mlx *mlx);
 void				main_hooks(t_mlx *mlx);
+void				settings_hooks(t_data *data);
+void				state_machine(int keycode, t_mlx *mlx);
 /** @} */
 
 /**
@@ -165,14 +191,6 @@ int					hook_settings_handle_keypress(int keycode, void *param);
  * @{
  */
 
-/**
- * @brief Check if the player can move in the given direction.
- *
- * @param map Pointer to the map structure.
- * @param mlx Pointer to the mlx structure.
- * @param direction Direction to move (UP, DOWN, LEFT OR RIGHT).
- */
-void				can_player_move(t_mlx *mlx, t_map *map, int direction);
 /** @} */
 
 /**
@@ -301,6 +319,13 @@ int					try_to_open_close_file(char *file_name);
 size_t				count_array_length(char **array);
 
 /**
+ * @brief Free all the memory allocated for the data structure.
+ *
+ * @param data data structure
+ */
+void				ft_free_all(t_data *data);
+
+/**
  * @brief Free the strings of the file
  *
  * @param map map structure
@@ -321,6 +346,13 @@ void				ft_free_textures(t_mlx *mlx, t_map *map);
  * @param map map structure
  */
 void				ft_free_textures_path(t_map *map);
+
+/**
+ * @brief Free the map structure
+ *
+ * @param map map structure
+ */
+void				ft_free_map(t_map_raoul *map);
 /** @} */
 
 /**

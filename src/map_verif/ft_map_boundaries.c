@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:15:13 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 12:38:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:00:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ t_coordinates	find_position(t_map *map, const char *charset)
 	t_coordinates	pos;
 	size_t			height;
 
-	height = count_array_length(map->map);
+	height = count_array_length(map->map_2d);
 	pos.y = 0;
-	while (pos.y < height && map->map[pos.y])
+	while (pos.y < height && map->map_2d[pos.y])
 	{
 		pos.x = 0;
-		while (map->map[pos.y][pos.x])
+		while (map->map_2d[pos.y][pos.x])
 		{
-			if (ft_strchr(charset, map->map[pos.y][pos.x]))
+			if (ft_strchr(charset, map->map_2d[pos.y][pos.x]))
 				return (pos);
 			pos.x++;
 		}

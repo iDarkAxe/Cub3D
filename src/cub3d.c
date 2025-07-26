@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 14:20:09 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "cub3d_render.h"
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "mlx.h"
@@ -29,11 +30,13 @@ int	cub3d(int argc, char **argv)
 		return (print_error(&data.map, CONFIG_ERROR));
 	if (store_textures_names(&data.map) == NULL)
 		return (print_error(&data.map, STORE_TEXTURES_NAMES));
-	if (ft_mlx_init(&data.mlx) != 0)
-		ft_dprintf(2, "Erreur mlx\n");
+	if (ft_mlx_init(&data) != 0)
+	{
+		ft_dprintf(2, "Erreur Init mlx\n");
+		ft_free_all(&data);
+		return (-1);
+	}
 	mlx_loop(data.mlx.mlx_ptr);
-	ft_mlx_end(&data.mlx);
-	ft_free_textures_path(&data.map);
-	ft_free_file(&data.map);
+	ft_free_all(&data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 15:50:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:29:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ int	print_error(t_map *map, enum e_fx_error error)
 		ft_dprintf(2, RED "Error" RESET "\nAt ft_check_config\n");
 	else if (error == STORE_TEXTURES_NAMES)
 		ft_dprintf(2, RED "Error" RESET "\nAt store_textures_names\n");
+	else if (error == STORE_TEXTURES_IMG)
+		ft_dprintf(2, RED "Error" RESET "\nAt store_textures_mlx\n");
+	else if (error == FT_SETTINGS)
+		ft_dprintf(2, RED "Error" RESET "\nAt ft_settings\n");
+	else if (error == CUB_INIT_RENDER)
+		ft_dprintf(2, RED "Error" RESET "\nAt cub_init_render\n");
+	else if (error == CUB_INIT)
+		ft_dprintf(2, RED "Error" RESET "\nAt cub_init\n");
+	else
+		ft_dprintf(2, RED "Error" RESET "\nUnknown error\n");
 	if (error != FT_MAP_CHECK)
 		ft_free_file(map);
 	if (error == STORE_TEXTURES_NAMES)

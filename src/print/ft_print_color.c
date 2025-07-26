@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 18:04:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:00:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_print_color(t_color *color)
 
 void	ft_print_floor_ceiling(t_map *map)
 {
-	if (map == NULL || map->map == NULL)
+	if (map == NULL || map->map_2d == NULL)
 	{
-		ft_dprintf(2, RED "Error" RESET "\nMap or map->map is NULL\n");
+		ft_dprintf(2, RED "Error" RESET "\nMap or map->map_2d is NULL\n");
 		return ;
 	}
 	printf("Floor:\n");

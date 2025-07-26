@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 13:13:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:00:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ t_map	check_map_chars_borders(t_map *map)
 		ft_dprintf(2, RED "Error" RESET "\nMap structure is NULL\n");
 		return ((t_map){.error = -1});
 	}
-	if (check_autorized_chars(map->map) == 0)
+	if (check_autorized_chars(map->map_2d) == 0)
 	{
 		ft_dprintf(2, RED "Error" RESET "\nMap->map has unautorized chars\n");
 		map->error = -1;

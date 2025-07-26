@@ -23,12 +23,26 @@
 **/input
 **/output
 
-./test
 **/res
 **/resultat
 **/log
+testing/
 
 **/cub3d
-img-dev/
+**/cub3D
 doxy-log-err.txt
 doxy-log.txt
+
+####
+# Raoul1808 gitignore
+*.o
+*.a
+dep/
+obj/
+cubtest
+
+# Clangd files
+compile_flags.txt
+compile_commands.json
+.clangd
+img-dev/

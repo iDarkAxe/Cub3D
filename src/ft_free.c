@@ -6,19 +6,33 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 13:02:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:17:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "data_structure.h"
 #include "mlx.h"
 #include <stdlib.h>
 
-void	ft_free_file(t_map *map);
-void	ft_free_textures(t_mlx *mlx, t_map *map);
-void	ft_free_textures_path(t_map *map);
-void	ft_mlx_end(t_mlx *mlx);
-void	ft_free_settings(t_mlx *mlx);
+void	ft_free_all(t_data *data)
+{
+	ft_free_settings(&data->mlx);
+	ft_free_textures(&data->mlx, &data->map);
+	ft_mlx_end(&data->mlx);
+	ft_free_textures_path(&data->map);
+	ft_free_file(&data->map);
+	ft_free_map(data->map.map);
+}
+
+void	ft_free_map(t_map_raoul *map)
+{
+	if (!map)
+		return ;
+	free(map->walls);
+	free(map);
+	map = NULL;
+}
 
 void	ft_free_file(t_map *map)
 {
@@ -34,37 +48,37 @@ void	ft_free_file(t_map *map)
 		free(map->file);
 		map->file = NULL;
 	}
-	if (map->map != NULL)
+	if (map->map_2d != NULL)
 	{
-		free(map->map);
-		map->map = NULL;
+		free(map->map_2d);
+		map->map_2d = NULL;
 	}
 	map->file_nb_lines = 0;
 }
 
 void	ft_free_textures(t_mlx *mlx, t_map *map)
 {
-	if (map == NULL || mlx == NULL)
+	if (map == NULL || mlx == NULL || mlx->mlx_ptr == NULL)
 		return ;
-	if (map->textures.north.ptr != NULL)
+	if (map->textures.north.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.north.ptr);
-		map->textures.north.ptr = NULL;
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.north.img);
+		map->textures.north.img = NULL;
 	}
-	if (map->textures.south.ptr != NULL)
+	if (map->textures.south.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.south.ptr);
-		map->textures.south.ptr = NULL;
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.south.img);
+		map->textures.south.img = NULL;
 	}
-	if (map->textures.west.ptr != NULL)
+	if (map->textures.west.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.west.ptr);
-		map->textures.west.ptr = NULL;
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.west.img);
+		map->textures.west.img = NULL;
 	}
-	if (map->textures.east.ptr != NULL)
+	if (map->textures.east.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.east.ptr);
-		map->textures.east.ptr = NULL;
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.east.img);
+		map->textures.east.img = NULL;
 	}
 }
 
@@ -91,39 +105,5 @@ void	ft_free_textures_path(t_map *map)
 	{
 		free(map->textures.east.path);
 		map->textures.east.path = NULL;
-	}
-}
-
-void	ft_mlx_end(t_mlx *mlx)
-{
-	if (!mlx)
-		return ;
-	if (mlx->mlx_ptr != NULL && mlx->win_ptr != NULL)
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-	mlx->win_ptr = NULL;
-	if (mlx->mlx_ptr != NULL)
-		mlx_destroy_display(mlx->mlx_ptr);
-	free(mlx->mlx_ptr);
-	mlx->win_ptr = NULL;
-}
-
-void	ft_free_settings(t_mlx *mlx)
-{
-	if (!mlx)
-		return ;
-	if (mlx->circle_no.ptr)
-	{
-		mlx_destroy_image(mlx->mlx_ptr, mlx->circle_no.ptr);
-		mlx->circle_no.ptr = NULL;
-	}
-	if (mlx->circle_yes.ptr)
-	{
-		mlx_destroy_image(mlx->mlx_ptr, mlx->circle_yes.ptr);
-		mlx->circle_yes.ptr = NULL;
-	}
-	if (mlx->win_settings_ptr)
-	{
-		mlx_destroy_window(mlx->mlx_ptr, mlx->win_settings_ptr);
-		mlx->win_settings_ptr = NULL;
 	}
 }

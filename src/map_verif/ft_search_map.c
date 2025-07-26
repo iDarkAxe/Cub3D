@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:15:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 13:14:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:00:30 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ char	**fill_map_region(t_map *map)
 
 	if (!map || !map->file)
 		return (NULL);
-	map->map = malloc(sizeof(char *) * (count_map_size(map) - 6 + 1));
-	if (!map->map)
+	map->map_2d = malloc(sizeof(char *) * (count_map_size(map) - 6 + 1));
+	if (!map->map_2d)
 		return (NULL);
 	nb_lines = 0;
 	index = 0;
@@ -53,13 +53,13 @@ char	**fill_map_region(t_map *map)
 		if (is_config_line(map->file[index]) == 0
 			&& is_only_whitespace(map->file[index]) == false)
 		{
-			map->map[nb_lines] = map->file[index];
+			map->map_2d[nb_lines] = map->file[index];
 			nb_lines++;
 		}
 		index++;
 	}
-	map->map[nb_lines] = NULL;
-	return (map->map);
+	map->map_2d[nb_lines] = NULL;
+	return (map->map_2d);
 }
 
 /**

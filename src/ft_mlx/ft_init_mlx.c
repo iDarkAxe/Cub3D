@@ -6,51 +6,59 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 11:24:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 16:23:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "ft_print.h"
+#include "ft_printf.h"
 #include "libft.h"
 #include "mlx.h"
 
-t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map);
+static t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map);
 
-int	ft_mlx_init(t_mlx *mlx)
+int	ft_mlx_init(t_data *data)
 {
-	if (!mlx)
+	if (!data)
 		return (-1);
-	ft_bzero(mlx, sizeof(t_mlx));
-	mlx->mouse_x = -1;
-	mlx->mouse_y = -1;
-	mlx->settings_state = SIZE_FULL_SCREEN;
-	mlx->win_size = (t_coordinates){0, 0};
-	mlx->mlx_ptr = mlx_init();
-	if (mlx->mlx_ptr == NULL)
-		return ((void)write(2, "Error\nInit MLX\n", 14), -1);
-	mlx->win_settings_ptr = ft_settings(mlx);
+	ft_bzero(&data->mlx, sizeof(t_mlx));
+	data->mlx.mouse_x = -1;
+	data->mlx.mouse_y = -1;
+	data->mlx.settings.state = SIZE_FULL_SCREEN;
+	data->mlx.win_size = (t_pos2){0, 0};
+	data->mlx.mlx_ptr = mlx_init();
+	if (data->mlx.mlx_ptr == NULL)
+		return (-1);
+	if (store_textures_mlx(&data->mlx, &data->map) == NULL)
+		return (print_error(&data->map, STORE_TEXTURES_IMG));
+	if (ft_settings(&data->mlx) == NULL)
+		return (print_error(&data->map, FT_SETTINGS));
+	settings_hooks(data);
 	return (0);
 }
 
 t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map)
 {
-	map->textures.north.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			map->config[0], &(map->textures.north.width),
+	map->textures.north.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			map->textures.north.path, &(map->textures.north.width),
 			&(map->textures.north.height));
-	if (map->textures.north.ptr == NULL)
+	if (map->textures.north.img == NULL)
 		return (NULL);
-	map->textures.south.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			map->config[0], &(map->textures.south.width),
+	map->textures.south.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			map->textures.south.path, &(map->textures.south.width),
 			&(map->textures.south.height));
-	if (map->textures.south.ptr == NULL)
+	if (map->textures.south.img == NULL)
 		return (NULL);
-	map->textures.west.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr, map->config[0],
-			&(map->textures.west.width), &(map->textures.west.height));
-	if (map->textures.west.ptr == NULL)
+	map->textures.west.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			map->textures.west.path, &(map->textures.west.width),
+			&(map->textures.west.height));
+	if (map->textures.west.img == NULL)
 		return (NULL);
-	map->textures.east.ptr = mlx_xpm_file_to_image(mlx->mlx_ptr, map->config[0],
-			&(map->textures.east.width), &(map->textures.east.height));
-	if (map->textures.east.ptr == NULL)
+	map->textures.east.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
+			map->textures.east.path, &(map->textures.east.width),
+			&(map->textures.east.height));
+	if (map->textures.east.img == NULL)
 		return (NULL);
 	return (mlx);
 }

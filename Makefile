@@ -1,16 +1,19 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
+
 CC = cc
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -Ofast
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
 NAME_TEST = test
-NAME = cub3d
+NAME = cub3D
 
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
+# Uncomment the line below to use DWARF-4 debugging information on WSL2
+CFLAGS_DEBUG =-Wall -Wextra -gdwarf-4 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes -Wno-packed
 
 # Flag to hide output
 # 0 = Show output, 1 = Hide output
@@ -34,6 +37,7 @@ P_PARSING = parsing/
 P_SETTINGS = settings/
 P_DRAW = draw/
 P_PRINT = print/
+P_RENDER = render/
 
 # Object directories
 P_OBJ = .obj/
@@ -42,16 +46,11 @@ P_OBJ = .obj/
 P_INC = inc/
 P_INC_MLX = $(P_MLX)
 
-P_INCS = \
-	$(P_INC) \
-	$(P_INC_MLX) \
-	$(P_LIBFT)inc/
-
 # Libraries directories
 P_LIB = lib/
 P_LIBFT = libft/
 P_GET_NEXT_LINE = get_next_line/
-P_MLX = minilibx-linux/
+P_MLX = mlx/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -60,24 +59,44 @@ P_MLX = minilibx-linux/
 # Headers
 INC = \
 	cub3d.h \
+	cub3d_render.h \
+	data_structure.h \
 	ft_keys.h \
-	ft_print.h
-
-INC_MLX = \
-	mlx.h 
+	ft_print.h \
+	ft_draw.h
 
 # Source files
 SRC = \
 	main.c \
 	cub3d.c \
+	cub3d_raoul.c \
 	ft_safe.c \
 	ft_free.c \
-	ft-utils.c \
-	ft_keys.c
+	ft_free_mlx.c \
+	ft_utils.c \
+	ft_keys.c \
+	parse.c \
+	init.c \
+	loop.c \
+	player.c \
+	player_utils.c \
+	hitside_color.c \
+	hitwall.c \
+	math/utils.c \
+	math/vec2.c \
+	
+
+RENDER = \
+	minimap.c \
+	render.c \
+	render_more.c \
+	draw_column.c \
 
 FT_MLX = \
 	ft_init_mlx.c \
-	ft_hooks.c
+	ft_hooks.c \
+	ft_mlx_render.c \
+	ft_mlx_render_line.c\
 
 MAP_VERIF = \
 	ft_file_fill.c \
@@ -93,7 +112,8 @@ PARSING = \
 
 SETTINGS = \
 	ft_settings.c \
-	ft_settings-hooks.c \
+	ft_settings_hooks.c \
+	ft_settings_state.c \
 	ft_settings_draw_img.c
 
 DRAW = \
@@ -112,7 +132,8 @@ LIBS = \
 	-L$(P_LIBFT) -lft \
 	-L$(P_MLX) -lmlx_Linux \
 	-lXext \
-	-lX11
+	-lX11 \
+	-lm
 
 LIBFT = $(P_LIBFT)libft.a
 GET_NEXT_LINE = $(P_GET_NEXT_LINE)libgnl.a
@@ -128,6 +149,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
 	$(addprefix $(P_SRC)$(P_SETTINGS), $(SETTINGS)) \
 	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
+	$(addprefix $(P_SRC)$(P_RENDER), $(RENDER)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)
@@ -172,15 +194,15 @@ bonus:
 
 force:
 
-$(LIBFT): force
-	@$(MAKE) -C $(P_LIBFT)
+$(LIBFT):
+	$(MAKE) -C $(P_LIBFT) all
 
 $(GET_NEXT_LINE): force
 	@$(MAKE) -C $(P_GET_NEXT_LINE)
 
 # Create mlx library
 $(P_MLX)libmlx_Linux.a: force
-	@$(MAKE) -C $(P_MLX) --silent CFLAGS="$(CFLAGS_MLX)" CC="gcc" all $(HIDE_STDOUT)
+	@$(MAKE) -C $(P_MLX) --silent CFLAGS="$(CFLAGS_MLX)" CC="gcc -std=gnu17" all $(HIDE_STDOUT)
 
 #############################################################################################
 #                                                                                           #
@@ -240,6 +262,7 @@ debug:
 
 debug-cc:
 	@$(MAKE) $(NAME) CFLAGS="$(CC_DEBUG_CFLAGS)" CC="$(CC_DEBUG)" Cyan="$(Yellow)" Green="$(Purple)"
+
 
 # Debugging print
 debug-print:

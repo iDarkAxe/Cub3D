@@ -25,6 +25,7 @@ P_SWAP = swap/
 P_LST = lst/
 P_LST_MANIPULATION = manipulation/
 P_FT_PRINTF = ft_printf/
+P_COLLECTIONS = collections/
 
 # Object directories
 P_OBJ = .obj/
@@ -120,6 +121,9 @@ SRC_LST_MANIPULATION = \
 SRC_FT_PRINTF = \
 	ft_printf.c
 
+SRC_COLLECTIONS = \
+	ptrvec.c\
+
 #############################################################################################
 #                                                                                           #
 #                                        MANIPULATION                                       #
@@ -133,7 +137,8 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_PRINT), $(SRC_PRINT)) \
 	$(addprefix $(P_SRC)$(P_SORT), $(SRC_SORT)) \
 	$(addprefix $(P_SRC)$(P_SWAP), $(SRC_SWAP)) \
-	$(addprefix $(P_SRC)$(P_FT_PRINTF), $(SRC_FT_PRINTF)) 
+	$(addprefix $(P_SRC)$(P_FT_PRINTF), $(SRC_FT_PRINTF)) \
+	$(addprefix $(P_SRC)$(P_COLLECTIONS), $(SRC_COLLECTIONS)) 
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
