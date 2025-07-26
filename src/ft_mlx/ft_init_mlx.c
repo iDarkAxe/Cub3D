@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 16:29:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:16:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_mlx_init(t_data *data)
 	data->mlx.mouse_x = -1;
 	data->mlx.mouse_y = -1;
 	data->mlx.settings.state = SIZE_FULL_SCREEN;
-	data->mlx.win_size = (t_coordinates){0, 0};
+	data->mlx.win_size = (t_pos2){0, 0};
 	data->mlx.mlx_ptr = mlx_init();
 	if (data->mlx.mlx_ptr == NULL)
 		return (-1);

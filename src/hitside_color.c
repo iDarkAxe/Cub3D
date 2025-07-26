@@ -6,11 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/16 19:40:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
+#include "cub3d_render.h"
 
 // RED for now
 #define HITSIDE_COLOR_NORTH 0xffff0000

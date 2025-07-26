@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 12:38:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:00:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,16 @@ ssize_t	ft_print_map(t_map *map)
 	ssize_t	temp;
 	size_t	count;
 
-	if (map == NULL || map->map == NULL)
+	if (map == NULL || map->map_2d == NULL)
 	{
-		ft_dprintf(2, RED "Error" RESET "\nMap or map->map is NULL\n");
+		ft_dprintf(2, RED "Error" RESET "\nMap or map->map_2d is NULL\n");
 		return (-1);
 	}
 	count_printed = 0;
 	count = 0;
-	while (map->map[count] != NULL)
+	while (map->map_2d[count] != NULL)
 	{
-		temp = ft_printf("%s", map->map[count]);
+		temp = ft_printf("%s", map->map_2d[count]);
 		if (temp < 0)
 			return (temp);
 		count_printed += temp;

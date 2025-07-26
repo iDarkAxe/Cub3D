@@ -6,38 +6,38 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/23 14:58:35 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/26 15:41:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
 #include "cub3d.h"
+#include "cub3d_render.h"
 
-//TODO: REMOVE PROTOTYPE
+// TODO: REMOVE PROTOTYPE
 void		hitside_color(int hitside, const t_pos2 *step, int *color);
 
 #if ENABLE_MINIMAP == 1
 
-static int	calc_line(t_cub *cub, float wall_dist, int x, t_pos2 *line_point)
+static int	calc_line(t_data *data, float wall_dist, int x, t_pos2 *line_point)
 {
 	float	height;
 	int		line_draw_height;
 
-	height = cub->win_size.y / wall_dist;
-	line_point->y = -height / 2 + cub->win_size.y / 2;
-	if (x < cub->minimap_size.x && line_point->y < cub->minimap_size.y)
-		line_point->y = cub->minimap_size.y;
+	height = data->mlx.win_size.y / wall_dist;
+	line_point->y = -height / 2 + data->mlx.win_size.y / 2;
+	if (x < data->mlx.minimap_size.x && line_point->y < data->mlx.minimap_size.y)
+		line_point->y = data->mlx.minimap_size.y;
 	else if (line_point->y < 0)
 		line_point->y = 0;
-	line_draw_height = height / 2 + cub->win_size.y / 2;
-	if (line_draw_height >= cub->win_size.y)
-		line_draw_height = cub->win_size.y;
+	line_draw_height = height / 2 + data->mlx.win_size.y / 2;
+	if (line_draw_height >= data->mlx.win_size.y)
+		line_draw_height = data->mlx.win_size.y;
 	line_point->x = x;
 	line_draw_height -= line_point->y;
 	return (line_draw_height);
 }
 
-void	draw_column(t_cub *cub, int x, const t_raydata *rdata)
+void	draw_column(t_data *data, int x, const t_raydata *rdata)
 {
 	float	wall_dist;
 	t_pos2	line_point;
@@ -48,20 +48,20 @@ void	draw_column(t_cub *cub, int x, const t_raydata *rdata)
 		wall_dist = rdata->side_dist.x - rdata->delta_dist.x;
 	else
 		wall_dist = rdata->side_dist.y - rdata->delta_dist.y;
-	line_draw_height = calc_line(cub, wall_dist, x, &line_point);
+	line_draw_height = calc_line(data, wall_dist, x, &line_point);
 	hitside_color(rdata->hit_side, &rdata->step, &color);
-	if (line_point.y > 0 && x >= cub->minimap_size.x)
-		cubmlx_putvertline(cub, (t_pos2){x, 0}, line_point.y, cub->ceil_color);
+	if (line_point.y > 0 && x >= data->mlx.minimap_size.x)
+		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y, data->map.textures.ceiling.argb);
 	else if (line_point.y > 0)
 	{
-		cubmlx_putvertline(cub, (t_pos2){x, cub->minimap_size.y}, line_point.y,
-			cub->ceil_color);
+		cubmlx_putvertline(data, (t_pos2){x, data->mlx.minimap_size.y},
+			line_point.y, data->map.textures.ceiling.argb);
 	}
-	cubmlx_putvertline(cub, line_point, line_draw_height, color);
-	if ((line_point.y + line_draw_height + 1) < cub->win_size.y)
-		cubmlx_putvertline(cub, (t_pos2){x, line_point.y + line_draw_height},
-			cub->win_size.y - (line_point.y + line_draw_height),
-			cub->floor_color);
+	cubmlx_putvertline(data, line_point, line_draw_height, color);
+	if ((line_point.y + line_draw_height + 1) < data->mlx.win_size.y)
+		cubmlx_putvertline(data, (t_pos2){x, line_point.y + line_draw_height},
+			data->mlx.win_size.y - (line_point.y + line_draw_height),
+			data->map.textures.floor.argb);
 }
 
 #else
@@ -84,7 +84,7 @@ static int	calc_line(t_pos2 win_size, float wall_dist, int x,
 	return (line_draw_height);
 }
 
-void	draw_column(t_cub *cub, int x, const t_raydata *rdata)
+void	draw_column(t_data *data, int x, const t_raydata *rdata)
 {
 	float	wall_dist;
 	t_pos2	line_point;
@@ -95,15 +95,15 @@ void	draw_column(t_cub *cub, int x, const t_raydata *rdata)
 		wall_dist = rdata->side_dist.x - rdata->delta_dist.x;
 	else
 		wall_dist = rdata->side_dist.y - rdata->delta_dist.y;
-	line_draw_height = calc_line(cub->win_size, wall_dist, x, &line_point);
+	line_draw_height = calc_line(data->mlx.win_size, wall_dist, x, &line_point);
 	hitside_color(rdata->hit_side, &rdata->step, &color);
 	if (line_point.y > 0)
-		cubmlx_putvertline(cub, (t_pos2){x, 0}, line_point.y, cub->ceil_color);
-	cubmlx_putvertline(cub, line_point, line_draw_height, color);
-	if ((line_point.y + line_draw_height + 1) < cub->win_size.y)
-		cubmlx_putvertline(cub, (t_pos2){x, line_point.y + line_draw_height},
-			cub->win_size.y - (line_point.y + line_draw_height),
-			cub->floor_color);
+		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y, data->map.textures.ceiling.argb);
+	cubmlx_putvertline(data, line_point, line_draw_height, color);
+	if ((line_point.y + line_draw_height + 1) < data->mlx.win_size.y)
+		cubmlx_putvertline(data, (t_pos2){x, line_point.y + line_draw_height},
+			data->mlx.win_size.y - (line_point.y + line_draw_height),
+			data->map.textures.floor.argb);
 }
 
 #endif

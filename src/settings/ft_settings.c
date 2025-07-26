@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 16:26:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:17:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,44 +48,46 @@ void	*ft_settings(t_mlx *mlx)
 	return (mlx->settings.win_ptr);
 }
 
-void	settings_hooks(t_mlx *mlx)
+void	settings_hooks(t_data *data)
 {
-	if (!mlx)
+	if (!data)
 		return ;
-	mlx_hook(mlx->settings.win_ptr, MotionNotify, PointerMotionMask,
-		hook_settings_handle_mouse_motion, mlx);
-	mlx_hook(mlx->settings.win_ptr, KeyPress, KeyPressMask,
-		hook_settings_handle_keypress, mlx);
-	mlx_hook(mlx->settings.win_ptr, DestroyNotify, StructureNotifyMask,
-		hook_settings_close_window, mlx);
-	mlx_hook(mlx->settings.win_ptr, ButtonPress, ButtonPressMask,
-		hook_settings_handle_mouse_click, mlx);
-	mlx_loop_hook(mlx->mlx_ptr, settings_loop_hook, mlx);
+	mlx_hook(data->mlx.settings.win_ptr, MotionNotify, PointerMotionMask,
+		hook_settings_handle_mouse_motion, &data->mlx);
+	mlx_hook(data->mlx.settings.win_ptr, KeyPress, KeyPressMask,
+		hook_settings_handle_keypress, &data->mlx);
+	mlx_hook(data->mlx.settings.win_ptr, DestroyNotify, StructureNotifyMask,
+		hook_settings_close_window, &data->mlx);
+	mlx_hook(data->mlx.settings.win_ptr, ButtonPress, ButtonPressMask,
+		hook_settings_handle_mouse_click, &data->mlx);
+	mlx_loop_hook(data->mlx.mlx_ptr, settings_loop_hook, data);
 }
 
 int	settings_loop_hook(void *param)
 {
 	static enum e_screen_size	state_prev = SIZE_FULL_SCREEN;
 	static enum e_screen_size	state_actual = SIZE_FULL_SCREEN;
-	t_mlx						*mlx;
+	t_data						*data;
 
-	mlx = (t_mlx *)param;
-	if (mlx->win_size.x != 0 || mlx->win_size.y != 0)
+	data = (t_data *)param;
+	if (data->mlx.win_size.x != 0 || data->mlx.win_size.y != 0)
 	{
-		mlx_loop_hook(mlx->mlx_ptr, NULL, NULL);
-		mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, (int)mlx->win_size.x,
-				(int)mlx->win_size.y, "Cub3d");
-		if (mlx->win_ptr == NULL)
+		mlx_loop_hook(data->mlx.mlx_ptr, NULL, NULL);
+		data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr,
+				(int)data->mlx.win_size.x, (int)data->mlx.win_size.y, "Cub3D");
+		if (data->mlx.win_ptr == NULL)
 			return (-1);
-		ft_free_settings(mlx);
-		main_hooks(mlx);
-		cub3d_init_render(mlx);
+		ft_free_settings(&data->mlx);
+		main_hooks(&data->mlx);
+		cub3d_init_render(&data->mlx);
 	}
-	state_actual = mlx->settings.state;
+	state_actual = data->mlx.settings.state;
 	if (state_actual == state_prev || state_actual == 0)
 		return (0);
-	ft_put_circle_specific(mlx, mlx->settings.win_ptr, state_prev, 0);
-	ft_put_circle_specific(mlx, mlx->settings.win_ptr, state_actual, 1);
+	ft_put_circle_specific(&data->mlx, data->mlx.settings.win_ptr, state_prev,
+		0);
+	ft_put_circle_specific(&data->mlx, data->mlx.settings.win_ptr, state_actual,
+		1);
 	state_prev = state_actual;
 	return (0);
 }
@@ -96,15 +98,15 @@ int	ft_set_screen_size(t_mlx *mlx, enum e_screen_size size)
 		mlx_get_screen_size(mlx->mlx_ptr, (int *)&mlx->win_size.x,
 			(int *)&mlx->win_size.y);
 	else if (size == SIZE_4K)
-		mlx->win_size = (t_coordinates){3840, 2160};
+		mlx->win_size = (t_pos2){3840, 2160};
 	else if (size == SIZE_2K)
-		mlx->win_size = (t_coordinates){2560, 1440};
+		mlx->win_size = (t_pos2){2560, 1440};
 	else if (size == SIZE_1080P)
-		mlx->win_size = (t_coordinates){1920, 1080};
+		mlx->win_size = (t_pos2){1920, 1080};
 	else if (size == SIZE_720P)
-		mlx->win_size = (t_coordinates){1280, 720};
+		mlx->win_size = (t_pos2){1280, 720};
 	else if (size == SIZE_480P)
-		mlx->win_size = (t_coordinates){640, 480};
+		mlx->win_size = (t_pos2){640, 480};
 	else
 		return (-1);
 	return (0);

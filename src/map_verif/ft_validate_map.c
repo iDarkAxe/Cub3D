@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:45:32 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 13:44:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:00:20 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ int	validate_map(t_map *map)
 	char			**visited;
 
 	pos = find_position(map, "NSWE");
-	if (!is_in_bounds(map->map, pos.y, pos.x))
+	if (!is_in_bounds(map->map_2d, pos.y, pos.x))
 		return (-1);
-	visited = alloc_visited(map->map);
+	visited = alloc_visited(map->map_2d);
 	if (!visited)
 		return (-1);
-	if (is_leaking(map->map, pos.y, pos.x, visited))
+	if (is_leaking(map->map_2d, pos.y, pos.x, visited))
 	{
 		ft_frees((void **)visited);
 		return (-1);

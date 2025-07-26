@@ -6,12 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/23 14:18:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "cubtest.h"
+#include "cub3d_render.h"
 #include "ft_keys.h"
 #include "mlx.h"
 #include <X11/X.h>
@@ -57,22 +57,22 @@ static int	cub_keyup_hook(int keycode, void *param)
 
 static int	loop_hook(void *param)
 {
-	t_cub	*cub;
+	t_data	*data;
 
-	cub = (t_cub *)param;
-	cub_player_update(cub);
-	cub_render(cub);
+	data = (t_data *)param;
+	cub_player_update(data);
+	cub_render(data);
 	return (1);
 }
 
-void	cub_loop(t_cub *cub)
+void	cub_loop(t_data *data)
 {
-	mlx_hook(cub->mlx.win, DestroyNotify, StructureNotifyMask, &mlx_loop_end,
-		cub->mlx.mlx);
-	mlx_hook(cub->mlx.win, KeyPress, KeyPressMask, &cub_keydown_hook,
-		&cub->input);
-	mlx_hook(cub->mlx.win, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
-		&cub->input);
-	mlx_loop_hook(cub->mlx.mlx, &loop_hook, cub);
-	mlx_loop(cub->mlx.mlx);
+	mlx_hook(data->mlx.win_ptr, DestroyNotify, StructureNotifyMask, &mlx_loop_end,
+		data->mlx.mlx_ptr);
+	mlx_hook(data->mlx.win_ptr, KeyPress, KeyPressMask, &cub_keydown_hook,
+		&data->input);
+	mlx_hook(data->mlx.win_ptr, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
+		&data->input);
+	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
+	mlx_loop(data->mlx.mlx_ptr);
 }

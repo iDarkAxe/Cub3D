@@ -6,11 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/17 09:47:02 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 11:23:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
+#include "cub3d_render.h"
 #include <math.h>
 
 void		raycalc(const t_pos2 win_size, int x, float cam_angle,

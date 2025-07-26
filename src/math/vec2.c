@@ -6,11 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:38:30 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/24 11:24:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
+#include "cub3d_render.h"
 #include <math.h>
 
 t_vec2	vec2rotate(t_vec2 vec, float angle)

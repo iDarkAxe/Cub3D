@@ -6,17 +6,17 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/24 11:23:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "cubtest.h"
+#include "cub3d_render.h"
 #include <math.h>
 
 // TODO:Taille de la minimap
 
-static void	render_square(t_cub *cub, t_pos2 pos, int size, unsigned int color)
+static void	render_square(t_data *data, t_pos2 pos, int size, unsigned int color)
 {
 	int	x;
 	int	y;
@@ -27,7 +27,7 @@ static void	render_square(t_cub *cub, t_pos2 pos, int size, unsigned int color)
 		x = 0;
 		while (x < size)
 		{
-			cubmlx_putpixel(cub, pos.x + x, pos.y + y, color);
+			cubmlx_putpixel(data, pos.x + x, pos.y + y, color);
 			x++;
 		}
 		y++;
@@ -36,51 +36,51 @@ static void	render_square(t_cub *cub, t_pos2 pos, int size, unsigned int color)
 
 #if ENABLE_FIELD_OF_VIEW == 1
 
-static void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
+static void	render_line_of_sight(t_data *data, t_pos2 pos, int tile_size)
 {
 	t_pos2	line_left;
 	t_pos2	line_right;
 
-	line_left.x = 8 * cos(cub->player.angle - cub->player.fov * 0.5)
-		+ cub->player.pos.x * tile_size;
-	line_left.y = 8 * sin(cub->player.angle - cub->player.fov * 0.5)
-		+ cub->player.pos.y * tile_size;
-	line_right.x = 8 * cos(cub->player.angle + cub->player.fov * 0.5)
-		+ cub->player.pos.x * tile_size;
-	line_right.y = 8 * sin(cub->player.angle + cub->player.fov * 0.5)
-		+ cub->player.pos.y * tile_size;
-	cubmlx_putline(cub, pos, line_left, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
-	cubmlx_putline(cub, pos, line_right, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
+	line_left.x = 8 * cos(data->player.angle - data->player.fov * 0.5)
+		+ data->player.pos.x * tile_size;
+	line_left.y = 8 * sin(data->player.angle - data->player.fov * 0.5)
+		+ data->player.pos.y * tile_size;
+	line_right.x = 8 * cos(data->player.angle + data->player.fov * 0.5)
+		+ data->player.pos.x * tile_size;
+	line_right.y = 8 * sin(data->player.angle + data->player.fov * 0.5)
+		+ data->player.pos.y * tile_size;
+	cubmlx_putline(data, pos, line_left, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
+	cubmlx_putline(data, pos, line_right, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
 }
 
 #else
 
-static void	render_line_of_sight(t_cub *cub, t_pos2 pos, int tile_size)
+static void	render_line_of_sight(t_data *data, t_pos2 pos, int tile_size)
 {
 	t_pos2	len;
 
-	len.x = 8 * cos((double)cub->player.angle) + (int)(cub->player.pos.x)
+	len.x = 8 * cos((double)data->player.angle) + (int)(data->player.pos.x)
 		* tile_size;
-	len.y = 8 * sin((double)cub->player.angle) + (int)(cub->player.pos.y)
+	len.y = 8 * sin((double)data->player.angle) + (int)(data->player.pos.y)
 		* tile_size;
-	cubmlx_putline(cub, pos, len, MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR);
+	cubmlx_putline(data, pos, len, MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR);
 }
 
 #endif
 
-static void	render_minimap_player(t_cub *cub, int tile_size)
+static void	render_minimap_player(t_data *data, int tile_size)
 {
 	t_pos2	pos;
 
-	pos.x = cub->player.pos.x * tile_size - 2;
-	pos.y = cub->player.pos.y * tile_size - 2;
-	render_square(cub, pos, 4, MINIMAP_PLAYER_COLOR);
-	pos.x = cub->player.pos.x * tile_size;
-	pos.y = cub->player.pos.y * tile_size;
-	render_line_of_sight(cub, pos, tile_size);
+	pos.x = data->player.pos.x * tile_size - 2;
+	pos.y = data->player.pos.y * tile_size - 2;
+	render_square(data, pos, 4, MINIMAP_PLAYER_COLOR);
+	pos.x = data->player.pos.x * tile_size;
+	pos.y = data->player.pos.y * tile_size;
+	render_line_of_sight(data, pos, tile_size);
 }
 
-void	cub_render_minimap(t_cub *cub)
+void	cub_render_minimap(t_data *data)
 {
 	static const int	tile_size = MINIMAP_TILE_SIZE;
 	size_t				x;
@@ -88,20 +88,20 @@ void	cub_render_minimap(t_cub *cub)
 	t_pos2				pos;
 
 	y = 0;
-	while (y < cub->map->height)
+	while (y < data->map.map->height)
 	{
 		x = 0;
 		pos.y = y * tile_size;
-		while (x < cub->map->width)
+		while (x < data->map.map->width)
 		{
 			pos.x = x * tile_size;
-			if (cub->map->walls[y * cub->map->width + x])
-				render_square(cub, pos, tile_size, MINIMAP_WALL_COLOR);
+			if (data->map.map->walls[y * data->map.map->width + x])
+				render_square(data, pos, tile_size, MINIMAP_WALL_COLOR);
 			else
-				render_square(cub, pos, tile_size, MINIMAP_FLOOR_COLOR);
+				render_square(data, pos, tile_size, MINIMAP_FLOOR_COLOR);
 			x++;
 		}
 		y++;
 	}
-	render_minimap_player(cub, tile_size);
+	render_minimap_player(data, tile_size);
 }

@@ -6,13 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/16 23:58:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
+#include "cub3d_render.h"
 
-void	hitwall_loop(const t_cub *cub, t_raydata *rdata)
+void	hitwall_loop(const t_data *data, t_raydata *rdata)
 {
 	while (!(rdata->hit_wall))
 	{
@@ -29,10 +29,10 @@ void	hitwall_loop(const t_cub *cub, t_raydata *rdata)
 			rdata->hit_side = 1;
 		}
 		if (rdata->map.x < 0 || rdata->map.y < 0
-			|| rdata->map.x >= (int)cub->map->width
-			|| rdata->map.y >= (int)cub->map->height)
+			|| rdata->map.x >= (int)data->map.map->width
+			|| rdata->map.y >= (int)data->map.map->height)
 			break ;
-		if (cub->map->walls[rdata->map.y * cub->map->width + rdata->map.x] > 0)
+		if (data->map.map->walls[rdata->map.y * data->map.map->width + rdata->map.x] > 0)
 			rdata->hit_wall = 1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 16:15:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:35:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_free_file(t_map *map);
 void	ft_free_textures(t_mlx *mlx, t_map *map);
 void	ft_free_textures_path(t_map *map);
 void	ft_free_all(t_data *data);
+void	ft_free_map(t_map_raoul *map);
 
 void	ft_free_all(t_data *data)
 {
@@ -27,6 +28,16 @@ void	ft_free_all(t_data *data)
 	ft_mlx_end(&data->mlx);
 	ft_free_textures_path(&data->map);
 	ft_free_file(&data->map);
+	ft_free_map(data->map.map);
+}
+
+void	ft_free_map(t_map_raoul *map)
+{
+	if (!map)
+		return ;
+	free(map->walls);
+	free(map);
+	map = NULL;
 }
 
 void	ft_free_file(t_map *map)
@@ -43,10 +54,10 @@ void	ft_free_file(t_map *map)
 		free(map->file);
 		map->file = NULL;
 	}
-	if (map->map != NULL)
+	if (map->map_2d != NULL)
 	{
-		free(map->map);
-		map->map = NULL;
+		free(map->map_2d);
+		map->map_2d = NULL;
 	}
 	map->file_nb_lines = 0;
 }

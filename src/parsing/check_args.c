@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 15:20:33 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/21 11:23:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:21:56 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	check_args(int argc, char **argv)
 	if (argc < 2 || !argv || !argv[0] || !argv[1])
 	{
 		ft_dprintf(2, RED "Error" RESET "\nNo map file provided\n");
-		ft_dprintf(2, "Usage: %s <map_name>.cub\n", argv[0]);
+		ft_dprintf(2, "Usage: %s <map_name>.data\n", argv[0]);
 		return (-1);
 	}
 	if (argv[2] != NULL)

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/19 20:40:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 14:44:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ t_map	ft_check_floor_ceiling(t_map *map)
 		map->error = 1;
 	if (has_line_an_error(map, split, "ceiling") == 1)
 		return (*map);
-	change_color_values(&map->textures.floor, split, &map->error);
+	change_color_values(&map->textures.ceiling, split, &map->error);
 	free_array(split);
+	map->textures.ceiling.alpha = 0xff;
+	map->textures.floor.alpha = 0xff;
 	return (*map);
 }
 

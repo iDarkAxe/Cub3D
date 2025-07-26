@@ -6,13 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 17:38:10 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/18 12:01:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:41:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
+#include "cub3d_render.h"
 
-void	cubmlx_putline(t_cub *cub, t_pos2 p1, t_pos2 p2, unsigned int color)
+void	cubmlx_putline(t_data *data, t_pos2 p1, t_pos2 p2, unsigned int color)
 {
 	t_vec2	delta;
 	t_vec2	pos;
@@ -30,9 +30,9 @@ void	cubmlx_putline(t_cub *cub, t_pos2 p1, t_pos2 p2, unsigned int color)
 	i = 0;
 	while (i <= length)
 	{
-		if (pos.x >= 0 && pos.x < cub->win_size.x && pos.y >= 0
-			&& pos.y < cub->win_size.y)
-			cubmlx_putpixel(cub, (int)pos.x, (int)pos.y, color);
+		if (pos.x >= 0 && pos.x < data->mlx.win_size.x && pos.y >= 0
+			&& pos.y < data->mlx.win_size.y)
+			cubmlx_putpixel(data, (int)pos.x, (int)pos.y, color);
 		pos.x += delta.x;
 		pos.y += delta.y;
 		i++;

@@ -6,40 +6,45 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/22 15:29:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/26 15:44:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cubtest.h"
+#include "cub3d_render.h"
 #include "mlx.h"
 
-void	cubmlx_clear(t_cubmlx *mlx, unsigned int color)
-{
-	size_t	i;
-	size_t	sz;
+/**
+ * @brief Clear the backbuffer with a specific color.
+ * @deprecated This function is not used.
+ * 
+ */
+// void	cubmlx_clear(t_cubmlx *mlx, unsigned int color)
+// {
+// 	size_t	i;
+// 	size_t	sz;
 
-	sz = mlx->backbuffer.width * mlx->backbuffer.height;
-	i = 0;
-	while (i < sz)
-	{
-		*(unsigned int *)(mlx->backbuffer.pxls + i
-				* (mlx->backbuffer.bits_per_pixel / 8)) = color;
-		i++;
-	}
-}
+// 	sz = mlx->backbuffer.width * mlx->backbuffer.height;
+// 	i = 0;
+// 	while (i < sz)
+// 	{
+// 		*(unsigned int *)(mlx->backbuffer.pxls + i
+// 				* (mlx->backbuffer.bits_per_pixel / 8)) = color;
+// 		i++;
+// 	}
+// }
 
-void	cubmlx_putpixel(t_cub *cub, int x, int y, unsigned int color)
+void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color)
 {
 	char	*dst;
 
-	if (x < 0 || x >= cub->win_size.x || y < 0 || y >= cub->win_size.y)
+	if (x < 0 || x >= data->mlx.win_size.x || y < 0 || y >= data->mlx.win_size.y)
 		return ;
-	dst = cub->mlx.backbuffer.pxls + (y * cub->mlx.backbuffer.width + x
-			* (cub->mlx.backbuffer.bits_per_pixel / 8));
+	dst = data->mlx.backbuffer.pxls + (y * data->mlx.backbuffer.width + x
+			* (data->mlx.backbuffer.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 
-void	cubmlx_putvertline(t_cub *cub, t_pos2 pos, int len,
+void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 			unsigned int color)
 {
 	int		y;
@@ -49,20 +54,15 @@ void	cubmlx_putvertline(t_cub *cub, t_pos2 pos, int len,
 
 	y = pos.y;
 	dst = y + len;
-	px = cub->mlx.backbuffer.pxls + (pos.y * cub->mlx.backbuffer.width + pos.x
-			* (cub->mlx.backbuffer.bits_per_pixel / 8));
-	step = cub->mlx.backbuffer.width;
+	px = data->mlx.backbuffer.pxls + (pos.y * data->mlx.backbuffer.width + pos.x
+			* (data->mlx.backbuffer.bits_per_pixel / 8));
+	step = data->mlx.backbuffer.width;
 	while (y < dst)
 	{
-		if (y >= cub->win_size.y)
+		if (y >= data->mlx.win_size.y)
 			return ;
 		*(unsigned int *)px = color;
 		px += step;
 		y++;
 	}
-}
-
-void	cubmlx_present(t_cubmlx *mlx)
-{
-	mlx_put_image_to_window(mlx->mlx, mlx->win, mlx->backbuffer.img, 0, 0);
 }
