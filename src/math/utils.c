@@ -6,11 +6,9 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:00:59 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/24 10:57:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/28 16:49:26 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-float	absf(float n);
 
 float	absf(float n)
 {
