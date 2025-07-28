@@ -75,8 +75,8 @@ SRC = \
 	ft_free_mlx.c \
 	ft_utils.c \
 	ft_keys.c \
-	parse.c \
 	init.c \
+	hate.c \
 	loop.c \
 	player.c \
 	player_utils.c \

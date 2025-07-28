@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:15:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:00:30 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/28 17:53:25 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,25 @@
 
 static bool		is_only_whitespace(const char *str);
 static size_t	count_map_size(t_map *map);
+
+static void	suppress_newlines(char **lines)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (lines[i])
+	{
+		j = 0;
+		while (lines[i][j])
+		{
+			if (lines[i][j] == '\n')
+				lines[i][j] = 0;
+			j++;
+		}
+		i++;
+	}
+}
 
 size_t	count_map_size(t_map *map)
 {
@@ -59,6 +78,7 @@ char	**fill_map_region(t_map *map)
 		index++;
 	}
 	map->map_2d[nb_lines] = NULL;
+	suppress_newlines(map->map_2d);
 	return (map->map_2d);
 }
 

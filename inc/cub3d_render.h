@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 16:25:35 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/28 17:32:40 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@
 // Blue for now
 # define HITSIDE_COLOR_EAST 0xff0000ff
 
-t_map_raoul	*parse_map(int fd);
-
-t_data		*cub_init(t_data *data, int fd);
+t_data		*cub_init(t_data *data);
+int			cub_translate_map_hell(t_data *data);
 int			cub3d_init_render(t_data *data);
 void		cub_render(t_data *data);
 
@@ -53,6 +52,7 @@ void		solve_collision_y(t_data *data, float y_vel);
 
 // Utility functions
 float		absf(float n);
+int			max(int a, int b);
 t_vec2		vec2rotate(t_vec2 vec, float angle);
 
 #endif
