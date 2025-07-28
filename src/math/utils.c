@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:00:59 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/28 16:49:26 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/28 16:50:38 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,11 @@ float	absf(float n)
 	if (n < 0.f)
 		return (-n);
 	return (n);
+}
+
+int	max(int a, int b)
+{
+	if (a < b)
+		return (b);
+	return (a);
 }

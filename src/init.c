@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 16:25:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/28 17:32:19 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-#include "libft.h"
 #include "mlx.h"
 #include <stdlib.h>
 
@@ -30,16 +29,12 @@ static int	setup_backbuffer(t_data *data)
 	return (1);
 }
 
-t_data	*cub_init(t_data *data, int fd)
+t_data	*cub_init(t_data *data)
 {
-	t_map_raoul	*map;
-
 	if (!data)
 		return (NULL);
-	map = parse_map(fd);
-	if (map == NULL)
+	if (cub_translate_map_hell(data) == 0)
 		return (NULL);
-	data->map.map = map;
 	data->mlx.minimap_size.x = data->map.map->width * MINIMAP_TILE_SIZE;
 	data->mlx.minimap_size.y = data->map.map->height * MINIMAP_TILE_SIZE;
 	if (setup_backbuffer(data) == 0)
