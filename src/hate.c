@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:35:38 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/28 17:39:14 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:07:18 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ static int	interpret_tile(t_map_raoul *map, t_pos2 pos, char tile)
 	if (tile == 'S')
 		return (define_start_player_state(map, pos, 3 * PI / 2.f));
 	if (tile == 'E')
-		return (define_start_player_state(map, pos, PI));
-	if (tile == 'W')
 		return (define_start_player_state(map, pos, 0.f));
+	if (tile == 'W')
+		return (define_start_player_state(map, pos, PI));
 	return (0);
 }
 
