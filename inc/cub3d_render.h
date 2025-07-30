@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/28 17:32:40 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/30 11:48:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 # define HITSIDE_COLOR_EAST 0xff0000ff
 
 t_data		*cub_init(t_data *data);
-int			cub_translate_map_hell(t_data *data);
+int			cub_translate_map(t_data *data);
 int			cub3d_init_render(t_data *data);
 void		cub_render(t_data *data);
 

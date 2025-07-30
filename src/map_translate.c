@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hate.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:35:38 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/29 17:07:18 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/30 11:48:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ static void	copy_map(char **lines, t_map_raoul *map)
 	}
 }
 
-int	cub_translate_map_hell(t_data *data)
+int	cub_translate_map(t_data *data)
 {
 	data->map.map = malloc(sizeof(t_map_raoul));
 	if (data->map.map == NULL)
@@ -87,6 +87,7 @@ int	cub_translate_map_hell(t_data *data)
 	if (data->map.map->walls == NULL)
 	{
 		free(data->map.map);
+		data->map.map = NULL;
 		return (0);
 	}
 	copy_map(data->map.map_2d, data->map.map);
