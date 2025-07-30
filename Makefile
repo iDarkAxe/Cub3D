@@ -38,6 +38,7 @@ P_SETTINGS = settings/
 P_DRAW = draw/
 P_PRINT = print/
 P_RENDER = render/
+P_MATH = math/
 
 # Object directories
 P_OBJ = .obj/
@@ -82,9 +83,11 @@ SRC = \
 	player_utils.c \
 	hitside_color.c \
 	hitwall.c \
-	math/utils.c \
-	math/vec2.c \
-	
+	ft_time.c
+
+MATH = \
+	utils.c \
+	vec2.c \
 
 RENDER = \
 	minimap.c \
@@ -150,6 +153,7 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_SETTINGS), $(SETTINGS)) \
 	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_RENDER), $(RENDER)) \
+	$(addprefix $(P_SRC)$(P_MATH), $(MATH)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
 
 # List of object files (redirect to P_OBJ)

@@ -22,6 +22,7 @@
 
 # include "data_structure.h"
 # include <stddef.h>
+# include <stdint.h>
 # include <unistd.h>
 
 /**
@@ -42,6 +43,8 @@
 # define ENABLE_FIELD_OF_VIEW 1
 
 # define DEBUG_PRINT_KEYCODE 0
+# define DEBUG_PRINT_FPS 0
+# define DEBUG_FPS_REFRESH 0
 
 // If you want to follow closely to the subject, you need to set these to 0
 # define CROSS_APPLY_SETTINGS 0
@@ -353,6 +356,19 @@ void				ft_free_textures_path(t_map *map);
  * @param map map structure
  */
 void				ft_free_map(t_map_raoul *map);
+
+/**
+ * @brief Get the current time in milliseconds.
+ * 
+ * @return uint64_t 
+ */
+uint64_t			get_time_ms(void);
+
+/**
+ * @brief Count the FPS and print it to the console.
+ * It will print the FPS every second if DEBUG_PRINT_FPS is set to 1.
+ */
+void				count_fps(void);
 /** @} */
 
 /**

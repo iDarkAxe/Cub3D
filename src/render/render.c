@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/30 11:52:50 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/30 12:23:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ static int	raycast_column(t_data *data, int x, t_raydata *rdata);
  * data->player.fov * 0.5f is used to calculate the plane for the camera
  *
  * @param data data structure
+ * @param data data structure
  */
 void	cub_render(t_data *data)
 {
@@ -28,6 +29,7 @@ void	cub_render(t_data *data)
 	t_raydata	rdata;
 
 	x = 0;
+	count_fps();
 	rdata.plane = vec2rotate((t_vec2){0, data->player.fov * 0.5f},
 			data->player.angle);
 	while (x < data->mlx.win_size.x)
