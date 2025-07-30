@@ -76,7 +76,7 @@ SRC = \
 	ft_utils.c \
 	ft_keys.c \
 	init.c \
-	hate.c \
+	map_translate.c \
 	loop.c \
 	player.c \
 	player_utils.c \
