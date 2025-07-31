@@ -47,6 +47,8 @@ Just start it using :
 
 ## <a name="play-en">How to play ##
 
+<img src="img/06.png" alt="Img showing which key can be used, See below">
+
 The controls of the player are the following :
 
 `W_KEY` and `S_KEY` for walking and stepping back.
@@ -56,6 +58,8 @@ The controls of the player are the following :
 `LEFT_ARROW_KEY` and `RIGHT_ARROW_KEY` for rotation.
 
 ### Shortcuts ###
+
+`Esc_KEY` for closing program.
 
 `F_KEY` for enabling/disabling FOV preview on minimap.
 
