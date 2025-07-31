@@ -22,7 +22,7 @@ Use only the following functions :
 
 * open, close, read, write,
 printf, malloc, free,
-perror, strerror, exit
+perror, strerror, exit, gettimeofday
 * Toutes les fonctions de
 la lib math (-lm man man 3
 math)
@@ -38,7 +38,7 @@ The idea behind ray casting is to trace rays from the eye, one per pixel, and fi
 Just start it using :
 
 ```sh
-./cub3d <PATH_to_MAP/><MAP>
+./cub3D <PATH_to_MAP/><MAP>
 ```
 
 `PATH_to_MAP` is the PATH where is stored the map.
@@ -51,7 +51,17 @@ The controls of the player are the following :
 
 `W_KEY` and `S_KEY` for walking and stepping back.
 
-`A_KEY` and `D_KEY` for rotation.
+`A_KEY` and `D_KEY` for walking sideways.
+
+`LEFT_ARROW_KEY` and `RIGHT_ARROW_KEY` for rotation.
+
+### Shortcuts ###
+
+`F_KEY` for enabling/disabling FOV preview on minimap.
+
+`C_KEY` for enabling/disabling collision with walls.
+
+`M_KEY` for enabling/disabling minimap.
 
 ### How to end the game ###
 
@@ -65,11 +75,10 @@ In the `map/` folder, there is also invalid maps to help you understand what is 
 
 ## <a name="bonus-en">Bonuses ##
 
-/!\⚠️ WIP or not even started ⚠️/!\
+* Collisions on wall (no clipping) ✅
+* A minimap HUD (to know where you are) ✅
 
-* Collisions on wall (no clipping) ⚠️/!\
-* A minimap HUD (to know where you are) ⚠️/!\
-* Windows resolution settings and full-screen ⚠️/!\
+* Windows resolution settings and full-screen ✅
 * Anti-Aliasing (makes the edges smoother for cleaner lines) ⚠️/!\
 
 ---

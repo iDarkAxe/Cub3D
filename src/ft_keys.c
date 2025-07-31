@@ -6,12 +6,54 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:04:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/17 13:13:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 11:05:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "ft_keys.h"
 #include <stdbool.h>
+
+void	set_key(int keycode, t_input *input, bool set)
+{
+	if (keycode == KEY_W)
+		input->fwd = set;
+	else if (keycode == KEY_S)
+		input->bckwd = set;
+	else if (keycode == KEY_A)
+		input->left = set;
+	else if (keycode == KEY_D)
+		input->right = set;
+	else if (keycode == KEY_ARROW_LEFT)
+		input->turn_left = set;
+	else if (keycode == KEY_ARROW_RIGHT)
+		input->turn_right = set;
+}
+
+void	toggle_key(int keycode, t_input *input)
+{
+	if (keycode == KEY_C && ENABLE_COLLISION == 1)
+	{
+		if (input->collision)
+			input->collision = false;
+		else
+			input->collision = true;
+	}
+	else if (keycode == KEY_M && ENABLE_MINIMAP == 1)
+	{
+		if (input->minimap)
+			input->minimap = false;
+		else
+			input->minimap = true;
+	}
+	else if (keycode == KEY_F && ENABLE_FIELD_OF_VIEW == 1)
+	{
+		if (input->fov)
+			input->fov = false;
+		else
+			input->fov = true;
+	}
+}
 
 bool	is_mv_key(enum e_movement expected, int keycode)
 {

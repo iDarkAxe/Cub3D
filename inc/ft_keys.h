@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/26 14:12:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 11:07:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,31 @@ enum	e_movement
  * @brief Keycode for the S key.
  */
 # define KEY_S 115
+
+/**
+ * @brief Keycode for the C key.
+ */
+# define KEY_C 99
+
+/**
+ * @brief Keycode for the M key.
+ */
+# define KEY_M 109
+
+/**
+ * @brief Keycode for the F key.
+ */
+# define KEY_F 102
 /** @} */
 
-bool	is_mv_key(enum e_movement expected, int keycode);
+/**
+ * @defgroup Key Key functions
+ * @brief All the functions used to manage key inputs.
+ * @{
+ */
+bool				is_mv_key(enum e_movement expected, int keycode);
+void				set_key(int keycode, t_input *input, bool set);
+void				toggle_key(int keycode, t_input *input);
+/** @} */
 
 #endif

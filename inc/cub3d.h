@@ -33,14 +33,25 @@
  */
 # define PI 3.141592653589793238462643383279502884197169399375105820974944592307
 
+/**
+ * @brief Enable Minimap by default and can be toggled with the 'M' key.
+ */
 # define ENABLE_MINIMAP 1
+/**
+ * @brief Enable Field of View by default and can be toggled with the 'F' key.
+ */
+# define ENABLE_FIELD_OF_VIEW 1
+/**
+ * @brief Enable Collision by default and can be toggled with the 'C' key.
+ */
+# define ENABLE_COLLISION 1
+
 # define MINIMAP_PLAYER_COLOR 0xffffff00
 # define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
 # define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
 # define MINIMAP_FLOOR_COLOR 0xff000000
 # define MINIMAP_WALL_COLOR 0xffffffff
 # define MINIMAP_TILE_SIZE 16
-# define ENABLE_FIELD_OF_VIEW 1
 
 # define DEBUG_PRINT_KEYCODE 0
 # define DEBUG_PRINT_FPS 0
@@ -369,14 +380,6 @@ uint64_t			get_time_ms(void);
  * It will print the FPS every second if DEBUG_PRINT_FPS is set to 1.
  */
 void				count_fps(void);
-/** @} */
-
-/**
- * @defgroup Print Print functions
- * @brief All the functions used to print nicely.
- * @{
- */
-
 /** @} */
 
 #endif

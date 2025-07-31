@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/30 12:07:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 10:54:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ static void	update_movement(t_data *data)
 		vel.x -= 0.015f;
 	vel = vec2rotate(vel, data->player.angle - half_pi);
 	data->player.pos.x += vel.x;
-	if (vel.x != 0.f)
+	if (vel.x != 0.f && data->input.collision && ENABLE_COLLISION)
 		solve_collision_x(data, vel.x);
 	data->player.pos.y += vel.y;
-	if (vel.y != 0.f)
+	if (vel.y != 0.f && data->input.collision && ENABLE_COLLISION)
 		solve_collision_y(data, vel.y);
 	update_camera(data);
 }

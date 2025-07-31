@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 16:16:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 11:03:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,6 @@
 #include "ft_print.h"
 #include "mlx.h"
 #include <X11/X.h>
-
-static void	set_key(int keycode, t_input *input, bool set)
-{
-	if (keycode == KEY_W)
-		input->fwd = set;
-	else if (keycode == KEY_S)
-		input->bckwd = set;
-	else if (keycode == KEY_A)
-		input->left = set;
-	else if (keycode == KEY_D)
-		input->right = set;
-	else if (keycode == KEY_ARROW_LEFT)
-		input->turn_left = set;
-	else if (keycode == KEY_ARROW_RIGHT)
-		input->turn_right = set;
-}
 
 static int	cub_keydown_hook(int keycode, void *param)
 {
@@ -46,6 +30,7 @@ static int	cub_keydown_hook(int keycode, void *param)
 		return (0);
 	}
 	set_key(keycode, &data->input, true);
+	toggle_key(keycode, &data->input);
 	return (0);
 }
 
@@ -65,6 +50,10 @@ static int	loop_hook(void *param)
 	data = (t_data *)param;
 	cub_player_update(data);
 	cub_render(data);
+	if (data->input.minimap && ENABLE_MINIMAP)
+		cub_render_minimap(data);
+	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
+		data->mlx.backbuffer.img, 0, 0);
 	return (1);
 }
 
