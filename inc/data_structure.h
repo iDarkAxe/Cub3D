@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:58:14 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/07/31 10:58:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,9 @@ struct							s_input
 	bool						right;
 	bool						turn_left;
 	bool						turn_right;
+	bool						collision;
+	bool						minimap;
+	bool						fov;
 };
 
 /**

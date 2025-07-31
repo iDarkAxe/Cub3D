@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/28 17:37:37 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/07/31 11:02:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	cub3d_init_render(t_data *data)
 	if (cub_init(data) == 0)
 		return (print_error(NULL, CUB_INIT_RENDER));
 	data->input = (t_input){0};
+	data->input.collision = true;
+	data->input.minimap = true;
+	data->input.fov = true;
 	data->player.pos.x = data->map.map->start_pos.x + 0.5f;
 	data->player.pos.y = data->map.map->start_pos.y + 0.5f;
 	data->player.angle = data->map.map->start_angle;
