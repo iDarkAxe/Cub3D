@@ -36,15 +36,15 @@
 /**
  * @brief Enable Minimap by default and can be toggled with the 'M' key.
  */
-# define ENABLE_MINIMAP 1
+# define MINIMAP_DEFAULT_VALUE true
 /**
  * @brief Enable Field of View by default and can be toggled with the 'F' key.
  */
-# define ENABLE_FIELD_OF_VIEW 1
+# define FIELD_OF_VIEW_DEFAULT_VALUE true
 /**
  * @brief Enable Collision by default and can be toggled with the 'C' key.
  */
-# define ENABLE_COLLISION 1
+# define COLLISION_DEFAULT_VALUE true
 
 # define MINIMAP_PLAYER_COLOR 0xffffff00
 # define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
@@ -52,6 +52,9 @@
 # define MINIMAP_FLOOR_COLOR 0xff000000
 # define MINIMAP_WALL_COLOR 0xffffffff
 # define MINIMAP_TILE_SIZE 16
+// Any size higher half of MINIMAP_TILE_SIZE will be strange
+# define MINIMAP_PLAYER_SIZE 4
+# define MINIMAP_LINE_OF_SIGHT_FACTOR 2
 
 # define DEBUG_PRINT_KEYCODE 0
 # define DEBUG_PRINT_FPS 0

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:04:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/31 11:05:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/01 12:30:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,21 @@ void	set_key(int keycode, t_input *input, bool set)
 
 void	toggle_key(int keycode, t_input *input)
 {
-	if (keycode == KEY_C && ENABLE_COLLISION == 1)
+	if (keycode == KEY_C)
 	{
 		if (input->collision)
 			input->collision = false;
 		else
 			input->collision = true;
 	}
-	else if (keycode == KEY_M && ENABLE_MINIMAP == 1)
+	else if (keycode == KEY_M)
 	{
 		if (input->minimap)
 			input->minimap = false;
 		else
 			input->minimap = true;
 	}
-	else if (keycode == KEY_F && ENABLE_FIELD_OF_VIEW == 1)
+	else if (keycode == KEY_F)
 	{
 		if (input->fov)
 			input->fov = false;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/31 11:02:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/01 12:52:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,18 @@ static void	render_square(t_data *data, t_pos2 pos, int size,
 
 static void	render_focal_of_view(t_data *data, t_pos2 pos, int tile_size)
 {
-	t_pos2	line_left;
-	t_pos2	line_right;
+	static const double	len_line = MINIMAP_PLAYER_SIZE
+		* MINIMAP_LINE_OF_SIGHT_FACTOR;
+	t_pos2				line_left;
+	t_pos2				line_right;
 
-	line_left.x = 8 * cos(data->player.angle - data->player.fov * 0.5)
+	line_left.x = len_line * cos(data->player.angle - data->player.fov * 0.5)
 		+ data->player.pos.x * tile_size;
-	line_left.y = 8 * sin(data->player.angle - data->player.fov * 0.5)
+	line_left.y = len_line * sin(data->player.angle - data->player.fov * 0.5)
 		+ data->player.pos.y * tile_size;
-	line_right.x = 8 * cos(data->player.angle + data->player.fov * 0.5)
+	line_right.x = len_line * cos(data->player.angle + data->player.fov * 0.5)
 		+ data->player.pos.x * tile_size;
-	line_right.y = 8 * sin(data->player.angle + data->player.fov * 0.5)
+	line_right.y = len_line * sin(data->player.angle + data->player.fov * 0.5)
 		+ data->player.pos.y * tile_size;
 	cubmlx_putline(data, pos, line_left, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
 	cubmlx_putline(data, pos, line_right, MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
@@ -52,25 +54,28 @@ static void	render_focal_of_view(t_data *data, t_pos2 pos, int tile_size)
 
 static void	render_line_of_sight(t_data *data, t_pos2 pos, int tile_size)
 {
-	t_pos2	len;
+	static const double	len_line = MINIMAP_PLAYER_SIZE
+		* MINIMAP_LINE_OF_SIGHT_FACTOR;
+	t_pos2				len;
 
-	len.x = 8 * cos(data->player.angle) + (data->player.pos.x)
+	len.x = len_line * cos(data->player.angle) + (data->player.pos.x)
 		* tile_size;
-	len.y = 8 * sin(data->player.angle) + (data->player.pos.y)
+	len.y = len_line * sin(data->player.angle) + (data->player.pos.y)
 		* tile_size;
 	cubmlx_putline(data, pos, len, MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR);
 }
 
 static void	render_minimap_player(t_data *data, int tile_size)
 {
-	t_pos2	pos;
+	static const int	half_player_size = MINIMAP_PLAYER_SIZE * 0.5f;
+	t_pos2				pos;
 
-	pos.x = data->player.pos.x * tile_size - 2;
-	pos.y = data->player.pos.y * tile_size - 2;
-	render_square(data, pos, 4, MINIMAP_PLAYER_COLOR);
+	pos.x = data->player.pos.x * tile_size - half_player_size;
+	pos.y = data->player.pos.y * tile_size - half_player_size;
+	render_square(data, pos, MINIMAP_PLAYER_SIZE, MINIMAP_PLAYER_COLOR);
 	pos.x = data->player.pos.x * tile_size;
 	pos.y = data->player.pos.y * tile_size;
-	if (ENABLE_FIELD_OF_VIEW == 1 && data->input.fov)
+	if (data->input.fov)
 		render_focal_of_view(data, pos, tile_size);
 	else
 		render_line_of_sight(data, pos, tile_size);

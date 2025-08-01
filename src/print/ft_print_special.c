@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:00:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/01 12:58:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,12 +123,12 @@ void	print_visited(char **visited, char **map)
 		while (map[y][x])
 		{
 			if (visited[y][x])
-				write(1, "x", 1);
+				ft_dprintf(1, "x");
 			else
-				write(1, ".", 1);
+				ft_dprintf(1, ".");
 			x++;
 		}
-		write(1, "\n", 1);
+		ft_dprintf(1, "\n");
 		y++;
 	}
 }
