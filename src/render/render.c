@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/31 10:42:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/01 12:29:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	cub_render(t_data *data)
 			x++;
 			continue ;
 		}
-		if (data->input.minimap && ENABLE_MINIMAP == 1)
+		if (data->input.minimap)
 			draw_column_with_minimap(data, x, &rdata);
 		else
 			draw_column(data, x, &rdata);

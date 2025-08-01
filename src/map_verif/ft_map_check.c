@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:00:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/01 12:57:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,12 @@ int	has_player_already_been_found(char **map, t_coordinates pos, bool *player)
  * @param map array of strings representing map
  * @return int 1 OK, error otherwise
  */
-int	check_autorized_chars(char **map)
+static int	check_autorized_chars(char **map)
 {
 	t_coordinates	pos;
 	bool			player;
 
-	if (!map)
-		return (0);
+	player = false;
 	pos = (t_coordinates){.x = 0, .y = 0};
 	while (map[pos.y])
 	{

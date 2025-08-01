@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/31 11:03:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/01 12:27:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ static int	loop_hook(void *param)
 	data = (t_data *)param;
 	cub_player_update(data);
 	cub_render(data);
-	if (data->input.minimap && ENABLE_MINIMAP)
+	if (data->input.minimap)
 		cub_render_minimap(data);
 	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
 		data->mlx.backbuffer.img, 0, 0);
