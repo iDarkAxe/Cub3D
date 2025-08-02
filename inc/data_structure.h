@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/31 10:58:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/02 18:12:10 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ struct							s_img
 	char						*pxls;
 	void						*img;
 	int							width;
+	int							mlx_width;
 	int							height;
 	int							bits_per_pixel;
 	int							endian;
