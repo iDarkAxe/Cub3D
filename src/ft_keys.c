@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:04:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/01 12:30:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/02 10:39:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,13 @@ void	toggle_key(int keycode, t_input *input)
 			input->fov = false;
 		else
 			input->fov = true;
+	}
+	else if (keycode == 't')
+	{
+		if (input->cheat)
+			input->cheat = false;
+		else
+			input->cheat = true;
 	}
 }
 

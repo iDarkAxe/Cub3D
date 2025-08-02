@@ -6,12 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/01 12:04:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/02 10:37:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Raoul's includes
 #include "cub3d.h"
+#include "libft.h"
 #include "cub3d_render.h"
 #include "ft_print.h"
 #include <fcntl.h>
@@ -23,7 +23,7 @@ int	cub3d_init_render(t_data *data)
 		return (print_error(NULL, CUB_INIT_RENDER));
 	if (cub_init(data) == 0)
 		return (print_error(NULL, CUB_INIT_RENDER));
-	data->input = (t_input){0};
+	ft_bzero(&data->input, sizeof(t_input));
 	data->input.collision = COLLISION_DEFAULT_VALUE;
 	data->input.minimap = MINIMAP_DEFAULT_VALUE;
 	data->input.fov = FIELD_OF_VIEW_DEFAULT_VALUE;

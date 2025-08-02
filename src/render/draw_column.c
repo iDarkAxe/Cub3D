@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/31 10:37:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/02 10:40:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	draw_column_with_minimap(t_data *data, int x, const t_raydata *rdata)
 	else
 		wall_dist = rdata->side_dist.y - rdata->delta_dist.y;
 	line_draw_height = calc_line_with_minimap(data, wall_dist, x, &line_point);
-	hitside_color(rdata->hit_side, &rdata->step, &color);
+	hitside_color(data->input.cheat, rdata->hit_side, &rdata->step, &color);
 	if (line_point.y > 0 && x >= data->mlx.minimap_size.x)
 		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y,
 			data->map.textures.ceiling.argb);
@@ -92,7 +92,7 @@ void	draw_column(t_data *data, int x, const t_raydata *rdata)
 	else
 		wall_dist = rdata->side_dist.y - rdata->delta_dist.y;
 	line_draw_height = calc_line(data->mlx.win_size, wall_dist, x, &line_point);
-	hitside_color(rdata->hit_side, &rdata->step, &color);
+	hitside_color(data->input.cheat, rdata->hit_side, &rdata->step, &color);
 	if (line_point.y > 0)
 		cubmlx_putvertline(data, (t_pos2){x, 0}, line_point.y,
 			data->map.textures.ceiling.argb);

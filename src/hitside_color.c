@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:08:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/02 10:41:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,18 @@
  * @param step 
  * @param color 
  */
-void	hitside_color(int hitside, const t_pos2 *step, int *color)
+void	hitside_color(bool cheat, int hitside, const t_pos2 *step, int *color)
 {
 	if (!color || !step)
 		return ;
+	if (cheat)
+	{
+		if (hitside)
+			*color = 0xFF000000;
+		else
+			*color = 0xFFFFFFFF;
+		return ;
+	}
 	if (hitside)
 	{
 		if (step->y < 0)
