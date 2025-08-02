@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/31 11:05:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/02 16:13:05 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,8 @@ void	cub_loop(t_data *data);
 void	cub_player_update(t_data *data);
 void	cub_render_minimap(t_data *data);
 void	draw_column(t_data *data, int x, const t_raydata *rdata);
-void	draw_column_with_minimap(t_data *data, int x, const t_raydata *rdata);
 void	hitwall_loop(const t_data *data, t_raydata *rdata);
-void	hitside_color(int hitside, const t_pos2 *step, int *color);
+t_img	*hitside_texture(t_textures *tex, int hitside, const t_pos2 *step);
 void	raycalc(const t_pos2 win_size, int x, float cam_angle,
 			t_raydata *rdata);
 
