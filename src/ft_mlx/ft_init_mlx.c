@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/02 16:37:58 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:12:52 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,22 @@ int	ft_mlx_init(t_data *data)
 
 static int	get_texture_addresses(t_textures *tex)
 {
-	int	tmp;
-
 	tex->north.pxls = mlx_get_data_addr(tex->north.img,
-			&tex->north.bits_per_pixel, &tmp, &tex->north.endian);
+			&tex->north.bits_per_pixel, &tex->north.mlx_width,
+			&tex->north.endian);
 	if (tex->north.pxls == NULL)
 		return (0);
 	tex->south.pxls = mlx_get_data_addr(tex->south.img,
-			&tex->south.bits_per_pixel, &tmp, &tex->south.endian);
+			&tex->south.bits_per_pixel, &tex->south.mlx_width,
+			&tex->south.endian);
 	if (tex->south.pxls == NULL)
 		return (0);
 	tex->east.pxls = mlx_get_data_addr(tex->east.img,
-			&tex->east.bits_per_pixel, &tmp, &tex->east.endian);
+			&tex->east.bits_per_pixel, &tex->east.mlx_width, &tex->east.endian);
 	if (tex->east.pxls == NULL)
 		return (0);
 	tex->west.pxls = mlx_get_data_addr(tex->west.img,
-			&tex->west.bits_per_pixel, &tmp, &tex->west.endian);
+			&tex->west.bits_per_pixel, &tex->west.mlx_width, &tex->west.endian);
 	if (tex->west.pxls == NULL)
 		return (0);
 	return (1);

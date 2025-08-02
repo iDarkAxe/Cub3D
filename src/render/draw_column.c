@@ -6,11 +6,10 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/02 17:59:43 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:15:38 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "cub3d_render.h"
 #include <math.h>
 
@@ -69,7 +68,8 @@ static void	do_draw_line(t_data *data, t_img *img, t_pos2 *points, int tex_x)
 		tex_y = (int)tex_pos & (img->height - 1);
 		tex_pos += step;
 		cubmlx_putpixel(data, points[0].x, draw_coords[0],
-			*(unsigned int *)&img->pxls[img->width * tex_y + tex_x]);
+			*(unsigned int *)(img->pxls + (img->mlx_width * tex_y
+					+ tex_x * (img->bits_per_pixel / 8))));
 		draw_coords[0]++;
 	}
 }
