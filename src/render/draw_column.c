@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/02 18:15:38 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/02 18:19:48 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	get_draw_coords(t_data *data, float line_height, float *draw_coords,
 		int x)
 {
-	if (x < data->mlx.minimap_size.x)
+	if (data->input.minimap && x < data->mlx.minimap_size.x)
 	{
 		draw_coords[0] = -line_height / 2 + data->mlx.win_size.y / 2;
 		if (draw_coords[0] < data->mlx.minimap_size.y)
@@ -38,7 +38,7 @@ static void	draw_ceiling_and_floor(t_data *data, float *draw_coords, int x)
 	int	start;
 
 	start = 0;
-	if (x < data->mlx.minimap_size.x)
+	if (data->input.minimap && x < data->mlx.minimap_size.x)
 		start = data->mlx.minimap_size.y;
 	if (draw_coords[0] >= start)
 		cubmlx_putvertline(data, (t_pos2){x, start}, draw_coords[0] - start,
