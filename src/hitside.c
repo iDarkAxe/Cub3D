@@ -6,14 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/02 16:12:39 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:06:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 
 /**
- * @brief Function to set the color based on the hit side and step direction.
+ * @brief Function to set the texture based on the hit side and step direction.
  * 
  * @param hitside
  * @param step 

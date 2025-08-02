@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/02 16:13:05 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/02 19:40:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,6 @@
 
 # include "data_structure.h"
 # include <stddef.h>
-
-// RED for now
-# define HITSIDE_COLOR_NORTH 0xffff0000
-// YELLOW for now
-# define HITSIDE_COLOR_SOUTH 0xffffff00
-// Green for now
-# define HITSIDE_COLOR_WEST 0xff00ff00
-// Blue for now
-# define HITSIDE_COLOR_EAST 0xff0000ff
 
 t_data	*cub_init(t_data *data);
 int		cub_translate_map(t_data *data);
