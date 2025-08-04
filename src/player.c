@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/01 12:28:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/04 18:24:38 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@
 static void	update_camera(t_data *data)
 {
 	static const float	two_pi = (float)(PI)*2.f;
+	float				turn_amount;
 
+	turn_amount = 0.f;
 	if (data->input.turn_left)
-		data->player.angle -= 0.015f;
+		turn_amount -= 0.015f;
 	if (data->input.turn_right)
-		data->player.angle += 0.015f;
+		turn_amount += 0.015f;
+	if (data->input.mouse_input)
+	{
+		turn_amount += data->input.delta_mouse_x * 0.001f;
+		data->input.mouse_input = 0;
+	}
+	data->player.angle += turn_amount;
 	if (data->player.angle >= (two_pi))
 		data->player.angle -= (two_pi);
 	if (data->player.angle < 0.f)

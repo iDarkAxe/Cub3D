@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/01 12:27:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/04 18:24:07 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,30 @@ static int	cub_keyup_hook(int keycode, void *param)
 	return (0);
 }
 
+static int	cub_mouse_hook(int x, int y, void *param)
+{
+	t_data	*data;
+
+	(void)y;
+	data = (t_data *)param;
+	if (data->input.skip_next_mouse_input)
+	{
+		data->input.skip_next_mouse_input = 0;
+		return (0);
+	}
+	data->input.delta_mouse_x = x - (data->mlx.win_size.x >> 1);
+	data->input.mouse_input = 1;
+	return (0);
+}
+
 static int	loop_hook(void *param)
 {
 	t_data	*data;
 
 	data = (t_data *)param;
+	data->input.skip_next_mouse_input = 1;
+	mlx_mouse_move(data->mlx.mlx_ptr, data->mlx.win_ptr,
+		data->mlx.win_size.x / 2, data->mlx.win_size.y / 2);
 	cub_player_update(data);
 	cub_render(data);
 	if (data->input.minimap)
@@ -65,6 +84,8 @@ void	cub_loop(t_data *data)
 		data);
 	mlx_hook(data->mlx.win_ptr, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
 		&data->input);
+	mlx_hook(data->mlx.win_ptr, MotionNotify, PointerMotionMask,
+		&cub_mouse_hook, data);
 	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
 	mlx_loop(data->mlx.mlx_ptr);
 }
