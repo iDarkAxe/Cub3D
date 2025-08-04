@@ -105,6 +105,7 @@ struct							s_img
 	char						*pxls;
 	void						*img;
 	int							width;
+	int							mlx_width;
 	int							height;
 	int							bits_per_pixel;
 	int							endian;

@@ -81,7 +81,7 @@ SRC = \
 	loop.c \
 	player.c \
 	player_utils.c \
-	hitside_color.c \
+	hitside.c \
 	hitwall.c \
 	ft_time.c
 
