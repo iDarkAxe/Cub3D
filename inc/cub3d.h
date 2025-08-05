@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                          :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/17 14:12:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 15:36:07 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,10 @@ int					cub3d(int argc, char **argv);
  *
  * @param argc argument count
  * @param argv array of arguments
+ * @param args pointer to args struct to fill
  * @return int 1 OK, -1 if error
  */
-int					check_args(int argc, char **argv);
+int					check_args(int argc, char **argv, t_args *args);
 
 /**
  * @brief Fill the config region of the file

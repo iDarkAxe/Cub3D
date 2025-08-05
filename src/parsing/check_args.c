@@ -6,60 +6,76 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 15:20:33 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:21:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 16:35:47 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "data_structure.h"
 #include "ft_print.h"
 #include "ft_printf.h"
+#include "libft.h"
+#include <unistd.h>
 
-int			check_args(int argc, char **argv);
-static int	check_map_name(char *map_name);
-
-int	check_args(int argc, char **argv)
+static int	read_arguments(int argc, char **argv, t_args *args)
 {
-	if (argc < 2 || !argv || !argv[0] || !argv[1])
+	int	i;
+
+	i = 1;
+	while (i < argc)
 	{
-		ft_dprintf(2, RED "Error" RESET "\nNo map file provided\n");
-		ft_dprintf(2, "Usage: %s <map_name>.data\n", argv[0]);
-		return (-1);
+		if (ft_strcmp(argv[i], "--generate") == 0
+			|| ft_strcmp(argv[i], "-g") == 0)
+		{
+			i++;
+			if (i >= argc || argv[i] == NULL)
+				return (1);
+			args->gen = argv[i];
+		}
+		else
+		{
+			if (args->map)
+				return (2);
+			args->map = argv[i];
+		}
+		i++;
 	}
-	if (argv[2] != NULL)
-	{
-		ft_dprintf(2, RED "Error" RESET "\nToo many arguments\n");
-		return (-1);
-	}
-	if (check_map_name(argv[1]) != 1)
-	{
-		ft_dprintf(2, RED "Error" RESET "\nInvalid map file name\n");
-		return (-1);
-	}
+	return (0);
+}
+
+static int	display_error(int err)
+{
+	if (err == 1)
+		ft_dprintf(2, RED "Error" RESET
+			"\nPlease specify a map generation size\n");
+	else if (err == 2)
+		ft_dprintf(2, RED "Error" RESET "\nDuplicate argument\n");
+	else if (err == 3)
+		ft_dprintf(2, RED "Error" RESET "\nNot a .cub file\n");
+	else if (err == 4)
+		ft_dprintf(2, RED "Error" RESET "\nNo map given\n");
+	return (-1);
+}
+
+static int	is_valid_map(char *str)
+{
+	int		len;
+
+	if (str == NULL)
+		return (display_error(4));
+	len = ft_strlen(str);
+	if (ft_strncmp(&str[len - 4], ".cub", 5))
+		return (display_error(3));
 	return (1);
 }
 
-int	check_map_name(char *map_name)
+int	check_args(int argc, char **argv, t_args *args)
 {
-	size_t	len;
+	int	err;
 
-	if (map_name == NULL)
-	{
-		ft_dprintf(2, RED "Error" RESET "\nMap file name is NULL\n");
-		return (-1);
-	}
-	len = ft_strlen(map_name);
-	if (len < 5)
-	{
-		ft_dprintf(2, RED "Error" RESET "\nMap file name too short\n");
-		ft_dprintf(2, "Name must be at least 5 characters long : <name>.cub\n");
-		return (-1);
-	}
-	if (ft_strnstr(map_name, ".cub", len) == NULL || ft_strncmp(&map_name[len
-				- 4], ".cub", 4) != 0)
-	{
-		ft_dprintf(2,
-			RED "Error" RESET "\nMap file name must end with '.cub'\n");
-		ft_dprintf(2, "Name must be at least 5 characters long : <name>.cub\n");
-		return (-1);
-	}
-	return (1);
+	args->gen = NULL;
+	args->map = NULL;
+	err = read_arguments(argc, argv, args);
+	if (err)
+		return (display_error(err));
+	return (is_valid_map(args->map));
 }

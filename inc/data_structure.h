@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/02 18:12:10 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/05 16:28:12 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -231,6 +231,7 @@ struct							s_map
 	size_t						file_nb_lines;
 	char						**map_2d;
 	t_map_raoul					*map;
+	char						*generation;
 	char						*config[6];
 	int							error;
 	size_t						number_of_moves;
@@ -269,5 +270,11 @@ struct							s_raydata
 	int							ceil_color;
 	int							floor_color;
 };
+
+typedef struct s_args
+{
+	char	*map;
+	char	*gen;
+}	t_args;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/01 12:04:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 16:29:22 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include "cub3d.h"
 #include "cub3d_render.h"
 #include "ft_print.h"
-#include <fcntl.h>
-#include <stdio.h>
+#include "ft_printf.h"
 
 int	cub3d_init_render(t_data *data)
 {
@@ -23,6 +22,7 @@ int	cub3d_init_render(t_data *data)
 		return (print_error(NULL, CUB_INIT_RENDER));
 	if (cub_init(data) == 0)
 		return (print_error(NULL, CUB_INIT_RENDER));
+	ft_printf("Generation data: %s\n", data->map.generation);
 	data->input = (t_input){0};
 	data->input.collision = COLLISION_DEFAULT_VALUE;
 	data->input.minimap = MINIMAP_DEFAULT_VALUE;
