@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/22 15:17:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 11:23:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,72 @@
 #include "mlx.h"
 #include <X11/X.h>
 
-void	main_hooks(t_mlx *mlx);
-int		hook_handle_mouse_motion(int x, int y, void *param);
-int		hook_close_window(void *param);
-int		hook_handle_keypress(int keycode, void *param);
-
-void	main_hooks(t_mlx *mlx)
+int	cub_keydown_hook(int keycode, void *param)
 {
-	if (!mlx)
-		return ;
-	mlx_hook(mlx->win_ptr, MotionNotify, PointerMotionMask,
-		hook_handle_mouse_motion, mlx);
-	mlx_hook(mlx->win_ptr, KeyPress, KeyPressMask, hook_handle_keypress, mlx);
-	mlx_hook(mlx->win_ptr, DestroyNotify, StructureNotifyMask,
-		hook_close_window, mlx);
-}
+	t_data	*data;
 
-int	hook_handle_mouse_motion(int x, int y, void *param)
-{
-	t_mlx	*mlx;
-
-	mlx = (t_mlx *)param;
-	mlx->mouse_x = x;
-	mlx->mouse_y = y;
-	return (0);
-}
-
-int	hook_close_window(void *param)
-{
-	t_mlx	*mlx;
-
-	mlx = (t_mlx *)param;
-	mlx_loop_end(mlx->mlx_ptr);
-	return (0);
-}
-
-int	hook_handle_keypress(int keycode, void *param)
-{
-	t_mlx	*mlx;
-
-	mlx = (t_mlx *)param;
-	ft_print_key(keycode);
+	data = (t_data *)param;
+	if (DEBUG_PRINT_KEYCODE == 1)
+		ft_print_key(keycode);
 	if (keycode == KEY_ESCAPE)
-		mlx_loop_end(mlx->mlx_ptr);
-	if (keycode != KEY_ENTER)
+	{
+		mlx_loop_end(data->mlx.mlx_ptr);
 		return (0);
-	return (keycode);
+	}
+	if (keycode == KEY_ARROW_DOWN || keycode == KEY_ARROW_UP)
+	{
+		if (data->player.fov > 0.01f && keycode == KEY_ARROW_DOWN)
+			data->player.fov -= 0.01f;
+		else if (keycode == KEY_ARROW_UP)
+			data->player.fov += 0.01f;
+		if (data->player.fov < 0.0f)
+			data->player.fov = 0.0f;
+		else if (data->player.fov >= PI)
+			data->player.fov = PI;
+	}
+	set_key(keycode, &data->input, true);
+	toggle_key(keycode, &data->input);
+	return (0);
+}
+
+int	cub_keyup_hook(int keycode, void *param)
+{
+	t_input	*input;
+
+	input = (t_input *)param;
+	set_key(keycode, input, false);
+	return (0);
+}
+
+static int	interpret_mouse_mouvement(t_data *data, int x, int y, int click)
+{
+	(void)y;
+	(void)click;
+	if (data->input.skip_next_mouse_input)
+	{
+		data->input.skip_next_mouse_input = 0;
+		return (0);
+	}
+	data->input.delta_mouse_x = x - (data->mlx.win_size.x >> 1);
+	data->input.mouse_input = 1;
+	return (0);
+}
+
+int	cub_mouse_hook(int x, int y, void *param)
+{
+	t_data	*data;
+
+	(void)y;
+	data = (t_data *)param;
+	return (interpret_mouse_mouvement(data, x, y, 0));
+}
+
+int	cub_mouse_click_hook(int button, int x, int y, void *param)
+{
+	t_data	*data;
+
+	(void)y;
+	(void)button;
+	data = (t_data *)param;
+	return (interpret_mouse_mouvement(data, x, y, button));
 }

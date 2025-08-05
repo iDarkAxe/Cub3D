@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/02 16:12:52 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/05 11:36:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static int	raycast_column(t_data *data, int x, t_raydata *rdata);
  * @brief Main function to render the game.
  * data->player.fov * 0.5f is used to calculate the plane for the camera
  *
- * @param data data structure
  * @param data data structure
  */
 void	cub_render(t_data *data)
