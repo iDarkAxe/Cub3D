@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/04 18:24:38 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/05 09:56:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ static void	update_camera(t_data *data)
 
 	turn_amount = 0.f;
 	if (data->input.turn_left)
-		turn_amount -= 0.015f;
+		turn_amount -= TURNING_SPEED;
 	if (data->input.turn_right)
-		turn_amount += 0.015f;
+		turn_amount += TURNING_SPEED;
 	if (data->input.mouse_input)
 	{
-		turn_amount += data->input.delta_mouse_x * 0.001f;
+		turn_amount += data->input.delta_mouse_x * MOUSE_SENSITIVITY_FACTOR;
 		data->input.mouse_input = 0;
 	}
 	data->player.angle += turn_amount;

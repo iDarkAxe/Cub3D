@@ -46,6 +46,22 @@
  */
 # define COLLISION_DEFAULT_VALUE true
 
+// Playability settings
+/**
+ * @brief Value used to define the sensitivity of the mouse.
+ * This value is multiplied by the delta mouse x to get the turn amount.
+ * A higher value will make the mouse more sensitive and will turn faster.
+ * Anything higher or lower than 0.001f will be strange.
+ */
+# define MOUSE_SENSITIVITY_FACTOR 0.001f
+/**
+ * @brief Value used to define the turning speed of the player.
+ * This value is multiplied by the input to get the turn amount.
+ * A higher value will make the player turn faster.
+ */
+# define TURNING_SPEED 0.015f
+
+// Minimap settings
 # define MINIMAP_PLAYER_COLOR 0xffffff00
 # define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
 # define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
@@ -56,6 +72,7 @@
 # define MINIMAP_PLAYER_SIZE 4
 # define MINIMAP_LINE_OF_SIGHT_FACTOR 2
 
+// Debug printing settings
 # define DEBUG_PRINT_KEYCODE 0
 # define DEBUG_PRINT_FPS 0
 # define DEBUG_FPS_REFRESH 0
@@ -179,7 +196,6 @@ void				*ft_settings(t_mlx *mlx);
 enum e_screen_size	circle_state(int x, int y);
 int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
 void				ft_free_settings(t_mlx *mlx);
-void				main_hooks(t_mlx *mlx);
 void				settings_hooks(t_data *data);
 void				state_machine(int keycode, t_mlx *mlx);
 /** @} */
@@ -190,9 +206,10 @@ void				state_machine(int keycode, t_mlx *mlx);
  * @{
  */
 
-int					hook_handle_mouse_motion(int x, int y, void *param);
-int					hook_close_window(void *param);
-int					hook_handle_keypress(int keycode, void *param);
+int					cub_keydown_hook(int keycode, void *param);
+int					cub_keyup_hook(int keycode, void *param);
+int					cub_mouse_click_hook(int button, int x, int y, void *param);
+int					cub_mouse_hook(int x, int y, void *param);
 // Settings hooks
 int					hook_settings_handle_mouse_click(int button, int x, int y,
 						void *param);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/04 18:24:07 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/05 11:14:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,56 +17,20 @@
 #include "mlx.h"
 #include <X11/X.h>
 
-static int	cub_keydown_hook(int keycode, void *param)
-{
-	t_data	*data;
-
-	data = (t_data *)param;
-	if (DEBUG_PRINT_KEYCODE == 1)
-		ft_print_key(keycode);
-	if (keycode == KEY_ESCAPE)
-	{
-		mlx_loop_end(data->mlx.mlx_ptr);
-		return (0);
-	}
-	set_key(keycode, &data->input, true);
-	toggle_key(keycode, &data->input);
-	return (0);
-}
-
-static int	cub_keyup_hook(int keycode, void *param)
-{
-	t_input	*input;
-
-	input = (t_input *)param;
-	set_key(keycode, input, false);
-	return (0);
-}
-
-static int	cub_mouse_hook(int x, int y, void *param)
-{
-	t_data	*data;
-
-	(void)y;
-	data = (t_data *)param;
-	if (data->input.skip_next_mouse_input)
-	{
-		data->input.skip_next_mouse_input = 0;
-		return (0);
-	}
-	data->input.delta_mouse_x = x - (data->mlx.win_size.x >> 1);
-	data->input.mouse_input = 1;
-	return (0);
-}
-
 static int	loop_hook(void *param)
 {
-	t_data	*data;
+	static t_pos2	half_win_size = {0};
+	t_data			*data;
 
 	data = (t_data *)param;
+	if (half_win_size.x == 0)
+	{
+		half_win_size.x = data->mlx.win_size.x * 0.5f;
+		half_win_size.y = data->mlx.win_size.y * 0.5f;
+	}
 	data->input.skip_next_mouse_input = 1;
 	mlx_mouse_move(data->mlx.mlx_ptr, data->mlx.win_ptr,
-		data->mlx.win_size.x / 2, data->mlx.win_size.y / 2);
+		half_win_size.x, half_win_size.y);
 	cub_player_update(data);
 	cub_render(data);
 	if (data->input.minimap)
@@ -86,6 +50,8 @@ void	cub_loop(t_data *data)
 		&data->input);
 	mlx_hook(data->mlx.win_ptr, MotionNotify, PointerMotionMask,
 		&cub_mouse_hook, data);
+	mlx_hook(data->mlx.win_ptr, ButtonPress, ButtonPressMask,
+		&cub_mouse_click_hook, data);
 	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
 	mlx_loop(data->mlx.mlx_ptr);
 }
