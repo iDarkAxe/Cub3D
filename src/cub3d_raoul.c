@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/05 16:29:22 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 10:34:15 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cub3d_render.h"
 #include "ft_print.h"
 #include "ft_printf.h"
+#include "maze.h"
 
 int	cub3d_init_render(t_data *data)
 {
@@ -22,7 +23,15 @@ int	cub3d_init_render(t_data *data)
 		return (print_error(NULL, CUB_INIT_RENDER));
 	if (cub_init(data) == 0)
 		return (print_error(NULL, CUB_INIT_RENDER));
-	ft_printf("Generation data: %s\n", data->map.generation);
+	if (data->map.generation)
+	{
+		ft_printf("Generating maze...\n");
+		if (cub_generate_maze(data->map.map, data->map.generation) == 0)
+			return (-1);
+		ft_printf("Maze generated!\n");
+		data->mlx.minimap_size.x = data->map.map->width;
+		data->mlx.minimap_size.y = data->map.map->height;
+	}
 	data->input = (t_input){0};
 	data->input.collision = COLLISION_DEFAULT_VALUE;
 	data->input.minimap = MINIMAP_DEFAULT_VALUE;
