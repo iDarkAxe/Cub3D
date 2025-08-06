@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:50:42 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 11:56:49 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 11:59:45 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	cub_generate_maze(t_map_raoul *map, char *gen)
 	ft_srand(get_time_ms());
 	if (!cub_parse_generation_arg(gen, &map->width, &map->height))
 		return (0);
+	if (map->walls)
+		free(map->walls);
 	map->walls = ft_calloc(map->width * map->height, sizeof(int));
 	map->start_pos = (t_pos2){(ft_rand() % map->width) * 2 + 1,
 		(ft_rand() % map->height) * 2 + 1};
