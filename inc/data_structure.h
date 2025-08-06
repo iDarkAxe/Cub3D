@@ -170,6 +170,9 @@ struct							s_input
 	bool						collision;
 	bool						minimap;
 	bool						fov;
+	int							mouse_input;
+	int							skip_next_mouse_input;
+	int							delta_mouse_x;
 };
 
 /**

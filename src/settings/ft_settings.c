@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:44:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 10:25:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ static void	settings_changed(t_data *data)
 	if (data->mlx.win_ptr == NULL)
 		mlx_loop_end(data->mlx.mlx_ptr);
 	ft_free_settings(&data->mlx);
-	main_hooks(&data->mlx);
 	if (cub3d_init_render(data) != 0)
 		mlx_loop_end(data->mlx.mlx_ptr);
 }

@@ -16,6 +16,7 @@
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "maze.h"
+#include "mlx.h"
 
 int	cub3d_init_render(t_data *data)
 {
@@ -32,6 +33,7 @@ int	cub3d_init_render(t_data *data)
 		data->mlx.minimap_size.x = data->map.map->width;
 		data->mlx.minimap_size.y = data->map.map->height;
 	}
+	mlx_mouse_hide(data->mlx.mlx_ptr, data->mlx.win_ptr);
 	data->input = (t_input){0};
 	data->input.collision = COLLISION_DEFAULT_VALUE;
 	data->input.minimap = MINIMAP_DEFAULT_VALUE;
