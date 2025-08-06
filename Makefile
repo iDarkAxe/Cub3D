@@ -136,7 +136,6 @@ GENERATION = \
 	growing_tree.c \
 	maze_direction.c \
 	posvec.c \
-	posvec2.c \
 	random.c \
 
 LIBS = \
@@ -205,7 +204,9 @@ $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	fi
 
 bonus:
-	@echo "$(Red)No bonus available now$(Color_Off)"
+	@$(MAKE) all
+	@echo "$(Green)Creating executable $(NAME)_bonus$(Color_Off)";
+	@cp $(NAME) $(NAME)_bonus
 
 force:
 

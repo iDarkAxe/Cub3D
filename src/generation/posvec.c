@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   posvec.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:35:31 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/05 19:41:52 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:19:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,23 @@ int	posvecpop(t_posvec *vec, t_pos2 *pos)
 	vec->len--;
 	if (pos)
 		*pos = vec->data[vec->len];
+	return (1);
+}
+
+int	posvecremove(t_posvec *vec, size_t index, t_pos2 *result)
+{
+	size_t	i;
+
+	if (index >= vec->len)
+		return (0);
+	*result = vec->data[index];
+	i = index;
+	while (i < vec->len - 1)
+	{
+		vec->data[i] = vec->data[i + 1];
+		i++;
+	}
+	vec->len--;
 	return (1);
 }
 

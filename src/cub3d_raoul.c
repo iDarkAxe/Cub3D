@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/06 14:18:05 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:36:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 static int	generate_maze_if_requested(t_data *data)
 {
 	if (data->map.generation == NULL)
-		return (0);;
+		return (0);
 	ft_printf("Generating maze...\n");
 	if (cub_generate_maze(data->map.map, data->map.generation) == 0)
 		return (-1);
