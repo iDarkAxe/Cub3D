@@ -6,11 +6,10 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:16:17 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 11:47:34 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 11:56:58 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "data_structure.h"
 #include "ft_printf.h"
 #include "libft.h"
@@ -114,7 +113,6 @@ int	cub_growing_tree(t_map_raoul *map)
 {
 	t_posvec	*vec;
 
-	ft_srand(get_time_ms());
 	vec = posvecnew((map->width * map->height) / 2);
 	if (vec == NULL)
 		return (0);
