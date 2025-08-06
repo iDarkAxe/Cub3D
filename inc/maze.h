@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/05 20:16:17 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 11:22:42 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_posvec	*posvecnew(size_t size);
 int			posvecpush(t_posvec *vec, t_pos2 data);
 int			posvecpop(t_posvec *vec, t_pos2 *pos);
 void		posvecfree(t_posvec *vec);
+int			posvecremove(t_posvec *vec, size_t index, t_pos2 *result);
 
 int			cub_generate_maze(t_map_raoul *map, char *gen);
 

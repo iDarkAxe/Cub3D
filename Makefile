@@ -136,6 +136,7 @@ GENERATION = \
 	growing_tree.c \
 	maze_direction.c \
 	posvec.c \
+	posvec2.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \

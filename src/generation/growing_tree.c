@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:16:17 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 11:03:18 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 11:23:02 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	grow_the_tree(t_map_raoul *map, t_posvec *vec)
 	t_pos2		next;
 
 	shuffle_array(dirs, 4);
-	posvecpop(vec, &pos);
+	posvecremove(vec, rand() % vec->len, &pos);
 	i = 0;
 	while (i < 4)
 	{
