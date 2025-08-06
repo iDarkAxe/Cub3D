@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:16:17 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 12:10:45 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 14:00:28 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int	get_random_index(int max_index)
 	int	i;
 	int	r;
 
-	r = ft_rand() % 3;
+	r = ft_rand() % 4;
 	if (r)
-		i = ft_rand() % max_index;
+		i = max_index - 1 - (ft_rand() % max_index);
 	else
 		i = max_index;
 	return (i);
