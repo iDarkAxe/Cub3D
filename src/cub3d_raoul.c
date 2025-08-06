@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/06 10:34:15 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 14:18:05 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,27 @@
 #include "maze.h"
 #include "mlx.h"
 
+static int	generate_maze_if_requested(t_data *data)
+{
+	if (data->map.generation == NULL)
+		return (0);;
+	ft_printf("Generating maze...\n");
+	if (cub_generate_maze(data->map.map, data->map.generation) == 0)
+		return (-1);
+	ft_printf("Maze generated!\n");
+	data->mlx.minimap_size.x = data->map.map->width;
+	data->mlx.minimap_size.y = data->map.map->height;
+	return (0);
+}
+
 int	cub3d_init_render(t_data *data)
 {
 	if (!data)
 		return (print_error(NULL, CUB_INIT_RENDER));
 	if (cub_init(data) == 0)
 		return (print_error(NULL, CUB_INIT_RENDER));
-	if (data->map.generation)
-	{
-		ft_printf("Generating maze...\n");
-		if (cub_generate_maze(data->map.map, data->map.generation) == 0)
-			return (-1);
-		ft_printf("Maze generated!\n");
-		data->mlx.minimap_size.x = data->map.map->width;
-		data->mlx.minimap_size.y = data->map.map->height;
-	}
+	if (generate_maze_if_requested(data) != 0)
+		return (-1);
 	mlx_mouse_hide(data->mlx.mlx_ptr, data->mlx.win_ptr);
 	data->input = (t_input){0};
 	data->input.collision = COLLISION_DEFAULT_VALUE;
