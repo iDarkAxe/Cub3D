@@ -6,15 +6,16 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:16:17 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 11:25:52 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 11:47:34 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "data_structure.h"
 #include "ft_printf.h"
 #include "libft.h"
 #include "maze.h"
-#include <stdlib.h>
+#include <malloc.h>
 #include <time.h>
 
 // Simple Fisher-Yates shuffle
@@ -27,7 +28,7 @@ static void	shuffle_array(int *arr, int len)
 	i = 0;
 	while (i < len)
 	{
-		j = rand() % len;
+		j = ft_rand() % len;
 		tmp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = tmp;
@@ -43,7 +44,7 @@ static int	grow_the_tree(t_map_raoul *map, t_posvec *vec)
 	t_pos2		next;
 
 	shuffle_array(dirs, 4);
-	posvecremove(vec, rand() % vec->len, &pos);
+	posvecremove(vec, ft_rand() % vec->len, &pos);
 	i = 0;
 	while (i < 4)
 	{
@@ -113,11 +114,11 @@ int	cub_growing_tree(t_map_raoul *map)
 {
 	t_posvec	*vec;
 
-	srand(time(NULL));
+	ft_srand(get_time_ms());
 	vec = posvecnew((map->width * map->height) / 2);
 	if (vec == NULL)
 		return (0);
-	posvecpush(vec, (t_pos2){rand() % map->width, rand() % map->height});
+	posvecpush(vec, (t_pos2){ft_rand() % map->width, ft_rand() % map->height});
 	while (vec->len > 0)
 		if (grow_the_tree(map, vec) == 0)
 			return (0);

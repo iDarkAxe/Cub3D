@@ -137,6 +137,7 @@ GENERATION = \
 	maze_direction.c \
 	posvec.c \
 	posvec2.c \
+	random.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \
