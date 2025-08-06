@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 11:46:26 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 12:09:33 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int				posvecremove(t_posvec *vec, size_t index, t_pos2 *result);
 
 void			ft_srand(unsigned int seed);
 unsigned int	ft_rand(void);
+void			array_shuffle(int *arr, int len);
 
 int				cub_generate_maze(t_map_raoul *map, char *gen);
 

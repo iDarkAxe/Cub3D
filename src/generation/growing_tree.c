@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:16:17 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 11:56:58 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 12:10:45 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,17 @@
 #include <malloc.h>
 #include <time.h>
 
-// Simple Fisher-Yates shuffle
-static void	shuffle_array(int *arr, int len)
+static int	get_random_index(int max_index)
 {
 	int	i;
-	int	j;
-	int	tmp;
+	int	r;
 
-	i = 0;
-	while (i < len)
-	{
-		j = ft_rand() % len;
-		tmp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = tmp;
-		i++;
-	}
+	r = ft_rand() % 3;
+	if (r)
+		i = ft_rand() % max_index;
+	else
+		i = max_index;
+	return (i);
 }
 
 static int	grow_the_tree(t_map_raoul *map, t_posvec *vec)
@@ -42,8 +37,8 @@ static int	grow_the_tree(t_map_raoul *map, t_posvec *vec)
 	t_pos2		pos;
 	t_pos2		next;
 
-	shuffle_array(dirs, 4);
-	posvecremove(vec, ft_rand() % vec->len, &pos);
+	array_shuffle(dirs, 4);
+	posvecremove(vec, get_random_index(vec->len), &pos);
 	i = 0;
 	while (i < 4)
 	{
