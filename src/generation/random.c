@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 11:36:23 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 09:11:35 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:35:25 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static unsigned long	edit_random_state(int set, unsigned int seed)
 	}
 	else
 	{
-		random = random * 1103515242 + 12345;
+		random = random * 1103515245 + 12345;
 		return ((unsigned int)random / (FT_RAND_MAX * 2) % FT_RAND_MAX);
 	}
 }
@@ -35,7 +35,7 @@ void	ft_srand(unsigned int seed)
 
 unsigned int	ft_rand(void)
 {
-	return (edit_random_state(1, 0));
+	return (edit_random_state(0, 0));
 }
 
 // Simple Fisher-Yates shuffle
