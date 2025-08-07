@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 12:09:33 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 09:10:26 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define MAZE_S 2
 # define MAZE_E 4
 # define MAZE_W 8
+
+# define FT_RAND_MAX 32768
 
 typedef struct s_posvec
 {

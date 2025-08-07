@@ -6,29 +6,36 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 11:36:23 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 12:09:25 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 09:11:35 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static unsigned long	*random_state(void)
+#include "maze.h"
+
+static unsigned long	edit_random_state(int set, unsigned int seed)
 {
 	static unsigned long	random = 0;
 
-	return (&random);
+	if (set)
+	{
+		random = seed;
+		return (0);
+	}
+	else
+	{
+		random = random * 1103515242 + 12345;
+		return ((unsigned int)random / (FT_RAND_MAX * 2) % FT_RAND_MAX);
+	}
 }
 
 void	ft_srand(unsigned int seed)
 {
-	*random_state() = seed;
+	edit_random_state(1, seed);
 }
 
 unsigned int	ft_rand(void)
 {
-	unsigned long	*state;
-
-	state = random_state();
-	*state = *state * 1103515242 + 12345;
-	return ((unsigned int)(*state / 65536) % 32768);
+	return (edit_random_state(1, 0));
 }
 
 // Simple Fisher-Yates shuffle
