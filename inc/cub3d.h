@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/05 15:36:07 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 19:12:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@
  * @brief Macros used in the project.
  * @{
  *
+ */
+
+/**
+ * @brief PI approximation
  */
 # define PI 3.141592653589793238462643383279502884197169399375105820974944592307
 
@@ -73,15 +77,32 @@
 # define MINIMAP_LINE_OF_SIGHT_FACTOR 2
 
 // Debug printing settings
+/**
+ * @brief Enable if you want to see which key are pressed on the terminal
+ */
 # define DEBUG_PRINT_KEYCODE 0
+/**
+ * @brief Enable if you want to see the FPS on the terminal
+ */
 # define DEBUG_PRINT_FPS 0
+/**
+ * @brief Enable if you want a prettier FPS counter
+ * @warning if you use it with any of the other DEBUG, the output is undefined
+ * 
+ */
 # define DEBUG_FPS_REFRESH 0
 
 // If you want to follow closely to the subject, you need to set these to 0
+/**
+ * @brief Enable if you want Cross in the settings menu to behave as 'Enter'
+ */
 # define CROSS_APPLY_SETTINGS 0
+/**
+ * @brief Enable if you want Esc key in the settings menu to behave as 'Enter'
+ */
 # define ESCAPE_APPLY_SETTINGS 0
-
 /** @} */
+
 /**
  * @defgroup Main Main Functions
  * @brief Core functionality of the program.
@@ -173,14 +194,6 @@ void				ft_mlx_end(t_mlx *mlx);
 /** @} */
 
 /**
- * @defgroup Draw Draw functions
- * @brief All the functions used to draw elements on the screen.
- * @{
- */
-
-/** @} */
-
-/**
  * @defgroup Settings Settings functions
  * @brief All the functions used for settings.
  * @{
@@ -198,6 +211,12 @@ enum e_screen_size	circle_state(int x, int y);
 int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
 void				ft_free_settings(t_mlx *mlx);
 void				settings_hooks(t_data *data);
+/**
+ * @brief State machine for the settings window.
+ *
+ * @param[in] keycode keycode of the key pressed
+ * @param[in,out] mlx Pointer to the mlx structure
+ */
 void				state_machine(int keycode, t_mlx *mlx);
 /** @} */
 
@@ -217,15 +236,16 @@ int					hook_settings_handle_mouse_click(int button, int x, int y,
 int					hook_settings_handle_mouse_motion(int x, int y,
 						void *param);
 int					hook_settings_close_window(void *param);
-int					hook_settings_handle_keypress(int keycode, void *param);
-/** @} */
 
 /**
- * @defgroup Player Player functions
- * @brief All the functions used to make the player playable.
- * @{
+ * @brief Handle mouse click in the settings window.
+ * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
+ *
+ * @param[in] keycode keycode of the key pressed
+ * @param[in,out] param Pointer to the mlx structure
+ * @return int
  */
-
+int					hook_settings_handle_keypress(int keycode, void *param);
 /** @} */
 
 /**

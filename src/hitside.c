@@ -6,19 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/16 12:05:26 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/02 19:06:38 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:19:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 
-/**
- * @brief Function to set the texture based on the hit side and step direction.
- * 
- * @param hitside
- * @param step 
- * @param color 
- */
 t_img	*hitside_texture(t_textures *tex, int hitside, const t_pos2 *step)
 {
 	if (hitside)

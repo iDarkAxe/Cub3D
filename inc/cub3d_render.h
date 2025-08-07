@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/02 19:40:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:20:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 t_data	*cub_init(t_data *data);
 int		cub_translate_map(t_data *data);
 int		cub3d_init_render(t_data *data);
+/**
+ * @brief Main function to render the game.
+ * data->player.fov * 0.5f is used to calculate the plane for the camera
+ *
+ * @param[in,out] data data structure
+ */
 void	cub_render(t_data *data);
 
 void	cub_loop(t_data *data);
@@ -26,23 +32,117 @@ void	cub_player_update(t_data *data);
 void	cub_render_minimap(t_data *data);
 void	draw_column(t_data *data, int x, const t_raydata *rdata);
 void	hitwall_loop(const t_data *data, t_raydata *rdata);
+/**
+ * @brief Function to set the texture based on the hit side and step direction.
+ * 
+ * @param[in] tex pointer to texture structure
+ * @param[in] hitside hitside
+ * @param[in] step step direction
+ */
 t_img	*hitside_texture(t_textures *tex, int hitside, const t_pos2 *step);
 void	raycalc(const t_pos2 win_size, int x, float cam_angle,
 			t_raydata *rdata);
 
-// Puting into backbuffer functions
+/**
+ * @defgroup BackBuffer BackBuffer Manipulation
+ * @brief BackBuffer functions used to manipulate and place pixels onto it.
+ * @{
+ *
+ */
+
+/**
+ * @brief Clear the backbuffer with a specific color.
+ * 
+ * @param[in,out] mlx mlx structure
+ * @param[in] color color
+ */
+void	cubmlx_clear(t_mlx *mlx, unsigned int color);
+
+/**
+ * @brief Basic function to put a pixel onto the backbuffer
+ * 
+ * @param[in,out] data data structure
+ * @param[in] x x axis
+ * @param[in] y y axis
+ * @param[in] color color
+ */
 void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color);
+
+/**
+ * @brief Basic function to put a vertical line onto the backbuffer
+ * 
+ * @param[in,out] data data structure
+ * @param[in] pos coordinates of starting point of the line
+ * @param[in] len len of the line
+ * @param[in] color color
+ */
 void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 			unsigned int color);
+
+/**
+ * @brief Basic function to put a line onto the backbuffer
+ * 
+ * @param[in,out] data data structure
+ * @param[in] p1 coordinates of starting point of the line
+ * @param[in] p2 coordinates of ending point of the line
+ * @param[in] color color
+ */
 void	cubmlx_putline(t_data *data, t_pos2 p1, t_pos2 p2, unsigned int color);
+/** @} */
 
-// Player movement functions
+/**
+ * @defgroup Player Player functions
+ * @brief Functions used to make the player playable (no-clipping).
+ * @{
+ */
+
+/**
+ * @brief Solver of collision on x axis
+ * 
+ * @param[in,out] data data structure
+ * @param[in] x_vel velocity on x axis
+ */
 void	solve_collision_x(t_data *data, float x_vel);
-void	solve_collision_y(t_data *data, float y_vel);
 
-// Utility functions
+/**
+ * @brief Solver of collision on y axis
+ * 
+ * @param[in,out] data data structure
+ * @param[in] y_vel velocity on y axis
+ */
+void	solve_collision_y(t_data *data, float y_vel);
+/** @} */
+
+/**
+ * @defgroup Utils Utils functions
+ * @brief All the functions used to help the program.
+ * @{
+ */
+/**
+ * @brief Returns the absolute value of a float
+ * 
+ * @param[in] n value
+ * @return float absolute value of n 
+ */
 float	absf(float n);
+
+/**
+ * @brief Returns the highest value between a and b
+ * 
+ * @param[in] a first value
+ * @param[in] b second value
+ * @return int highest between a and b
+ */
 int		max(int a, int b);
+
+/**
+ * @brief Returns a new vector rotated according to the angle
+ * 
+ * @param[in] vec vector
+ * @param[in] angle angle
+ * @return t_vec2 vector rotated
+ */
 t_vec2	vec2rotate(t_vec2 vec, float angle);
+/** @} */
 
 #endif
