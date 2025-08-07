@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   random.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 11:36:23 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 10:35:25 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 15:59:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static unsigned long	edit_random_state(int set, unsigned int seed)
 {
 	static unsigned long	random = 0;
+	static const int		double_rand_max = FT_RAND_MAX * 2;
 
 	if (set)
 	{
@@ -24,7 +25,7 @@ static unsigned long	edit_random_state(int set, unsigned int seed)
 	else
 	{
 		random = random * 1103515245 + 12345;
-		return ((unsigned int)random / (FT_RAND_MAX * 2) % FT_RAND_MAX);
+		return ((unsigned int)random / double_rand_max % FT_RAND_MAX);
 	}
 }
 
