@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:50:42 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 11:59:45 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 09:12:52 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	cub_growing_tree(t_map_raoul *map);
 
 static float	random_float(float a)
 {
-	return ((float)ft_rand() / (float)(32768 / a));
+	return ((float)ft_rand() / (float)(FT_RAND_MAX / a));
 }
 
 int	cub_generate_maze(t_map_raoul *map, char *gen)
