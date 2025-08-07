@@ -45,6 +45,13 @@ Just start it using :
 
 `MAP` is the map file, with the `.cub` extension.
 
+### Randomly generated maze ###
+
+If you want to play on a randomly generated maze, add the option `--generate <width>x<height>`, with `width` and `height` being the size of the maze, which must both be at least 1.
+
+> [!WARNING]
+> The map is still required when generating a maze to determine which textures and colors to display.
+
 ## <a name="play-en">🚀 How to play ##
 
 <img src="img/06.png" alt="Img showing which key can be used, See below">

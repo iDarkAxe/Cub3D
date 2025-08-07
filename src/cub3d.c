@@ -6,12 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:41:34 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/05 16:28:36 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "cub3d_render.h"
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "mlx.h"
@@ -19,12 +18,14 @@
 int	cub3d(int argc, char **argv)
 {
 	t_data	data;
+	t_args	args;
 
-	if (check_args(argc, argv) != 1)
+	if (check_args(argc, argv, &args) != 1)
 		return (print_error(&data.map, FT_MAP_CHECK));
-	data.map = ft_map_check_dimensions(&data.map, argv[1]);
+	data.map = ft_map_check_dimensions(&data.map, args.map);
 	if (data.map.error != 0)
 		return (print_error(&data.map, CHECK_ARGS));
+	data.map.generation = args.gen;
 	data.map = ft_check_config(&data.map);
 	if (data.map.error != 0)
 		return (print_error(&data.map, CONFIG_ERROR));

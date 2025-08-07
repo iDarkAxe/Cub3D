@@ -39,6 +39,7 @@ P_DRAW = draw/
 P_PRINT = print/
 P_RENDER = render/
 P_MATH = math/
+P_GENERATION = generation/
 
 # Object directories
 P_OBJ = .obj/
@@ -129,6 +130,14 @@ PRINT = \
 	ft_print_color.c \
 	ft_print.c \
 
+GENERATION = \
+	arg.c \
+	gen.c \
+	growing_tree.c \
+	maze_direction.c \
+	posvec.c \
+	random.c \
+
 LIBS = \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
@@ -154,7 +163,8 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_RENDER), $(RENDER)) \
 	$(addprefix $(P_SRC)$(P_MATH), $(MATH)) \
-	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT))
+	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT)) \
+	$(addprefix $(P_SRC)$(P_GENERATION), $(GENERATION))
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))
@@ -194,7 +204,9 @@ $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	fi
 
 bonus:
-	@echo "$(Red)No bonus available now$(Color_Off)"
+	@$(MAKE) all
+	@echo "$(Green)Creating executable $(NAME)_bonus$(Color_Off)";
+	@cp $(NAME) $(NAME)_bonus
 
 force:
 

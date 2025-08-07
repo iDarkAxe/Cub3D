@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/04 18:23:42 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/06 15:36:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_raydata		t_raydata;
 typedef struct s_input			t_input;
 typedef struct s_player			t_player;
 typedef struct s_map_raoul		t_map_raoul;
+typedef struct s_args			t_args;
 
 /**
  * @brief Enum used to store the screen size.
@@ -234,6 +235,7 @@ struct							s_map
 	size_t						file_nb_lines;
 	char						**map_2d;
 	t_map_raoul					*map;
+	char						*generation;
 	char						*config[6];
 	int							error;
 	size_t						number_of_moves;
@@ -271,6 +273,12 @@ struct							s_raydata
 	int							hit_side;
 	int							ceil_color;
 	int							floor_color;
+};
+
+struct s_args
+{
+	char	*map;
+	char	*gen;
 };
 
 #endif
