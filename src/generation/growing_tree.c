@@ -6,12 +6,11 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:16:17 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 10:12:24 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 10:26:09 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
-#include "ft_printf.h"
 #include "libft.h"
 #include "maze.h"
 #include <malloc.h>
@@ -68,7 +67,6 @@ static void	translate_cells(int *dirs, t_pos2 dsize, int *walls, t_pos2 wsize)
 
 	i = 0;
 	count = dsize.x * dsize.y;
-	ft_printf("Max index is %d\n", (dsize.x * 2 + 1) * (dsize.y * 2 + 1));
 	while (i < count)
 	{
 		dpos = (t_pos2){i % dsize.x, i / dsize.x};
