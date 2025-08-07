@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 19:20:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:41:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ void	solve_collision_y(t_data *data, float y_vel);
  * @brief All the functions used to help the program.
  * @{
  */
+
 /**
  * @brief Returns the absolute value of a float
  * 

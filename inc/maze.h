@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   maze.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 09:10:26 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/07 21:09:18 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,22 @@
 # define MAZE_E 4
 # define MAZE_W 8
 
+/**
+ * @brief Magic number from RAND_MAX
+ */
 # define FT_RAND_MAX 32768
 
-typedef struct s_posvec
+typedef struct s_posvec	t_posvec;
+
+/**
+ * @brief Vector implementation that stores t_pos2 objects
+ */
+struct s_posvec
 {
 	t_pos2	*data;
 	size_t	len;
 	size_t	capacity;
-}	t_posvec;
+};
 
 int				maze_dir_x(int dir);
 int				maze_dir_y(int dir);

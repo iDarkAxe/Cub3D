@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/07 19:21:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 21:06:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@
 
 /**
  * @brief Enum used for map related errors
- * 
  */
 enum	e_map_error
 {
@@ -61,7 +60,6 @@ enum	e_map_error
 
 /**
  * @brief Enum used for main functions related errors
- * 
  */
 enum	e_fx_error
 {
