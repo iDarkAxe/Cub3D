@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:42:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:10:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 #include "mlx.h"
 #include "cub3d.h"
 
-/**
- * @brief State machine for the settings window.
- *
- * @param keycode keycode of the key pressed
- * @param mlx Pointer to the mlx structure
- */
 void	state_machine(int keycode, t_mlx *mlx)
 {
 	if (keycode == KEY_ESCAPE && mlx->settings.state == 0)

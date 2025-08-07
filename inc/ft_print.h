@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:29:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:21:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@ ssize_t	ft_print_config(t_map *map);
 ssize_t	ft_print_map(t_map *map);
 void	ft_print_floor_ceiling(t_map *map);
 void	ft_print_color(t_color *color);
+/**
+ * @brief Print the map visited by the DFS,
+ * 'x' means visited
+ * '.' means not visited
+ * 
+ * @param[in] visited array of strings referring to visited tiles
+ * @param[in] map array of strings referring to original map
+ */
 void	print_visited(char **visited, char **map);
 void	ft_print_key(int keycode);
 // ERRORS

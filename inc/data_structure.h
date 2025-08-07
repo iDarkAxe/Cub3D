@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/06 15:36:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:01:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,10 @@ struct							s_mlx
 	t_img						backbuffer;
 };
 
+/**
+ * @brief Structure to handle the special map needed for rendering
+ * 
+ */
 struct s_map_raoul
 {
 	int							*walls;
@@ -275,6 +279,10 @@ struct							s_raydata
 	int							floor_color;
 };
 
+/**
+ * @brief Structure to handle the argument of cub3D
+ * 
+ */
 struct s_args
 {
 	char	*map;
