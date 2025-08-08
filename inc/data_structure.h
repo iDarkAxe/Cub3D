@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 11:04:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 18:30:33 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct s_args			t_args;
 /**
  * @brief Enum used to store the screen size.
  * It is used to set the screen size in the settings.
- *
+ * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
+ * 
  */
 enum							e_screen_size
 {
