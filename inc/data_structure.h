@@ -280,7 +280,7 @@ struct							s_raydata
 };
 
 /**
- * @brief Structure to handle the argument of cub3D
+ * @brief Structure to handle command-line arguments
  * 
  */
 struct s_args
