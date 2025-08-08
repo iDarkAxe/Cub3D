@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 19:41:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:31:44 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,26 @@
 # include "data_structure.h"
 # include <stddef.h>
 
+/**
+ * @brief Init the map translation and the backbuffer for rendering
+ * 
+ * @param[in,out] data data structure
+ * @return t_data* data if successful, NULL otherwise
+ */
 t_data	*cub_init(t_data *data);
+/**
+ * @brief Translate the 2d map extracted from input file into a vector of int
+ * 
+ * @param[in,out] data data structure
+ * @return int 1 OK, 0 otherwise
+ */
 int		cub_translate_map(t_data *data);
+/**
+ * @brief Init cub for rendering
+ * 
+ * @param[in,out] data data structure
+ * @return int 0 OK, error otherwise
+ */
 int		cub3d_init_render(t_data *data);
 /**
  * @brief Main function to render the game.
@@ -26,11 +44,39 @@ int		cub3d_init_render(t_data *data);
  * @param[in,out] data data structure
  */
 void	cub_render(t_data *data);
-
+/**
+ * @brief Main loop of rendering, updates player position, 
+ * map and minimap rendering
+ * 
+ * @param[in,out] data data structure
+ */
 void	cub_loop(t_data *data);
+/**
+ * @brief Update the player position according to inputs
+ * 
+ * @param[in,out] data data structure
+ */
 void	cub_player_update(t_data *data);
+/**
+ * @brief Render the minimap
+ * 
+ * @param[in,out] data data structure
+ */
 void	cub_render_minimap(t_data *data);
+/**
+ * @brief Function to draw a column for rendering
+ * 
+ * @param[in,out] data data structure
+ * @param[in] x x axis column
+ * @param[in,out] rdata structure to handle important values for rendering 
+ */
 void	draw_column(t_data *data, int x, const t_raydata *rdata);
+/**
+ * @brief Check which wall will be hit
+ * 
+ * @param[in,out] data data structure
+ * @param[in,out] rdata structure to handle important values for rendering 
+ */
 void	hitwall_loop(const t_data *data, t_raydata *rdata);
 /**
  * @brief Function to set the texture based on the hit side and step direction.
@@ -40,6 +86,14 @@ void	hitwall_loop(const t_data *data, t_raydata *rdata);
  * @param[in] step step direction
  */
 t_img	*hitside_texture(t_textures *tex, int hitside, const t_pos2 *step);
+/**
+ * @brief Function to calculate rays using window size and camera angle
+ * 
+ * @param[in] win_size window size
+ * @param[in] x x axis column
+ * @param[in] cam_angle camera angle
+ * @param[in,out] rdata structure to handle important values for rendering 
+ */
 void	raycalc(const t_pos2 win_size, int x, float cam_angle,
 			t_raydata *rdata);
 
