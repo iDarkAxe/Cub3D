@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/08 11:31:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 18:16:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,12 @@ int		cub_translate_map(t_data *data);
 int		cub3d_init_render(t_data *data);
 /**
  * @brief Main rendering function
- * data->player.fov * 0.5f is used to calculate the plane for the camera
  *
  * @param[in,out] data data structure
  */
 void	cub_render(t_data *data);
 /**
- * @brief Main loop of rendering, updates player position, 
- * map and minimap rendering
+ * @brief Main loop function. Handles player update logic and rendering
  * 
  * @param[in,out] data data structure
  */

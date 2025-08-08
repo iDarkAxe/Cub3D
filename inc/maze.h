@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/08 10:47:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 18:10:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ t_posvec		*posvecnew(size_t nbrElements);
  */
 int				posvecpush(t_posvec *vec, t_pos2 data);
 /**
- * @brief Copies an element if pos is defined and pop it after
+ * @brief Pops the last element of the vector if not empty
  * 
  * @param[in,out] vec vector pointer
  * @param[in,out] pos if non-null, copy the last element to this location
@@ -117,7 +117,7 @@ void			posvecfree(t_posvec *vec);
 /**
  * @brief Sets the initial random state from the given seed
  * 
- * @param[in] seed seed, value to use to generate random from 
+ * @param[in] seed random seed
  */
 void			ft_srand(unsigned int seed);
 /**
