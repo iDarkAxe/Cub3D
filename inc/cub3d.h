@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 11:13:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 18:30:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -250,7 +250,7 @@ void				state_machine(int keycode, t_mlx *mlx);
  */
 
 /**
- * @brief Hook used when a key is pressed
+ * @brief Hook when a key is pressed
  * 
  * @param[in] keycode keycode of key pressed
  * @param[in,out] param param 
@@ -258,7 +258,7 @@ void				state_machine(int keycode, t_mlx *mlx);
  */
 int					cub_keydown_hook(int keycode, void *param);
 /**
- * @brief Hook used when a key is released
+ * @brief Hook when a key is released
  * 
  * @param[in] keycode keycode of key released
  * @param[in,out] param param 
@@ -316,7 +316,6 @@ int					hook_settings_close_window(void *param);
 
 /**
  * @brief Handle mouse click in the settings window.
- * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
  *
  * @param[in] keycode keycode of the key pressed
  * @param[in,out] param Pointer to the mlx structure
