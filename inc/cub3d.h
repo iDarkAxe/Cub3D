@@ -78,7 +78,7 @@
 
 // Debug printing settings
 /**
- * @brief Enable if you want to see which key are pressed
+ * @brief Enable to print key presses
  */
 # define DEBUG_PRINT_KEYCODE 0
 /**
