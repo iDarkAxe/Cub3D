@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 10:59:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:32:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,14 +142,14 @@ void	ft_print_key(int keycode);
 /**
  * @brief Print a special message of map error according to enum
  * 
- * @param[in, out] map map structure 
+ * @param[in,out] map map structure 
  * @param[in] error error state
  */
 void	print_map_error(t_map *map, enum e_map_error error);
 /**
  * @brief Print a special message according to enum
  * 
- * @param[in, out] map map structure 
+ * @param[in,out] map map structure 
  * @param[in] error error state
  * @return int 1 if error print OK, 2 otherwise
  */

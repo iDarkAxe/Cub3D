@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:02:10 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/08 10:15:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:33:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static int	is_valid_size(const char *gen)
 {
-	const char *pointer;
+	const char	*pointer;
 
 	pointer = gen;
 	while (*pointer && *pointer != 'x')

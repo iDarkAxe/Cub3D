@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:35:31 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/08 10:39:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:33:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	posvecpop(t_posvec *vec, t_pos2 *pos)
 	return (1);
 }
 
-int posvecremove(t_posvec *vec, size_t index, t_pos2 *result)
+int	posvecremove(t_posvec *vec, size_t index, t_pos2 *result)
 {
 	if (index >= vec->len)
 		return (0);

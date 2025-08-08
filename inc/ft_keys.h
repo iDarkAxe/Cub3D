@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/07 21:05:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:04:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,6 @@
  */
 
 # include <stdbool.h>
-
-/**
- * @defgroup Events Events macro
- * @brief Regroup all the events macro used in the project
- * (originally in X.h but copied to avoid dependancy)
- * @{
- */
-// # define DestroyNotify 17
-// # define StructureNotifyMask (1L<<17)
-// # define KeyPress 2
-// # define KeyPressMask (1L<<0)
-/** @} */
 
 /**
  * @defgroup Keys Keys macros

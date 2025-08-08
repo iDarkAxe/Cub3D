@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 10:55:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:13:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -206,10 +206,33 @@ void				ft_mlx_end(t_mlx *mlx);
  * @return void* win_settings_ptr if success, NULL if error
  */
 void				*ft_settings(t_mlx *mlx);
-
+/**
+ * @brief Return an enum according to selected circle using coordinates
+ * 
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @return enum e_screen_size state
+ */
 enum e_screen_size	circle_state(int x, int y);
+/**
+ * @brief Set screen size according to an enum
+ * 
+ * @param[in,out] mlx mlx structure
+ * @param[in] size enum representing the size of the screen selected 
+ * @return int 
+ */
 int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
+/**
+ * @brief Free all the settings variables
+ * 
+ * @param[in,out] mlx mlx structure 
+ */
 void				ft_free_settings(t_mlx *mlx);
+/**
+ * @brief Set the settings hooks on the settings window
+ * 
+ * @param[in,out] data data structure
+ */
 void				settings_hooks(t_data *data);
 /**
  * @brief State machine for the settings window.
@@ -226,15 +249,69 @@ void				state_machine(int keycode, t_mlx *mlx);
  * @{
  */
 
+/**
+ * @brief Hook used when a key is pressed
+ * 
+ * @param[in] keycode keycode of key pressed
+ * @param[in,out] param param 
+ * @return int keycode
+ */
 int					cub_keydown_hook(int keycode, void *param);
+/**
+ * @brief Hook used when a key is released
+ * 
+ * @param[in] keycode keycode of key released
+ * @param[in,out] param param 
+ * @return int keycode
+ */
 int					cub_keyup_hook(int keycode, void *param);
+/**
+ * @brief Hook when the mouse is moved WITH a click
+ * 
+ * @param[in] button button pressed
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 always
+ */
 int					cub_mouse_click_hook(int button, int x, int y, void *param);
+/**
+ * @brief Hook when the mouse is moved
+ * 
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 always
+ */
 int					cub_mouse_hook(int x, int y, void *param);
 // Settings hooks
+/**
+ * @brief Hook when the mouse is moved WITH a click for the settings
+ * 
+ * @param[in] button button pressed
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 OK, -1 otherwise
+ */
 int					hook_settings_handle_mouse_click(int button, int x, int y,
 						void *param);
+/**
+ * @brief Hook when the mouse is moved for the settings
+ * 
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 OK, -1 otherwise
+ */
 int					hook_settings_handle_mouse_motion(int x, int y,
 						void *param);
+/**
+ * @brief Hook used to close window or set the window size if MACRO Enabled
+ * 
+ * @param[in,out] param param
+ * @return int 0 always
+ */
 int					hook_settings_close_window(void *param);
 
 /**
