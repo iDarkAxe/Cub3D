@@ -64,7 +64,7 @@ void	cub_player_update(t_data *data);
  */
 void	cub_render_minimap(t_data *data);
 /**
- * @brief Function to draw a column for rendering
+ * @brief Draw a column of pixels from a raycast result
  * 
  * @param[in,out] data data structure
  * @param[in] x x axis column
