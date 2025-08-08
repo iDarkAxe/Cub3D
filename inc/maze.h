@@ -100,7 +100,7 @@ int				posvecpop(t_posvec *vec, t_pos2 *pos);
  */
 int				posvecremove(t_posvec *vec, size_t index, t_pos2 *result);
 /**
- * @brief Free the vector and it's payload
+ * @brief Free the vector
  * 
  * @param[in,out] vec vector pointer
  */
