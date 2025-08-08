@@ -24,7 +24,7 @@
  */
 t_data	*cub_init(t_data *data);
 /**
- * @brief Translate the 2d map extracted from input file into a vector of int
+ * @brief Convert 2d map string to int vector
  * 
  * @param[in,out] data data structure
  * @return int 1 OK, 0 otherwise
