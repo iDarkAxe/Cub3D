@@ -86,7 +86,7 @@ int				posvecpush(t_posvec *vec, t_pos2 data);
  * @brief Copies an element if pos is defined and pop it after
  * 
  * @param[in,out] vec vector pointer
- * @param[in,out] pos value of last element if defined
+ * @param[in,out] pos if non-null, copy the last element to this location
  * @return int 1 OK, 0 otherwise
  */
 int				posvecpop(t_posvec *vec, t_pos2 *pos);
