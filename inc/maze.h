@@ -95,7 +95,7 @@ int				posvecpop(t_posvec *vec, t_pos2 *pos);
  * 
  * @param[in,out] vec vector pointer
  * @param[in] index index of the element to define
- * @param[in,out] result value of indexed element if defined
+ * @param[in,out] result if non-null, copy the removed element to this location
  * @return int 
  */
 int				posvecremove(t_posvec *vec, size_t index, t_pos2 *result);
