@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/08 18:16:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 18:23:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,8 @@ void	raycalc(const t_pos2 win_size, int x, float cam_angle,
 			t_raydata *rdata);
 
 /**
- * @defgroup BackBuffer BackBuffer Manipulation
- * @brief BackBuffer functions used to manipulate and place pixels onto it.
+ * @defgroup Backbuffer Backbuffer Manipulation
+ * @brief Backbuffer functions used to manipulate and place pixels onto it.
  * @{
  *
  */
