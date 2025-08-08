@@ -91,7 +91,7 @@ int				posvecpush(t_posvec *vec, t_pos2 data);
  */
 int				posvecpop(t_posvec *vec, t_pos2 *pos);
 /**
- * @brief Copies vec[index] and move all the elements after to the left
+ * @brief Removes the element at the specified index from the vector if found
  * 
  * @param[in,out] vec vector pointer
  * @param[in] index index of the element to define
