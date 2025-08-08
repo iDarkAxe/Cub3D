@@ -52,7 +52,7 @@ void	cub_render(t_data *data);
  */
 void	cub_loop(t_data *data);
 /**
- * @brief Update the player position according to inputs
+ * @brief Updates player based on input
  * 
  * @param[in,out] data data structure
  */
