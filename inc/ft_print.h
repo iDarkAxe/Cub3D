@@ -132,7 +132,7 @@ void	ft_print_color(t_color *color);
 void	print_visited(char **visited, char **map);
 /**
  * @brief Print the keycode name if registered
- * or just it's value if not
+ * or just its value if not
  * 
  * @param[in] keycode keycode to print
  */
