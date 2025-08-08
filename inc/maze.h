@@ -115,7 +115,7 @@ void			posvecfree(t_posvec *vec);
  */
 
 /**
- * @brief Similar to srand as it takes a seed and uses it for random generation
+ * @brief Sets the initial random state from the given seed
  * 
  * @param[in] seed seed, value to use to generate random from 
  */
