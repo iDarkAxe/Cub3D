@@ -86,7 +86,7 @@
  */
 # define DEBUG_PRINT_FPS 0
 /**
- * @brief Enable if you want a prettier FPS counter
+ * @brief Enable to keep the FPS counter on a single line
  * @warning if you use it with any of the other DEBUG, the output is undefined
  * 
  */
