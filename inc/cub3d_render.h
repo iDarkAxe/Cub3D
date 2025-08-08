@@ -38,7 +38,7 @@ int		cub_translate_map(t_data *data);
  */
 int		cub3d_init_render(t_data *data);
 /**
- * @brief Main function to render the game.
+ * @brief Main rendering function
  * data->player.fov * 0.5f is used to calculate the plane for the camera
  *
  * @param[in,out] data data structure
