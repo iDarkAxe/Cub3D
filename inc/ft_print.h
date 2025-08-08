@@ -110,7 +110,7 @@ ssize_t	ft_print_config(t_map *map);
  */
 ssize_t	ft_print_map(t_map *map);
 /**
- * @brief Print the color of floor and ceiling
+ * @brief Print the colors of floor and ceiling
  * 
  * @param[in] map map structure 
  */
