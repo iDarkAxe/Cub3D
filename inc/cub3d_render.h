@@ -123,7 +123,7 @@ void	cubmlx_clear(t_mlx *mlx, unsigned int color);
 void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color);
 
 /**
- * @brief Basic function to put a vertical line onto the backbuffer
+ * @brief Puts a vertical line on the backbuffer. Optimized for vertical lines.
  * 
  * @param[in,out] data data structure
  * @param[in] pos coordinates of starting point of the line
