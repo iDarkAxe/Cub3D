@@ -286,7 +286,7 @@ int					cub_mouse_click_hook(int button, int x, int y, void *param);
 int					cub_mouse_hook(int x, int y, void *param);
 // Settings hooks
 /**
- * @brief Hook when the mouse is moved WITH a click for the settings
+ * @brief Hook when the mouse is moved while clicking for the settings
  * 
  * @param[in] button button pressed
  * @param[in] x x axis 
