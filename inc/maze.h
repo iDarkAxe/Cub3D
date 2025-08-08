@@ -127,7 +127,7 @@ void			ft_srand(unsigned int seed);
  */
 unsigned int	ft_rand(void);
 /**
- * @brief Randomly shuffle an array using ft_rand()
+ * @brief Shuffle an array
  * 
  * @param[in,out] arr array to shuffle
  * @param[in] len number of element to shuffle
