@@ -266,7 +266,7 @@ int					cub_keydown_hook(int keycode, void *param);
  */
 int					cub_keyup_hook(int keycode, void *param);
 /**
- * @brief Hook when the mouse is moved WITH a click
+ * @brief Hook when the mouse is moved while clicking
  * 
  * @param[in] button button pressed
  * @param[in] x x axis 
