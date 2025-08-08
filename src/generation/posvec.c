@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:35:31 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/06 15:19:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 10:39:32 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 #include <malloc.h>
 #include "maze.h"
 
-t_posvec	*posvecnew(size_t size)
+t_posvec	*posvecnew(size_t nbrElements)
 {
 	t_posvec	*vec;
 
 	vec = malloc(sizeof(t_posvec));
 	if (vec == NULL)
 		return (NULL);
-	vec->data = malloc(sizeof(t_pos2) * size);
+	vec->data = malloc(sizeof(t_pos2) * nbrElements);
 	if (vec->data == NULL)
 	{
 		free(vec);
 		return (NULL);
 	}
-	vec->capacity = size;
+	vec->capacity = nbrElements;
 	vec->len = 0;
 	return (vec);
 }
@@ -61,19 +61,13 @@ int	posvecpop(t_posvec *vec, t_pos2 *pos)
 	return (1);
 }
 
-int	posvecremove(t_posvec *vec, size_t index, t_pos2 *result)
+int posvecremove(t_posvec *vec, size_t index, t_pos2 *result)
 {
-	size_t	i;
-
 	if (index >= vec->len)
 		return (0);
 	*result = vec->data[index];
-	i = index;
-	while (i < vec->len - 1)
-	{
-		vec->data[i] = vec->data[i + 1];
-		i++;
-	}
+	ft_memmove(&vec->data[index], &vec->data[index + 1],
+		(vec->len - index - 1) * sizeof(t_pos2));
 	vec->len--;
 	return (1);
 }

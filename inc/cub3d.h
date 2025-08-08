@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/07 19:12:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 10:55:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@
 
 // Debug printing settings
 /**
- * @brief Enable if you want to see which key are pressed on the terminal
+ * @brief Enable if you want to see which key are pressed
  */
 # define DEBUG_PRINT_KEYCODE 0
 /**
- * @brief Enable if you want to see the FPS on the terminal
+ * @brief Enable if you want to see the FPS
  */
 # define DEBUG_PRINT_FPS 0
 /**

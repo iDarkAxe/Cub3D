@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 21:09:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 10:47:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,110 @@ struct s_posvec
 	size_t	capacity;
 };
 
+/**
+ * @brief Maze direction on x axis
+ * 
+ * @param[in] dir direction
+ * @return int value considering maze MACROS
+ */
 int				maze_dir_x(int dir);
+/**
+ * @brief Maze direction on y axis
+ * 
+ * @param[in] dir direction
+ * @return int value considering maze MACROS
+ */
 int				maze_dir_y(int dir);
+/**
+ * @brief Maze inverted direction on x and y axis
+ * 
+ * @param[in] dir direction
+ * @return int value considering maze MACROS
+ */
 int				maze_dir_opp(int dir);
 
-t_posvec		*posvecnew(size_t size);
+/**
+ * @defgroup Vector Vector implementation with t_pos2
+ * @brief Vector functions used to work woth t_pos2
+ * @{
+ *
+ */
+
+/**
+ * @brief Create a vector with a designated size before hand
+ * 
+ * @param[in] nbrElements number of elements
+ * @return t_posvec* pointer to the new vector allocated
+ */
+t_posvec		*posvecnew(size_t nbrElements);
+/**
+ * @brief Add a new element to the vector
+ * 
+ * @param[in,out] vec vector pointer
+ * @param[in] data payload to add
+ * @return int 1 OK, 0 otherwise
+ */
 int				posvecpush(t_posvec *vec, t_pos2 data);
+/**
+ * @brief Copies an element if pos is defined and pop it after
+ * 
+ * @param[in,out] vec vector pointer
+ * @param[in,out] pos value of last element if defined
+ * @return int 1 OK, 0 otherwise
+ */
 int				posvecpop(t_posvec *vec, t_pos2 *pos);
-void			posvecfree(t_posvec *vec);
+/**
+ * @brief Copies vec[index] and move all the elements after to the left
+ * 
+ * @param[in,out] vec vector pointer
+ * @param[in] index index of the element to define
+ * @param[in,out] result value of indexed element if defined
+ * @return int 
+ */
 int				posvecremove(t_posvec *vec, size_t index, t_pos2 *result);
+/**
+ * @brief Free the vector and it's payload
+ * 
+ * @param[in,out] vec vector pointer
+ */
+void			posvecfree(t_posvec *vec);
+/** @} */
 
+/**
+ * @defgroup Random Random implementation based on libc
+ * @brief Random functions used to generated randomness
+ * @{
+ *
+ */
+
+/**
+ * @brief Similar to srand as it takes a seed and uses it for random generation
+ * 
+ * @param[in] seed seed, value to use to generate random from 
+ */
 void			ft_srand(unsigned int seed);
+/**
+ * @brief Generate a random unsigned int
+ * 
+ * @return unsigned int number generated
+ */
 unsigned int	ft_rand(void);
+/**
+ * @brief Randomly shuffle an array using ft_rand()
+ * 
+ * @param[in,out] arr array to shuffle
+ * @param[in] len number of element to shuffle
+ */
 void			array_shuffle(int *arr, int len);
-
+/**
+ * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
+ * create a random maze 'fully walkable' where all floor tiles are accessible
+ * 
+ * @param[in,out] map map structure
+ * @param[in] gen dimensions of the future maze
+ * @return int 
+ */
 int				cub_generate_maze(t_map_raoul *map, char *gen);
+/** @} */
 
 #endif
