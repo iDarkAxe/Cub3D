@@ -113,7 +113,7 @@ void	raycalc(const t_pos2 win_size, int x, float cam_angle,
 void	cubmlx_clear(t_mlx *mlx, unsigned int color);
 
 /**
- * @brief Basic function to put a pixel onto the backbuffer
+ * @brief Puts a pixel onto the backbuffer
  * 
  * @param[in,out] data data structure
  * @param[in] x x axis
