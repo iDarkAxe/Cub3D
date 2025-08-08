@@ -17,7 +17,7 @@
 # include <stddef.h>
 
 /**
- * @brief Init the map translation and the backbuffer for rendering
+ * @brief Initialize map and backbuffer for rendering
  * 
  * @param[in,out] data data structure
  * @return t_data* data if successful, NULL otherwise
