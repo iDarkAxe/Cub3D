@@ -98,7 +98,7 @@
  */
 # define CROSS_APPLY_SETTINGS 0
 /**
- * @brief Enable if you want Esc key in the settings menu to behave as 'Enter'
+ * @brief Enable pressing Esc in the settings menu should behave as 'Enter'
  */
 # define ESCAPE_APPLY_SETTINGS 0
 /** @} */
