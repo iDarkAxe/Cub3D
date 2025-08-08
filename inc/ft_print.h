@@ -140,7 +140,7 @@ void	ft_print_key(int keycode);
 
 // ERRORS
 /**
- * @brief Print a special message of map error according to enum
+ * @brief Print the corresponding map error
  * 
  * @param[in,out] map map structure 
  * @param[in] error error state
