@@ -22,7 +22,7 @@
 # define MAZE_W 8
 
 /**
- * @brief Magic number from RAND_MAX
+ * @brief Maximum random value possible
  */
 # define FT_RAND_MAX 32768
 
