@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:18:12 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/07 21:08:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 18:09:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	ft_put_circle_to_win(t_mlx *mlx, void *win_ptr, t_circle element,
 void	ft_put_circle_specific(t_mlx *mlx, void *win_settings_ptr,
 			enum e_screen_size num, bool is_enabled);
 /**
- * @brief Function to pull ale the circle to the window following their state
+ * @brief Function to pull all the circle to the window following their state
  * 
  * @param[in,out] mlx  mlx structure
  * @param[in,out] win_settings_ptr settings window pointer
