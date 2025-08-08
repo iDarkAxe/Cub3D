@@ -94,7 +94,7 @@
 
 // If you want to follow closely to the subject, you need to set these to 0
 /**
- * @brief Enable if you want Cross in the settings menu to behave as 'Enter'
+ * @brief Enable if closing the settings window should behave as 'Enter'
  */
 # define CROSS_APPLY_SETTINGS 0
 /**
