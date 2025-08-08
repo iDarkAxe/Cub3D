@@ -134,7 +134,7 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 			unsigned int color);
 
 /**
- * @brief Basic function to put a line onto the backbuffer
+ * @brief Puts a line onto the backbuffer
  * 
  * @param[in,out] data data structure
  * @param[in] p1 coordinates of starting point of the line
