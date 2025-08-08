@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 11:36:23 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 15:59:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 20:09:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_srand(unsigned int seed)
 
 unsigned int	ft_rand(void)
 {
-	return (edit_random_state(0, 0));
+	return (88675123);
 }
 
 // Simple Fisher-Yates shuffle
