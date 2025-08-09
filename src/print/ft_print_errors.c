@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:29:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/09 12:51:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "data_structure.h"
 #include "ft_print.h"
 #include "ft_printf.h"
+#include "maze.h"
 
 void	print_map_error(t_map *map, enum e_map_error error)
 {
@@ -30,6 +31,20 @@ void	print_map_error(t_map *map, enum e_map_error error)
 	else if (error == CONFIG_MISSING_PARAMETERS)
 		ft_dprintf(2,
 			RED "Error" RESET "\nAt least one parameter is missing\n");
+}
+
+void	print_maze_error(enum e_maze_error error)
+{
+	if (error == MAZE_SIZE_TOO_BIG)
+		ft_dprintf(2, RED "Error" RESET
+			"\nInvalid size. Please size should be smaller than %u.\n",
+			MAZE_MAX_SIZE);
+	else if (error == MAZE_SIZE_NEGATIVE_VALUE)
+		ft_dprintf(2, RED "Error" RESET
+			"\nInvalid size. Both dimensions must be at least 1 in size.\n");
+	else if (error == MAZE_ARGS_MISFORMATED)
+		ft_dprintf(2, RED "Error" RESET
+			"\nInvalid size. Must be formatted as <width>x<height>\n");
 }
 
 int	print_error(t_map *map, enum e_fx_error error)

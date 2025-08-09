@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 11:39:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/09 12:50:58 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 #include "ft_printf.h"
 #include "mlx.h"
 
+int	generate_maze_if_requested(t_data *data, char *gen);
+
 int	cub3d(int argc, char **argv)
 {
 	t_data	data;
@@ -41,7 +43,8 @@ int	cub3d(int argc, char **argv)
 	data.map = ft_map_check_dimensions(&data.map, args.map);
 	if (data.map.error != 0)
 		return (print_error(&data.map, CHECK_ARGS));
-	data.map.generation = args.gen;
+	if (generate_maze_if_requested(&data, args.gen) != 0)
+		return (-1);
 	data.map = ft_check_config(&data.map);
 	if (data.map.error != 0)
 		return (print_error(&data.map, CONFIG_ERROR));
