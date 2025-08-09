@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/08 18:21:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/09 12:43:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@
  * @brief Maximum random value possible
  */
 # define FT_RAND_MAX 32768
+
+/**
+ * @brief Maximum size of maze
+ */
+# define MAZE_MAX_SIZE 1000
 
 typedef struct s_posvec	t_posvec;
 
@@ -145,16 +150,16 @@ void			array_shuffle(int *arr, int len);
 int				cub_parse_generation_arg(char *gen, size_t *width,
 					size_t *height);
 /**
- * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
- * create a random maze 'fully walkable' where all floor tiles are accessible
+ * @brief Function to parse args into dimensions for maze
  * 
  * @param[in,out] map map structure
  * @param[in] gen dimensions of the future maze
  * @return int 
  */
-int				cub_generate_maze(t_map_raoul *map, char *gen);
+int				cub_generate_dimensions(t_map_raoul **map, char *gen);
 /**
- * @brief Sub-function to 'grow the tree' of cub_generate_maze()
+ * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
+ * create a random maze 'fully walkable' where all floor tiles are accessible
  *
  * @param[in,out] map
  * @return int 1 OK, 0 error
