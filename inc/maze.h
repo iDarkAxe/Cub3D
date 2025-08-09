@@ -31,7 +31,7 @@ typedef struct s_posvec	t_posvec;
 /**
  * @brief Vector implementation that stores t_pos2 objects
  */
-struct s_posvec
+struct		s_posvec
 {
 	t_pos2	*data;
 	size_t	len;
@@ -98,7 +98,8 @@ int				posvecpop(t_posvec *vec, t_pos2 *pos);
  * @param[in,out] result if non-null, copy the removed element to this location
  * @return int 
  */
-int				posvecremove(t_posvec *vec, size_t index, t_pos2 *result);
+int				posvecremove(t_posvec *vec, size_t index,
+					t_pos2 *result);
 /**
  * @brief Free the vector
  * 
@@ -134,6 +135,16 @@ unsigned int	ft_rand(void);
  */
 void			array_shuffle(int *arr, int len);
 /**
+ * @brief Parse the argument for generation
+ *
+ * @param[in] gen
+ * @param[out] width
+ * @param[out] height
+ * @return int
+ */
+int				cub_parse_generation_arg(char *gen, size_t *width,
+					size_t *height);
+/**
  * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
  * create a random maze 'fully walkable' where all floor tiles are accessible
  * 
@@ -142,6 +153,13 @@ void			array_shuffle(int *arr, int len);
  * @return int 
  */
 int				cub_generate_maze(t_map_raoul *map, char *gen);
+/**
+ * @brief Sub-function to 'grow the tree' of cub_generate_maze()
+ *
+ * @param[in,out] map
+ * @return int 1 OK, 0 error
+ */
+int				cub_growing_tree(t_map_raoul *map);
 /** @} */
 
 #endif
