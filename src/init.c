@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/30 11:48:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/09 11:45:48 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_data	*cub_init(t_data *data)
 {
 	if (!data)
 		return (NULL);
-	if (cub_translate_map(data) == 0)
+	if (data->map.map == NULL && cub_translate_map(data) == 0)
 		return (NULL);
 	data->mlx.minimap_size.x = data->map.map->width * MINIMAP_TILE_SIZE;
 	data->mlx.minimap_size.y = data->map.map->height * MINIMAP_TILE_SIZE;
