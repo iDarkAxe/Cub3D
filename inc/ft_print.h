@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 11:32:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/09 12:49:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,16 @@ enum	e_map_error
 	CONFIG_TOO_MANY_PARAMETERS,
 	CONFIG_ALREADY_STORED,
 	CONFIG_MISSING_PARAMETERS
+};
+
+/**
+ * @brief Enum used for maze related errors
+ */
+enum	e_maze_error
+{
+	MAZE_SIZE_TOO_BIG,
+	MAZE_SIZE_NEGATIVE_VALUE,
+	MAZE_ARGS_MISFORMATED,
 };
 
 /**
@@ -146,6 +156,12 @@ void	ft_print_key(int keycode);
  * @param[in] error error state
  */
 void	print_map_error(t_map *map, enum e_map_error error);
+/**
+ * @brief Print the corresponding maze error
+ * 
+ * @param[in] error error state 
+ */
+void	print_maze_error(enum e_maze_error error);
 /**
  * @brief Print a special message according to enum
  * 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 18:30:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/09 11:30:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -240,7 +240,6 @@ struct							s_map
 	size_t						file_nb_lines;
 	char						**map_2d;
 	t_map_raoul					*map;
-	char						*generation;
 	char						*config[6];
 	int							error;
 	size_t						number_of_moves;
