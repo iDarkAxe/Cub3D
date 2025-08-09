@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:40:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:12:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,6 @@ int	hook_settings_close_window(void *param)
 	return (0);
 }
 
-/**
- * @brief Handle mouse click in the settings window.
- * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
- *
- * @param keycode keycode of the key pressed
- * @param param Pointer to the mlx structure
- * @return int
- */
 int	hook_settings_handle_keypress(int keycode, void *param)
 {
 	t_mlx	*mlx;

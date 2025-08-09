@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:29:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:32:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@
 
 /**
  * @brief Enum used for map related errors
- * 
  */
 enum	e_map_error
 {
@@ -61,7 +60,6 @@ enum	e_map_error
 
 /**
  * @brief Enum used for main functions related errors
- * 
  */
 enum	e_fx_error
 {
@@ -82,17 +80,87 @@ enum	e_fx_error
  * @{
  */
 
+/**
+ * @brief Print a position
+ * 
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @return ssize_t number of caracter printed
+ */
 ssize_t	ft_print_position(int x, int y);
+/**
+ * @brief Print the whole file
+ * 
+ * @param[in] map map structure
+ * @return ssize_t number of caracter printed
+ */
 ssize_t	ft_print_file(t_map *map);
+/**
+ * @brief Print the config
+ * 
+ * @param[in] map map structure
+ * @return ssize_t number of caracter printed
+ */
 ssize_t	ft_print_config(t_map *map);
+/**
+ * @brief Print the map
+ * 
+ * @param[in] map map structure
+ * @return ssize_t number of caracter printed
+ */
 ssize_t	ft_print_map(t_map *map);
+/**
+ * @brief Print the colors of floor and ceiling
+ * 
+ * @param[in] map map structure 
+ */
 void	ft_print_floor_ceiling(t_map *map);
+/**
+ * @brief Print a color
+ * 
+ * @param[in] color color to print
+ */
 void	ft_print_color(t_color *color);
+/**
+ * @brief Print the map visited by the DFS,
+ * 'x' means visited
+ * '.' means not visited
+ * 
+ * @param[in] visited array of strings referring to visited tiles
+ * @param[in] map array of strings referring to original map
+ */
 void	print_visited(char **visited, char **map);
+/**
+ * @brief Print the keycode name if registered
+ * or just its value if not
+ * 
+ * @param[in] keycode keycode to print
+ */
 void	ft_print_key(int keycode);
+
 // ERRORS
+/**
+ * @brief Print the corresponding map error
+ * 
+ * @param[in,out] map map structure 
+ * @param[in] error error state
+ */
 void	print_map_error(t_map *map, enum e_map_error error);
+/**
+ * @brief Print a special message according to enum
+ * 
+ * @param[in,out] map map structure 
+ * @param[in] error error state
+ * @return int 1 if error print OK, 2 otherwise
+ */
 int		print_error(t_map *map, enum e_fx_error error);
+/**
+ * @brief Print where a leak is located on the map
+ * 
+ * @param[in] map array of strings representing map
+ * @param[in] y map length
+ * @param[in] x map height
+ */
 void	print_leak_map(char **map, size_t y, size_t x);
 /** @} */
 

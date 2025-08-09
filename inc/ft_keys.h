@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/31 11:07:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/08 11:04:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,14 @@
 # include <stdbool.h>
 
 /**
- * @defgroup Events Events macro
- * @brief Regroup all the events macro used in the project
- * (originally in X.h but copied to avoid dependancy)
- * @{
- */
-// # define DestroyNotify 17
-// # define StructureNotifyMask (1L<<17)
-// # define KeyPress 2
-// # define KeyPressMask (1L<<0)
-/** @} */
-
-/**
  * @defgroup Keys Keys macros
  * @brief Regroup all the keys used in the project.
  * @{
  */
 
+/**
+ * @brief Structure used to define the type of movement with directions
+ */
 enum	e_movement
 {
 	MV_UP,
@@ -113,8 +104,30 @@ enum	e_movement
  * @brief All the functions used to manage key inputs.
  * @{
  */
+
+/**
+ * @brief Check if a keycode is a movement key
+ * 
+ * @param[in] expected expected key
+ * @param[in] keycode key pressed
+ * @return true is_mv_key
+ * @return false isn't
+ */
 bool				is_mv_key(enum e_movement expected, int keycode);
+/**
+ * @brief Set the input according to the keycode and the set value
+ * 
+ * @param[in] keycode key pressed
+ * @param[out] input structure containing all inputs
+ * @param[in] set value to set
+ */
 void				set_key(int keycode, t_input *input, bool set);
+/**
+ * @brief Toggle the input according to the keycode
+ * 
+ * @param[in] keycode key pressed
+ * @param[out] input structure containing all inputs
+ */
 void				toggle_key(int keycode, t_input *input);
 /** @} */
 

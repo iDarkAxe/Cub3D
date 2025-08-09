@@ -6,9 +6,25 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/05 16:28:36 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/08 11:39:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+
+/**
+ ******************************************************************************
+ * @file           : cub3d.c
+ * @brief          : Main program of the Cub3D
+ ******************************************************************************
+ * @date 08 August 2025
+ * @mainpage Cub3D
+ * @section Introduction
+ *
+ * Game using Wolfenstein3D technique for rendering.
+ * A lot of features like collisions, minimap and FOV !
+ * See README.md for the whole presentation and walkthrough.
+ *
+ ******************************************************************************
+ */
 
 #include "cub3d.h"
 #include "ft_print.h"

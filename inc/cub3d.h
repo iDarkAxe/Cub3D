@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/05 15:36:07 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/08 18:30:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@
  * @brief Macros used in the project.
  * @{
  *
+ */
+
+/**
+ * @brief PI approximation
  */
 # define PI 3.141592653589793238462643383279502884197169399375105820974944592307
 
@@ -73,15 +77,32 @@
 # define MINIMAP_LINE_OF_SIGHT_FACTOR 2
 
 // Debug printing settings
+/**
+ * @brief Enable to print key presses
+ */
 # define DEBUG_PRINT_KEYCODE 0
+/**
+ * @brief Enable if you want to see the FPS
+ */
 # define DEBUG_PRINT_FPS 0
+/**
+ * @brief Enable to keep the FPS counter on a single line
+ * @warning if you use it with any of the other DEBUG, the output is undefined
+ * 
+ */
 # define DEBUG_FPS_REFRESH 0
 
 // If you want to follow closely to the subject, you need to set these to 0
+/**
+ * @brief Enable if closing the settings window should behave as 'Enter'
+ */
 # define CROSS_APPLY_SETTINGS 0
+/**
+ * @brief Enable pressing Esc in the settings menu should behave as 'Enter'
+ */
 # define ESCAPE_APPLY_SETTINGS 0
-
 /** @} */
+
 /**
  * @defgroup Main Main Functions
  * @brief Core functionality of the program.
@@ -173,14 +194,6 @@ void				ft_mlx_end(t_mlx *mlx);
 /** @} */
 
 /**
- * @defgroup Draw Draw functions
- * @brief All the functions used to draw elements on the screen.
- * @{
- */
-
-/** @} */
-
-/**
  * @defgroup Settings Settings functions
  * @brief All the functions used for settings.
  * @{
@@ -193,11 +206,40 @@ void				ft_mlx_end(t_mlx *mlx);
  * @return void* win_settings_ptr if success, NULL if error
  */
 void				*ft_settings(t_mlx *mlx);
-
+/**
+ * @brief Return an enum according to selected circle using coordinates
+ * 
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @return enum e_screen_size state
+ */
 enum e_screen_size	circle_state(int x, int y);
+/**
+ * @brief Set screen size according to an enum
+ * 
+ * @param[in,out] mlx mlx structure
+ * @param[in] size enum representing the size of the screen selected 
+ * @return int 
+ */
 int					ft_set_screen_size(t_mlx *mlx, enum e_screen_size size);
+/**
+ * @brief Free all the settings variables
+ * 
+ * @param[in,out] mlx mlx structure 
+ */
 void				ft_free_settings(t_mlx *mlx);
+/**
+ * @brief Set the settings hooks on the settings window
+ * 
+ * @param[in,out] data data structure
+ */
 void				settings_hooks(t_data *data);
+/**
+ * @brief State machine for the settings window.
+ *
+ * @param[in] keycode keycode of the key pressed
+ * @param[in,out] mlx Pointer to the mlx structure
+ */
 void				state_machine(int keycode, t_mlx *mlx);
 /** @} */
 
@@ -207,25 +249,79 @@ void				state_machine(int keycode, t_mlx *mlx);
  * @{
  */
 
+/**
+ * @brief Hook when a key is pressed
+ * 
+ * @param[in] keycode keycode of key pressed
+ * @param[in,out] param param 
+ * @return int keycode
+ */
 int					cub_keydown_hook(int keycode, void *param);
+/**
+ * @brief Hook when a key is released
+ * 
+ * @param[in] keycode keycode of key released
+ * @param[in,out] param param 
+ * @return int keycode
+ */
 int					cub_keyup_hook(int keycode, void *param);
+/**
+ * @brief Hook when the mouse is moved while clicking
+ * 
+ * @param[in] button button pressed
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 always
+ */
 int					cub_mouse_click_hook(int button, int x, int y, void *param);
+/**
+ * @brief Hook when the mouse is moved
+ * 
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 always
+ */
 int					cub_mouse_hook(int x, int y, void *param);
 // Settings hooks
+/**
+ * @brief Hook when the mouse is moved while clicking for the settings
+ * 
+ * @param[in] button button pressed
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 OK, -1 otherwise
+ */
 int					hook_settings_handle_mouse_click(int button, int x, int y,
 						void *param);
+/**
+ * @brief Hook when the mouse is moved for the settings
+ * 
+ * @param[in] x x axis 
+ * @param[in] y y axis 
+ * @param[in,out] param param
+ * @return int 0 OK, -1 otherwise
+ */
 int					hook_settings_handle_mouse_motion(int x, int y,
 						void *param);
+/**
+ * @brief Hook used to close window or set the window size if MACRO Enabled
+ * 
+ * @param[in,out] param param
+ * @return int 0 always
+ */
 int					hook_settings_close_window(void *param);
-int					hook_settings_handle_keypress(int keycode, void *param);
-/** @} */
 
 /**
- * @defgroup Player Player functions
- * @brief All the functions used to make the player playable.
- * @{
+ * @brief Handle mouse click in the settings window.
+ *
+ * @param[in] keycode keycode of the key pressed
+ * @param[in,out] param Pointer to the mlx structure
+ * @return int
  */
-
+int					hook_settings_handle_keypress(int keycode, void *param);
 /** @} */
 
 /**

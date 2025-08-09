@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/01 12:58:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 19:21:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,6 @@ ssize_t	ft_print_map(t_map *map)
 	return (count_printed);
 }
 
-/**
- * @brief Print the map visited by the DFS,
- * 'x' means visited
- * '.' means not visited
- * 
- * @param visited array of strings referring to visited tiles
- * @param map array of strings referring to original map
- */
 void	print_visited(char **visited, char **map)
 {
 	size_t	y;

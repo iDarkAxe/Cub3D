@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gen.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:50:42 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 09:12:52 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/08/09 11:17:11 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 #include "libft.h"
 #include "maze.h"
 #include <stdlib.h>
-
-int	cub_parse_generation_arg(char *gen, size_t *width, size_t *height);
-int	cub_growing_tree(t_map_raoul *map);
 
 static float	random_float(float a)
 {

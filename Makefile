@@ -210,8 +210,8 @@ bonus:
 
 force:
 
-$(LIBFT):
-	$(MAKE) -C $(P_LIBFT) all
+$(LIBFT): force
+	@$(MAKE) -C $(P_LIBFT) all
 
 $(GET_NEXT_LINE): force
 	@$(MAKE) -C $(P_GET_NEXT_LINE)

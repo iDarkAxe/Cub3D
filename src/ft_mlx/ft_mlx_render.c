@@ -6,32 +6,27 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/26 15:54:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/08/07 18:16:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_render.h"
 #include "mlx.h"
 
-/**
- * @brief Clear the backbuffer with a specific color.
- * @deprecated This function is not used.
- *
- */
-// void	cubmlx_clear(t_cubmlx *mlx, unsigned int color)
-// {
-// 	size_t	i;
-// 	size_t	sz;
+void	cubmlx_clear(t_mlx *mlx, unsigned int color)
+{
+	size_t	i;
+	size_t	sz;
 
-// 	sz = mlx->backbuffer.width * mlx->backbuffer.height;
-// 	i = 0;
-// 	while (i < sz)
-// 	{
-// 		*(unsigned int *)(mlx->backbuffer.pxls + i
-// 				* (mlx->backbuffer.bits_per_pixel / 8)) = color;
-// 		i++;
-// 	}
-// }
+	sz = mlx->backbuffer.width * mlx->backbuffer.height;
+	i = 0;
+	while (i < sz)
+	{
+		*(unsigned int *)(mlx->backbuffer.pxls + i
+				* (mlx->backbuffer.bits_per_pixel / 8)) = color;
+		i++;
+	}
+}
 
 void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color)
 {
