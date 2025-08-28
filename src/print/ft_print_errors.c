@@ -42,7 +42,7 @@ void	print_maze_error(enum e_maze_error error)
 	else if (error == MAZE_SIZE_NEGATIVE_VALUE)
 		ft_dprintf(2, RED "Error" RESET
 			"\nInvalid size. Both dimensions must be at least 1 in size.\n");
-	else if (error == MAZE_ARGS_MISFORMATED)
+	else if (error == MAZE_ARGS_BAD_FORMAT)
 		ft_dprintf(2, RED "Error" RESET
 			"\nInvalid size. Must be formatted as <width>x<height>\n");
 }
