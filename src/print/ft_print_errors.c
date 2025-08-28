@@ -37,7 +37,7 @@ void	print_maze_error(enum e_maze_error error)
 {
 	if (error == MAZE_SIZE_TOO_BIG)
 		ft_dprintf(2, RED "Error" RESET
-			"\nInvalid size. Please size should be smaller than %u.\n",
+			"\nInvalid size. Width and height must be smaller than %u.\n",
 			MAZE_MAX_SIZE);
 	else if (error == MAZE_SIZE_NEGATIVE_VALUE)
 		ft_dprintf(2, RED "Error" RESET
