@@ -54,7 +54,7 @@ int	cub_parse_generation_arg(char *gen, size_t *width, size_t *height)
 	start_of_second_nbr = is_valid_size(gen);
 	if (start_of_second_nbr == 0)
 	{
-		print_maze_error(MAZE_ARGS_MISFORMATED);
+		print_maze_error(MAZE_ARGS_BAD_FORMAT);
 		return (0);
 	}
 	w = ft_atoi(gen);
