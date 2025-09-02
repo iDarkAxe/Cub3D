@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/02 10:58:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 15:17:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,9 +142,9 @@ void			array_shuffle(int *arr, int len);
 /**
  * @brief Parse the argument for generation
  *
- * @param[in] gen
- * @param[out] width
- * @param[out] height
+ * @param[in] gen args to parse
+ * @param[out] width width of future maze
+ * @param[out] height height of future maze
  * @return int
  */
 int				cub_parse_generation_arg(char *gen, size_t *width,
@@ -152,16 +152,15 @@ int				cub_parse_generation_arg(char *gen, size_t *width,
 /**
  * @brief Function to parse args into dimensions for maze
  * 
- * @param[in,out] map map structure
  * @param[in] gen dimensions of the future maze
  * @return int 
  */
 t_map_raoul		*cub_generate_dimensions(char *gen);
 /**
  * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
- * create a random maze 'fully walkable' where all floor tiles are accessible
+ * create a random perfect maze
  *
- * @param[in,out] map
+ * @param[in,out] map map structure
  * @return int 1 OK, 0 error
  */
 int				cub_growing_tree(t_map_raoul *map);
