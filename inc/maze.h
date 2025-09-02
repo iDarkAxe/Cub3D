@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/09 12:43:11 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 10:58:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,7 +156,7 @@ int				cub_parse_generation_arg(char *gen, size_t *width,
  * @param[in] gen dimensions of the future maze
  * @return int 
  */
-int				cub_generate_dimensions(t_map_raoul **map, char *gen);
+t_map_raoul		*cub_generate_dimensions(char *gen);
 /**
  * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
  * create a random maze 'fully walkable' where all floor tiles are accessible
