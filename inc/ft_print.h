@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/09 12:49:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 15:01:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ enum	e_fx_error
 	FT_MAP_CHECK,
 	CHECK_ARGS,
 	CONFIG_ERROR,
-	STORE_TEXTURES_NAMES,
 	STORE_TEXTURES_IMG,
 	FT_SETTINGS,
 	CUB_INIT_RENDER,

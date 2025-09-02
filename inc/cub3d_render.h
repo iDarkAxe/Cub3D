@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/02 14:12:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 15:03:14 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,8 @@ void	draw_column(t_data *data, int x, const t_raydata *rdata);
  */
 void	hitwall_loop(const t_data *data, t_raydata *rdata);
 /**
- * @brief Function to select the texture based on the hit side and step direction.
+ * @brief Function to select the texture based on the hit side
+ * and step direction.
  * 
  * @param[in] tex pointer to texture structure
  * @param[in] hitside hitside

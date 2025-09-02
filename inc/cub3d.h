@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 18:30:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 14:52:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,14 +160,6 @@ char				**read_file_lines(t_map *map, char *map_name);
  * @return size_t
  */
 size_t				count_file_lines(char *file_name);
-
-/**
- * @brief Store the textures names in the structure
- *
- * @param map map structure
- * @return char* NULL if error, OK otherwise
- */
-char				*store_textures_names(t_map *map);
 
 /**
  * @brief Exit the program.
