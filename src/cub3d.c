@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/02 14:37:44 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 14:59:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int	cub3d(int argc, char **argv)
 		return (print_error(&data.map, CONFIG_ERROR));
 	if (args.gen && generate_maze_if_requested(&data, args.gen) != 0)
 		return (-1);
-	if (store_textures_names(&data.map) == NULL)
-		return (print_error(&data.map, STORE_TEXTURES_NAMES));
 	if (ft_mlx_init(&data) != 0)
 	{
 		ft_dprintf(2, "Erreur Init mlx\n");

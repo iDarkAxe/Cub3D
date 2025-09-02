@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/22 12:10:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 15:03:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdlib.h>
 
 static t_map	ft_check_textures(t_map *map);
+static void		*store_textures_names(t_map *map, char *str, size_t index);
 
 size_t	is_config_line(char *line)
 {
@@ -81,17 +82,18 @@ t_map	ft_check_textures(t_map *map)
 	size_t	index;
 	int		ret;
 
-	if (!map)
+	if (!map || map->textures.north.path || map->textures.south.path
+		|| map->textures.west.path || map->textures.east.path)
 		return ((t_map){.error = -1});
 	index = 0;
 	while (map->error == 0 && map->config[index] && index < 4)
 	{
 		str = ft_strtrim(&map->config[index][3], " \t\v\n\f\r");
 		ret = try_to_open_close_file(str);
-		if (str)
-			free(str);
-		if (ret != 1)
+		if (ret != 1 || !store_textures_names(map, str, index))
 		{
+			if (str)
+				free(str);
 			map->error = 1;
 			return (*map);
 		}
@@ -100,28 +102,25 @@ t_map	ft_check_textures(t_map *map)
 	return (*map);
 }
 
-char	*store_textures_names(t_map *map)
+/**
+ * @brief Store the textures names in the structure
+ *
+ * @param map map structure
+ * @return char* NULL if error, OK otherwise
+ */
+void	*store_textures_names(t_map *map, char *str, size_t index)
 {
-	if (!map)
+	if (!map || !str)
 		return (NULL);
-	if (map->textures.north.path || map->textures.south.path
-		|| map->textures.west.path || map->textures.east.path)
-	{
-		ft_dprintf(2,
-			RED "Error" RESET "\nAt least one texture is already in path\n");
+	if (index == 0)
+		map->textures.north.path = str;
+	else if (index == 1)
+		map->textures.south.path = str;
+	else if (index == 2)
+		map->textures.west.path = str;
+	else if (index == 3)
+		map->textures.east.path = str;
+	else
 		return (NULL);
-	}
-	map->textures.north.path = ft_strtrim(&map->config[0][3], " \t\v\n\f\r");
-	if (!map->textures.north.path)
-		return (NULL);
-	map->textures.south.path = ft_strtrim(&map->config[1][3], " \t\v\n\f\r");
-	if (!map->textures.south.path)
-		return (NULL);
-	map->textures.west.path = ft_strtrim(&map->config[2][3], " \t\v\n\f\r");
-	if (!map->textures.west.path)
-		return (NULL);
-	map->textures.east.path = ft_strtrim(&map->config[3][3], " \t\v\n\f\r");
-	if (!map->textures.east.path)
-		return (NULL);
-	return (map->textures.north.path);
+	return (str);
 }
