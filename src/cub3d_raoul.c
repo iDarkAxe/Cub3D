@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/09 11:51:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 11:17:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,25 @@
 #include "maze.h"
 #include "mlx.h"
 #include <stdlib.h>
+#include "data_structure.h"
 
 int	generate_maze_if_requested(t_data *data, char *gen)
 {
-	if (data == NULL || gen == NULL)
-		return (0);
-	if (cub_generate_dimensions(&data->map.map, gen) == 0)
+	t_map_raoul	*map;
+
+	map = cub_generate_dimensions(gen);
+	if (map == NULL)
+	{
+		ft_free_all(data);
 		return (-1);
+	}
+	if (data->map.map != NULL)
+		ft_free_map(data->map.map);
+	data->map.map = map;
 	ft_printf("Generating maze...\n");
 	if (cub_growing_tree(data->map.map) == 0)
 	{
-		free(data->map.map->walls);
+		ft_free_all(data);
 		return (0);
 	}
 	ft_printf("Maze generated!\n");
