@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/02 15:01:43 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/02 15:14:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,8 @@ void	ft_print_floor_ceiling(t_map *map);
  */
 void	ft_print_color(t_color *color);
 /**
- * @brief Print the map visited by the DFS,
+ * @brief Print the map visited by the DFS (Depth First Search),
+ * DFS is used to search if the exterior is accessible by the player
  * 'x' means visited
  * '.' means not visited
  * 
