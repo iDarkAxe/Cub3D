@@ -1,0 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   filter.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
+/*   Updated: 2025/09/03 17:04:46 by ppontet          ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FILTER_H
+# define FILTER_H
+
+/**
+ * @file filter.h
+ * @brief Header file for filters.
+ *
+ */
+
+# include "data_structure.h"
+
+/**
+ * @brief Define if all the textures are modified using the same filter or not
+ * 
+ */
+#define RANDOM_FILTER_ON_ALL 1
+
+void	add_filter(t_img *img, int filter);
+void	add_filter_protected(t_img *img, int filter);
+void	add_tint(t_img *img, unsigned char red_add, unsigned char green_add,
+			unsigned char blue_add);
+void	add_tint_protected(t_img *img, unsigned char red_add,
+			unsigned char green_add, unsigned char blue_add);
+void	apply_filters_on_textures(t_textures *textures);
+void	filter_overflow(t_color *pixel, t_color filter);
+
+#endif

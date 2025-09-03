@@ -65,6 +65,7 @@ INC = \
 	data_structure.h \
 	ft_keys.h \
 	ft_print.h \
+	filter.h \
 	ft_draw.h
 
 # Source files
@@ -84,6 +85,8 @@ SRC = \
 	player_utils.c \
 	hitside.c \
 	hitwall.c \
+	filters.c \
+	filters-utils.c \
 	ft_time.c
 
 MATH = \

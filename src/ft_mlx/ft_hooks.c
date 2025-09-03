@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/05 11:23:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/03 16:52:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "ft_printf.h"
 #include "mlx.h"
 #include <X11/X.h>
+#include "maze.h"
+#include "filter.h"
 
 int	cub_keydown_hook(int keycode, void *param)
 {
@@ -25,10 +27,7 @@ int	cub_keydown_hook(int keycode, void *param)
 	if (DEBUG_PRINT_KEYCODE == 1)
 		ft_print_key(keycode);
 	if (keycode == KEY_ESCAPE)
-	{
 		mlx_loop_end(data->mlx.mlx_ptr);
-		return (0);
-	}
 	if (keycode == KEY_ARROW_DOWN || keycode == KEY_ARROW_UP)
 	{
 		if (data->player.fov > 0.01f && keycode == KEY_ARROW_DOWN)
@@ -40,6 +39,8 @@ int	cub_keydown_hook(int keycode, void *param)
 		else if (data->player.fov >= PI)
 			data->player.fov = PI;
 	}
+	if (keycode == 98)
+		apply_filters_on_textures(&data->map.textures);
 	set_key(keycode, &data->input, true);
 	toggle_key(keycode, &data->input);
 	return (0);
