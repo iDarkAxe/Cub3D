@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/02 14:52:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/04 19:35:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -461,7 +461,7 @@ void				ft_free_file(t_map *map);
  * @param mlx mlx structure
  * @param map map structure
  */
-void				ft_free_textures(t_mlx *mlx, t_map *map);
+void				ft_free_textures(t_mlx *mlx, t_textures *textures);
 
 /**
  * @brief Free the path (name) of the textures in memory
