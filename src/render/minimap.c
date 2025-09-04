@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/01 12:52:47 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/04 15:30:19 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	render_square(t_data *data, t_pos2 pos, int size,
 	}
 }
 
-static void	render_focal_of_view(t_data *data, t_pos2 pos, int tile_size)
+static void	render_field_of_view(t_data *data, t_pos2 pos, int tile_size)
 {
 	static const double	len_line = MINIMAP_PLAYER_SIZE
 		* MINIMAP_LINE_OF_SIGHT_FACTOR;
@@ -76,7 +76,7 @@ static void	render_minimap_player(t_data *data, int tile_size)
 	pos.x = data->player.pos.x * tile_size;
 	pos.y = data->player.pos.y * tile_size;
 	if (data->input.fov)
-		render_focal_of_view(data, pos, tile_size);
+		render_field_of_view(data, pos, tile_size);
 	else
 		render_line_of_sight(data, pos, tile_size);
 }
