@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/02 18:12:52 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/04 19:18:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 #include "libft.h"
 #include "mlx.h"
 
-static t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map);
+static t_mlx	*store_textures_mlx(t_mlx *mlx, t_textures *tex);
+static void		copy_path_alt_textures(t_data *data);
 
 int	ft_mlx_init(t_data *data)
 {
@@ -29,12 +30,27 @@ int	ft_mlx_init(t_data *data)
 	data->mlx.mlx_ptr = mlx_init();
 	if (data->mlx.mlx_ptr == NULL)
 		return (-1);
-	if (store_textures_mlx(&data->mlx, &data->map) == NULL)
+	copy_path_alt_textures(data);
+	if (store_textures_mlx(&data->mlx, &data->map.textures) == NULL
+		|| store_textures_mlx(&data->mlx, &data->map.alt_textures) == NULL)
 		return (print_error(&data->map, STORE_TEXTURES_IMG));
 	if (ft_settings(&data->mlx) == NULL)
 		return (print_error(&data->map, FT_SETTINGS));
 	settings_hooks(data);
 	return (0);
+}
+
+// TODO: Used to not check is_alt_textures when exiting, if path exist, free
+void	copy_path_alt_textures(t_data *data)
+{
+	data->map.alt_textures.north.path = data->map.textures.north.path;
+	data->map.alt_textures.south.path = data->map.textures.south.path;
+	data->map.alt_textures.east.path = data->map.textures.east.path;
+	data->map.alt_textures.west.path = data->map.textures.west.path;
+	ft_memcpy(&data->map.alt_textures.ceiling, &data->map.textures.ceiling,
+		sizeof(t_color));
+	ft_memcpy(&data->map.alt_textures.floor, &data->map.textures.floor,
+		sizeof(t_color));
 }
 
 static int	get_texture_addresses(t_textures *tex)
@@ -49,40 +65,36 @@ static int	get_texture_addresses(t_textures *tex)
 			&tex->south.endian);
 	if (tex->south.pxls == NULL)
 		return (0);
-	tex->east.pxls = mlx_get_data_addr(tex->east.img,
-			&tex->east.bits_per_pixel, &tex->east.mlx_width, &tex->east.endian);
+	tex->east.pxls = mlx_get_data_addr(tex->east.img, &tex->east.bits_per_pixel,
+			&tex->east.mlx_width, &tex->east.endian);
 	if (tex->east.pxls == NULL)
 		return (0);
-	tex->west.pxls = mlx_get_data_addr(tex->west.img,
-			&tex->west.bits_per_pixel, &tex->west.mlx_width, &tex->west.endian);
+	tex->west.pxls = mlx_get_data_addr(tex->west.img, &tex->west.bits_per_pixel,
+			&tex->west.mlx_width, &tex->west.endian);
 	if (tex->west.pxls == NULL)
 		return (0);
 	return (1);
 }
 
-t_mlx	*store_textures_mlx(t_mlx *mlx, t_map *map)
+t_mlx	*store_textures_mlx(t_mlx *mlx, t_textures *tex)
 {
-	map->textures.north.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			map->textures.north.path, &(map->textures.north.width),
-			&(map->textures.north.height));
-	if (map->textures.north.img == NULL)
+	tex->north.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->north.path,
+			&(tex->north.width), &(tex->north.height));
+	if (tex->north.img == NULL)
 		return (NULL);
-	map->textures.south.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			map->textures.south.path, &(map->textures.south.width),
-			&(map->textures.south.height));
-	if (map->textures.south.img == NULL)
+	tex->south.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->south.path,
+			&(tex->south.width), &(tex->south.height));
+	if (tex->south.img == NULL)
 		return (NULL);
-	map->textures.west.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			map->textures.west.path, &(map->textures.west.width),
-			&(map->textures.west.height));
-	if (map->textures.west.img == NULL)
+	tex->west.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->west.path,
+			&(tex->west.width), &(tex->west.height));
+	if (tex->west.img == NULL)
 		return (NULL);
-	map->textures.east.img = mlx_xpm_file_to_image(mlx->mlx_ptr,
-			map->textures.east.path, &(map->textures.east.width),
-			&(map->textures.east.height));
-	if (map->textures.east.img == NULL)
+	tex->east.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->east.path,
+			&(tex->east.width), &(tex->east.height));
+	if (tex->east.img == NULL)
 		return (NULL);
-	if (get_texture_addresses(&map->textures) == 0)
+	if (get_texture_addresses(tex) == 0)
 		return (NULL);
 	return (mlx);
 }

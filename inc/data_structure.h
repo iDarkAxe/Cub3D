@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/09 11:30:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/04 17:47:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,6 +245,8 @@ struct							s_map
 	size_t						number_of_moves;
 	t_coordinates				exit;
 	t_textures					textures;
+	bool						is_alt_textures;
+	t_textures					alt_textures;
 };
 
 /**

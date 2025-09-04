@@ -76,6 +76,10 @@ The controls of the player are the following :
 
 `M_KEY` for enabling/disabling minimap.
 
+`C_KEY` for enabling/disabling custom textures filtering.
+
+`V_KEY` for changing filter on textures.
+
 ### How to end the game ###
 
 There is no end, you can just walk around and see the projection in a all the scenario that you can think of.
@@ -93,6 +97,7 @@ In the `map/` folder, there is also invalid maps to help you understand what is 
 * Keyboard shortcuts to enable features ✅
 * Changing the FOV in game ✅
 * Windows resolution settings and full-screen ✅
+* Random Filter applied to textures ✅
 * Anti-Aliasing (makes the edges smoother for cleaner lines) ⚠️/!\
 
 ---

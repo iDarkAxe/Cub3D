@@ -6,13 +6,14 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:17:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/04 18:37:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "data_structure.h"
 #include "mlx.h"
+#include "filter.h"
 #include <stdlib.h>
 
 void	ft_free_all(t_data *data)
@@ -80,6 +81,7 @@ void	ft_free_textures(t_mlx *mlx, t_map *map)
 		mlx_destroy_image(mlx->mlx_ptr, map->textures.east.img);
 		map->textures.east.img = NULL;
 	}
+	ft_free_alt_textures(mlx, map);
 }
 
 void	ft_free_textures_path(t_map *map)
