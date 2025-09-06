@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/04 18:41:21 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/06 12:43:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	apply_filters_on_textures(t_textures *textures);
 void	filter_overflow(t_color *pixel, t_color filter);
 void	swap_textures(t_map *map);
 void	change_filter(t_data *data, int keycode);
+void	convert_textures_to_black_and_white(t_map *map);
 void	ft_free_alt_textures(t_mlx *mlx, t_map *map);
 
 #endif

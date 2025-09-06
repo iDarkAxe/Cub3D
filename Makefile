@@ -87,6 +87,7 @@ SRC = \
 	hitwall.c \
 	filters.c \
 	filters-utils.c \
+	filters-advanced.c \
 	ft_time.c
 
 MATH = \

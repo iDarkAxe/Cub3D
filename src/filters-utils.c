@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/04 19:21:08 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/06 12:43:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ void	change_filter(t_data *data, int keycode)
 		apply_filters_on_textures(&data->map.textures);
 	if (keycode == KEY_C)
 		swap_textures(&data->map);
+	if (keycode == KEY_X)
+	{
+		convert_textures_to_black_and_white(&data->map);
+		swap_textures(&data->map);
+	}
 }
 
 void	swap_textures(t_map *map)

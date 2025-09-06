@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/04 19:13:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/06 12:40:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,10 @@ enum	e_movement
  * @brief Keycode for the V key.
  */
 # define KEY_V 118
+/**
+ * @brief Keycode for the X key.
+ */
+# define KEY_X 120
 /** @} */
 
 /**
