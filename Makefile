@@ -92,6 +92,7 @@ MATH = \
 
 RENDER = \
 	minimap.c \
+	minimap_player.c \
 	render.c \
 	render_more.c \
 	draw_column.c \
@@ -100,7 +101,6 @@ FT_MLX = \
 	ft_init_mlx.c \
 	ft_hooks.c \
 	ft_mlx_render.c \
-	ft_mlx_render_line.c\
 
 MAP_VERIF = \
 	ft_file_fill.c \
