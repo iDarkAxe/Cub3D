@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 10:58:29 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/08 15:27:31 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,17 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 	}
 }
 
-void	cubmlx_putsquare(t_data *data, t_pos2 pos, int size,
+void	cubmlx_putrect(t_data *data, t_pos2 pos, t_pos2 size,
 	unsigned int color)
 {
 	int	x;
 	int	y;
 
 	y = 0;
-	while (y < size)
+	while (y < size.y)
 	{
 		x = 0;
-		while (x < size)
+		while (x < size.x)
 		{
 			cubmlx_putpixel(data, pos.x + x, pos.y + y, color);
 			x++;

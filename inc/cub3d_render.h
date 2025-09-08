@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 10:56:54 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/08 11:08:22 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,14 +133,14 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 			unsigned int color);
 
 /**
- * @brief Puts a square onto the backbuffer
+ * @brief Puts a rectangle onto the backbuffer
  *
  * @param[in,out] data structure
  * @param[in] pos starting point
- * @param[in] size square width and height
+ * @param[in] size rectangle width and height
  * @param[in] color color
  */
-void	cubmlx_putsquare(t_data *data, t_pos2 pos, int size,
+void	cubmlx_putrect(t_data *data, t_pos2 pos, t_pos2 size,
 			unsigned int color);
 
 /**
