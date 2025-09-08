@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:02:10 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/09 12:48:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:21:08 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "maze.h"
 #include "ft_print.h"
-#include "ft_printf.h"
 #include "libft.h"
 #include <stddef.h>
 

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/02 11:17:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:17:49 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "maze.h"
-#include "mlx.h"
 #include <stdlib.h>
 #include "data_structure.h"
 

@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 19:20:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:19:30 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-#include "mlx.h"
 
 static int	raycast_column(t_data *data, int x, t_raydata *rdata);
 
