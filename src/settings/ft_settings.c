@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/05 10:25:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:18:48 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "cub3d_render.h"
 #include "data_structure.h"
 #include "ft_draw.h"
-#include "ft_keys.h"
 #include "mlx.h"
 #include <X11/X.h>
 #include <stdlib.h>
