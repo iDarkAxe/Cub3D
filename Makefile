@@ -40,6 +40,7 @@ P_PRINT = print/
 P_RENDER = render/
 P_MATH = math/
 P_GENERATION = generation/
+P_FILTERS = filters/
 
 # Object directories
 P_OBJ = .obj/
@@ -85,9 +86,6 @@ SRC = \
 	player_utils.c \
 	hitside.c \
 	hitwall.c \
-	filters.c \
-	filters-utils.c \
-	filters-advanced.c \
 	ft_time.c
 
 MATH = \
@@ -142,6 +140,11 @@ GENERATION = \
 	posvec.c \
 	random.c \
 
+FILTERS = \
+	filters.c \
+	filters-utils.c \
+	filters-bw.c \
+
 LIBS = \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
@@ -168,7 +171,8 @@ SRCS =	\
 	$(addprefix $(P_SRC)$(P_RENDER), $(RENDER)) \
 	$(addprefix $(P_SRC)$(P_MATH), $(MATH)) \
 	$(addprefix $(P_SRC)$(P_PRINT), $(PRINT)) \
-	$(addprefix $(P_SRC)$(P_GENERATION), $(GENERATION))
+	$(addprefix $(P_SRC)$(P_GENERATION), $(GENERATION)) \
+	$(addprefix $(P_SRC)$(P_FILTERS), $(FILTERS))
 
 # List of object files (redirect to P_OBJ)
 OBJS = $(subst $(P_SRC), $(P_OBJ), $(SRCS:.c=.o))

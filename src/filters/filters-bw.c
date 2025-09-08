@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/06 12:43:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:10:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "libft.h"
 #include "maze.h"
 #include "mlx.h"
+#include "cub3d.h"
+#include "ft_printf.h"
 
 static void	convert_texture_to_black_and_white(t_img *img);
 static void	convert_color_to_black_and_white(t_color *color);
@@ -25,6 +27,8 @@ void	convert_textures_to_black_and_white(t_map *map)
 	t_textures	*textures;
 	t_textures	*orig_textures;
 
+	if (DEBUG_PRINT_TEXTURE_ALTERED)
+		ft_printf("Textures converted to Black&White\n");
 	if (map->is_alt_textures)
 	{
 		textures = &map->textures;

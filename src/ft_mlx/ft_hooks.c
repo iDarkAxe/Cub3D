@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/04 18:41:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:01:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	cub_keydown_hook(int keycode, void *param)
 		else if (data->player.fov >= PI)
 			data->player.fov = PI;
 	}
-	if (keycode == KEY_C || keycode == KEY_V)
+	if (ENABLE_FILTERS)
 		change_filter(data, keycode);
 	set_key(keycode, &data->input, true);
 	toggle_key(keycode, &data->input);

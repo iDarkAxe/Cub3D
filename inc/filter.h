@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/06 12:43:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:15:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
  * @brief Define if all the textures are modified using the same filter or not
  *
  */
-# define RANDOM_FILTER_ON_ALL 1
+# define RANDOM_FILTER_ON_ALL 0
 
 void	add_filter(t_img *img, int filter);
 void	add_filter_protected(t_img *img, int filter);

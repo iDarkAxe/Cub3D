@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/04 19:35:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:18:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@
  */
 # define COLLISION_DEFAULT_VALUE true
 
+/**
+ * @brief Enable Filters features
+ */
+# define ENABLE_FILTERS true
+
 // Playability settings
 /**
  * @brief Value used to define the sensitivity of the mouse.
@@ -91,6 +96,16 @@
  * 
  */
 # define DEBUG_FPS_REFRESH 0
+
+/**
+ * @brief Enable printing of message to indicate texture swapping
+ */
+# define DEBUG_PRINT_TEXTURE_SWAP 1
+
+/**
+ * @brief Enable printing message when a texture is altered with filters
+ */
+# define DEBUG_PRINT_TEXTURE_ALTERED 0
 
 // If you want to follow closely to the subject, you need to set these to 0
 /**

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/06 12:43:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:14:05 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "ft_keys.h"
 #include "maze.h"
 #include "mlx.h"
+#include "cub3d.h"
+#include "ft_printf.h"
 
 void	filter_overflow(t_color *pixel, t_color filter)
 {
@@ -36,6 +38,10 @@ void	apply_filters_on_textures(t_textures *textures)
 {
 	int	temp;
 
+	if (DEBUG_PRINT_TEXTURE_ALTERED && RANDOM_FILTER_ON_ALL == 0)
+		ft_printf("One random filter applied to all textures\n");
+	else if (DEBUG_PRINT_TEXTURE_ALTERED)
+		ft_printf("Multiple random filters applied to all textures\n");
 	if (RANDOM_FILTER_ON_ALL == 0)
 	{
 		temp = ft_rand();
@@ -56,17 +62,15 @@ void	apply_filters_on_textures(t_textures *textures)
 
 void	change_filter(t_data *data, int keycode)
 {
-	if (keycode == KEY_V && data->map.is_alt_textures == 0)
-		apply_filters_on_textures(&data->map.alt_textures);
-	else if (keycode == KEY_V)
-		apply_filters_on_textures(&data->map.textures);
+	if (data->map.is_alt_textures == 1)
+	{
+		if (keycode == KEY_V)
+			apply_filters_on_textures(&data->map.textures);
+		if (keycode == KEY_X)
+			convert_textures_to_black_and_white(&data->map);
+	}
 	if (keycode == KEY_C)
 		swap_textures(&data->map);
-	if (keycode == KEY_X)
-	{
-		convert_textures_to_black_and_white(&data->map);
-		swap_textures(&data->map);
-	}
 }
 
 void	swap_textures(t_map *map)
@@ -81,6 +85,10 @@ void	swap_textures(t_map *map)
 	if (!map->textures.north.pxls || !map->textures.south.pxls
 		|| !map->textures.east.pxls || !map->textures.west.pxls)
 		return ;
+	if (DEBUG_PRINT_TEXTURE_SWAP && map->is_alt_textures == 1)
+		ft_printf("Textures swapped to normal\n");
+	else if (DEBUG_PRINT_TEXTURE_SWAP)
+		ft_printf("Textures swapped to altered\n");
 	temp = map->textures;
 	map->textures = map->alt_textures;
 	map->alt_textures = temp;
