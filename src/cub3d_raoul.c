@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:17:49 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/10 14:12:32 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	generate_maze_if_requested(t_data *data, char *gen)
 {
 	t_map_raoul	*map;
 
-	map = cub_generate_dimensions(gen);
+	map = cub_new_map_from_dimensions(gen);
 	if (map == NULL)
 	{
 		ft_free_all(data);

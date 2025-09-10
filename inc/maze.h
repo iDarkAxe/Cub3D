@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/02 15:17:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/10 14:14:01 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,12 +150,12 @@ void			array_shuffle(int *arr, int len);
 int				cub_parse_generation_arg(char *gen, size_t *width,
 					size_t *height);
 /**
- * @brief Function to parse args into dimensions for maze
+ * @brief Allocates a new map with the given dimension
  * 
- * @param[in] gen dimensions of the future maze
- * @return int 
+ * @param[in] dimensions dimensions
+ * @return t_map_raoul* new map on success, NULL otherwise
  */
-t_map_raoul		*cub_generate_dimensions(char *gen);
+t_map_raoul		*cub_new_map_from_dimensions(char *dimensions);
 /**
  * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
  * create a random perfect maze

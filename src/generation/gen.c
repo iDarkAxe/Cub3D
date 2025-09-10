@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:50:42 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/02 11:10:07 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/10 14:14:30 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static float	random_float(float a)
 	return ((float)ft_rand() / (float)(FT_RAND_MAX / a));
 }
 
-t_map_raoul	*cub_generate_dimensions(char *gen)
+t_map_raoul	*cub_new_map_from_dimensions(char *dimensions)
 {
 	t_map_raoul	*map;
 
@@ -29,7 +29,7 @@ t_map_raoul	*cub_generate_dimensions(char *gen)
 	map = ft_calloc(1, sizeof(t_map_raoul));
 	if (!map)
 		return (NULL);
-	if (!cub_parse_generation_arg(gen, &map->width, &map->height))
+	if (!cub_parse_generation_arg(dimensions, &map->width, &map->height))
 	{
 		free(map);
 		return (NULL);
