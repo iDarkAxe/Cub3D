@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/10 14:14:01 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/10 14:22:18 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,12 @@ int				maze_dir_opp(int dir);
  */
 
 /**
- * @brief Create a vector with a designated size before hand
+ * @brief Create a vector with an initial starting size
  * 
- * @param[in] nbr_of_elements number of elements
- * @return t_posvec* pointer to the new vector allocated
+ * @param[in] size initial size
+ * @return t_posvec* pointer to the new vector
  */
-t_posvec		*posvecnew(size_t nbr_of_elements);
+t_posvec		*posvecnew(size_t size);
 /**
  * @brief Add a new element to the vector
  * 
