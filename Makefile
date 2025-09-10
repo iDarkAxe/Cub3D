@@ -33,7 +33,7 @@ endif
 P_SRC = src/
 P_MAP_VERIF = map_verif/
 P_FT_MLX = ft_mlx/
-P_PARSING = parsing/
+P_ARGS = args/
 P_SETTINGS = settings/
 P_DRAW = draw/
 P_PRINT = print/
@@ -111,8 +111,9 @@ MAP_VERIF = \
 	ft_map_boundaries.c \
 	ft_validate_map.c \
 
-PARSING = \
-	check_args.c \
+ARGS = \
+	read.c \
+	validation.c \
 
 SETTINGS = \
 	ft_settings.c \
@@ -158,7 +159,7 @@ SRCS =	\
 	$(addprefix $(P_SRC), $(SRC)) \
 	$(addprefix $(P_SRC)$(P_MAP_VERIF), $(MAP_VERIF)) \
 	$(addprefix $(P_SRC)$(P_FT_MLX), $(FT_MLX)) \
-	$(addprefix $(P_SRC)$(P_PARSING), $(PARSING)) \
+	$(addprefix $(P_SRC)$(P_ARGS), $(ARGS)) \
 	$(addprefix $(P_SRC)$(P_SETTINGS), $(SETTINGS)) \
 	$(addprefix $(P_SRC)$(P_DRAW), $(DRAW)) \
 	$(addprefix $(P_SRC)$(P_RENDER), $(RENDER)) \

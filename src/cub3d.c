@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/02 14:59:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/10 11:07:25 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	cub3d(int argc, char **argv)
 	t_args	args;
 
 	ft_bzero(&data, sizeof(data));
-	if (check_args(argc, argv, &args) != 1)
+	if (cub_read_args(argc, argv, &args) != 1)
 		return (print_error(&data.map, FT_MAP_CHECK));
 	data.map = ft_map_check_dimensions(&data.map, args.map);
 	if (data.map.error != 0)

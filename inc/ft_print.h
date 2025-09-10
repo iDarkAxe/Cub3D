@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/02 15:14:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/10 10:51:13 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,19 @@ enum	e_maze_error
 	MAZE_SIZE_TOO_BIG,
 	MAZE_SIZE_NEGATIVE_VALUE,
 	MAZE_ARGS_BAD_FORMAT,
+};
+
+enum	e_arg_error
+{
+	ARGS_MISSING_GEN,
+	ARGS_DUPLICATE,
+	ARGS_NOT_CUB,
+	ARGS_NO_MAP,
+	ARGS_MAZE_REQUIRED,
+	ARGS_DOOR_REQUIRED,
+	ARGS_MISSING_KEY,
+	ARGS_MISSING_DOOR,
+	ARGS_UNRECOGNIZED,
 };
 
 /**
