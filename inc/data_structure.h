@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/09 11:30:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/09 08:39:51 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,6 +287,9 @@ struct s_args
 {
 	char	*map;
 	char	*gen;
+	int		goal;
+	char	*key_tex;
+	char	*door_tex;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 15:43:09 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/10 11:02:50 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,14 +121,14 @@
 int					cub3d(int argc, char **argv);
 
 /**
- * @brief Check the arguments passed to the program.
+ * @brief Reads and verifies the arguments passed to the program
  *
  * @param argc argument count
  * @param argv array of arguments
  * @param args pointer to args struct to fill
- * @return int 1 OK, -1 if error
+ * @return int 1 OK, -1 otherwise with side effect of printing error
  */
-int					check_args(int argc, char **argv, t_args *args);
+int					cub_read_args(int argc, char **argv, t_args *args);
 
 /**
  * @brief Fill the config region of the file
