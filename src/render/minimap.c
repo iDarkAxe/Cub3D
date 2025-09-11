@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 15:46:55 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/11 08:58:30 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 #include <math.h>
 
 void	cubmlx_render_minimap_player(t_data *data);
+
+static int	tile_color(int c)
+{
+	if (c == 1)
+		return (MINIMAP_WALL_COLOR);
+	if (c == -1)
+		return (MINIMAP_DOOR_COLOR);
+	if (c == -2)
+		return (MINIMAP_KEY_COLOR);
+	return (MINIMAP_FLOOR_COLOR);
+}
 
 static void	render_tile(t_data *data, t_pos2 pos, int x, int y)
 {
@@ -32,7 +43,8 @@ static void	render_tile(t_data *data, t_pos2 pos, int x, int y)
 		&& x < (int)data->map.map->width
 		&& y < (int)data->map.map->height
 		&& data->map.map->walls[y * data->map.map->width + x])
-		cubmlx_putrect(data, pos, rect, MINIMAP_WALL_COLOR);
+		cubmlx_putrect(data, pos, rect,
+			tile_color(data->map.map->walls[y * data->map.map->width + x]));
 	else
 		cubmlx_putrect(data, pos, rect, MINIMAP_FLOOR_COLOR);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 11:08:22 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/11 09:05:44 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,6 +199,15 @@ float	absf(float n);
  * @return int highest between a and b
  */
 int		max(int a, int b);
+
+/**
+ * @brief Returns the lowest value between doubles a and b
+ *
+ * @param[in] a first value
+ * @param[in] b second value
+ * @return int lowest between a and b
+ */
+double	mind(double a, double b);
 
 /**
  * @brief Returns a new vector rotated according to the angle

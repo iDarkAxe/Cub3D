@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 15:20:33 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/10 11:03:04 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/11 08:20:27 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "libft.h"
 #include <unistd.h>
 
-static int	display_error(int err)
+int	cub_arg_display_error(int err)
 {
 	if (err == ARGS_MISSING_GEN)
 		ft_dprintf(2, RED "Error" RESET
@@ -70,9 +70,9 @@ int	cub_args_validation(t_args *args)
 
 	r = verify_generation_options(args);
 	if (r > 0)
-		return (display_error(r));
+		return (cub_arg_display_error(r));
 	r = is_valid_map(args->map);
 	if (r > 0)
-		return (display_error(r));
+		return (cub_arg_display_error(r));
 	return (1);
 }

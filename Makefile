@@ -138,6 +138,7 @@ GENERATION = \
 	maze_direction.c \
 	posvec.c \
 	random.c \
+	key_door.c \
 
 LIBS = \
 	-L$(P_LIBFT) -lft \

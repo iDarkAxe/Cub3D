@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/10 11:02:50 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:55:51 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@
 # define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
 # define MINIMAP_FLOOR_COLOR 0xff000000
 # define MINIMAP_WALL_COLOR 0xffffffff
+# define MINIMAP_KEY_COLOR 0xffffff00
+# define MINIMAP_DOOR_COLOR 0xff0000ff
 # define MINIMAP_TILE_SIZE 16
 # define MINIMAP_TILES_X 15
 # define MINIMAP_TILES_Y 15
