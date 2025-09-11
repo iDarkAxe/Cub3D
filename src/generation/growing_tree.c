@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:16:17 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 10:26:09 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:31:02 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,19 @@ static void	translate_cells(int *dirs, t_pos2 dsize, int *walls, t_pos2 wsize)
 static int	translate_map(t_map_raoul *map)
 {
 	int		*walls;
+	size_t	sz;
+	size_t	i;
 
-	walls = malloc((map->width * 2 + 1) * (map->height * 2 + 1) * sizeof(int));
+	sz = (map->width * 2 + 1) * (map->height * 2 + 1);
+	walls = ft_calloc(sz, sizeof(int));
 	if (walls == NULL)
 		return (0);
-	ft_memset(walls, 1, sizeof(int) * (map->width * 2 + 1)
-		* (map->height * 2 + 1));
+	i = 0;
+	while (i < sz)
+	{
+		walls[i] = 1;
+		i++;
+	}
 	translate_cells(map->walls, (t_pos2){(int)map->width, (int)map->height},
 		walls, (t_pos2){(int)map->width * 2 + 1, (int)map->height * 2 + 1});
 	free(map->walls);

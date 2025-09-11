@@ -6,7 +6,7 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 10:04:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/10 11:07:51 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/11 08:35:28 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "libft.h"
 
 int	cub_args_validation(t_args *args);
+int	cub_arg_display_error(int err);
 
 static int	set_option(int argc, char **argv, char **setting,
 	int err_if_missing)
@@ -57,11 +58,15 @@ int	cub_read_args(int argc, char **argv, t_args *args)
 	while (i < argc)
 	{
 		if (argv[i][0] == '-')
+		{
 			r = read_option(argc - i, &argv[i], args, argv[i]);
+			if (r == 0)
+				i++;
+		}
 		else
 			r = store_map(argv[i], &args->map);
 		if (r != 0)
-			return (r);
+			return (cub_arg_display_error(r));
 		i++;
 	}
 	return (cub_args_validation(args));
