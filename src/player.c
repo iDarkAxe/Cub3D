@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/05 09:56:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/13 15:38:47 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
+#include "mlx.h"
 
 static void	update_camera(t_data *data)
 {
@@ -59,8 +60,28 @@ static void	update_movement(t_data *data)
 	update_camera(data);
 }
 
+static void	key_door_logic(t_player *player, t_map_raoul *map, void *mlx_ptr)
+{
+	if (map->key.x > -1)
+	{
+		if ((int)player->pos.x == map->key.x
+			&& (int)player->pos.y == map->key.y)
+		{
+			map->walls[map->width * map->key.y + map->key.x] = 0;
+			map->key = (t_pos2){-1, -1};
+		}
+	}
+	if (map->door.x > -1 && map->key.x == -1)
+	{
+		if ((int)player->pos.x == map->door.x
+			&& (int)player->pos.y == map->door.y)
+			mlx_loop_end(mlx_ptr);
+	}
+}
+
 // TODO: add back view bobbing. Thank you, merge conflict
 void	cub_player_update(t_data *data)
 {
 	update_movement(data);
+	key_door_logic(&data->player, data->map.map, data->mlx.mlx_ptr);
 }
