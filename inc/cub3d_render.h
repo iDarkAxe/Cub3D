@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/11 09:05:44 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/11 14:06:06 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,6 +190,14 @@ void	solve_collision_y(t_data *data, float y_vel);
  * @return float absolute value of n 
  */
 float	absf(float n);
+
+/**
+ * @brief Returns the absolute value of an int
+ *
+ * @param[in] n value
+ * @return float absolute vale of n
+ */
+int		abs(int n);
 
 /**
  * @brief Returns the highest value between a and b

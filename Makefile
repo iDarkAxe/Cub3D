@@ -96,6 +96,7 @@ RENDER = \
 	render.c \
 	render_more.c \
 	draw_column.c \
+	sprite.c \
 
 FT_MLX = \
 	ft_init_mlx.c \

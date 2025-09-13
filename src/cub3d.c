@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/11 08:46:32 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/13 11:05:06 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,12 @@ static int	generate_maze_if_requested(t_data *data, t_args *args)
 	return (0);
 }
 
+static void	store_extra_textures(t_data *data, t_args *args)
+{
+	data->map.textures.door.path = args->door_tex;
+	data->map.textures.key.path = args->key_tex;
+}
+
 int	cub3d(int argc, char **argv)
 {
 	t_data	data;
@@ -90,6 +96,7 @@ int	cub3d(int argc, char **argv)
 		return (print_error(&data.map, CONFIG_ERROR));
 	if (args.gen && generate_maze_if_requested(&data, &args) != 0)
 		return (-1);
+	store_extra_textures(&data, &args);
 	if (ft_mlx_init(&data) != 0)
 	{
 		ft_dprintf(2, "Erreur Init mlx\n");

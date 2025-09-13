@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hate.c                                             :+:      :+:    :+:   */
+/*   map_translate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:35:38 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/07/30 11:48:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/11 11:02:34 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,7 @@ int	cub_translate_map(t_data *data)
 		return (0);
 	}
 	copy_map(data->map.map_2d, data->map.map);
+	data->map.map->door = (t_pos2){-1, -1};
+	data->map.map->key = (t_pos2){-1, -1};
 	return (1);
 }

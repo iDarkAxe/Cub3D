@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:50:42 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/10 14:14:30 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/13 11:07:53 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,7 @@ t_map_raoul	*cub_new_map_from_dimensions(char *dimensions)
 	map->start_pos = (t_pos2){(ft_rand() % map->width) * 2 + 1, (ft_rand()
 			% map->height) * 2 + 1};
 	map->start_angle = random_float(PI * 2);
+	map->door = (t_pos2){-1, -1};
+	map->key = (t_pos2){-1, -1};
 	return (map);
 }
