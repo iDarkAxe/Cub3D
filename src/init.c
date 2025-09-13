@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 15:42:07 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/11 10:05:02 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
+#include "libft.h"
 #include "mlx.h"
 #include <stdlib.h>
 
@@ -26,6 +27,9 @@ static int	setup_backbuffer(t_data *data)
 			&data->mlx.backbuffer.endian);
 	data->mlx.backbuffer.height = (data->mlx.win_size.x * data->mlx.win_size.y)
 		/ data->mlx.backbuffer.width;
+	data->mlx.z_buffer = ft_calloc(data->mlx.win_size.x, sizeof(float));
+	if (data->mlx.z_buffer == NULL)
+		return (0);
 	return (1);
 }
 

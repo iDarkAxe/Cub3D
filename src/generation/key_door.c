@@ -6,12 +6,11 @@
 /*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 18:34:00 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/11 10:21:41 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/13 11:07:09 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_render.h"
-#include "ft_printf.h"
 #include "maze.h"
 #include <math.h>
 
@@ -101,12 +100,12 @@ int	cub_spawn_objects(t_map_raoul *map, int key)
 	pos = place_random_triangle(min_dist, deadends, map->start_pos,
 			map->start_pos);
 	map->walls[pos.y * map->width + pos.x] = -1;
-	ft_dprintf(2, "Door placed at %d %d\n", pos.x, pos.y);
+	map->door = pos;
 	if (key)
 	{
 		pos = place_random_triangle(min_dist, deadends, map->start_pos, pos);
 		map->walls[pos.y * map->width + pos.x] = -2;
-		ft_dprintf(2, "Key placed at %d %d\n", pos.x, pos.y);
+		map->key = pos;
 	}
 	posvecfree(deadends);
 	return (1);
