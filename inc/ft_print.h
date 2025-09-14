@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/10 10:51:13 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/14 21:16:01 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ enum	e_map_error
 enum	e_maze_error
 {
 	MAZE_SIZE_TOO_BIG,
+	MAZE_SIZE_TOO_SMALL,
 	MAZE_SIZE_NEGATIVE_VALUE,
 	MAZE_ARGS_BAD_FORMAT,
 };
