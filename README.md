@@ -35,17 +35,18 @@ The idea behind ray casting is to trace rays from the eye, one per pixel, and fi
 
 ## <a name="start-en">🚀 How to start ##
 
-```
+```sh
 ./cub3D [--generate|-g <WIDTHxHEIGHT>] [--door|-d <path to door texture.xpm>] [--key|-k <path to key texture.xpm>] <path to map.cub>
 ```
-- The cub map file is a required argument
-- `--generate`/`-g` generates a random maze with the given size
-- `--door`/`-d` requires maze generation. Takes a door texture and generates a door in the maze to leave the maze and "win" the game.
-- `--key`/`-k` requires both maze generation and door generation. Takes a key texture and generates a key in the maze that must be picked up for the door to open.
+
+* The cub map file is a required argument
+* `--generate`/`-g` generates a random maze with the given size
+* `--door`/`-d` requires maze generation. Takes a door texture and generates a door in the maze to leave the maze and "win" the game.
+* `--key`/`-k` requires both maze generation and door generation. Takes a key texture and generates a key in the maze that must be picked up for the door to open.
 
 ## <a name="play-en">🚀 How to play ##
 
-<img src="img/06.png" alt="Img showing which key can be used, See below">
+<img src="img/keyboard.png" alt="Img showing which key can be used, See below">
 
 The controls of the player are the following :
 
@@ -69,7 +70,8 @@ The controls of the player are the following :
 
 ### How to end the game ###
 
-There is no end, you can just walk around and see the projection in a all the scenario that you can think of.
+There is no end in normal mode, you can just walk around and see the projection in a all the scenario that you can think of.
+In maze mode WITH key-door system, the goal is to find the key and walk the door to finish.
 You can try to create the most intricate design and see the result.
 
 ## MAP Rules ##
