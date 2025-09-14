@@ -84,6 +84,7 @@ In the `map/` folder, there is also invalid maps to help you understand what is 
 * Keyboard shortcuts to enable features ✅
 * Changing the FOV in game ✅
 * Windows resolution settings and full-screen ✅
+* Key-Door system ✅
 * Anti-Aliasing (makes the edges smoother for cleaner lines) ⚠️/!\
 
 ---
