@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/10 14:22:18 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/14 21:16:05 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@
 # define FT_RAND_MAX 32768
 
 /**
- * @brief Maximum size of maze
+ * @brief Minimum maze size
+ */
+# define MAZE_MIN_SIZE 3
+
+/**
+ * @brief Maximum maze size
  */
 # define MAZE_MAX_SIZE 1000
 
