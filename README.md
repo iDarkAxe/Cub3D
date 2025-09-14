@@ -35,22 +35,13 @@ The idea behind ray casting is to trace rays from the eye, one per pixel, and fi
 
 ## <a name="start-en">🚀 How to start ##
 
-Just start it using :
-
-```sh
-./cub3D <PATH_to_MAP/><MAP>
 ```
-
-`PATH_to_MAP` is the PATH where is stored the map.
-
-`MAP` is the map file, with the `.cub` extension.
-
-### Randomly generated maze ###
-
-If you want to play on a randomly generated maze, add the option `--generate <width>x<height>`, with `width` and `height` being the size of the maze, which must both be at least 1.
-
-> [!WARNING]
-> The map is still required when generating a maze to determine which textures and colors to display.
+./cub3D [--generate|-g <WIDTHxHEIGHT>] [--door|-d <path to door texture.xpm>] [--key|-k <path to key texture.xpm>] <path to map.cub>
+```
+- The cub map file is a required argument
+- `--generate`/`-g` generates a random maze with the given size
+- `--door`/`-d` requires maze generation. Takes a door texture and generates a door in the maze to leave the maze and "win" the game.
+- `--key`/`-k` requires both maze generation and door generation. Takes a key texture and generates a key in the maze that must be picked up for the door to open.
 
 ## <a name="play-en">🚀 How to play ##
 
