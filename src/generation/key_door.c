@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_door.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 18:34:00 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/13 11:07:09 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/25 15:55:41 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static t_pos2	place_random_triangle(double min_dist, t_posvec *deadends,
 
 	attempts = 0;
 	far_dist = 0;
+	farthest = (t_pos2){0, 0};
 	while (attempts < 10000)
 	{
 		pos = deadends->data[ft_rand() % deadends->len];

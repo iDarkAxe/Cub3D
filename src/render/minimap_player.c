@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minimap_player.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 10:50:26 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 16:12:48 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/25 15:41:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	cubmlx_render_minimap_player(t_data *data)
 	t_pos2	pos;
 	t_pos2	rect;
 
-	pos.x = MINIMAP_TILE_SIZE * (int)((MINIMAP_TILES_X >> 1) + 0.5f)
+	pos.x = MINIMAP_TILE_SIZE * (int)((MINIMAP_NUM_TILES_X >> 1) + 0.5f)
 		- (MINIMAP_PLAYER_SIZE >> 1);
-	pos.y = MINIMAP_TILE_SIZE * (int)((MINIMAP_TILES_Y >> 1) + 0.5f)
+	pos.y = MINIMAP_TILE_SIZE * (int)((MINIMAP_NUM_TILES_Y >> 1) + 0.5f)
 		- (MINIMAP_PLAYER_SIZE >> 1);
 	rect = (t_pos2){MINIMAP_PLAYER_SIZE, MINIMAP_PLAYER_SIZE};
 	cubmlx_putrect(data, pos, rect, MINIMAP_PLAYER_COLOR);
@@ -45,11 +45,11 @@ void	cubmlx_render_minimap_player(t_data *data)
 	if (data->input.fov)
 	{
 		render_line_with_offset(data, pos, -data->player.fov * 0.5f,
-			MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
+			MINIMAP_PLAYER_CONE_SIGHT_COLOR);
 		render_line_with_offset(data, pos, data->player.fov * 0.5f,
-			MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR);
+			MINIMAP_PLAYER_CONE_SIGHT_COLOR);
 	}
 	else
 		render_line_with_offset(data, pos, 0,
-			MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR);
+			MINIMAP_PLAYER_LINE_SIGHT_COLOR);
 }
