@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:04:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/01 12:30:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/27 00:58:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,16 @@ bool	is_mv_key(enum e_movement expected, int keycode)
 			|| (keycode) == KEY_S))
 		return (true);
 	return (false);
+}
+
+void	change_fov(t_data *data, int keycode)
+{
+	if (data->player.fov > 0.01f && keycode == KEY_ARROW_DOWN)
+		data->player.fov -= 0.01f;
+	else if (keycode == KEY_ARROW_UP)
+		data->player.fov += 0.01f;
+	if (data->player.fov < 0.0f)
+		data->player.fov = 0.0f;
+	else if (data->player.fov >= PI)
+		data->player.fov = PI;
 }

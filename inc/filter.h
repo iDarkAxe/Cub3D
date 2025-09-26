@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:15:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/27 00:57:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
  */
 
 # include "data_structure.h"
+
+/* Constants to convert a RGB color to a grey value */
+# define LUMA_RED_WEIGHT 0.299
+# define LUMA_GREEN_WEIGHT 0.587
+# define LUMA_BLUE_WEIGHT 0.114
 
 /**
  * @brief Define if all the textures are modified using the same filter or not

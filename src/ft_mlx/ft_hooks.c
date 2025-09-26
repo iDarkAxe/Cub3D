@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:01:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/27 00:52:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,12 @@ int	cub_keydown_hook(int keycode, void *param)
 	if (DEBUG_PRINT_KEYCODE == 1)
 		ft_print_key(keycode);
 	if (keycode == KEY_ESCAPE)
-		mlx_loop_end(data->mlx.mlx_ptr);
-	if (keycode == KEY_ARROW_DOWN || keycode == KEY_ARROW_UP)
 	{
-		if (data->player.fov > 0.01f && keycode == KEY_ARROW_DOWN)
-			data->player.fov -= 0.01f;
-		else if (keycode == KEY_ARROW_UP)
-			data->player.fov += 0.01f;
-		if (data->player.fov < 0.0f)
-			data->player.fov = 0.0f;
-		else if (data->player.fov >= PI)
-			data->player.fov = PI;
+		mlx_loop_end(data->mlx.mlx_ptr);
+		return (0);
 	}
+	if (keycode == KEY_ARROW_DOWN || keycode == KEY_ARROW_UP)
+		change_fov(data, keycode);
 	if (ENABLE_FILTERS)
 		change_filter(data, keycode);
 	set_key(keycode, &data->input, true);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filters-advanced.c                                 :+:      :+:    :+:   */
+/*   filters-bw.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:10:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/27 00:58:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,13 @@ static void	convert_color_to_black_and_white(t_color *color);
 void	convert_textures_to_black_and_white(t_map *map)
 {
 	t_textures	*textures;
-	t_textures	*orig_textures;
 
 	if (DEBUG_PRINT_TEXTURE_ALTERED)
 		ft_printf("Textures converted to Black&White\n");
 	if (map->is_alt_textures)
-	{
 		textures = &map->textures;
-		orig_textures = &map->alt_textures;
-	}
 	else
-	{
 		textures = &map->alt_textures;
-		orig_textures = &map->textures;
-	}
 	convert_texture_to_black_and_white(&textures->north);
 	convert_texture_to_black_and_white(&textures->south);
 	convert_texture_to_black_and_white(&textures->east);
@@ -49,8 +42,8 @@ void	convert_textures_to_black_and_white(t_map *map)
 
 void	convert_color_to_black_and_white(t_color *color)
 {
-	color->red = color->red * 0.299 + color->green * 0.587 + color->blue
-		* 0.114;
+	color->red = color->red * LUMA_RED_WEIGHT + color->green
+		* LUMA_GREEN_WEIGHT + color->blue * LUMA_BLUE_WEIGHT;
 	color->green = color->red;
 	color->blue = color->red;
 }
