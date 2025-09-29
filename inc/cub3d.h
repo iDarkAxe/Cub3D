@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/29 15:11:21 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 17:22:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@
  * @brief Enable Filters features
  */
 # define ENABLE_FILTERS true
+
+/**
+ * @brief Enable Mouse Hide feature
+ */
+# define USE_MOUSE_HIDE true
 
 // Playability settings
 /**

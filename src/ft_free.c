@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/29 15:25:22 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 17:27:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 #include "data_structure.h"
 #include "filter.h"
 #include "mlx.h"
+#include "ft_mouse.h"
 #include <stdlib.h>
 
 void	ft_free_all(t_data *data)
 {
+	if (USE_MOUSE_HIDE)
+		ft_mouse_show(data);
 	ft_free_settings(&data->mlx);
 	ft_free_textures(&data->mlx, &data->map.textures);
 	ft_free_textures(&data->mlx, &data->map.alt_textures);

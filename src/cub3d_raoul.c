@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/10 18:57:36 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 17:27:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "ft_print.h"
 #include <stdlib.h>
 #include "data_structure.h"
+#include "ft_mouse.h"
+#include "mlx.h"
 
 int	cub3d_init_render(t_data *data)
 {
@@ -23,6 +25,8 @@ int	cub3d_init_render(t_data *data)
 		return (print_error(NULL, CUB_INIT_RENDER));
 	if (cub_init(data) == 0)
 		return (print_error(NULL, CUB_INIT_RENDER));
+	if (USE_MOUSE_HIDE)
+		ft_mouse_hide(data);
 	data->input = (t_input){0};
 	data->input.collision = COLLISION_DEFAULT_VALUE;
 	data->input.minimap = MINIMAP_DEFAULT_VALUE;

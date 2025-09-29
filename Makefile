@@ -86,7 +86,8 @@ SRC = \
 	player_utils.c \
 	hitside.c \
 	hitwall.c \
-	ft_time.c
+	ft_time.c \
+	ft_mouse.c
 
 MATH = \
 	utils.c \
@@ -154,6 +155,7 @@ LIBS = \
 	-L$(P_LIBFT) -lft \
 	-L$(P_MLX) -lmlx_Linux \
 	-lXext \
+	-lXfixes \
 	-lX11 \
 	-lm
 
