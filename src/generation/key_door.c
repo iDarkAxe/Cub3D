@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 18:34:00 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/25 15:55:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 14:39:52 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	find_deadends(t_map_raoul *map, t_posvec *deadends)
 
 static double	distance(t_pos2 p1, t_pos2 p2)
 {
-	return (sqrt(pow(p2.x - p1.x, 2) + sqrt(pow(p2.y - p1.y, 2))));
+	return (sqrt(pow(p2.x - p1.x, 2) + pow(p2.y - p1.y, 2)));
 }
 
 static t_pos2	place_random_triangle(double min_dist, t_posvec *deadends,
