@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/26 23:05:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 14:56:59 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@
  * This value is multiplied by the input to get the amount.
  * A higher value will make the player walk faster.
  */
-# define MOVEMENT_SPEED_FORWARD_BACKWARD 0.025f
+# define MOVEMENT_SPEED_FWD_BWD 0.025f
 /**
  * @brief Value used to define the movement speed of the player 
  * when moving left or right.
