@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/25 15:54:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 14:56:59 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,21 @@
  * This value is multiplied by the input to get the turn amount.
  * A higher value will make the player turn faster.
  */
-# define TURNING_SPEED 0.015f
+# define MOVEMENT_SPEED_TURNING 0.015f
+/**
+ * @brief Value used to define the movement speed of the player 
+ * in forward or backward.
+ * This value is multiplied by the input to get the amount.
+ * A higher value will make the player walk faster.
+ */
+# define MOVEMENT_SPEED_FWD_BWD 0.025f
+/**
+ * @brief Value used to define the movement speed of the player 
+ * when moving left or right.
+ * This value is multiplied by the input to get the amount.
+ * A higher value will make the player walk faster.
+ */
+# define MOVEMENT_SPEED_LEFT_RIGHT 0.015f
 
 // Minimap settings
 # define MINIMAP_PLAYER_COLOR 0xffffff00

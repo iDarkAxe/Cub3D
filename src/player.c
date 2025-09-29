@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/13 15:38:47 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/27 01:04:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
+#include <math.h>
 #include "mlx.h"
 
 static void	update_camera(t_data *data)
@@ -21,9 +22,9 @@ static void	update_camera(t_data *data)
 
 	turn_amount = 0.f;
 	if (data->input.turn_left)
-		turn_amount -= TURNING_SPEED;
+		turn_amount -= MOVEMENT_SPEED_TURNING;
 	if (data->input.turn_right)
-		turn_amount += TURNING_SPEED;
+		turn_amount += MOVEMENT_SPEED_TURNING;
 	if (data->input.mouse_input)
 	{
 		turn_amount += data->input.delta_mouse_x * MOUSE_SENSITIVITY_FACTOR;
@@ -43,20 +44,25 @@ static void	update_movement(t_data *data)
 
 	vel = (t_vec2){0, 0};
 	if (data->input.fwd)
-		vel.y += 0.025f;
+		vel.y += MOVEMENT_SPEED_FWD_BWD;
 	if (data->input.bckwd)
-		vel.y -= 0.025f;
+		vel.y -= MOVEMENT_SPEED_FWD_BWD;
 	if (data->input.left)
-		vel.x += 0.015f;
+		vel.x += MOVEMENT_SPEED_LEFT_RIGHT;
 	if (data->input.right)
-		vel.x -= 0.015f;
+		vel.x -= MOVEMENT_SPEED_LEFT_RIGHT;
 	vel = vec2rotate(vel, data->player.angle - half_pi);
-	data->player.pos.x += vel.x;
-	if (vel.x != 0.f && data->input.collision)
-		solve_collision_x(data, vel.x);
-	data->player.pos.y += vel.y;
-	if (vel.y != 0.f && data->input.collision)
-		solve_collision_y(data, vel.y);
+	if (MOVEMENT_SPEED_FWD_BWD < 1.0f && MOVEMENT_SPEED_LEFT_RIGHT < 1.0f)
+	{
+		data->player.pos.x += vel.x;
+		if (vel.x != 0.f && data->input.collision)
+			solve_collision_x(data, vel.x);
+		data->player.pos.y += vel.y;
+		if (vel.y != 0.f && data->input.collision)
+			solve_collision_y(data, vel.y);
+	}
+	else
+		resolve_collision_steps(data, vel.x, vel.y);
 	update_camera(data);
 }
 

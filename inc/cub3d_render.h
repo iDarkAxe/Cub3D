@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/11 14:06:06 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/27 01:04:22 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,17 @@ void	solve_collision_x(t_data *data, float x_vel);
  * @param[in] y_vel velocity on y axis
  */
 void	solve_collision_y(t_data *data, float y_vel);
+
+/**
+ * @brief Solver of collision on x and y using steps smaller than 1 unit,
+ * To use only when moving faster than 1 unit, when
+ * MOVEMENT_SPEED_FWD_BWD >= 1.0f or MOVEMENT_SPEED_LEFT_RIGHT >= 1.0f 
+ * 
+ * @param[in,out] data data structure
+ * @param[in] vel_x velocity on x axis
+ * @param[in] vel_y velocity on y axis
+ */
+void	resolve_collision_steps(t_data *data, float vel_x, float vel_y);
 /** @} */
 
 /**
