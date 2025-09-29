@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/02 19:11:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/11 09:52:33 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	do_draw_line(t_data *data, t_img *img, t_pos2 *points, int tex_x)
 	}
 }
 
-static float	calc_line_and_wall_x(t_pos2 win_size, int x, t_pos2 *line_point,
+static float	calc_line_and_wall_x(t_mlx *mlx, int x, t_pos2 *line_point,
 		const t_raydata *rdata)
 {
 	float	height;
@@ -96,9 +96,10 @@ static float	calc_line_and_wall_x(t_pos2 win_size, int x, t_pos2 *line_point,
 		wall_dist = rdata->side_dist.y - rdata->delta_dist.y;
 		wall_x = rdata->pos.x + wall_dist * rdata->ray_dir.x;
 	}
-	height = win_size.y / wall_dist;
-	line_point[0].y = -height / 2 + win_size.y / 2;
-	line_point[1].y = height / 2 + win_size.y / 2;
+	mlx->z_buffer[x] = wall_dist;
+	height = mlx->win_size.y / wall_dist;
+	line_point[0].y = -height / 2 + mlx->win_size.y / 2;
+	line_point[1].y = height / 2 + mlx->win_size.y / 2;
 	line_point[0].x = x;
 	line_point[1].x = x;
 	wall_x -= floorf(wall_x);
@@ -112,7 +113,7 @@ void	draw_column(t_data *data, int x, const t_raydata *rdata)
 	int		tex_x;
 	t_img	*img;
 
-	wall_x = calc_line_and_wall_x(data->mlx.win_size, x, points, rdata);
+	wall_x = calc_line_and_wall_x(&data->mlx, x, points, rdata);
 	img = hitside_texture(&data->map.textures, rdata->hit_side, &rdata->step);
 	tex_x = (int)(wall_x * img->width);
 	if (!rdata->hit_side && rdata->ray_dir.x > 0)

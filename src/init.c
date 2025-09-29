@@ -6,12 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 21:27:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/09 11:45:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/25 15:54:04 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
+#include "libft.h"
 #include "mlx.h"
 #include <stdlib.h>
 
@@ -26,6 +27,9 @@ static int	setup_backbuffer(t_data *data)
 			&data->mlx.backbuffer.endian);
 	data->mlx.backbuffer.height = (data->mlx.win_size.x * data->mlx.win_size.y)
 		/ data->mlx.backbuffer.width;
+	data->mlx.z_buffer = ft_calloc(data->mlx.win_size.x, sizeof(float));
+	if (data->mlx.z_buffer == NULL)
+		return (0);
 	return (1);
 }
 
@@ -35,8 +39,8 @@ t_data	*cub_init(t_data *data)
 		return (NULL);
 	if (data->map.map == NULL && cub_translate_map(data) == 0)
 		return (NULL);
-	data->mlx.minimap_size.x = data->map.map->width * MINIMAP_TILE_SIZE;
-	data->mlx.minimap_size.y = data->map.map->height * MINIMAP_TILE_SIZE;
+	data->mlx.minimap_size = (t_pos2){(MINIMAP_NUM_TILES_X - 1)
+		* MINIMAP_TILE_SIZE, (MINIMAP_NUM_TILES_Y - 1) * MINIMAP_TILE_SIZE};
 	if (setup_backbuffer(data) == 0)
 	{
 		ft_mlx_end(&data->mlx);

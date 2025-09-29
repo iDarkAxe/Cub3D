@@ -6,13 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:06:24 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/07 19:10:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:19:05 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 #include "ft_keys.h"
-#include "mlx.h"
 #include "cub3d.h"
 
 void	state_machine(int keycode, t_mlx *mlx)

@@ -35,26 +35,18 @@ The idea behind ray casting is to trace rays from the eye, one per pixel, and fi
 
 ## <a name="start-en">🚀 How to start ##
 
-Just start it using :
-
 ```sh
-./cub3D <PATH_to_MAP/><MAP>
+./cub3D [--generate|-g <WIDTHxHEIGHT>] [--door|-d <path to door texture.xpm>] [--key|-k <path to key texture.xpm>] <path to map.cub>
 ```
 
-`PATH_to_MAP` is the PATH where is stored the map.
-
-`MAP` is the map file, with the `.cub` extension.
-
-### Randomly generated maze ###
-
-If you want to play on a randomly generated maze, add the option `--generate <width>x<height>`, with `width` and `height` being the size of the maze, which must both be at least 1.
-
-> [!WARNING]
-> The map is still required when generating a maze to determine which textures and colors to display.
+* The cub map file is a required argument
+* `--generate`/`-g` generates a random maze with the given size
+* `--door`/`-d` requires maze generation. Takes a door texture and generates a door in the maze to leave the maze and "win" the game.
+* `--key`/`-k` requires both maze generation and door generation. Takes a key texture and generates a key in the maze that must be picked up for the door to open.
 
 ## <a name="play-en">🚀 How to play ##
 
-<img src="img/06.png" alt="Img showing which key can be used, See below">
+<img src="img/keyboard.png" alt="Img showing which key can be used, See below">
 
 The controls of the player are the following :
 
@@ -78,7 +70,8 @@ The controls of the player are the following :
 
 ### How to end the game ###
 
-There is no end, you can just walk around and see the projection in a all the scenario that you can think of.
+There is no end in normal mode, you can just walk around and see the projection in a all the scenario that you can think of.
+In maze mode WITH key-door system, the goal is to find the key and walk the door to finish.
 You can try to create the most intricate design and see the result.
 
 ## MAP Rules ##
@@ -93,6 +86,7 @@ In the `map/` folder, there is also invalid maps to help you understand what is 
 * Keyboard shortcuts to enable features ✅
 * Changing the FOV in game ✅
 * Windows resolution settings and full-screen ✅
+* Key-Door system ✅
 * Anti-Aliasing (makes the edges smoother for cleaner lines) ⚠️/!\
 
 ---

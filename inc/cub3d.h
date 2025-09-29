@@ -81,11 +81,23 @@
 
 // Minimap settings
 # define MINIMAP_PLAYER_COLOR 0xffffff00
-# define MINIMAP_PLAYER_LINE_OF_SIGHT_COLOR 0xffffff00
-# define MINIMAP_PLAYER_CONE_OF_SIGHT_COLOR 0xffffaaaa
+# define MINIMAP_PLAYER_LINE_SIGHT_COLOR 0xffffff00
+# define MINIMAP_PLAYER_CONE_SIGHT_COLOR 0xffffaaaa
 # define MINIMAP_FLOOR_COLOR 0xff000000
 # define MINIMAP_WALL_COLOR 0xffffffff
+# define MINIMAP_KEY_COLOR 0xffffff00
+# define MINIMAP_DOOR_COLOR 0xff0000ff
+/**
+ * @brief Number of tiles on X axis
+ */
+# define MINIMAP_NUM_TILES_X 15
+/**
+ * @brief Number of tiles on Y axis
+ */
+# define MINIMAP_NUM_TILES_Y 15
 # define MINIMAP_TILE_SIZE 16
+# define MINIMAP_TILES_X 15
+# define MINIMAP_TILES_Y 15
 // Any size higher half of MINIMAP_TILE_SIZE will be strange
 # define MINIMAP_PLAYER_SIZE 4
 # define MINIMAP_LINE_OF_SIGHT_FACTOR 2
@@ -133,14 +145,14 @@
 int					cub3d(int argc, char **argv);
 
 /**
- * @brief Check the arguments passed to the program.
+ * @brief Reads and verifies the arguments passed to the program
  *
  * @param argc argument count
  * @param argv array of arguments
  * @param args pointer to args struct to fill
- * @return int 1 OK, -1 if error
+ * @return int 1 OK, -1 otherwise with side effect of printing error
  */
-int					check_args(int argc, char **argv, t_args *args);
+int					cub_read_args(int argc, char **argv, t_args *args);
 
 /**
  * @brief Fill the config region of the file

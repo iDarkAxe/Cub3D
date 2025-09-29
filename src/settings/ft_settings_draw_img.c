@@ -6,26 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/20 12:19:02 by ppontet          ###   ########lyon.fr   */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_draw_circle.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 18:25:56 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/25 08:48:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:18:58 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 #include "ft_draw.h"
 #include "mlx.h"
-#include <errno.h>
 
 void	ft_put_circle_to_win(t_mlx *mlx, void *win_ptr, t_circle element,
 		bool is_enabled)

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:35:31 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/08 18:21:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/10 14:21:29 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 #include <malloc.h>
 #include "maze.h"
 
-t_posvec	*posvecnew(size_t nbr_of_elements)
+t_posvec	*posvecnew(size_t size)
 {
 	t_posvec	*vec;
 
 	vec = malloc(sizeof(t_posvec));
 	if (vec == NULL)
 		return (NULL);
-	vec->data = malloc(sizeof(t_pos2) * nbr_of_elements);
+	vec->data = malloc(sizeof(t_pos2) * size);
 	if (vec->data == NULL)
 	{
 		free(vec);
 		return (NULL);
 	}
-	vec->capacity = nbr_of_elements;
+	vec->capacity = size;
 	vec->len = 0;
 	return (vec);
 }

@@ -133,6 +133,17 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 			unsigned int color);
 
 /**
+ * @brief Puts a rectangle onto the backbuffer
+ *
+ * @param[in,out] data structure
+ * @param[in] pos starting point
+ * @param[in] size rectangle width and height
+ * @param[in] color color
+ */
+void	cubmlx_putrect(t_data *data, t_pos2 pos, t_pos2 size,
+			unsigned int color);
+
+/**
  * @brief Puts a line onto the backbuffer
  * 
  * @param[in,out] data data structure
@@ -192,6 +203,14 @@ void	resolve_collision_steps(t_data *data, float vel_x, float vel_y);
 float	absf(float n);
 
 /**
+ * @brief Returns the absolute value of an int
+ *
+ * @param[in] n value
+ * @return float absolute vale of n
+ */
+int		abs(int n);
+
+/**
  * @brief Returns the highest value between a and b
  * 
  * @param[in] a first value
@@ -199,6 +218,15 @@ float	absf(float n);
  * @return int highest between a and b
  */
 int		max(int a, int b);
+
+/**
+ * @brief Returns the lowest value between doubles a and b
+ *
+ * @param[in] a first value
+ * @param[in] b second value
+ * @return int lowest between a and b
+ */
+double	mind(double a, double b);
 
 /**
  * @brief Returns a new vector rotated according to the angle

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 16:17:33 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/13 10:29:00 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,17 @@ void	ft_free_textures(t_mlx *mlx, t_map *map)
 	if (map == NULL || mlx == NULL || mlx->mlx_ptr == NULL)
 		return ;
 	if (map->textures.north.img != NULL)
-	{
 		mlx_destroy_image(mlx->mlx_ptr, map->textures.north.img);
-		map->textures.north.img = NULL;
-	}
 	if (map->textures.south.img != NULL)
-	{
 		mlx_destroy_image(mlx->mlx_ptr, map->textures.south.img);
-		map->textures.south.img = NULL;
-	}
 	if (map->textures.west.img != NULL)
-	{
 		mlx_destroy_image(mlx->mlx_ptr, map->textures.west.img);
-		map->textures.west.img = NULL;
-	}
 	if (map->textures.east.img != NULL)
-	{
 		mlx_destroy_image(mlx->mlx_ptr, map->textures.east.img);
-		map->textures.east.img = NULL;
-	}
+	if (map->textures.key.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.key.img);
+	if (map->textures.door.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, map->textures.door.img);
 }
 
 void	ft_free_textures_path(t_map *map)

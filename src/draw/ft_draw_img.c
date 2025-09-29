@@ -6,15 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/07 19:24:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:21:30 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 #include "ft_draw.h"
-#include "mlx.h"
 #include "libft.h"
-#include <errno.h>
 
 void	ft_put_pixel_to_img(t_img *img, int x, int y, int color)
 {

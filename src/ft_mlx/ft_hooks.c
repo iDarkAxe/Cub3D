@@ -6,14 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/05 11:23:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:21:21 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "data_structure.h"
 #include "ft_keys.h"
 #include "ft_print.h"
-#include "ft_printf.h"
 #include "mlx.h"
 #include <X11/X.h>
 

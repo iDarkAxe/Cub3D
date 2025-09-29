@@ -10,9 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "cub3d_render.h"
-#include <math.h>
 
 void	solve_collision_x(t_data *data, float x_vel)
 {

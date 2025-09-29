@@ -6,15 +6,16 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/07 19:20:29 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/13 12:18:30 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-#include "mlx.h"
+#include <math.h>
 
 static int	raycast_column(t_data *data, int x, t_raydata *rdata);
+void		cub_render_sprites(t_data *data, t_raydata *rdata);
 
 void	cub_render(t_data *data)
 {
@@ -29,6 +30,7 @@ void	cub_render(t_data *data)
 	{
 		if (!raycast_column(data, x, &rdata))
 		{
+			data->mlx.z_buffer[x] = 1e30;
 			cubmlx_putvertline(data, (t_pos2){x, 0}, data->mlx.win_size.y * 0.5,
 				data->map.textures.ceiling.argb);
 			cubmlx_putvertline(data, (t_pos2){x, data->mlx.win_size.y * 0.5},
@@ -39,6 +41,9 @@ void	cub_render(t_data *data)
 		draw_column(data, x, &rdata);
 		x++;
 	}
+	rdata.ray_dir.x = cos(data->player.angle);
+	rdata.ray_dir.y = sin(data->player.angle);
+	cub_render_sprites(data, &rdata);
 }
 
 static int	raycast_column(t_data *data, int x, t_raydata *rdata)
