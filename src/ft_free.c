@@ -6,19 +6,21 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/13 10:29:00 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 15:25:22 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "data_structure.h"
+#include "filter.h"
 #include "mlx.h"
 #include <stdlib.h>
 
 void	ft_free_all(t_data *data)
 {
 	ft_free_settings(&data->mlx);
-	ft_free_textures(&data->mlx, &data->map);
+	ft_free_textures(&data->mlx, &data->map.textures);
+	ft_free_textures(&data->mlx, &data->map.alt_textures);
 	ft_mlx_end(&data->mlx);
 	ft_free_textures_path(&data->map);
 	ft_free_file(&data->map);
@@ -56,22 +58,22 @@ void	ft_free_file(t_map *map)
 	map->file_nb_lines = 0;
 }
 
-void	ft_free_textures(t_mlx *mlx, t_map *map)
+void	ft_free_textures(t_mlx *mlx, t_textures *textures)
 {
-	if (map == NULL || mlx == NULL || mlx->mlx_ptr == NULL)
+	if (mlx == NULL || mlx->mlx_ptr == NULL)
 		return ;
-	if (map->textures.north.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.north.img);
-	if (map->textures.south.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.south.img);
-	if (map->textures.west.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.west.img);
-	if (map->textures.east.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.east.img);
-	if (map->textures.key.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.key.img);
-	if (map->textures.door.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, map->textures.door.img);
+	if (textures->north.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, textures->north.img);
+	if (textures->south.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, textures->south.img);
+	if (textures->west.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, textures->west.img);
+	if (textures->east.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, textures->east.img);
+	if (textures->key.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, textures->key.img);
+	if (textures->door.img != NULL)
+		mlx_destroy_image(mlx->mlx_ptr, textures->door.img);
 }
 
 void	ft_free_textures_path(t_map *map)

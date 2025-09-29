@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/29 14:56:59 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 15:11:21 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@
  * @brief Enable Collision by default and can be toggled with the 'C' key.
  */
 # define COLLISION_DEFAULT_VALUE true
+
+/**
+ * @brief Enable Filters features
+ */
+# define ENABLE_FILTERS true
 
 // Playability settings
 /**
@@ -117,6 +122,16 @@
  * 
  */
 # define DEBUG_FPS_REFRESH 0
+
+/**
+ * @brief Enable printing of message to indicate texture swapping
+ */
+# define DEBUG_PRINT_TEXTURE_SWAP 1
+
+/**
+ * @brief Enable printing message when a texture is altered with filters
+ */
+# define DEBUG_PRINT_TEXTURE_ALTERED 0
 
 // If you want to follow closely to the subject, you need to set these to 0
 /**
@@ -487,7 +502,7 @@ void				ft_free_file(t_map *map);
  * @param mlx mlx structure
  * @param map map structure
  */
-void				ft_free_textures(t_mlx *mlx, t_map *map);
+void				ft_free_textures(t_mlx *mlx, t_textures *textures);
 
 /**
  * @brief Free the path (name) of the textures in memory

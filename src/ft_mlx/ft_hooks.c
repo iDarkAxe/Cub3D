@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:21:21 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 15:11:45 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "ft_print.h"
 #include "mlx.h"
 #include <X11/X.h>
+#include "maze.h"
+#include "filter.h"
 
 int	cub_keydown_hook(int keycode, void *param)
 {
@@ -29,16 +31,9 @@ int	cub_keydown_hook(int keycode, void *param)
 		return (0);
 	}
 	if (keycode == KEY_ARROW_DOWN || keycode == KEY_ARROW_UP)
-	{
-		if (data->player.fov > 0.01f && keycode == KEY_ARROW_DOWN)
-			data->player.fov -= 0.01f;
-		else if (keycode == KEY_ARROW_UP)
-			data->player.fov += 0.01f;
-		if (data->player.fov < 0.0f)
-			data->player.fov = 0.0f;
-		else if (data->player.fov >= PI)
-			data->player.fov = PI;
-	}
+		change_fov(data, keycode);
+	if (ENABLE_FILTERS)
+		change_filter(data, keycode);
 	set_key(keycode, &data->input, true);
 	toggle_key(keycode, &data->input);
 	return (0);

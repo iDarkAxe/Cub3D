@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 16:50:42 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/13 11:07:53 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 15:15:06 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_map_raoul	*cub_new_map_from_dimensions(char *dimensions)
 {
 	t_map_raoul	*map;
 
-	ft_srand(get_time_ms());
 	map = ft_calloc(1, sizeof(t_map_raoul));
 	if (!map)
 		return (NULL);

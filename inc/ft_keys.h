@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:59:08 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 11:04:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/27 00:58:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,14 @@ enum	e_movement
  * @brief Keycode for the F key.
  */
 # define KEY_F 102
+/**
+ * @brief Keycode for the V key.
+ */
+# define KEY_V 118
+/**
+ * @brief Keycode for the X key.
+ */
+# define KEY_X 120
 /** @} */
 
 /**
@@ -129,6 +137,13 @@ void				set_key(int keycode, t_input *input, bool set);
  * @param[out] input structure containing all inputs
  */
 void				toggle_key(int keycode, t_input *input);
+/**
+ * @brief Change the FOV according to the keycode
+ * 
+ * @param[in,out] data data structure
+ * @param[in] keycode key pressed
+ */
+void				change_fov(t_data *data, int keycode);
 /** @} */
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/27 01:04:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 15:27:22 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_render.h"
+#include <math.h>
 
 void	solve_collision_x(t_data *data, float x_vel)
 {

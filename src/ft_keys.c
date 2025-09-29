@@ -6,10 +6,11 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:04:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:18:22 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 15:27:00 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cub3d.h"
 #include "data_structure.h"
 #include "ft_keys.h"
 #include <stdbool.h>
@@ -69,4 +70,16 @@ bool	is_mv_key(enum e_movement expected, int keycode)
 			|| (keycode) == KEY_S))
 		return (true);
 	return (false);
+}
+
+void	change_fov(t_data *data, int keycode)
+{
+	if (data->player.fov > 0.01f && keycode == KEY_ARROW_DOWN)
+		data->player.fov -= 0.01f;
+	else if (keycode == KEY_ARROW_UP)
+		data->player.fov += 0.01f;
+	if (data->player.fov < 0.0f)
+		data->player.fov = 0.0f;
+	else if (data->player.fov >= PI)
+		data->player.fov = PI;
 }
