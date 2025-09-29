@@ -6,14 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 15:00:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:20:39 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "ft_print.h"
 #include "ft_printf.h"
-#include "libft.h"
 #include <stdio.h>
 
 void	ft_print_color(t_color *color)

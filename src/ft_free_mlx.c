@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/24 14:35:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/11 10:20:31 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	ft_mlx_end(t_mlx *mlx)
 {
 	if (!mlx || !mlx->mlx_ptr)
 		return ;
+	if (mlx->z_buffer)
+		free(mlx->z_buffer);
 	if (mlx->backbuffer.img)
 	{
 		mlx_destroy_image(mlx->mlx_ptr, mlx->backbuffer.img);

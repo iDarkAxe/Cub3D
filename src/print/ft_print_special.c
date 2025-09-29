@@ -6,14 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 10:12:52 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/07 19:21:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:20:45 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
 #include "ft_print.h"
 #include "ft_printf.h"
-#include "libft.h"
 #include <stdio.h>
 
 ssize_t	ft_print_position(int x, int y)

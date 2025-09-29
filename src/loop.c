@@ -6,14 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/08/05 11:14:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/08 16:18:34 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-#include "ft_keys.h"
-#include "ft_print.h"
 #include "mlx.h"
 #include <X11/X.h>
 

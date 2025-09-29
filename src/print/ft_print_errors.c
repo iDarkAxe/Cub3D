@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/02 14:59:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/14 21:15:54 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ void	print_maze_error(enum e_maze_error error)
 		ft_dprintf(2, RED "Error" RESET
 			"\nInvalid size. Width and height must be smaller than %u.\n",
 			MAZE_MAX_SIZE);
+	else if (error == MAZE_SIZE_TOO_SMALL)
+		ft_dprintf(2, RED "Error" RESET
+			"\nInvalid size. Width and height must be bigger than %u\n",
+			MAZE_MIN_SIZE);
 	else if (error == MAZE_SIZE_NEGATIVE_VALUE)
 		ft_dprintf(2, RED "Error" RESET
 			"\nInvalid size. Both dimensions must be at least 1 in size.\n");

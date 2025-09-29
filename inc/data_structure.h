@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/04 17:47:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 15:11:31 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,8 @@ struct							s_textures
 	t_img						east;
 	t_img						west;
 	t_img						south;
+	t_img						door;
+	t_img						key;
 	t_color						floor;
 	t_color						ceiling;
 };
@@ -215,6 +217,7 @@ struct							s_mlx
 	t_pos2						win_size;
 	t_pos2						minimap_size;
 	t_img						backbuffer;
+	float						*z_buffer;
 };
 
 /**
@@ -228,6 +231,8 @@ struct s_map_raoul
 	size_t						height;
 	t_pos2						start_pos;
 	float						start_angle;
+	t_pos2						key;
+	t_pos2						door;
 };
 
 /**
@@ -282,6 +287,20 @@ struct							s_raydata
 };
 
 /**
+ * @brief Norm-compliant multi-variable holder for math stuff
+ */
+typedef struct s_spritedata
+{
+	t_vec2		transform;
+	t_vec2		sprite;
+	t_pos2		sprite_size;
+	int			sprite_screen_x;
+	t_pos2		draw_start;
+	t_pos2		draw_end;
+	t_raydata	*rdata;
+}	t_spritedata;
+
+/**
  * @brief Structure to handle command-line arguments
  * 
  */
@@ -289,6 +308,9 @@ struct s_args
 {
 	char	*map;
 	char	*gen;
+	int		goal;
+	char	*key_tex;
+	char	*door_tex;
 };
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 14:04:38 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/27 00:58:26 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 15:27:00 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "data_structure.h"
 #include "ft_keys.h"
 #include <stdbool.h>
 

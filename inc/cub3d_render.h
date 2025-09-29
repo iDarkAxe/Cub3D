@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/06 11:54:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 15:22:07 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,17 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 			unsigned int color);
 
 /**
+ * @brief Puts a rectangle onto the backbuffer
+ *
+ * @param[in,out] data structure
+ * @param[in] pos starting point
+ * @param[in] size rectangle width and height
+ * @param[in] color color
+ */
+void	cubmlx_putrect(t_data *data, t_pos2 pos, t_pos2 size,
+			unsigned int color);
+
+/**
  * @brief Puts a line onto the backbuffer
  * 
  * @param[in,out] data data structure
@@ -164,6 +175,17 @@ void	solve_collision_x(t_data *data, float x_vel);
  * @param[in] y_vel velocity on y axis
  */
 void	solve_collision_y(t_data *data, float y_vel);
+
+/**
+ * @brief Solver of collision on x and y using steps smaller than 1 unit,
+ * To use only when moving faster than 1 unit, when
+ * MOVEMENT_SPEED_FWD_BWD >= 1.0f or MOVEMENT_SPEED_LEFT_RIGHT >= 1.0f 
+ * 
+ * @param[in,out] data data structure
+ * @param[in] vel_x velocity on x axis
+ * @param[in] vel_y velocity on y axis
+ */
+void	resolve_collision_steps(t_data *data, float vel_x, float vel_y);
 /** @} */
 
 /**
@@ -181,6 +203,14 @@ void	solve_collision_y(t_data *data, float y_vel);
 float	absf(float n);
 
 /**
+ * @brief Returns the absolute value of an int
+ *
+ * @param[in] n value
+ * @return float absolute vale of n
+ */
+int		abs(int n);
+
+/**
  * @brief Returns the highest value between a and b
  * 
  * @param[in] a first value
@@ -190,13 +220,13 @@ float	absf(float n);
 int		max(int a, int b);
 
 /**
- * @brief Returns the lowest value between a and b
- * 
+ * @brief Returns the lowest value between doubles a and b
+ *
  * @param[in] a first value
  * @param[in] b second value
  * @return int lowest between a and b
  */
-int		min(int a, int b);
+double	mind(double a, double b);
 
 /**
  * @brief Returns a new vector rotated according to the angle

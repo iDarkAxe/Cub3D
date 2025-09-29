@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/02 15:17:01 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 14:47:00 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@
 # define FT_RAND_MAX 32768
 
 /**
- * @brief Maximum size of maze
+ * @brief Minimum maze size
+ */
+# define MAZE_MIN_SIZE 3
+
+/**
+ * @brief Maximum maze size
  */
 # define MAZE_MAX_SIZE 1000
 
@@ -73,12 +78,12 @@ int				maze_dir_opp(int dir);
  */
 
 /**
- * @brief Create a vector with a designated size before hand
+ * @brief Create a vector with an initial starting size
  * 
- * @param[in] nbr_of_elements number of elements
- * @return t_posvec* pointer to the new vector allocated
+ * @param[in] size initial size
+ * @return t_posvec* pointer to the new vector
  */
-t_posvec		*posvecnew(size_t nbr_of_elements);
+t_posvec		*posvecnew(size_t size);
 /**
  * @brief Add a new element to the vector
  * 
@@ -150,12 +155,12 @@ void			array_shuffle(int *arr, int len);
 int				cub_parse_generation_arg(char *gen, size_t *width,
 					size_t *height);
 /**
- * @brief Function to parse args into dimensions for maze
+ * @brief Allocates a new map with the given dimension
  * 
- * @param[in] gen dimensions of the future maze
- * @return int 
+ * @param[in] dimensions dimensions
+ * @return t_map_raoul* new map on success, NULL otherwise
  */
-t_map_raoul		*cub_generate_dimensions(char *gen);
+t_map_raoul		*cub_new_map_from_dimensions(char *dimensions);
 /**
  * @brief Cub3D Maze Generator, uses dimensions from gen, store them in map and
  * create a random perfect maze
@@ -164,6 +169,14 @@ t_map_raoul		*cub_generate_dimensions(char *gen);
  * @return int 1 OK, 0 error
  */
 int				cub_growing_tree(t_map_raoul *map);
+
+/**
+ * @brief Spawns a key and a door in the maze.
+ * @param[in,out] map Pointer to map
+ * @param[in] key whether a key should be placed
+ * @return 1 OK, 0 otherwise
+ */
+int				cub_spawn_objects(t_map_raoul *map, int key);
 /** @} */
 
 #endif

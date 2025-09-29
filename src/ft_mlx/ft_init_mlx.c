@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/04 19:18:28 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/09/29 15:26:27 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ft_print.h"
 #include "libft.h"
 #include "mlx.h"
+#include <unistd.h>
 
 static t_mlx	*store_textures_mlx(t_mlx *mlx, t_textures *tex);
 static void		copy_path_alt_textures(t_data *data);
@@ -53,48 +54,34 @@ void	copy_path_alt_textures(t_data *data)
 		sizeof(t_color));
 }
 
-static int	get_texture_addresses(t_textures *tex)
+static int	load_mlx_texture(t_mlx *mlx, t_img *img)
 {
-	tex->north.pxls = mlx_get_data_addr(tex->north.img,
-			&tex->north.bits_per_pixel, &tex->north.mlx_width,
-			&tex->north.endian);
-	if (tex->north.pxls == NULL)
+	img->img = mlx_xpm_file_to_image(mlx->mlx_ptr, img->path, &img->width,
+			&img->height);
+	if (img->img == NULL)
 		return (0);
-	tex->south.pxls = mlx_get_data_addr(tex->south.img,
-			&tex->south.bits_per_pixel, &tex->south.mlx_width,
-			&tex->south.endian);
-	if (tex->south.pxls == NULL)
-		return (0);
-	tex->east.pxls = mlx_get_data_addr(tex->east.img, &tex->east.bits_per_pixel,
-			&tex->east.mlx_width, &tex->east.endian);
-	if (tex->east.pxls == NULL)
-		return (0);
-	tex->west.pxls = mlx_get_data_addr(tex->west.img, &tex->west.bits_per_pixel,
-			&tex->west.mlx_width, &tex->west.endian);
-	if (tex->west.pxls == NULL)
+	img->pxls = mlx_get_data_addr(img->img, &img->bits_per_pixel,
+			&img->mlx_width, &img->endian);
+	if (img->pxls == NULL)
 		return (0);
 	return (1);
 }
 
 t_mlx	*store_textures_mlx(t_mlx *mlx, t_textures *tex)
 {
-	tex->north.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->north.path,
-			&(tex->north.width), &(tex->north.height));
-	if (tex->north.img == NULL)
+	if (load_mlx_texture(mlx, &tex->north) == 0)
 		return (NULL);
-	tex->south.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->south.path,
-			&(tex->south.width), &(tex->south.height));
-	if (tex->south.img == NULL)
+	if (load_mlx_texture(mlx, &tex->south) == 0)
 		return (NULL);
-	tex->west.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->west.path,
-			&(tex->west.width), &(tex->west.height));
-	if (tex->west.img == NULL)
+	if (load_mlx_texture(mlx, &tex->east) == 0)
 		return (NULL);
-	tex->east.img = mlx_xpm_file_to_image(mlx->mlx_ptr, tex->east.path,
-			&(tex->east.width), &(tex->east.height));
-	if (tex->east.img == NULL)
+	if (load_mlx_texture(mlx, &tex->west) == 0)
 		return (NULL);
-	if (get_texture_addresses(tex) == 0)
+	if (tex->door.path != NULL
+		&& load_mlx_texture(mlx, &tex->door) == 0)
+		return (NULL);
+	if (tex->key.path != NULL
+		&& load_mlx_texture(mlx, &tex->key) == 0)
 		return (NULL);
 	return (mlx);
 }
