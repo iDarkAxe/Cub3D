@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 19:23:53 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/14 21:16:05 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:47:00 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,6 +169,14 @@ t_map_raoul		*cub_new_map_from_dimensions(char *dimensions);
  * @return int 1 OK, 0 error
  */
 int				cub_growing_tree(t_map_raoul *map);
+
+/**
+ * @brief Spawns a key and a door in the maze.
+ * @param[in,out] map Pointer to map
+ * @param[in] key whether a key should be placed
+ * @return 1 OK, 0 otherwise
+ */
+int				cub_spawn_objects(t_map_raoul *map, int key);
 /** @} */
 
 #endif
