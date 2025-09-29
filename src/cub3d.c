@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/13 11:05:06 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/29 14:45:28 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@
 #include "ft_printf.h"
 #include "maze.h"
 #include "mlx.h"
-
-int	cub_spawn_objects(t_map_raoul *map, int key);
 
 static int	try_place_objects(t_map_raoul *map, t_args *args)
 {
