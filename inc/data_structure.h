@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/29 15:11:31 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:40:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,28 @@
 
 typedef struct s_img			t_img;
 typedef struct s_textures		t_textures;
+typedef struct s_spritedata		t_spritedata;
 typedef struct s_mlx			t_mlx;
-typedef struct s_coordinates	t_coordinates;
 typedef struct s_map			t_map;
+typedef struct s_map_raoul		t_map_raoul;
 typedef struct s_data			t_data;
 typedef struct s_settings		t_settings;
 
+typedef struct s_coordinates	t_coordinates;
+typedef struct s_pos2			t_pos2;
+typedef struct s_vec2			t_vec2;
+
+typedef struct s_args			t_args;
 typedef union u_color			t_color;
 typedef struct s_raydata		t_raydata;
 typedef struct s_input			t_input;
 typedef struct s_player			t_player;
-typedef struct s_map_raoul		t_map_raoul;
-typedef struct s_args			t_args;
 
 /**
  * @brief Enum used to store the screen size.
  * It is used to set the screen size in the settings.
  * SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest.
- * 
+ *
  */
 enum							e_screen_size
 {
@@ -106,6 +110,7 @@ struct							s_img
 	char						*path;
 	char						*pxls;
 	void						*img;
+	/* 4 bytes padding here : char padding[4];*/
 	int							width;
 	int							mlx_width;
 	int							height;
@@ -114,7 +119,7 @@ struct							s_img
 };
 
 /**
- * @brief Strcuture that handle the textures of the game.
+ * @brief Structure that handle the textures of the game.
  *
  */
 struct							s_textures
@@ -143,21 +148,21 @@ struct							s_coordinates
  * @brief Structure that handle positions in the map.
  * Same as t_coordinates but with signed integers.
  */
-typedef struct s_pos2
+struct							s_pos2
 {
 	int							x;
 	int							y;
-}								t_pos2;
+};
 
 /**
  * @brief Structure that handle vector coordinates in 2D space.
  *
  */
-typedef struct s_vec2
+struct							s_vec2
 {
 	float						x;
 	float						y;
-}								t_vec2;
+};
 
 /**
  * @brief Structure that handle the input of the player.
@@ -222,9 +227,9 @@ struct							s_mlx
 
 /**
  * @brief Structure to handle the special map needed for rendering
- * 
+ *
  */
-struct s_map_raoul
+struct							s_map_raoul
 {
 	int							*walls;
 	size_t						width;
@@ -289,28 +294,28 @@ struct							s_raydata
 /**
  * @brief Norm-compliant multi-variable holder for math stuff
  */
-typedef struct s_spritedata
+struct							s_spritedata
 {
-	t_vec2		transform;
-	t_vec2		sprite;
-	t_pos2		sprite_size;
-	int			sprite_screen_x;
-	t_pos2		draw_start;
-	t_pos2		draw_end;
-	t_raydata	*rdata;
-}	t_spritedata;
+	t_vec2						transform;
+	t_vec2						sprite;
+	t_pos2						sprite_size;
+	int							sprite_screen_x;
+	t_pos2						draw_start;
+	t_pos2						draw_end;
+	t_raydata					*rdata;
+};
 
 /**
  * @brief Structure to handle command-line arguments
- * 
+ *
  */
-struct s_args
+struct							s_args
 {
-	char	*map;
-	char	*gen;
-	int		goal;
-	char	*key_tex;
-	char	*door_tex;
+	char						*map;
+	char						*gen;
+	int							goal;
+	char						*key_tex;
+	char						*door_tex;
 };
 
 #endif
