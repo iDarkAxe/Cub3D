@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:35:38 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/11 11:02:34 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/10/01 16:35:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static int	interpret_tile(t_map_raoul *map, t_pos2 pos, char tile)
 	if (tile == '1')
 		return (1);
 	if (tile == 'N')
-		return (define_start_player_state(map, pos, PI / 2.f));
-	if (tile == 'S')
 		return (define_start_player_state(map, pos, 3 * PI / 2.f));
+	if (tile == 'S')
+		return (define_start_player_state(map, pos, PI / 2.f));
 	if (tile == 'E')
 		return (define_start_player_state(map, pos, 0.f));
 	if (tile == 'W')

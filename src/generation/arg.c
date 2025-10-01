@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/05 17:02:10 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/14 21:15:46 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/09/30 17:44:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /**
  * @brief Check that the string is correctly formatted as number x number
  * 
- * @param[in] gen 
+ * @param[in] gen string containing parameters for maze gen
  * @return int 1 valid, 0 invalid
  */
 static int	is_valid_size(const char *gen)
