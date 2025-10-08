@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/26 14:44:31 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/08 14:22:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,49 @@
 #include "libft.h"
 #include <stdlib.h>
 
-static void				free_array(char **array);
 static int				has_line_an_error(t_map *map, char **array,
 							const char *line);
 static unsigned char	safe_atoi(char *str, int *error, unsigned char flag);
 static int				change_color_values(t_color *color, char **split,
 							int *error);
+static int				are_all_chars_digits(char *str);
+
+/**
+ * @brief Check that all chars in a string are digits or newline
+ * 
+ * @param[in] str 
+ * @return int 1 all digits, 0 otherwise
+ */
+int	are_all_chars_digits(char *str)
+{
+	size_t	index;
+
+	if (!str)
+		return (0);
+	index = 0;
+	while (str[index])
+	{
+		if ((str[index] < '0' || str[index] > '9') && str[index] != '\n')
+		{
+			ft_dprintf(2, RED "Error" RESET "\nColor contains invalid char: "
+				"'%c'\n", str[index]);
+			return (0);
+		}
+		index++;
+	}
+	return (1);
+}
 
 unsigned char	safe_atoi(char *str, int *error, unsigned char flag)
 {
 	int	value;
 
+	if (are_all_chars_digits(str) != 1)
+	{
+		if (error)
+			*error = (1 << flag) + *error;
+		return (0);
+	}
 	value = ft_atoi(str);
 	if (value < 0 || value > 255)
 	{
@@ -68,21 +100,17 @@ t_map	ft_check_floor_ceiling(t_map *map)
 	if (!map)
 		return ((t_map){.error = -1});
 	split = ft_split(&map->config[4][2], ',');
-	if (!split || !split[0] || !split[1] || !split[2])
-		map->error = 1;
 	if (has_line_an_error(map, split, "floor") == 1)
 		return (*map);
 	change_color_values(&map->textures.floor, split, &map->error);
-	free_array(split);
+	ft_free_array(split);
 	if (map->error != 0)
 		return (*map);
 	split = ft_split(&map->config[5][2], ',');
-	if (!split || !split[0] || !split[1] || !split[2])
-		map->error = 1;
 	if (has_line_an_error(map, split, "ceiling") == 1)
 		return (*map);
 	change_color_values(&map->textures.ceiling, split, &map->error);
-	free_array(split);
+	ft_free_array(split);
 	map->textures.ceiling.alpha = 0xff;
 	map->textures.floor.alpha = 0xff;
 	return (*map);
@@ -100,36 +128,26 @@ t_map	ft_check_floor_ceiling(t_map *map)
 int	has_line_an_error(t_map *map, char **array, const char *line)
 {
 	if (!map || map->error != 0)
+	{
+		if (array)
+			ft_free_array(array);
 		return (1);
+	}
 	if (array && array[0] && array[1] && array[2] && array[3])
 	{
 		ft_dprintf(2, RED "Error" RESET
 			"\nColor of %s has too many parameters\n", line);
-		free_array(array);
+		ft_free_array(array);
+		map->error = 1;
+		return (1);
+	}
+	if (!array || !array[0] || !array[1] || !array[2])
+	{
+		ft_dprintf(2, RED "Error" RESET
+			"\nColor of %s has too few parameters\n", line);
+		ft_free_array(array);
 		map->error = 1;
 		return (1);
 	}
 	return (0);
-}
-
-/**
- * @brief Free array of strings
- *
- * @param array array of strings
- */
-void	free_array(char **array)
-{
-	size_t	index;
-
-	if (array == NULL)
-		return ;
-	index = 0;
-	while (array && array[index])
-	{
-		free(array[index]);
-		array[index] = NULL;
-		index++;
-	}
-	free(array);
-	array = NULL;
 }
