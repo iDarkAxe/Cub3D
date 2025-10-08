@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/08 10:08:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/08 16:18:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <stddef.h>
 # include <stdint.h>
 # include <unistd.h>
+# include <sys/time.h>
 
 /**
  * @defgroup Macros Macros Functions
@@ -115,7 +116,7 @@
 /**
  * @brief Enable if you want to see the FPS
  */
-# define DEBUG_PRINT_FPS 0
+# define DEBUG_PRINT_FPS 1
 /**
  * @brief Enable to keep the FPS counter on a single line
  * @warning if you use it with any of the other DEBUG, the output is undefined
@@ -519,17 +520,26 @@ void				ft_free_textures_path(t_map *map);
 void				ft_free_map(t_map_raoul *map);
 
 /**
- * @brief Get the current time in milliseconds.
+ * @brief Get time in milliseconds.
  * 
- * @return uint64_t 
+ * @return uint64_t milliseconds
  */
 uint64_t			get_time_ms(void);
 
 /**
+ * @brief Convert a timeval in microseconds.
+ * 
+ * @return uint64_t microseconds
+ */
+uint64_t			timeval_to_us(const struct timeval *tv);
+
+/**
  * @brief Count the FPS and print it to the console.
  * It will print the FPS every second if DEBUG_PRINT_FPS is set to 1.
+ * @param print 1 to print the FPS, 0 otherwise
+ * @return uint16_t the current FPS
  */
-void				count_fps(void);
+uint16_t			count_fps(bool print);
 /** @} */
 
 #endif
