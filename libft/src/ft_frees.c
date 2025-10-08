@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:58:40 by ppontet           #+#    #+#             */
-/*   Updated: 2025/06/13 23:28:56 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/08 13:52:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,26 @@
  * @param ptr Array of pointers
  */
 void	ft_frees(void **ptr)
+{
+	size_t	index;
+
+	if (!ptr)
+		return ;
+	index = 0;
+	while (ptr[index] != NULL)
+	{
+		free(ptr[index]);
+		index++;
+	}
+	free(ptr);
+}
+
+/**
+ * @brief Frees multiple pointers of char *
+ * 
+ * @param ptr Array of pointers
+ */
+void	ft_free_array(char **ptr)
 {
 	size_t	index;
 
