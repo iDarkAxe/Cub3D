@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/30 17:41:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/08 10:08:49 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@
 /**
  * @brief Enable printing of message to indicate texture swapping
  */
-# define DEBUG_PRINT_TEXTURE_SWAP 1
+# define DEBUG_PRINT_TEXTURE_SWAP 0
 
 /**
  * @brief Enable printing message when a texture is altered with filters
