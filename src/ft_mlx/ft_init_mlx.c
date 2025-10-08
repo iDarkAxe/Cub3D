@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/01 16:30:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/08 10:03:10 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,8 @@ void	copy_path_alt_textures(t_data *data)
 	data->map.alt_textures.west.path = data->map.textures.west.path;
 	data->map.alt_textures.door.path = data->map.textures.door.path;
 	data->map.alt_textures.key.path = data->map.textures.key.path;
-	ft_memcpy(&data->map.alt_textures.ceiling, &data->map.textures.ceiling,
-		sizeof(t_color));
-	ft_memcpy(&data->map.alt_textures.floor, &data->map.textures.floor,
-		sizeof(t_color));
+	data->map.alt_textures.floor = data->map.textures.floor;
+	data->map.alt_textures.ceiling = data->map.textures.ceiling;
 }
 
 static int	load_mlx_texture(t_mlx *mlx, t_img *img)

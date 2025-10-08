@@ -1,7 +1,7 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 
 CC = cc
-CFLAGS = -Wextra -Wall -Werror -Ofast
+CFLAGS = -Wextra -Wall -Werror
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
