@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/09 14:42:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/11 18:32:16 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -423,6 +423,21 @@ t_coordinates		find_position(t_map *map, const char *charset);
  * @return int 1 OK, error otherwise
  */
 int					validate_map(t_map *map);
+
+/**
+ * @brief Check if the string contains only whitespace characters
+ *
+ * @param[in] str string to check
+ * @return bool 1 all whitespace, 0 otherwise
+ */
+bool				is_only_whitespace(const char *str);
+
+/**
+ * @brief Suppress newlines in the given lines
+ *
+ * @param[in,out] lines Array of strings to modify
+ */
+void				suppress_newlines(char **lines);
 
 /**
  * @brief Check if a character is walkable or not
