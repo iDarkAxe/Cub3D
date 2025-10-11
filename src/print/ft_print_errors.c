@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:53:09 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/14 21:15:54 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/10/11 18:25:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,25 @@ void	print_map_error(t_map *map, enum e_map_error error)
 	else if (error == CONFIG_MISSING_PARAMETERS)
 		ft_dprintf(2,
 			RED "Error" RESET "\nAt least one parameter is missing\n");
+	else
+		ft_dprintf(2, RED "Error" RESET "\nUnknown map error\n");
+}
+
+int	print_map_validate_error(t_map *map, enum e_map_error error)
+{
+	if (!map)
+		return (1);
+	map->error = 1;
+	ft_free_file(map);
+	if (error == CONFIG_MAP_TOO_SOON)
+		ft_dprintf(2, RED "Error" RESET
+			"\nMap lines found before all configuration parameters are set\n");
+	else if (error == CONFIG_FOUND_AFTER_MAP)
+		ft_dprintf(2, RED "Error" RESET
+			"\nConfiguration line found after map started\n");
+	else
+		print_map_error(map, error);
+	return (1);
 }
 
 void	print_maze_error(enum e_maze_error error)

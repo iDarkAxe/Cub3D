@@ -113,6 +113,7 @@ MAP_VERIF = \
 	ft_check_colors.c \
 	ft_map_boundaries.c \
 	ft_validate_map.c \
+	ft_map_utils.c \
 
 ARGS = \
 	read.c \

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 14:33:31 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/14 21:16:01 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/10/11 18:32:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ enum	e_map_error
 {
 	CONFIG_TOO_MANY_PARAMETERS,
 	CONFIG_ALREADY_STORED,
-	CONFIG_MISSING_PARAMETERS
+	CONFIG_MISSING_PARAMETERS,
+	CONFIG_MAP_TOO_SOON,
+	CONFIG_FOUND_AFTER_MAP
 };
 
 /**
@@ -171,9 +173,16 @@ void	ft_print_key(int keycode);
  */
 void	print_map_error(t_map *map, enum e_map_error error);
 /**
- * @brief Print the corresponding maze error
+ * @brief Print the corresponding map validation error
  * 
- * @param[in] error error state 
+ * @param[in,out] map map structure 
+ * @param[in] error error state
+ */
+int		print_map_validate_error(t_map *map, enum e_map_error error);
+/**
+ * @brief Print the corresponding maze error
+ *
+ * @param[in] error error state
  */
 void	print_maze_error(enum e_maze_error error);
 /**

@@ -6,36 +6,18 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:15:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/28 17:53:25 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/10/11 18:39:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "libft.h"
+#include "ft_printf.h"
+#include "ft_print.h"
 #include <stdlib.h>
-#include <stdbool.h>
 
-static bool		is_only_whitespace(const char *str);
 static size_t	count_map_size(t_map *map);
-
-static void	suppress_newlines(char **lines)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (lines[i])
-	{
-		j = 0;
-		while (lines[i][j])
-		{
-			if (lines[i][j] == '\n')
-				lines[i][j] = 0;
-			j++;
-		}
-		i++;
-	}
-}
+static int		validate_file_structure(t_map *map);
+static int		validate_map_continuity(t_map *map);
 
 size_t	count_map_size(t_map *map)
 {
@@ -57,49 +39,93 @@ size_t	count_map_size(t_map *map)
 
 char	**fill_map_region(t_map *map)
 {
-	size_t	index;
-	int		nb_lines;
+	size_t		index;
+	uint32_t	nb_lines;
 
 	if (!map || !map->file)
+		return (NULL);
+	if (validate_file_structure(map) != 0 || map->error != 0)
 		return (NULL);
 	map->map_2d = malloc(sizeof(char *) * (count_map_size(map) - 6 + 1));
 	if (!map->map_2d)
 		return (NULL);
 	nb_lines = 0;
 	index = 0;
-	while (map->file[index] && map->error == 0)
+	while (map->file[index] && (is_config_line(map->file[index])
+			|| is_only_whitespace(map->file[index])))
+		index++;
+	while (map->file[index] && is_only_whitespace(map->file[index]) == false)
 	{
-		if (is_config_line(map->file[index]) == 0
-			&& is_only_whitespace(map->file[index]) == false)
-		{
-			map->map_2d[nb_lines] = map->file[index];
-			nb_lines++;
-		}
+		map->map_2d[nb_lines++] = map->file[index];
 		index++;
 	}
 	map->map_2d[nb_lines] = NULL;
 	suppress_newlines(map->map_2d);
+	if (validate_map_continuity(map) != 0)
+		return (NULL);
 	return (map->map_2d);
 }
 
 /**
- * @brief Check if the string contains only whitespace characters
- *
- * @param str string to check
- * @return bool 1 all whitespace, 0 otherwise
+ * @brief Validate that configuration lines appear before any map lines
+ * 
+ * @param[in] map map structure containing the file lines
+ * @return int 0 if valid, -1 if invalid structure
  */
-bool	is_only_whitespace(const char *str)
+int	validate_file_structure(t_map *map)
 {
-	size_t	i;
+	size_t	index;
+	uint8_t	config_count;
+	bool	map_started;
 
-	i = 0;
-	if (str == NULL)
-		return (false);
-	while (str[i])
+	index = 0;
+	config_count = 0;
+	map_started = false;
+	while (map->file[index])
 	{
-		if (!ft_isspace((unsigned char)str[i]))
-			return (false);
-		i++;
+		if (is_config_line(map->file[index]) != 0)
+		{
+			if (map_started)
+				return (print_map_validate_error(map, CONFIG_FOUND_AFTER_MAP));
+			config_count++;
+		}
+		else if (!is_only_whitespace(map->file[index]))
+		{
+			if (config_count < 6)
+				return (print_map_validate_error(map, CONFIG_MAP_TOO_SOON));
+			map_started = true;
+		}
+		index++;
 	}
-	return (true);
+	return (0);
+}
+
+/**
+ * @brief Validate that the map region is continuous with no empty lines
+ * This ensures the map is properly closed and prevents leaks
+ * 
+ * @param[in] map map structure containing the map_2d array
+ * @return int 0 if valid, -1 if gaps found in map
+ */
+int	validate_map_continuity(t_map *map)
+{
+	size_t	index;
+
+	if (!map || !map->map_2d)
+		return (-1);
+	index = 0;
+	while (map->map_2d[index])
+	{
+		if (is_only_whitespace(map->map_2d[index])
+			|| ft_strlen(map->map_2d[index]) == 0)
+		{
+			ft_dprintf(2, RED "Error" RESET
+				"\nEmpty line found in map at line %zu\n", index + 1);
+			ft_dprintf(2, "Map region must be continuous with no empty line\n");
+			map->error = -1;
+			return (-1);
+		}
+		index++;
+	}
+	return (0);
 }
