@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:21:02 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/10/08 14:57:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ static void		*store_textures_names(t_map *map, char *str, size_t index);
 
 size_t	is_config_line(char *line)
 {
-	static char	*config_str[] = {"NO ", "SO ", "WE ", "EA ", "F ", "C ", NULL};
-	size_t		i;
+	static const char *const	config_str[] = {"NO ", "SO ", "WE ", "EA ",
+		"F ", "C ", NULL};
+	size_t						i;
 
 	i = 0;
 	while (config_str[i])
