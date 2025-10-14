@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/11 09:52:33 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:23:06 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void	draw_column(t_data *data, int x, const t_raydata *rdata)
 	int		tex_x;
 	t_img	*img;
 
-	wall_x = calc_line_and_wall_x(&data->mlx, x, points, rdata);
+	wall_x = 1.0f - calc_line_and_wall_x(&data->mlx, x, points, rdata);
 	img = hitside_texture(&data->map.textures, rdata->hit_side, &rdata->step);
 	tex_x = (int)(wall_x * img->width);
 	if (!rdata->hit_side && rdata->ray_dir.x > 0)
