@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/11 18:32:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/14 17:16:41 by rdesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@
 /**
  * @brief Enable if you want to see the FPS
  */
-# define DEBUG_PRINT_FPS 1
+# define DEBUG_PRINT_FPS 0
 /**
  * @brief Enable to keep the FPS counter on a single line
  * @warning if you use it with any of the other DEBUG, the output is undefined
