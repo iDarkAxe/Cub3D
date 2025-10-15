@@ -3,21 +3,10 @@
 # Based on work from LeMuffinMan : https://github.com/LeMuffinMan
 # Maps are from various sources, including: gueberso
 
-VALIDS_MAPS="scripts/maps/valid_maps/"
-INVALIDS_MAPS="scripts/maps/invalid_maps/"
-
-CUB3D_EXEC="./cub3D"
-FAILED_TESTS=""
-
-if [[ ! -f "$CUB3D_EXEC" ]]; then
-  echo -e "Error: cub3D binary not found at $CUB3D_EXEC\n"
-  exit 1
-fi
-
-if [[ ! -x "$CUB3D_EXEC" ]]; then
-  echo -e "Error: cub3D binary not executable, run 'chmod +x $CUB3D_EXEC'\n"
-  exit 1
-fi
+cleanup() {
+  echo -e "\nExiting, removing $CUB_LOG and $VALGRIND_LOG"
+  rm -f $CUB_LOG $VALGRIND_LOG
+}
 
 run_parsing_test() {
   local file="$1"
@@ -25,22 +14,20 @@ run_parsing_test() {
   local success=1
   local message=""
 
-  cub3d_stderr=$("$CUB3D_EXEC" "$file" 2>&1 >/dev/null)
-  cub3d_exit_code=$?
-  
-  valgrind_output=$(valgrind --leak-check=full \
+ valgrind --leak-check=full \
     --show-leak-kinds=all \
     --track-origins=yes \
     --show-mismatched-frees=yes \
     --track-fds=yes \
-    --error-exitcode=42 \
-    "$CUB3D_EXEC" "$file" 2>&1 >/dev/null)
+    --log-file="$VALGRIND_LOG" \
+    "$CUB3D_EXEC" "$file" 2> $CUB_LOG 1> /dev/null
 
-  if [[ $expected_result == 0 && $cub3d_exit_code != 0 ]]; then
-    message+="Exit code=$cub3d_exit_code "
-    success=0
-  elif [[ $expected_result != 0 && $cub3d_exit_code == 0 ]]; then
-    message+="Exit code = $cub3d_exit_code (Should have failed) "
+  cub3d_exit_code=$?
+  cub3d_stderr=$(< $CUB_LOG)
+  valgrind_output=$(< $VALGRIND_LOG)
+
+  if [[ $expected_result != $cub3d_exit_code ]]; then
+    message+="Exit code = $cub3d_exit_code, expected = $expected_result"
     success=0
   fi
 
@@ -73,17 +60,12 @@ run_parsing_test_group() {
   done
 }
 
-make
-
-echo -e "\n--- PARSING TESTS ---\n"
-
-run_parsing_test_group "$VALIDS_MAPS" 0
-run_parsing_test_group "$INVALIDS_MAPS" 1
-
-if [[ -z "$FAILED_TESTS" ]]; then
-  echo -e "\nAll tests passed!\n"
-  exit 0
-else
-  echo -e "\n--- Failed tests ---\n"
-  echo -e $FAILED_TESTS
-fi
+analyze_results() {
+  if [[ -z "$FAILED_TESTS" ]]; then
+    echo -e "\nAll tests passed!\n"
+    exit 0
+  else
+    echo -e "\n--- Failed tests ---\n"
+    echo -e $FAILED_TESTS
+  fi
+}
