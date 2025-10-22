@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/10/14 17:23:06 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/10/21 10:37:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,11 +114,19 @@ void	draw_column(t_data *data, int x, const t_raydata *rdata)
 	t_img	*img;
 
 	wall_x = 1.0f - calc_line_and_wall_x(&data->mlx, x, points, rdata);
+	if (wall_x < 0.f)
+		wall_x = 0.f;
+	else if (wall_x > 1.f)
+		wall_x = 1.f;
 	img = hitside_texture(&data->map.textures, rdata->hit_side, &rdata->step);
 	tex_x = (int)(wall_x * img->width);
 	if (!rdata->hit_side && rdata->ray_dir.x > 0)
 		tex_x = img->width - tex_x - 1;
 	if (rdata->hit_side && rdata->ray_dir.y < 0)
 		tex_x = img->width - tex_x - 1;
+	if (tex_x < 0)
+		tex_x = 0;
+	else if (tex_x >= img->width)
+		tex_x = img->width - 1;
 	do_draw_line(data, img, points, tex_x);
 }

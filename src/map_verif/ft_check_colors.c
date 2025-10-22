@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/08 14:22:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/10/15 13:57:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	are_all_chars_digits(char *str)
 {
 	size_t	index;
 
-	if (!str)
+	if (!str || str[0] == '\n' || str[0] == '\0')
 		return (0);
 	index = 0;
 	while (str[index])
