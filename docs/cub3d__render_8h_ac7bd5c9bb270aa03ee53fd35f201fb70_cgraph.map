@@ -1,0 +1,19 @@
+<map id="cub_render" name="cub_render">
+<area shape="rect" id="Node000001" title="Main rendering function." alt="" coords="5,128,100,153"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#gae47d00e14cc6cd270a1bbd76254a6bd9" title="Count the FPS and print it to the console. It will print the FPS every second if DEBUG_PRINT_FPS is s..." alt="" coords="179,29,265,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,126,100,95,147,64,165,55,167,60,149,68,104,99,69,130"/>
+<area shape="rect" id="Node000005" href="$sprite_8c.html#a775e5a7f17e8ccfcd1b576490aa3aa14" title=" " alt="" coords="149,79,295,104"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="96,125,163,106,165,111,98,131"/>
+<area shape="rect" id="Node000006" href="$group__Backbuffer.html#ga595f22b046f224da8094a94ef43ccd56" title="Puts a vertical line on the backbuffer. Optimized for vertical lines." alt="" coords="148,128,296,153"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="100,138,134,138,134,143,100,143"/>
+<area shape="rect" id="Node000007" href="$draw__column_8c.html#a44b5f258aafda66fa03679d87574f7d4" title="Draw a column of pixels from a raycast result." alt="" coords="167,177,277,203"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="98,151,165,171,163,176,96,156"/>
+<area shape="rect" id="Node000009" href="$group__Utils.html#gadd4685bf7f6a29a54915dff6ba1c8cf8" title="Returns a new vector rotated according to the angle." alt="" coords="176,227,268,252"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="69,152,104,181,149,212,165,219,163,224,147,216,101,186,66,156"/>
+<area shape="rect" id="Node000003" href="$ft__time_8c.html#a68c0352f61bd7f19e1acbccbee488fe0" title=" " alt="" coords="365,5,443,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="265,34,351,22,351,28,265,39"/>
+<area shape="rect" id="Node000004" href="$group__Utils.html#ga27c05df32c4ac4355ee49429f7d66054" title="Convert a timeval in microseconds." alt="" coords="347,55,461,80"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="265,45,333,55,333,60,265,51"/>
+<area shape="rect" id="Node000008" href="$hitside_8c.html#a3f4cd1ef7638eb9544573ff1c05873a6" title="Function to select the texture based on the hit side and step direction." alt="" coords="344,177,464,203"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="277,187,331,187,331,193,277,193"/>
+</map>

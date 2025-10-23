@@ -1,0 +1,5 @@
+<map id="print_leak_map" name="print_leak_map">
+<area shape="rect" id="Node000001" title="Print where a leak is located on the map." alt="" coords="5,5,128,31"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#gafdbdb797819a02971425da4c0998e44a" title="Count the number of strings that an array have Should absolutely be NULL&#45;Terminated." alt="" coords="176,5,323,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,15,162,15,162,21,128,21"/>
+</map>

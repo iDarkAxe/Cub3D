@@ -1,0 +1,205 @@
+.TH "Main" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Main \- Main Functions
+.PP
+ \- Core functionality of the program\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBcub3d\fP (int argc, char **argv)"
+.br
+.RI "Main function of the cub3d project\&. "
+.ti -1c
+.RI "int \fBcub_read_args\fP (int argc, char **argv, \fBt_args\fP *args)"
+.br
+.RI "Reads and verifies the arguments passed to the program\&. "
+.ti -1c
+.RI "char ** \fBfill_config_region\fP (\fBt_map\fP *map)"
+.br
+.RI "Fill the config region of the file\&. "
+.ti -1c
+.RI "char ** \fBfill_map_region\fP (\fBt_map\fP *map)"
+.br
+.RI "Fill the map region of the file\&. "
+.ti -1c
+.RI "char ** \fBread_file_lines\fP (\fBt_map\fP *map, char *map_name)"
+.br
+.RI "Read the map file line by line and return an array of strings\&. "
+.ti -1c
+.RI "size_t \fBcount_file_lines\fP (char *file_name)"
+.br
+.RI "Simple function to count the number of lines in a file\&. "
+.ti -1c
+.RI "void \fBft_exit\fP (\fBt_mlx\fP mlx, \fBt_map\fP *map)"
+.br
+.RI "Exit the program\&. "
+.ti -1c
+.RI "int \fBft_mlx_init\fP (\fBt_data\fP *data)"
+.br
+.RI "Initialize the mlx structure, create settings window, and load game\&. "
+.ti -1c
+.RI "void \fBft_mlx_end\fP (\fBt_mlx\fP *mlx)"
+.br
+.RI "Close and free the mlx structure\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Core functionality of the program\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "size_t count_file_lines (char * file_name)"
+
+.PP
+Simple function to count the number of lines in a file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile_name\fP file name to count lines in 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+size_t 
+.RE
+.PP
+
+.SS "int cub3d (int argc, char ** argv)"
+
+.PP
+Main function of the cub3d project\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargc\fP number of arguments 
+.br
+\fIargv\fP array of string arguments 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 if the program ends correctly, -1 otherwise 
+.RE
+.PP
+
+.SS "int cub_read_args (int argc, char ** argv, \fBt_args\fP * args)"
+
+.PP
+Reads and verifies the arguments passed to the program\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIargc\fP argument count 
+.br
+\fIargv\fP array of arguments 
+.br
+\fIargs\fP pointer to args struct to fill 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, -1 otherwise with side effect of printing error 
+.RE
+.PP
+
+.SS "char ** fill_config_region (\fBt_map\fP * map)"
+
+.PP
+Fill the config region of the file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char** NULL if error, config otherwise 
+.RE
+.PP
+
+.SS "char ** fill_map_region (\fBt_map\fP * map)"
+
+.PP
+Fill the map region of the file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char** NULL if error, map otherwise 
+.RE
+.PP
+
+.SS "void ft_exit (\fBt_mlx\fP mlx, \fBt_map\fP * map)"
+
+.PP
+Exit the program\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP Pointer to the mlx structure\&. 
+.br
+\fImap\fP Pointer to the map structure\&. 
+.RE
+.PP
+
+.SS "void ft_mlx_end (\fBt_mlx\fP * mlx)"
+
+.PP
+Close and free the mlx structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.RE
+.PP
+
+.SS "int ft_mlx_init (\fBt_data\fP * data)"
+
+.PP
+Initialize the mlx structure, create settings window, and load game\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "char ** read_file_lines (\fBt_map\fP * map, char * map_name)"
+
+.PP
+Read the map file line by line and return an array of strings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure to store the lines 
+.br
+\fImap_name\fP map file name to read 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+char** array of strings containing the map lines 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

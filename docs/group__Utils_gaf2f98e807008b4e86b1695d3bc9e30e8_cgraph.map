@@ -1,0 +1,7 @@
+<map id="try_to_open_close_file" name="try_to_open_close_file">
+<area shape="rect" id="Node000001" title="Try to open the file specified by file_name." alt="" coords="5,31,172,56"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#gad6d87adb1f10074bf9c114f9c0bdd040" title="Close safely the file descriptor Modify the file descriptor to &#45;1 after closing it." alt="" coords="220,5,311,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,29,206,24,207,29,173,34"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#gafee4cf256e5bc57a60f1a23bced82cd8" title="Try to open the map file specified by map_name." alt="" coords="221,55,310,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="173,52,207,57,206,62,172,57"/>
+</map>

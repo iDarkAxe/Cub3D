@@ -1,0 +1,8 @@
+<map id="cub_read_args" name="cub_read_args">
+<area shape="rect" id="Node000001" title="Reads and verifies the arguments passed to the program." alt="" coords="5,5,121,31"/>
+<area shape="rect" id="Node000002" href="$validation_8c.html#a1fb0d6ee2e285c616158f154ae31152a" title=" " alt="" coords="369,5,535,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="122,15,356,15,356,21,122,21"/>
+<area shape="rect" id="Node000003" href="$validation_8c.html#a288819dbc6b8516d4c3a7b2fa43014e6" title=" " alt="" coords="169,31,321,56"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="122,23,156,28,156,34,121,29"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="321,31,355,27,356,32,322,37"/>
+</map>

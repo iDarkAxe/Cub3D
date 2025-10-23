@@ -1,0 +1,7 @@
+<map id="state_machine" name="state_machine">
+<area shape="rect" id="Node000001" title="State machine for the settings window." alt="" coords="5,31,124,56"/>
+<area shape="rect" id="Node000002" href="$group__Settings.html#ga75b2cd9bd30c92a5cb9a33972f1a124d" title="Set screen size according to an enum." alt="" coords="172,5,313,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="124,32,158,27,159,33,125,38"/>
+<area shape="rect" id="Node000003" href="$group__Key.html#gabd000bbaaf9c5ad2d692c819475d18cf" title="Check if a keycode is a movement key." alt="" coords="197,55,288,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,49,184,57,183,62,124,54"/>
+</map>

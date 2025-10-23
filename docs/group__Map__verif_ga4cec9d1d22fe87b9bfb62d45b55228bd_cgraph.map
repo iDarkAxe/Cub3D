@@ -1,0 +1,10 @@
+<map id="validate_map" name="validate_map">
+<area shape="rect" id="Node000001" title="Validate if the map has unclosed holes or an unfinished outer layer." alt="" coords="5,31,116,56"/>
+<area shape="rect" id="Node000002" href="$group__Map__verif.html#ga0e08225805bfef986ed7d4ff676c8248" title="Find the position of the player with charset in the map." alt="" coords="165,5,270,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="116,32,151,26,151,31,117,37"/>
+<area shape="rect" id="Node000004" href="$group__Map__verif.html#ga345b8fea0d4fb03900b5202641d70abc" title="Check if a position is in bounds of map or not." alt="" coords="164,55,271,80"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="117,49,151,55,150,60,116,54"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#gafdbdb797819a02971425da4c0998e44a" title="Count the number of strings that an array have Should absolutely be NULL&#45;Terminated." alt="" coords="319,31,465,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="271,23,305,28,304,33,270,28"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="270,57,305,53,306,58,271,63"/>
+</map>

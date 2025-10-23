@@ -1,0 +1,52 @@
+.TH "src/draw/ft_draw_circle.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/draw/ft_draw_circle.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'ft_draw\&.h'\fP
+.br
+\fR#include 'mlx\&.h'\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_draw_circle\fP (\fBt_mlx\fP *mlx, void *win_ptr, \fBt_circle\fP element)"
+.br
+.RI "Draw a circle directly on the window\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void ft_draw_circle (\fBt_mlx\fP * mlx, void * win_ptr, \fBt_circle\fP element)"
+
+.PP
+Draw a circle directly on the window\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Uses an old technique, should put pixels onto a img first and after onto the window (it's at least 10x faster)
+.RE
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_ptr\fP window pointer 
+.br
+\fIelement\fP element 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

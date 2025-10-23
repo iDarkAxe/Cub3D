@@ -1,0 +1,211 @@
+.TH "Hooks" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hooks \- Hooks functions
+.PP
+ \- All the functions used to use hooks on windows\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBcub_keydown_hook\fP (int keycode, void *param)"
+.br
+.RI "Hook when a key is pressed\&. "
+.ti -1c
+.RI "int \fBcub_keyup_hook\fP (int keycode, void *param)"
+.br
+.RI "Hook when a key is released\&. "
+.ti -1c
+.RI "int \fBcub_mouse_click_hook\fP (int button, int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved while clicking\&. "
+.ti -1c
+.RI "int \fBcub_mouse_hook\fP (int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved\&. "
+.ti -1c
+.RI "int \fBhook_settings_handle_mouse_click\fP (int button, int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved while clicking for the settings\&. "
+.ti -1c
+.RI "int \fBhook_settings_handle_mouse_motion\fP (int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved for the settings\&. "
+.ti -1c
+.RI "int \fBhook_settings_close_window\fP (void *param)"
+.br
+.RI "Hook used to close window or set the window size if MACRO Enabled\&. "
+.ti -1c
+.RI "int \fBhook_settings_handle_keypress\fP (int keycode, void *param)"
+.br
+.RI "Handle mouse click in the settings window\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to use hooks on windows\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "int cub_keydown_hook (int keycode, void * param)"
+
+.PP
+Hook when a key is pressed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP keycode of key pressed 
+.br
+\fIparam\fP param 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int keycode 
+.RE
+.PP
+
+.SS "int cub_keyup_hook (int keycode, void * param)"
+
+.PP
+Hook when a key is released\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP keycode of key released 
+.br
+\fIparam\fP param 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int keycode 
+.RE
+.PP
+
+.SS "int cub_mouse_click_hook (int button, int x, int y, void * param)"
+
+.PP
+Hook when the mouse is moved while clicking\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbutton\fP button pressed 
+.br
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.br
+\fIparam\fP param 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 always 
+.RE
+.PP
+
+.SS "int cub_mouse_hook (int x, int y, void * param)"
+
+.PP
+Hook when the mouse is moved\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.br
+\fIparam\fP param 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 always 
+.RE
+.PP
+
+.SS "int hook_settings_close_window (void * param)"
+
+.PP
+Hook used to close window or set the window size if MACRO Enabled\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIparam\fP param 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 always 
+.RE
+.PP
+
+.SS "int hook_settings_handle_keypress (int keycode, void * param)"
+
+.PP
+Handle mouse click in the settings window\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP keycode of the key pressed 
+.br
+\fIparam\fP Pointer to the mlx structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int hook_settings_handle_mouse_click (int button, int x, int y, void * param)"
+
+.PP
+Hook when the mouse is moved while clicking for the settings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIbutton\fP button pressed 
+.br
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.br
+\fIparam\fP param 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, -1 otherwise 
+.RE
+.PP
+
+.SS "int hook_settings_handle_mouse_motion (int x, int y, void * param)"
+
+.PP
+Hook when the mouse is moved for the settings\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.br
+\fIparam\fP param 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, -1 otherwise 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

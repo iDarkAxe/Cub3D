@@ -1,0 +1,5 @@
+<map id="ft_put_all_circle_to_win" name="ft_put_all_circle_to_win">
+<area shape="rect" id="Node000001" title="Function to pull all the circle to the window following their state." alt="" coords="5,5,180,31"/>
+<area shape="rect" id="Node000002" href="$ft__settings__draw__img_8c.html#a7b28d42b89180749bbc812716e3a9129" title="Put ON circle if is_enabled, put OFF circle if not." alt="" coords="228,5,379,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,15,214,15,214,21,180,21"/>
+</map>

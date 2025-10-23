@@ -1,0 +1,42 @@
+.TH "src/print/ft_print_special.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/print/ft_print_special.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'ft_print\&.h'\fP
+.br
+\fR#include 'ft_printf\&.h'\fP
+.br
+\fR#include <stdio\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "ssize_t \fBft_print_position\fP (int x, int y)"
+.br
+.RI "Print a position\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_file\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the whole file\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_config\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the config\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the map\&. "
+.ti -1c
+.RI "void \fBprint_visited\fP (char **visited, char **map)"
+.br
+.RI "Print the map visited by the DFS (Depth First Search), DFS is used to search if the exterior is accessible by the player 'x' means visited '\&.' means not visited\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

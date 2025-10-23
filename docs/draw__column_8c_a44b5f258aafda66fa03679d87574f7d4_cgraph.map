@@ -1,0 +1,5 @@
+<map id="draw_column" name="draw_column">
+<area shape="rect" id="Node000001" title="Draw a column of pixels from a raycast result." alt="" coords="5,5,115,31"/>
+<area shape="rect" id="Node000002" href="$hitside_8c.html#a3f4cd1ef7638eb9544573ff1c05873a6" title="Function to select the texture based on the hit side and step direction." alt="" coords="163,5,283,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="115,15,149,15,149,21,115,21"/>
+</map>

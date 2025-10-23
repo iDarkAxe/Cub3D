@@ -1,0 +1,57 @@
+.TH "src/filters/filters-utils.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/filters/filters-utils.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'filter\&.h'\fP
+.br
+\fR#include 'ft_keys\&.h'\fP
+.br
+\fR#include 'maze\&.h'\fP
+.br
+\fR#include 'mlx\&.h'\fP
+.br
+\fR#include 'cub3d\&.h'\fP
+.br
+\fR#include 'ft_printf\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBfilter_overflow\fP (\fBt_color\fP *pixel, \fBt_color\fP filter)"
+.br
+.ti -1c
+.RI "void \fBapply_filters_on_textures\fP (\fBt_textures\fP *textures)"
+.br
+.ti -1c
+.RI "void \fBchange_filter\fP (\fBt_data\fP *data, int keycode)"
+.br
+.ti -1c
+.RI "void \fBswap_textures\fP (\fBt_map\fP *map)"
+.br
+.ti -1c
+.RI "void \fBft_free_alt_textures\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void apply_filters_on_textures (\fBt_textures\fP * textures)"
+
+.SS "void change_filter (\fBt_data\fP * data, int keycode)"
+
+.SS "void filter_overflow (\fBt_color\fP * pixel, \fBt_color\fP filter)"
+
+.SS "void ft_free_alt_textures (\fBt_mlx\fP * mlx, \fBt_map\fP * map)"
+
+.SS "void swap_textures (\fBt_map\fP * map)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

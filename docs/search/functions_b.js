@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['safe_5fclose_0',['safe_close',['../group__Utils.html#gad6d87adb1f10074bf9c114f9c0bdd040',1,'safe_close(int *fd):&#160;ft_safe.c'],['../group__Utils.html#gad6d87adb1f10074bf9c114f9c0bdd040',1,'safe_close(int *fd):&#160;ft_safe.c']]],
+  ['safe_5fopen_1',['safe_open',['../group__Utils.html#gafee4cf256e5bc57a60f1a23bced82cd8',1,'safe_open(char *file_name):&#160;ft_safe.c'],['../group__Utils.html#gafee4cf256e5bc57a60f1a23bced82cd8',1,'safe_open(char *file_name):&#160;ft_safe.c']]],
+  ['set_5fkey_2',['set_key',['../group__Key.html#ga50b70e19e404543bcf695d846cb0c87f',1,'set_key(int keycode, t_input *input, bool set):&#160;ft_keys.c'],['../group__Key.html#ga50b70e19e404543bcf695d846cb0c87f',1,'set_key(int keycode, t_input *input, bool set):&#160;ft_keys.c']]],
+  ['settings_5fhooks_3',['settings_hooks',['../group__Settings.html#ga6923929957892598053d58f19427dc29',1,'settings_hooks(t_data *data):&#160;ft_settings.c'],['../group__Settings.html#ga6923929957892598053d58f19427dc29',1,'settings_hooks(t_data *data):&#160;ft_settings.c']]],
+  ['solve_5fcollision_5fx_4',['solve_collision_x',['../group__Player.html#ga9ac4f15f3d5d26e82fa4d2cc0778c4b1',1,'solve_collision_x(t_data *data, float x_vel):&#160;player_utils.c'],['../group__Player.html#ga9ac4f15f3d5d26e82fa4d2cc0778c4b1',1,'solve_collision_x(t_data *data, float x_vel):&#160;player_utils.c']]],
+  ['solve_5fcollision_5fy_5',['solve_collision_y',['../group__Player.html#gacae033dcea254050b56e2a4e016876f6',1,'solve_collision_y(t_data *data, float y_vel):&#160;player_utils.c'],['../group__Player.html#gacae033dcea254050b56e2a4e016876f6',1,'solve_collision_y(t_data *data, float y_vel):&#160;player_utils.c']]],
+  ['state_5fmachine_6',['state_machine',['../group__Settings.html#gaf0d8b2783f978e0743efbccd9db10409',1,'state_machine(int keycode, t_mlx *mlx):&#160;ft_settings_state.c'],['../group__Settings.html#gaf0d8b2783f978e0743efbccd9db10409',1,'state_machine(int keycode, t_mlx *mlx):&#160;ft_settings_state.c']]],
+  ['suppress_5fnewlines_7',['suppress_newlines',['../group__Map__verif.html#ga9d5ee02b7c7fd36321cd818741ce39e5',1,'suppress_newlines(char **lines):&#160;ft_map_utils.c'],['../group__Map__verif.html#ga9d5ee02b7c7fd36321cd818741ce39e5',1,'suppress_newlines(char **lines):&#160;ft_map_utils.c']]],
+  ['swap_5ftextures_8',['swap_textures',['../filters-utils_8c.html#acf31ba25d224af6a2c0ce512d1e6b68e',1,'swap_textures(t_map *map):&#160;filters-utils.c'],['../filter_8h.html#acf31ba25d224af6a2c0ce512d1e6b68e',1,'swap_textures(t_map *map):&#160;filters-utils.c']]]
+];

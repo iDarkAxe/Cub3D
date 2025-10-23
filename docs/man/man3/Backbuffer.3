@@ -1,0 +1,126 @@
+.TH "Backbuffer" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Backbuffer \- Backbuffer Manipulation
+.PP
+ \- Backbuffer functions used to manipulate and place pixels onto it\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcubmlx_clear\fP (\fBt_mlx\fP *mlx, unsigned int color)"
+.br
+.RI "Clear the backbuffer with a specific color\&. "
+.ti -1c
+.RI "void \fBcubmlx_putpixel\fP (\fBt_data\fP *data, int x, int y, unsigned int color)"
+.br
+.RI "Puts a pixel onto the backbuffer\&. "
+.ti -1c
+.RI "void \fBcubmlx_putvertline\fP (\fBt_data\fP *data, \fBt_pos2\fP pos, int len, unsigned int color)"
+.br
+.RI "Puts a vertical line on the backbuffer\&. Optimized for vertical lines\&. "
+.ti -1c
+.RI "void \fBcubmlx_putrect\fP (\fBt_data\fP *data, \fBt_pos2\fP pos, \fBt_pos2\fP size, unsigned int color)"
+.br
+.RI "Puts a rectangle onto the backbuffer\&. "
+.ti -1c
+.RI "void \fBcubmlx_putline\fP (\fBt_data\fP *data, \fBt_pos2\fP p1, \fBt_pos2\fP p2, unsigned int color)"
+.br
+.RI "Puts a line onto the backbuffer\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Backbuffer functions used to manipulate and place pixels onto it\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void cubmlx_clear (\fBt_mlx\fP * mlx, unsigned int color)"
+
+.PP
+Clear the backbuffer with a specific color\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIcolor\fP color 
+.RE
+.PP
+
+.SS "void cubmlx_putline (\fBt_data\fP * data, \fBt_pos2\fP p1, \fBt_pos2\fP p2, unsigned int color)"
+
+.PP
+Puts a line onto the backbuffer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIp1\fP coordinates of starting point of the line 
+.br
+\fIp2\fP coordinates of ending point of the line 
+.br
+\fIcolor\fP color 
+.RE
+.PP
+
+.SS "void cubmlx_putpixel (\fBt_data\fP * data, int x, int y, unsigned int color)"
+
+.PP
+Puts a pixel onto the backbuffer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.br
+\fIcolor\fP color 
+.RE
+.PP
+
+.SS "void cubmlx_putrect (\fBt_data\fP * data, \fBt_pos2\fP pos, \fBt_pos2\fP size, unsigned int color)"
+
+.PP
+Puts a rectangle onto the backbuffer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP structure 
+.br
+\fIpos\fP starting point 
+.br
+\fIsize\fP rectangle width and height 
+.br
+\fIcolor\fP color 
+.RE
+.PP
+
+.SS "void cubmlx_putvertline (\fBt_data\fP * data, \fBt_pos2\fP pos, int len, unsigned int color)"
+
+.PP
+Puts a vertical line on the backbuffer\&. Optimized for vertical lines\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIpos\fP coordinates of starting point of the line 
+.br
+\fIlen\fP len of the line 
+.br
+\fIcolor\fP color 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

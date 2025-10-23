@@ -1,0 +1,7 @@
+<map id="cub_init" name="cub_init">
+<area shape="rect" id="Node000001" title="Initialize map and backbuffer for rendering." alt="" coords="5,31,79,56"/>
+<area shape="rect" id="Node000002" href="$map__translate_8c.html#a74b49c310d89e8a7b20317513fd05846" title="Convert 2d map string to int vector." alt="" coords="127,5,273,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,35,112,29,113,35,79,40"/>
+<area shape="rect" id="Node000003" href="$group__Main.html#ga01da3c3fa8a5824bdd7218972093d16a" title="Close and free the mlx structure." alt="" coords="153,55,247,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="79,46,139,55,139,61,79,51"/>
+</map>

@@ -1,0 +1,30 @@
+<map id="s_data" name="s_data">
+<area shape="rect" id="Node000001" title="Structure used to store the mlx and map structures." alt="" coords="571,361,636,387"/>
+<area shape="rect" id="Node000002" href="$structs__mlx.html" title="Structure that handle the mlx instance." alt="" coords="263,273,325,299"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="339,297,571,361,570,366,337,302"/>
+<area shape="rect" id="Node000003" href="$structs__settings.html" title="Structure that handle the settings of the game." alt="" coords="125,169,213,194"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,203,206,226,229,247,269,271,266,276,226,251,202,229,183,207"/>
+<area shape="rect" id="Node000004" href="$structs__img.html" title="Structure used to store an image (buffer that contain image, and size)." alt="" coords="361,5,422,31"/>
+<area shape="poly" id="edge5_Node000002_Node000004" title=" " alt="" coords="400,44,406,86,407,140,399,198,389,225,375,251,353,270,326,281,324,276,350,266,371,248,384,223,394,197,402,140,400,87,394,44"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="347,23,246,31,200,41,183,48,172,56,164,69,159,83,156,115,161,145,167,168,162,169,156,146,151,115,154,82,159,67,168,53,180,43,198,36,245,26,347,17"/>
+<area shape="rect" id="Node000009" href="$structs__textures.html" title="Structure that handle the textures of the game." alt="" coords="625,169,715,194"/>
+<area shape="poly" id="edge11_Node000009_Node000004" title=" " alt="" coords="424,35,652,166,649,171,422,40"/>
+<area shape="rect" id="Node000005" href="$structs__pos2.html" title="Structure that handle positions in the map. Same as t_coordinates but with signed integers." alt="" coords="113,5,179,31"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="116,40,74,70,33,109,18,130,10,152,9,173,19,195,43,221,73,241,106,257,140,268,208,280,264,283,263,288,208,285,139,273,104,262,70,246,40,225,15,197,4,175,5,151,13,128,29,106,70,66,113,36"/>
+<area shape="rect" id="Node000007" href="$structs__map__raoul.html" title="Structure to handle the special map needed for rendering." alt="" coords="237,169,343,194"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="194,21,228,32,259,53,277,82,288,114,293,168,288,169,283,115,273,84,255,57,226,37,192,26"/>
+<area shape="rect" id="Node000006" href="$structs__map.html" title="Structure that handle the map informations." alt="" coords="512,273,577,299"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="563,309,597,359,593,362,558,312"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="333,197,517,271,515,276,331,202"/>
+<area shape="rect" id="Node000008" href="$structs__coordinates.html" title="Structure used to store the coordinates (positive only)." alt="" coords="489,169,601,194"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="547,208,547,273,542,273,542,208"/>
+<area shape="poly" id="edge10_Node000006_Node000009" title=" " alt="" coords="647,205,561,275,557,271,644,201"/>
+<area shape="rect" id="Node000010" href="$unionu__color.html" title="Union used to store color information. It can be used to store color in RGBA format or as a separate ..." alt="" coords="635,5,705,31"/>
+<area shape="poly" id="edge12_Node000009_Node000010" title=" " alt="" coords="673,45,673,169,667,169,667,45"/>
+<area shape="rect" id="Node000011" href="$structs__input.html" title="Structure that handle the input of the player." alt="" coords="602,273,671,299"/>
+<area shape="poly" id="edge13_Node000001_Node000011" title=" " alt="" coords="630,313,611,362,606,360,625,311"/>
+<area shape="rect" id="Node000012" href="$structs__player.html" title="Structure that handle the player information." alt="" coords="714,273,791,299"/>
+<area shape="poly" id="edge14_Node000001_Node000012" title=" " alt="" coords="722,308,625,363,622,359,720,303"/>
+<area shape="rect" id="Node000013" href="$structs__vec2.html" title="Structure that handle vector coordinates in 2D space." alt="" coords="739,169,806,194"/>
+<area shape="poly" id="edge15_Node000012_Node000013" title=" " alt="" coords="770,208,758,274,752,273,765,207"/>
+</map>

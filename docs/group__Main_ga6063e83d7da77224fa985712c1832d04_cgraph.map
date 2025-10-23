@@ -1,0 +1,11 @@
+<map id="read_file_lines" name="read_file_lines">
+<area shape="rect" id="Node000001" title="Read the map file line by line and return an array of strings." alt="" coords="5,29,121,55"/>
+<area shape="rect" id="Node000002" href="$group__Main.html#gafe47f11f6fbc3ea28c7edd520160f4c1" title="Simple function to count the number of lines in a file." alt="" coords="169,29,292,55"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,39,156,39,156,45,121,45"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#gad6d87adb1f10074bf9c114f9c0bdd040" title="Close safely the file descriptor Modify the file descriptor to &#45;1 after closing it." alt="" coords="340,5,431,31"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="106,27,169,14,231,11,292,14,326,14,326,20,292,19,231,17,170,19,108,32"/>
+<area shape="rect" id="Node000004" href="$group__Utils.html#gafee4cf256e5bc57a60f1a23bced82cd8" title="Try to open the map file specified by map_name." alt="" coords="341,55,430,80"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="108,52,170,65,252,70,327,68,327,74,252,75,169,70,106,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="292,30,326,24,327,30,292,35"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="293,49,327,55,326,60,292,55"/>
+</map>

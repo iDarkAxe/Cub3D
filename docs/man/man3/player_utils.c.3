@@ -1,0 +1,32 @@
+.TH "src/player_utils.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/player_utils.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'cub3d_render\&.h'\fP
+.br
+\fR#include <math\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBsolve_collision_x\fP (\fBt_data\fP *data, float x_vel)"
+.br
+.RI "Solver of collision on x axis\&. "
+.ti -1c
+.RI "void \fBsolve_collision_y\fP (\fBt_data\fP *data, float y_vel)"
+.br
+.RI "Solver of collision on y axis\&. "
+.ti -1c
+.RI "void \fBresolve_collision_steps\fP (\fBt_data\fP *data, float vel_x, float vel_y)"
+.br
+.RI "Solver of collision on x and y using steps smaller than 1 unit, To use only when moving faster than 1 unit, when MOVEMENT_SPEED_FWD_BWD >= 1\&.0f or MOVEMENT_SPEED_LEFT_RIGHT >= 1\&.0f\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

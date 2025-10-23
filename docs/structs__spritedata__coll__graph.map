@@ -1,0 +1,11 @@
+<map id="s_spritedata" name="s_spritedata">
+<area shape="rect" id="Node000001" title="Norm&#45;compliant multi&#45;variable holder for math stuff." alt="" coords="89,259,191,284"/>
+<area shape="rect" id="Node000002" href="$structs__vec2.html" title="Structure that handle vector coordinates in 2D space." alt="" coords="9,5,76,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="33,44,21,76,11,115,9,156,13,176,21,195,37,216,58,233,104,256,102,261,55,237,33,220,16,197,8,178,4,157,6,114,16,75,28,42"/>
+<area shape="rect" id="Node000004" href="$structs__raydata.html" title="Structure used to store the raycasting data. It contains all the information needed to cast a ray." alt="" coords="97,161,183,187"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="49,44,60,85,81,126,99,145,120,159,117,163,96,149,77,130,55,86,44,45"/>
+<area shape="rect" id="Node000003" href="$structs__pos2.html" title="Structure that handle positions in the map. Same as t_coordinates but with signed integers." alt="" coords="168,5,235,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="213,43,216,54,220,91,216,128,209,185,202,209,186,236,161,260,158,256,182,233,197,206,204,184,211,128,214,91,211,55,208,44"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="189,43,182,56,160,115,146,162,140,161,155,113,178,54,184,41"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="143,200,143,258,137,258,137,200"/>
+</map>

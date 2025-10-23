@@ -1,0 +1,236 @@
+.TH "Macros" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Macros \- Macros Functions
+.PP
+ \- Macros used in the project\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPI\fP   3\&.141592653589793238462643383279502884197169399375105820974944592307"
+.br
+.RI "PI approximation\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_DEFAULT_VALUE\fP   true"
+.br
+.RI "Enable Minimap by default and can be toggled with the 'M' key\&. "
+.ti -1c
+.RI "#define \fBFIELD_OF_VIEW_DEFAULT_VALUE\fP   true"
+.br
+.RI "Enable Field of View by default and can be toggled with the 'F' key\&. "
+.ti -1c
+.RI "#define \fBCOLLISION_DEFAULT_VALUE\fP   true"
+.br
+.RI "Enable Collision by default and can be toggled with the 'C' key\&. "
+.ti -1c
+.RI "#define \fBENABLE_FILTERS\fP   true"
+.br
+.RI "Enable Filters features\&. "
+.ti -1c
+.RI "#define \fBMOUSE_SENSITIVITY_FACTOR\fP   0\&.001f"
+.br
+.RI "Value used to define the sensitivity of the mouse\&. This value is multiplied by the delta mouse x to get the turn amount\&. A higher value will make the mouse more sensitive and will turn faster\&. Anything higher or lower than 0\&.001f will be strange\&. "
+.ti -1c
+.RI "#define \fBMOVEMENT_SPEED_TURNING\fP   0\&.015f"
+.br
+.RI "Value used to define the turning speed of the player\&. This value is multiplied by the input to get the turn amount\&. A higher value will make the player turn faster\&. "
+.ti -1c
+.RI "#define \fBMOVEMENT_SPEED_FWD_BWD\fP   0\&.025f"
+.br
+.RI "Value used to define the movement speed of the player in forward or backward\&. This value is multiplied by the input to get the amount\&. A higher value will make the player walk faster\&. "
+.ti -1c
+.RI "#define \fBMOVEMENT_SPEED_LEFT_RIGHT\fP   0\&.015f"
+.br
+.RI "Value used to define the movement speed of the player when moving left or right\&. This value is multiplied by the input to get the amount\&. A higher value will make the player walk faster\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_COLOR\fP   0xffffff00"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_LINE_SIGHT_COLOR\fP   0xffffff00"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_CONE_SIGHT_COLOR\fP   0xffffaaaa"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_FLOOR_COLOR\fP   0xff000000"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_WALL_COLOR\fP   0xffffffff"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_KEY_COLOR\fP   0xffffff00"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_DOOR_COLOR\fP   0xff0000ff"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_NUM_TILES_X\fP   15"
+.br
+.RI "Number of tiles on X axis\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_NUM_TILES_Y\fP   15"
+.br
+.RI "Number of tiles on Y axis\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_TILE_SIZE\fP   16"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_TILES_X\fP   15"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_TILES_Y\fP   15"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_SIZE\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_LINE_OF_SIGHT_FACTOR\fP   2"
+.br
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_KEYCODE\fP   0"
+.br
+.RI "Enable to print key presses\&. "
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_FPS\fP   0"
+.br
+.RI "Enable if you want to see the FPS\&. "
+.ti -1c
+.RI "#define \fBDEBUG_FPS_REFRESH\fP   0"
+.br
+.RI "Enable to keep the FPS counter on a single line\&. "
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_TEXTURE_SWAP\fP   0"
+.br
+.RI "Enable printing of message to indicate texture swapping\&. "
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_TEXTURE_ALTERED\fP   0"
+.br
+.RI "Enable printing message when a texture is altered with filters\&. "
+.ti -1c
+.RI "#define \fBCROSS_APPLY_SETTINGS\fP   0"
+.br
+.RI "Enable if closing the settings window should behave as 'Enter'\&. "
+.ti -1c
+.RI "#define \fBESCAPE_APPLY_SETTINGS\fP   0"
+.br
+.RI "Enable pressing Esc in the settings menu should behave as 'Enter'\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Macros used in the project\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define COLLISION_DEFAULT_VALUE   true"
+
+.PP
+Enable Collision by default and can be toggled with the 'C' key\&. 
+.SS "#define CROSS_APPLY_SETTINGS   0"
+
+.PP
+Enable if closing the settings window should behave as 'Enter'\&. 
+.SS "#define DEBUG_FPS_REFRESH   0"
+
+.PP
+Enable to keep the FPS counter on a single line\&. 
+.PP
+\fBWarning\fP
+.RS 4
+if you use it with any of the other DEBUG, the output is undefined 
+.RE
+.PP
+
+.SS "#define DEBUG_PRINT_FPS   0"
+
+.PP
+Enable if you want to see the FPS\&. 
+.SS "#define DEBUG_PRINT_KEYCODE   0"
+
+.PP
+Enable to print key presses\&. 
+.SS "#define DEBUG_PRINT_TEXTURE_ALTERED   0"
+
+.PP
+Enable printing message when a texture is altered with filters\&. 
+.SS "#define DEBUG_PRINT_TEXTURE_SWAP   0"
+
+.PP
+Enable printing of message to indicate texture swapping\&. 
+.SS "#define ENABLE_FILTERS   true"
+
+.PP
+Enable Filters features\&. 
+.SS "#define ESCAPE_APPLY_SETTINGS   0"
+
+.PP
+Enable pressing Esc in the settings menu should behave as 'Enter'\&. 
+.SS "#define FIELD_OF_VIEW_DEFAULT_VALUE   true"
+
+.PP
+Enable Field of View by default and can be toggled with the 'F' key\&. 
+.SS "#define MINIMAP_DEFAULT_VALUE   true"
+
+.PP
+Enable Minimap by default and can be toggled with the 'M' key\&. 
+.SS "#define MINIMAP_DOOR_COLOR   0xff0000ff"
+
+.SS "#define MINIMAP_FLOOR_COLOR   0xff000000"
+
+.SS "#define MINIMAP_KEY_COLOR   0xffffff00"
+
+.SS "#define MINIMAP_LINE_OF_SIGHT_FACTOR   2"
+
+.SS "#define MINIMAP_NUM_TILES_X   15"
+
+.PP
+Number of tiles on X axis\&. 
+.SS "#define MINIMAP_NUM_TILES_Y   15"
+
+.PP
+Number of tiles on Y axis\&. 
+.SS "#define MINIMAP_PLAYER_COLOR   0xffffff00"
+
+.SS "#define MINIMAP_PLAYER_CONE_SIGHT_COLOR   0xffffaaaa"
+
+.SS "#define MINIMAP_PLAYER_LINE_SIGHT_COLOR   0xffffff00"
+
+.SS "#define MINIMAP_PLAYER_SIZE   4"
+
+.SS "#define MINIMAP_TILE_SIZE   16"
+
+.SS "#define MINIMAP_TILES_X   15"
+
+.SS "#define MINIMAP_TILES_Y   15"
+
+.SS "#define MINIMAP_WALL_COLOR   0xffffffff"
+
+.SS "#define MOUSE_SENSITIVITY_FACTOR   0\&.001f"
+
+.PP
+Value used to define the sensitivity of the mouse\&. This value is multiplied by the delta mouse x to get the turn amount\&. A higher value will make the mouse more sensitive and will turn faster\&. Anything higher or lower than 0\&.001f will be strange\&. 
+.SS "#define MOVEMENT_SPEED_FWD_BWD   0\&.025f"
+
+.PP
+Value used to define the movement speed of the player in forward or backward\&. This value is multiplied by the input to get the amount\&. A higher value will make the player walk faster\&. 
+.SS "#define MOVEMENT_SPEED_LEFT_RIGHT   0\&.015f"
+
+.PP
+Value used to define the movement speed of the player when moving left or right\&. This value is multiplied by the input to get the amount\&. A higher value will make the player walk faster\&. 
+.SS "#define MOVEMENT_SPEED_TURNING   0\&.015f"
+
+.PP
+Value used to define the turning speed of the player\&. This value is multiplied by the input to get the turn amount\&. A higher value will make the player turn faster\&. 
+.SS "#define PI   3\&.141592653589793238462643383279502884197169399375105820974944592307"
+
+.PP
+PI approximation\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

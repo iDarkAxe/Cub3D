@@ -1,0 +1,18 @@
+<map id="src/filters/filters.c" name="src/filters/filters.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="88,5,223,31"/>
+<area shape="rect" id="Node000002" href="$data__structure_8h.html" title="Header file for all the types and structures of the project." alt="" coords="86,152,214,177"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,32,128,53,114,79,112,95,116,111,132,140,127,143,111,113,107,95,109,78,123,50,141,29"/>
+<area shape="rect" id="Node000006" href="$maze_8h.html" title=" " alt="" coords="211,79,281,104"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="172,29,222,68,219,72,168,33"/>
+<area shape="rect" id="Node000007" href="$filter_8h.html" title="Header file for filters." alt="" coords="124,79,187,104"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="158,31,158,65,153,65,153,31"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,225,84,251"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="135,180,74,220,72,215,132,175"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="109,225,191,251"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="153,178,153,212,147,212,147,178"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="215,225,290,251"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="168,175,226,215,223,219,165,180"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="232,106,178,146,175,141,229,102"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="249,104,254,212,249,212,244,105"/>
+<area shape="poly" id="edge9_Node000007_Node000002" title=" " alt="" coords="157,105,155,139,149,138,152,104"/>
+</map>

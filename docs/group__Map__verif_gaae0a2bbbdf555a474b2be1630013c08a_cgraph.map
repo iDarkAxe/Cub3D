@@ -1,0 +1,12 @@
+<map id="check_map_chars_borders" name="check_map_chars_borders">
+<area shape="rect" id="Node000001" title="Check if the map has only acceptable characters and if there is borders everywhere,..." alt="" coords="5,31,200,56"/>
+<area shape="rect" id="Node000002" href="$group__Map__verif.html#ga4cec9d1d22fe87b9bfb62d45b55228bd" title="Validate if the map has unclosed holes or an unfinished outer layer." alt="" coords="248,31,359,56"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="200,41,234,41,234,46,200,46"/>
+<area shape="rect" id="Node000003" href="$group__Map__verif.html#ga0e08225805bfef986ed7d4ff676c8248" title="Find the position of the player with charset in the map." alt="" coords="407,5,513,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,32,393,26,394,31,359,37"/>
+<area shape="rect" id="Node000005" href="$group__Map__verif.html#ga345b8fea0d4fb03900b5202641d70abc" title="Check if a position is in bounds of map or not." alt="" coords="407,55,513,80"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="359,49,394,55,393,60,359,54"/>
+<area shape="rect" id="Node000004" href="$group__Utils.html#gafdbdb797819a02971425da4c0998e44a" title="Count the number of strings that an array have Should absolutely be NULL&#45;Terminated." alt="" coords="561,31,708,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="513,23,548,28,547,33,513,28"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="513,57,548,53,548,58,514,63"/>
+</map>

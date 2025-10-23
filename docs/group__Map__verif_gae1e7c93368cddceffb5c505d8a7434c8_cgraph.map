@@ -1,0 +1,5 @@
+<map id="ft_check_config" name="ft_check_config">
+<area shape="rect" id="Node000001" title="Check if the config is properly formatted or not." alt="" coords="5,5,128,31"/>
+<area shape="rect" id="Node000002" href="$group__Map__verif.html#gae964a3c0f82237e8ba9c0918c5514019" title="Check the floor and ceiling colors." alt="" coords="176,5,339,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,15,162,15,162,21,128,21"/>
+</map>

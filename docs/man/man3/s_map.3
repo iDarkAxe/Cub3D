@@ -1,0 +1,79 @@
+.TH "s_map" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+s_map \- Structure that handle the map informations\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <data_structure\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char ** \fBfile\fP"
+.br
+.ti -1c
+.RI "size_t \fBfile_nb_lines\fP"
+.br
+.ti -1c
+.RI "char ** \fBmap_2d\fP"
+.br
+.ti -1c
+.RI "\fBt_map_raoul\fP * \fBmap\fP"
+.br
+.ti -1c
+.RI "char * \fBconfig\fP [6]"
+.br
+.ti -1c
+.RI "int \fBerror\fP"
+.br
+.ti -1c
+.RI "size_t \fBnumber_of_moves\fP"
+.br
+.ti -1c
+.RI "\fBt_coordinates\fP \fBexit\fP"
+.br
+.ti -1c
+.RI "\fBt_textures\fP \fBtextures\fP"
+.br
+.ti -1c
+.RI "bool \fBis_alt_textures\fP"
+.br
+.ti -1c
+.RI "\fBt_textures\fP \fBalt_textures\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure that handle the map informations\&. 
+.SH "Field Documentation"
+.PP 
+.SS "\fBt_textures\fP s_map::alt_textures"
+
+.SS "char* s_map::config[6]"
+
+.SS "int s_map::error"
+
+.SS "\fBt_coordinates\fP s_map::exit"
+
+.SS "char** s_map::file"
+
+.SS "size_t s_map::file_nb_lines"
+
+.SS "bool s_map::is_alt_textures"
+
+.SS "\fBt_map_raoul\fP* s_map::map"
+
+.SS "char** s_map::map_2d"
+
+.SS "size_t s_map::number_of_moves"
+
+.SS "\fBt_textures\fP s_map::textures"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

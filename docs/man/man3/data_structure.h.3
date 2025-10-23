@@ -1,0 +1,209 @@
+.TH "inc/data_structure.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/data_structure.h \- Header file for all the types and structures of the project\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <endian\&.h>\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "union \fBu_color\fP"
+.br
+.RI "Union used to store color information\&. It can be used to store color in RGBA format or as a separate RGB and alpha values\&. Used for big-endian systems\&. "
+.ti -1c
+.RI "struct \fBs_img\fP"
+.br
+.RI "Structure used to store an image (buffer that contain image, and size)\&. "
+.ti -1c
+.RI "struct \fBs_textures\fP"
+.br
+.RI "Structure that handle the textures of the game\&. "
+.ti -1c
+.RI "struct \fBs_coordinates\fP"
+.br
+.RI "Structure used to store the coordinates (positive only)\&. "
+.ti -1c
+.RI "struct \fBs_pos2\fP"
+.br
+.RI "Structure that handle positions in the map\&. Same as \fBt_coordinates\fP but with signed integers\&. "
+.ti -1c
+.RI "struct \fBs_vec2\fP"
+.br
+.RI "Structure that handle vector coordinates in 2D space\&. "
+.ti -1c
+.RI "struct \fBs_input\fP"
+.br
+.RI "Structure that handle the input of the player\&. "
+.ti -1c
+.RI "struct \fBs_player\fP"
+.br
+.RI "Structure that handle the player information\&. "
+.ti -1c
+.RI "struct \fBs_settings\fP"
+.br
+.RI "Structure that handle the settings of the game\&. "
+.ti -1c
+.RI "struct \fBs_mlx\fP"
+.br
+.RI "Structure that handle the mlx instance\&. "
+.ti -1c
+.RI "struct \fBs_map_raoul\fP"
+.br
+.RI "Structure to handle the special map needed for rendering\&. "
+.ti -1c
+.RI "struct \fBs_map\fP"
+.br
+.RI "Structure that handle the map informations\&. "
+.ti -1c
+.RI "struct \fBs_data\fP"
+.br
+.RI "Structure used to store the mlx and map structures\&. "
+.ti -1c
+.RI "struct \fBs_raydata\fP"
+.br
+.RI "Structure used to store the raycasting data\&. It contains all the information needed to cast a ray\&. "
+.ti -1c
+.RI "struct \fBs_spritedata\fP"
+.br
+.RI "Norm-compliant multi-variable holder for math stuff\&. "
+.ti -1c
+.RI "struct \fBs_args\fP"
+.br
+.RI "Structure to handle command-line arguments\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_img\fP \fBt_img\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_textures\fP \fBt_textures\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_spritedata\fP \fBt_spritedata\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_mlx\fP \fBt_mlx\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_map\fP \fBt_map\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_map_raoul\fP \fBt_map_raoul\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_data\fP \fBt_data\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_settings\fP \fBt_settings\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_coordinates\fP \fBt_coordinates\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_pos2\fP \fBt_pos2\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_vec2\fP \fBt_vec2\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_args\fP \fBt_args\fP"
+.br
+.ti -1c
+.RI "typedef union \fBu_color\fP \fBt_color\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_raydata\fP \fBt_raydata\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_input\fP \fBt_input\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBs_player\fP \fBt_player\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBe_screen_size\fP { \fBSIZE_NONE\fP = 0, \fBSIZE_FULL_SCREEN\fP = 1, \fBSIZE_4K\fP = 2, \fBSIZE_2K\fP = 3, \fBSIZE_1080P\fP = 4, \fBSIZE_720P\fP = 5, \fBSIZE_480P\fP = 6 }"
+.br
+.RI "Enum used to store the screen size\&. It is used to set the screen size in the settings\&. SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for all the types and structures of the project\&. 
+
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBs_args\fP \fBt_args\fP"
+
+.SS "typedef union \fBu_color\fP \fBt_color\fP"
+
+.SS "typedef struct \fBs_coordinates\fP \fBt_coordinates\fP"
+
+.SS "typedef struct \fBs_data\fP \fBt_data\fP"
+
+.SS "typedef struct \fBs_img\fP \fBt_img\fP"
+
+.SS "typedef struct \fBs_input\fP \fBt_input\fP"
+
+.SS "typedef struct \fBs_map\fP \fBt_map\fP"
+
+.SS "typedef struct \fBs_map_raoul\fP \fBt_map_raoul\fP"
+
+.SS "typedef struct \fBs_mlx\fP \fBt_mlx\fP"
+
+.SS "typedef struct \fBs_player\fP \fBt_player\fP"
+
+.SS "typedef struct \fBs_pos2\fP \fBt_pos2\fP"
+
+.SS "typedef struct \fBs_raydata\fP \fBt_raydata\fP"
+
+.SS "typedef struct \fBs_settings\fP \fBt_settings\fP"
+
+.SS "typedef struct \fBs_spritedata\fP \fBt_spritedata\fP"
+
+.SS "typedef struct \fBs_textures\fP \fBt_textures\fP"
+
+.SS "typedef struct \fBs_vec2\fP \fBt_vec2\fP"
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBe_screen_size\fP"
+
+.PP
+Enum used to store the screen size\&. It is used to set the screen size in the settings\&. SIZE_480P is the lowest in the list and SIZE_FULL_SCREEN is the highest\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BISIZE_NONE \fP
+.TP
+\f(BISIZE_FULL_SCREEN \fP
+.TP
+\f(BISIZE_4K \fP
+.TP
+\f(BISIZE_2K \fP
+.TP
+\f(BISIZE_1080P \fP
+.TP
+\f(BISIZE_720P \fP
+.TP
+\f(BISIZE_480P \fP
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

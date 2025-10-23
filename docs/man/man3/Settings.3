@@ -1,0 +1,136 @@
+.TH "Settings" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Settings \- Settings functions
+.PP
+ \- All the functions used for settings\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void * \fBft_settings\fP (\fBt_mlx\fP *mlx)"
+.br
+.RI "Generate the window settings for the program\&. "
+.ti -1c
+.RI "enum \fBe_screen_size\fP \fBcircle_state\fP (int x, int y)"
+.br
+.RI "Return an enum according to selected circle using coordinates\&. "
+.ti -1c
+.RI "int \fBft_set_screen_size\fP (\fBt_mlx\fP *mlx, enum \fBe_screen_size\fP size)"
+.br
+.RI "Set screen size according to an enum\&. "
+.ti -1c
+.RI "void \fBft_free_settings\fP (\fBt_mlx\fP *mlx)"
+.br
+.RI "Free all the settings variables\&. "
+.ti -1c
+.RI "void \fBsettings_hooks\fP (\fBt_data\fP *data)"
+.br
+.RI "Set the settings hooks on the settings window\&. "
+.ti -1c
+.RI "void \fBstate_machine\fP (int keycode, \fBt_mlx\fP *mlx)"
+.br
+.RI "State machine for the settings window\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used for settings\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "enum \fBe_screen_size\fP circle_state (int x, int y)"
+
+.PP
+Return an enum according to selected circle using coordinates\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+enum \fBe_screen_size\fP state 
+.RE
+.PP
+
+.SS "void ft_free_settings (\fBt_mlx\fP * mlx)"
+
+.PP
+Free all the settings variables\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.RE
+.PP
+
+.SS "int ft_set_screen_size (\fBt_mlx\fP * mlx, enum \fBe_screen_size\fP size)"
+
+.PP
+Set screen size according to an enum\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIsize\fP enum representing the size of the screen selected 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "void * ft_settings (\fBt_mlx\fP * mlx)"
+
+.PP
+Generate the window settings for the program\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+void* win_settings_ptr if success, NULL if error 
+.RE
+.PP
+
+.SS "void settings_hooks (\fBt_data\fP * data)"
+
+.PP
+Set the settings hooks on the settings window\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+
+.SS "void state_machine (int keycode, \fBt_mlx\fP * mlx)"
+
+.PP
+State machine for the settings window\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP keycode of the key pressed 
+.br
+\fImlx\fP Pointer to the mlx structure 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

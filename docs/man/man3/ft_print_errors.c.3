@@ -1,0 +1,46 @@
+.TH "src/print/ft_print_errors.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/print/ft_print_errors.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'cub3d\&.h'\fP
+.br
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'ft_print\&.h'\fP
+.br
+\fR#include 'ft_printf\&.h'\fP
+.br
+\fR#include 'maze\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBprint_map_error\fP (\fBt_map\fP *map, enum \fBe_map_error\fP error)"
+.br
+.RI "Print the corresponding map error\&. "
+.ti -1c
+.RI "int \fBprint_map_validate_error\fP (\fBt_map\fP *map, enum \fBe_map_error\fP error)"
+.br
+.RI "Print the corresponding map validation error\&. "
+.ti -1c
+.RI "void \fBprint_maze_error\fP (enum \fBe_maze_error\fP error)"
+.br
+.RI "Print the corresponding maze error\&. "
+.ti -1c
+.RI "int \fBprint_error\fP (\fBt_map\fP *map, enum \fBe_fx_error\fP error)"
+.br
+.RI "Print a special message according to enum\&. "
+.ti -1c
+.RI "void \fBprint_leak_map\fP (char **map, size_t y, size_t x)"
+.br
+.RI "Print where a leak is located on the map\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

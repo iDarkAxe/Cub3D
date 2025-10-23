@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['s_5fargs_0',['s_args',['../structs__args.html',1,'']]],
+  ['s_5fcircle_1',['s_circle',['../structs__circle.html',1,'']]],
+  ['s_5fcoordinates_2',['s_coordinates',['../structs__coordinates.html',1,'']]],
+  ['s_5fdata_3',['s_data',['../structs__data.html',1,'']]],
+  ['s_5fimg_4',['s_img',['../structs__img.html',1,'']]],
+  ['s_5finput_5',['s_input',['../structs__input.html',1,'']]],
+  ['s_5fmap_6',['s_map',['../structs__map.html',1,'']]],
+  ['s_5fmap_5fraoul_7',['s_map_raoul',['../structs__map__raoul.html',1,'']]],
+  ['s_5fmlx_8',['s_mlx',['../structs__mlx.html',1,'']]],
+  ['s_5fplayer_9',['s_player',['../structs__player.html',1,'']]],
+  ['s_5fpos2_10',['s_pos2',['../structs__pos2.html',1,'']]],
+  ['s_5fposvec_11',['s_posvec',['../structs__posvec.html',1,'']]],
+  ['s_5fraydata_12',['s_raydata',['../structs__raydata.html',1,'']]],
+  ['s_5fsettings_13',['s_settings',['../structs__settings.html',1,'']]],
+  ['s_5fspritedata_14',['s_spritedata',['../structs__spritedata.html',1,'']]],
+  ['s_5ftextures_15',['s_textures',['../structs__textures.html',1,'']]],
+  ['s_5fvec2_16',['s_vec2',['../structs__vec2.html',1,'']]]
+];

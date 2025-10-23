@@ -1,0 +1,9 @@
+<map id="fill_config_region" name="fill_config_region">
+<area shape="rect" id="Node000001" title="Fill the config region of the file." alt="" coords="5,31,137,56"/>
+<area shape="rect" id="Node000002" href="$group__Map__verif.html#ga35b5807e0cb1c16cdffb89ed52720ddf" title="Return a positive number if a config line is detected." alt="" coords="193,5,304,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,31,179,25,180,30,138,37"/>
+<area shape="rect" id="Node000003" href="$group__Print.html#gadb69060a623a769cabc7e78da016bfee" title="Print the corresponding map error." alt="" coords="185,55,312,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,50,172,54,171,60,137,55"/>
+<area shape="rect" id="Node000004" href="$group__Utils.html#ga5d7f8087ed57221896ac54019750cdf8" title="Free the strings of the file." alt="" coords="360,55,451,80"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="312,65,346,65,346,70,312,70"/>
+</map>

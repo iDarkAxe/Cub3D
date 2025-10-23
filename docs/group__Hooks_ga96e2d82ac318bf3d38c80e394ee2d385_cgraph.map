@@ -1,0 +1,5 @@
+<map id="cub_keyup_hook" name="cub_keyup_hook">
+<area shape="rect" id="Node000001" title="Hook when a key is released." alt="" coords="5,5,136,31"/>
+<area shape="rect" id="Node000002" href="$group__Key.html#ga50b70e19e404543bcf695d846cb0c87f" title="Set the input according to the keycode and the set value." alt="" coords="184,5,256,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="136,15,170,15,170,21,136,21"/>
+</map>

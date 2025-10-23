@@ -1,0 +1,259 @@
+.TH "Print" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Print \- Print functions
+.PP
+ \- All the functions used to print\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "ssize_t \fBft_print_position\fP (int x, int y)"
+.br
+.RI "Print a position\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_file\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the whole file\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_config\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the config\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the map\&. "
+.ti -1c
+.RI "void \fBft_print_floor_ceiling\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the colors of floor and ceiling\&. "
+.ti -1c
+.RI "void \fBft_print_color\fP (\fBt_color\fP *color)"
+.br
+.RI "Print a color\&. "
+.ti -1c
+.RI "void \fBprint_visited\fP (char **visited, char **map)"
+.br
+.RI "Print the map visited by the DFS (Depth First Search), DFS is used to search if the exterior is accessible by the player 'x' means visited '\&.' means not visited\&. "
+.ti -1c
+.RI "void \fBft_print_key\fP (int keycode)"
+.br
+.RI "Print the keycode name if registered or just its value if not\&. "
+.ti -1c
+.RI "void \fBprint_map_error\fP (\fBt_map\fP *map, enum \fBe_map_error\fP error)"
+.br
+.RI "Print the corresponding map error\&. "
+.ti -1c
+.RI "int \fBprint_map_validate_error\fP (\fBt_map\fP *map, enum \fBe_map_error\fP error)"
+.br
+.RI "Print the corresponding map validation error\&. "
+.ti -1c
+.RI "void \fBprint_maze_error\fP (enum \fBe_maze_error\fP error)"
+.br
+.RI "Print the corresponding maze error\&. "
+.ti -1c
+.RI "int \fBprint_error\fP (\fBt_map\fP *map, enum \fBe_fx_error\fP error)"
+.br
+.RI "Print a special message according to enum\&. "
+.ti -1c
+.RI "void \fBprint_leak_map\fP (char **map, size_t y, size_t x)"
+.br
+.RI "Print where a leak is located on the map\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to print\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void ft_print_color (\fBt_color\fP * color)"
+
+.PP
+Print a color\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIcolor\fP color to print 
+.RE
+.PP
+
+.SS "ssize_t ft_print_config (\fBt_map\fP * map)"
+
+.PP
+Print the config\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of caracter printed 
+.RE
+.PP
+
+.SS "ssize_t ft_print_file (\fBt_map\fP * map)"
+
+.PP
+Print the whole file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of caracter printed 
+.RE
+.PP
+
+.SS "void ft_print_floor_ceiling (\fBt_map\fP * map)"
+
+.PP
+Print the colors of floor and ceiling\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+
+.SS "void ft_print_key (int keycode)"
+
+.PP
+Print the keycode name if registered or just its value if not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP keycode to print 
+.RE
+.PP
+
+.SS "ssize_t ft_print_map (\fBt_map\fP * map)"
+
+.PP
+Print the map\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of caracter printed 
+.RE
+.PP
+
+.SS "ssize_t ft_print_position (int x, int y)"
+
+.PP
+Print a position\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+ssize_t number of caracter printed 
+.RE
+.PP
+
+.SS "int print_error (\fBt_map\fP * map, enum \fBe_fx_error\fP error)"
+
+.PP
+Print a special message according to enum\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.br
+\fIerror\fP error state 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 if error print OK, 2 otherwise 
+.RE
+.PP
+
+.SS "void print_leak_map (char ** map, size_t y, size_t x)"
+
+.PP
+Print where a leak is located on the map\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP array of strings representing map 
+.br
+\fIy\fP map length 
+.br
+\fIx\fP map height 
+.RE
+.PP
+
+.SS "void print_map_error (\fBt_map\fP * map, enum \fBe_map_error\fP error)"
+
+.PP
+Print the corresponding map error\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.br
+\fIerror\fP error state 
+.RE
+.PP
+
+.SS "int print_map_validate_error (\fBt_map\fP * map, enum \fBe_map_error\fP error)"
+
+.PP
+Print the corresponding map validation error\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.br
+\fIerror\fP error state 
+.RE
+.PP
+
+.SS "void print_maze_error (enum \fBe_maze_error\fP error)"
+
+.PP
+Print the corresponding maze error\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIerror\fP error state 
+.RE
+.PP
+
+.SS "void print_visited (char ** visited, char ** map)"
+
+.PP
+Print the map visited by the DFS (Depth First Search), DFS is used to search if the exterior is accessible by the player 'x' means visited '\&.' means not visited\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvisited\fP array of strings referring to visited tiles 
+.br
+\fImap\fP array of strings referring to original map 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

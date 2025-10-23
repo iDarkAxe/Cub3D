@@ -1,0 +1,14 @@
+<map id="src/generation/maze_direction.c" name="src/generation/maze_direction.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="123,5,278,45"/>
+<area shape="rect" id="Node000002" href="$maze_8h.html" title=" " alt="" coords="165,93,236,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="203,46,203,79,198,79,198,46"/>
+<area shape="rect" id="Node000003" href="$data__structure_8h.html" title="Header file for all the types and structures of the project." alt="" coords="86,167,214,192"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="194,121,168,157,164,154,190,117"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="215,240,290,265"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="209,118,228,166,248,226,243,227,224,168,204,120"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,84,265"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="135,194,74,235,72,230,132,190"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="109,240,191,265"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="153,192,153,226,147,226,147,192"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="168,190,226,230,223,234,165,194"/>
+</map>

@@ -1,0 +1,199 @@
+.TH "inc/maze.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/maze.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_posvec\fP"
+.br
+.RI "Vector implementation that stores \fBt_pos2\fP objects\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAZE_N\fP   1"
+.br
+.ti -1c
+.RI "#define \fBMAZE_S\fP   2"
+.br
+.ti -1c
+.RI "#define \fBMAZE_E\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMAZE_W\fP   8"
+.br
+.ti -1c
+.RI "#define \fBFT_RAND_MAX\fP   32768"
+.br
+.RI "Maximum random value possible\&. "
+.ti -1c
+.RI "#define \fBMAZE_MIN_SIZE\fP   3"
+.br
+.RI "Minimum maze size\&. "
+.ti -1c
+.RI "#define \fBMAZE_MAX_SIZE\fP   1000"
+.br
+.RI "Maximum maze size\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_posvec\fP \fBt_posvec\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmaze_dir_x\fP (int dir)"
+.br
+.RI "Maze direction on x axis\&. "
+.ti -1c
+.RI "int \fBmaze_dir_y\fP (int dir)"
+.br
+.RI "Maze direction on y axis\&. "
+.ti -1c
+.RI "int \fBmaze_dir_opp\fP (int dir)"
+.br
+.RI "Maze inverted direction on x and y axis\&. "
+.ti -1c
+.RI "\fBt_posvec\fP * \fBposvecnew\fP (size_t size)"
+.br
+.RI "Create a vector with an initial starting size\&. "
+.ti -1c
+.RI "int \fBposvecpush\fP (\fBt_posvec\fP *vec, \fBt_pos2\fP data)"
+.br
+.RI "Add a new element to the vector\&. "
+.ti -1c
+.RI "int \fBposvecpop\fP (\fBt_posvec\fP *vec, \fBt_pos2\fP *pos)"
+.br
+.RI "Pops the last element of the vector if not empty\&. "
+.ti -1c
+.RI "int \fBposvecremove\fP (\fBt_posvec\fP *vec, size_t index, \fBt_pos2\fP *result)"
+.br
+.RI "Removes the element at the specified index from the vector if found\&. "
+.ti -1c
+.RI "void \fBposvecfree\fP (\fBt_posvec\fP *vec)"
+.br
+.RI "Free the vector\&. "
+.ti -1c
+.RI "void \fBft_srand\fP (unsigned int seed)"
+.br
+.RI "Sets the initial random state from the given seed\&. "
+.ti -1c
+.RI "unsigned int \fBft_rand\fP (void)"
+.br
+.RI "Generate a random unsigned int\&. "
+.ti -1c
+.RI "void \fBarray_shuffle\fP (int *arr, int len)"
+.br
+.RI "Shuffle an array\&. "
+.ti -1c
+.RI "int \fBcub_parse_generation_arg\fP (char *gen, size_t *width, size_t *height)"
+.br
+.RI "Parse the argument for generation\&. "
+.ti -1c
+.RI "\fBt_map_raoul\fP * \fBcub_new_map_from_dimensions\fP (char *dimensions)"
+.br
+.RI "Allocates a new map with the given dimension\&. "
+.ti -1c
+.RI "int \fBcub_growing_tree\fP (\fBt_map_raoul\fP *map)"
+.br
+.RI "Cub3D Maze Generator, uses dimensions from gen, store them in map and create a random perfect maze\&. "
+.ti -1c
+.RI "int \fBcub_spawn_objects\fP (\fBt_map_raoul\fP *map, int key)"
+.br
+.RI "Spawns a key and a door in the maze\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define FT_RAND_MAX   32768"
+
+.PP
+Maximum random value possible\&. 
+.SS "#define MAZE_E   4"
+
+.SS "#define MAZE_MAX_SIZE   1000"
+
+.PP
+Maximum maze size\&. 
+.SS "#define MAZE_MIN_SIZE   3"
+
+.PP
+Minimum maze size\&. 
+.SS "#define MAZE_N   1"
+
+.SS "#define MAZE_S   2"
+
+.SS "#define MAZE_W   8"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBs_posvec\fP \fBt_posvec\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "int maze_dir_opp (int dir)"
+
+.PP
+Maze inverted direction on x and y axis\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdir\fP direction 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int value considering maze MACROS 
+.RE
+.PP
+
+.SS "int maze_dir_x (int dir)"
+
+.PP
+Maze direction on x axis\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdir\fP direction 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int value considering maze MACROS 
+.RE
+.PP
+
+.SS "int maze_dir_y (int dir)"
+
+.PP
+Maze direction on y axis\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdir\fP direction 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int value considering maze MACROS 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

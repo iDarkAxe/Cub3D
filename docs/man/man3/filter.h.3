@@ -1,0 +1,105 @@
+.TH "inc/filter.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/filter.h \- Header file for filters\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLUMA_RED_WEIGHT\fP   0\&.299"
+.br
+.ti -1c
+.RI "#define \fBLUMA_GREEN_WEIGHT\fP   0\&.587"
+.br
+.ti -1c
+.RI "#define \fBLUMA_BLUE_WEIGHT\fP   0\&.114"
+.br
+.ti -1c
+.RI "#define \fBRANDOM_FILTER_ON_ALL\fP   0"
+.br
+.RI "Define if all the textures are modified using the same filter or not\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBadd_filter\fP (\fBt_img\fP *img, int filter)"
+.br
+.ti -1c
+.RI "void \fBadd_filter_protected\fP (\fBt_img\fP *img, int filter)"
+.br
+.ti -1c
+.RI "void \fBadd_tint\fP (\fBt_img\fP *img, unsigned char red_add, unsigned char green_add, unsigned char blue_add)"
+.br
+.ti -1c
+.RI "void \fBadd_tint_protected\fP (\fBt_img\fP *img, unsigned char red_add, unsigned char green_add, unsigned char blue_add)"
+.br
+.ti -1c
+.RI "void \fBapply_filters_on_textures\fP (\fBt_textures\fP *textures)"
+.br
+.ti -1c
+.RI "void \fBfilter_overflow\fP (\fBt_color\fP *pixel, \fBt_color\fP filter)"
+.br
+.ti -1c
+.RI "void \fBswap_textures\fP (\fBt_map\fP *map)"
+.br
+.ti -1c
+.RI "void \fBchange_filter\fP (\fBt_data\fP *data, int keycode)"
+.br
+.ti -1c
+.RI "void \fBconvert_textures_to_black_and_white\fP (\fBt_map\fP *map)"
+.br
+.ti -1c
+.RI "void \fBft_free_alt_textures\fP (\fBt_mlx\fP *mlx, \fBt_map\fP *map)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for filters\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LUMA_BLUE_WEIGHT   0\&.114"
+
+.SS "#define LUMA_GREEN_WEIGHT   0\&.587"
+
+.SS "#define LUMA_RED_WEIGHT   0\&.299"
+
+.SS "#define RANDOM_FILTER_ON_ALL   0"
+
+.PP
+Define if all the textures are modified using the same filter or not\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void add_filter (\fBt_img\fP * img, int filter)"
+
+.SS "void add_filter_protected (\fBt_img\fP * img, int filter)"
+
+.SS "void add_tint (\fBt_img\fP * img, unsigned char red_add, unsigned char green_add, unsigned char blue_add)"
+
+.SS "void add_tint_protected (\fBt_img\fP * img, unsigned char red_add, unsigned char green_add, unsigned char blue_add)"
+
+.SS "void apply_filters_on_textures (\fBt_textures\fP * textures)"
+
+.SS "void change_filter (\fBt_data\fP * data, int keycode)"
+
+.SS "void convert_textures_to_black_and_white (\fBt_map\fP * map)"
+
+.SS "void filter_overflow (\fBt_color\fP * pixel, \fBt_color\fP filter)"
+
+.SS "void ft_free_alt_textures (\fBt_mlx\fP * mlx, \fBt_map\fP * map)"
+
+.SS "void swap_textures (\fBt_map\fP * map)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

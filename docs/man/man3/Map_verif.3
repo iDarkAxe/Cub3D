@@ -1,0 +1,248 @@
+.TH "Map_verif" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Map_verif \- Map verification functions
+.PP
+ \- All the functions used to verify the map\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_map\fP \fBft_map_check_dimensions\fP (\fBt_map\fP *map, char *map_name)"
+.br
+.RI "Check the map structure and try to open the map file\&. sets error to -1 if an error occurred\&. "
+.ti -1c
+.RI "\fBt_map\fP \fBft_check_config\fP (\fBt_map\fP *map)"
+.br
+.RI "Check if the config is properly formatted or not\&. "
+.ti -1c
+.RI "\fBt_map\fP \fBft_check_floor_ceiling\fP (\fBt_map\fP *map)"
+.br
+.RI "Check the floor and ceiling colors\&. "
+.ti -1c
+.RI "size_t \fBis_config_line\fP (char *line)"
+.br
+.RI "Return a positive number if a config line is detected\&. "
+.ti -1c
+.RI "\fBt_map\fP \fBcheck_map_chars_borders\fP (\fBt_map\fP *map)"
+.br
+.RI "Check if the map has only acceptable characters and if there is borders everywhere, as it should be\&. "
+.ti -1c
+.RI "\fBt_coordinates\fP \fBfind_position\fP (\fBt_map\fP *map, const char *charset)"
+.br
+.RI "Find the position of the player with charset in the map\&. "
+.ti -1c
+.RI "int \fBvalidate_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Validate if the map has unclosed holes or an unfinished outer layer\&. "
+.ti -1c
+.RI "bool \fBis_only_whitespace\fP (const char *str)"
+.br
+.RI "Check if the string contains only whitespace characters\&. "
+.ti -1c
+.RI "void \fBsuppress_newlines\fP (char **lines)"
+.br
+.RI "Suppress newlines in the given lines\&. "
+.ti -1c
+.RI "int \fBis_walkable\fP (char c)"
+.br
+.RI "Check if a character is walkable or not\&. "
+.ti -1c
+.RI "int \fBis_in_bounds\fP (char **map, size_t y, size_t x)"
+.br
+.RI "Check if a position is in bounds of map or not\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to verify the map\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "\fBt_map\fP check_map_chars_borders (\fBt_map\fP * map)"
+
+.PP
+Check if the map has only acceptable characters and if there is borders everywhere, as it should be\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBt_map\fP map structure 
+.RE
+.PP
+
+.SS "\fBt_coordinates\fP find_position (\fBt_map\fP * map, const char * charset)"
+
+.PP
+Find the position of the player with charset in the map\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.br
+\fIcharset\fP strings of autorized characters for player 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBt_coordinates\fP coordinates of player 
+.RE
+.PP
+
+.SS "\fBt_map\fP ft_check_config (\fBt_map\fP * map)"
+
+.PP
+Check if the config is properly formatted or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBt_map\fP map structure 
+.RE
+.PP
+
+.SS "\fBt_map\fP ft_check_floor_ceiling (\fBt_map\fP * map)"
+
+.PP
+Check the floor and ceiling colors\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBt_map\fP map structure 
+.RE
+.PP
+
+.SS "\fBt_map\fP ft_map_check_dimensions (\fBt_map\fP * map, char * map_name)"
+
+.PP
+Check the map structure and try to open the map file\&. sets error to -1 if an error occurred\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure to check and initialize 
+.br
+\fImap_name\fP name of the map file\&. 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBt_map\fP Structure containing the map dimensions and metadata\&. 
+.RE
+.PP
+
+.SS "size_t is_config_line (char * line)"
+
+.PP
+Return a positive number if a config line is detected\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIline\fP line to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 not config line, positive number otherwise 
+.RE
+.PP
+
+.SS "int is_in_bounds (char ** map, size_t y, size_t x)"
+
+.PP
+Check if a position is in bounds of map or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP array of strings representing map 
+.br
+\fIy\fP y axis (number of lines) 
+.br
+\fIx\fP x axis (length of line) 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, error otherwise 
+.RE
+.PP
+
+.SS "bool is_only_whitespace (const char * str)"
+
+.PP
+Check if the string contains only whitespace characters\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIstr\fP string to check 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+bool 1 all whitespace, 0 otherwise 
+.RE
+.PP
+
+.SS "int is_walkable (char c)"
+
+.PP
+Check if a character is walkable or not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIc\fP character 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, error otherwise 
+.RE
+.PP
+
+.SS "void suppress_newlines (char ** lines)"
+
+.PP
+Suppress newlines in the given lines\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIlines\fP Array of strings to modify 
+.RE
+.PP
+
+.SS "int validate_map (\fBt_map\fP * map)"
+
+.PP
+Validate if the map has unclosed holes or an unfinished outer layer\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, error otherwise 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

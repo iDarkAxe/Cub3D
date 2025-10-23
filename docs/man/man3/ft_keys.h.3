@@ -1,0 +1,116 @@
+.TH "inc/ft_keys.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/ft_keys.h \- Header file for the key used in cub3d\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include <stdbool\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBKEY_ESCAPE\fP   65307"
+.br
+.RI "Keycode for the escape key\&. "
+.ti -1c
+.RI "#define \fBKEY_ENTER\fP   65293"
+.br
+.RI "Keycode for the enter key\&. "
+.ti -1c
+.RI "#define \fBKEY_SPACE\fP   32"
+.br
+.RI "Keycode for the space key\&. "
+.ti -1c
+.RI "#define \fBKEY_ARROW_LEFT\fP   65361"
+.br
+.RI "Keycode for the left key\&. "
+.ti -1c
+.RI "#define \fBKEY_ARROW_UP\fP   65362"
+.br
+.RI "Keycode for the up key\&. "
+.ti -1c
+.RI "#define \fBKEY_ARROW_RIGHT\fP   65363"
+.br
+.RI "Keycode for the right key\&. "
+.ti -1c
+.RI "#define \fBKEY_ARROW_DOWN\fP   65364"
+.br
+.RI "Keycode for the down key\&. "
+.ti -1c
+.RI "#define \fBKEY_A\fP   97"
+.br
+.RI "Keycode for the A key\&. "
+.ti -1c
+.RI "#define \fBKEY_W\fP   119"
+.br
+.RI "Keycode for the W key\&. "
+.ti -1c
+.RI "#define \fBKEY_D\fP   100"
+.br
+.RI "Keycode for the D key\&. "
+.ti -1c
+.RI "#define \fBKEY_S\fP   115"
+.br
+.RI "Keycode for the S key\&. "
+.ti -1c
+.RI "#define \fBKEY_C\fP   99"
+.br
+.RI "Keycode for the C key\&. "
+.ti -1c
+.RI "#define \fBKEY_M\fP   109"
+.br
+.RI "Keycode for the M key\&. "
+.ti -1c
+.RI "#define \fBKEY_F\fP   102"
+.br
+.RI "Keycode for the F key\&. "
+.ti -1c
+.RI "#define \fBKEY_V\fP   118"
+.br
+.RI "Keycode for the V key\&. "
+.ti -1c
+.RI "#define \fBKEY_X\fP   120"
+.br
+.RI "Keycode for the X key\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBe_movement\fP { \fBMV_UP\fP, \fBMV_LEFT\fP, \fBMV_RIGHT\fP, \fBMV_DOWN\fP }"
+.br
+.RI "Structure used to define the type of movement with directions\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBis_mv_key\fP (enum \fBe_movement\fP expected, int keycode)"
+.br
+.RI "Check if a keycode is a movement key\&. "
+.ti -1c
+.RI "void \fBset_key\fP (int keycode, \fBt_input\fP *input, bool set)"
+.br
+.RI "Set the input according to the keycode and the set value\&. "
+.ti -1c
+.RI "void \fBtoggle_key\fP (int keycode, \fBt_input\fP *input)"
+.br
+.RI "Toggle the input according to the keycode\&. "
+.ti -1c
+.RI "void \fBchange_fov\fP (\fBt_data\fP *data, int keycode)"
+.br
+.RI "Change the FOV according to the keycode\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for the key used in cub3d\&. 
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

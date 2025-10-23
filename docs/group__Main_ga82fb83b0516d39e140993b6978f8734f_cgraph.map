@@ -1,0 +1,41 @@
+<map id="ft_mlx_init" name="ft_mlx_init">
+<area shape="rect" id="Node000001" title="Initialize the mlx structure, create settings window, and load game." alt="" coords="5,132,96,157"/>
+<area shape="rect" id="Node000002" href="$group__Settings.html#gabb5cab9e7d89b54e8c505fb5491dd566" title="Generate the window settings for the program." alt="" coords="159,56,249,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,130,164,85,166,90,78,134"/>
+<area shape="rect" id="Node000006" href="$group__Print.html#ga8a13d4c4f21b415088eb709517f93dce" title="Print a special message according to enum." alt="" coords="159,132,249,157"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="96,142,145,142,145,147,96,147"/>
+<area shape="rect" id="Node000009" href="$group__Settings.html#ga6923929957892598053d58f19427dc29" title="Set the settings hooks on the settings window." alt="" coords="144,271,264,296"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="68,156,180,259,177,263,64,159"/>
+<area shape="rect" id="Node000003" href="$ft__settings__draw__img_8c.html#ade2cb410982302b7934977296af9171d" title="Function to pull all the circle to the window following their state." alt="" coords="524,56,699,81"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="249,66,510,66,510,71,249,71"/>
+<area shape="rect" id="Node000005" href="$ft__settings__draw__img_8c.html#a1d6b4dbb6852bf7eef88f4ce15107ada" title="Function to put the specific case of circles defined by the enum." alt="" coords="315,5,473,31"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="249,54,331,32,333,37,250,59"/>
+<area shape="rect" id="Node000004" href="$ft__settings__draw__img_8c.html#a7b28d42b89180749bbc812716e3a9129" title="Put ON circle if is_enabled, put OFF circle if not." alt="" coords="747,31,897,56"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="699,55,732,51,733,57,699,61"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="450,28,544,50,543,55,449,33"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="473,20,733,35,733,41,473,25"/>
+<area shape="rect" id="Node000007" href="$group__Utils.html#ga5d7f8087ed57221896ac54019750cdf8" title="Free the strings of the file." alt="" coords="349,107,439,132"/>
+<area shape="poly" id="edge8_Node000006_Node000007" title=" " alt="" coords="249,136,335,124,335,130,250,141"/>
+<area shape="rect" id="Node000008" href="$group__Utils.html#ga50429a63ccf27bd42bb65fe8f946763d" title="Free the path (name) of the textures in memory." alt="" coords="313,156,475,181"/>
+<area shape="poly" id="edge9_Node000006_Node000008" title=" " alt="" coords="250,148,300,154,299,159,249,153"/>
+<area shape="rect" id="Node000010" href="$group__Hooks.html#ga349c8aecd6f3bcb2a7902fb77faac9b1" title="Hook used to close window or set the window size if MACRO Enabled." alt="" coords="534,263,689,303"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="264,281,520,281,520,286,264,286"/>
+<area shape="rect" id="Node000012" href="$group__Hooks.html#gaa2b2aa9564b18b3fa23e2496a6bc9d5c" title="Handle mouse click in the settings window." alt="" coords="312,206,476,246"/>
+<area shape="poly" id="edge13_Node000009_Node000012" title=" " alt="" coords="246,268,313,248,315,253,248,273"/>
+<area shape="rect" id="Node000016" href="$group__Hooks.html#gafbf5265c039eb89652e5194c2e074760" title="Hook when the mouse is moved while clicking for the settings." alt="" coords="529,327,693,367"/>
+<area shape="poly" id="edge18_Node000009_Node000016" title=" " alt="" coords="265,290,516,330,515,335,264,295"/>
+<area shape="rect" id="Node000017" href="$group__Hooks.html#ga68d37ba2f74dea079fd1f756c4fd4cab" title="Hook when the mouse is moved for the settings." alt="" coords="312,378,476,418"/>
+<area shape="poly" id="edge20_Node000009_Node000017" title=" " alt="" coords="223,294,263,324,313,357,336,369,334,374,311,362,260,328,220,298"/>
+<area shape="rect" id="Node000011" href="$group__Settings.html#ga75b2cd9bd30c92a5cb9a33972f1a124d" title="Set screen size according to an enum." alt="" coords="751,271,893,296"/>
+<area shape="poly" id="edge12_Node000010_Node000011" title=" " alt="" coords="689,281,738,281,738,286,689,286"/>
+<area shape="rect" id="Node000013" href="$group__Print.html#ga287e1f8890771e076d13e764f779e21a" title="Print the keycode name if registered or just its value if not." alt="" coords="562,213,661,239"/>
+<area shape="poly" id="edge14_Node000012_Node000013" title=" " alt="" coords="476,223,548,223,548,229,476,229"/>
+<area shape="rect" id="Node000014" href="$group__Settings.html#gaf0d8b2783f978e0743efbccd9db10409" title="State machine for the settings window." alt="" coords="552,164,671,189"/>
+<area shape="poly" id="edge15_Node000012_Node000014" title=" " alt="" coords="476,205,541,190,542,195,477,210"/>
+<area shape="poly" id="edge16_Node000014_Node000011" title=" " alt="" coords="670,187,700,198,753,228,797,260,793,264,750,233,698,203,668,192"/>
+<area shape="rect" id="Node000015" href="$group__Key.html#gabd000bbaaf9c5ad2d692c819475d18cf" title="Check if a keycode is a movement key." alt="" coords="777,164,867,189"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="671,174,763,174,763,179,671,179"/>
+<area shape="poly" id="edge19_Node000016_Node000011" title=" " alt="" coords="677,325,766,297,767,303,679,330"/>
+<area shape="rect" id="Node000018" href="$group__Settings.html#ga5c5a84c3c923c8fda6546d06bf0d51d0" title="Return an enum according to selected circle using coordinates." alt="" coords="563,392,660,417"/>
+<area shape="poly" id="edge21_Node000017_Node000018" title=" " alt="" coords="477,398,549,400,549,405,476,403"/>
+</map>

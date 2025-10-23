@@ -1,0 +1,116 @@
+.TH "ERROR_TYPES" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ERROR_TYPES \- Error types
+.PP
+ \- Error types\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBe_map_error\fP { \fBCONFIG_TOO_MANY_PARAMETERS\fP, \fBCONFIG_ALREADY_STORED\fP, \fBCONFIG_MISSING_PARAMETERS\fP, \fBCONFIG_MAP_TOO_SOON\fP, \fBCONFIG_FOUND_AFTER_MAP\fP }"
+.br
+.RI "Enum used for map related errors\&. "
+.ti -1c
+.RI "enum \fBe_maze_error\fP { \fBMAZE_SIZE_TOO_BIG\fP, \fBMAZE_SIZE_TOO_SMALL\fP, \fBMAZE_SIZE_NEGATIVE_VALUE\fP, \fBMAZE_ARGS_BAD_FORMAT\fP }"
+.br
+.RI "Enum used for maze related errors\&. "
+.ti -1c
+.RI "enum \fBe_arg_error\fP { \fBARGS_MISSING_GEN\fP, \fBARGS_DUPLICATE\fP, \fBARGS_NOT_CUB\fP, \fBARGS_NO_MAP\fP, \fBARGS_MAZE_REQUIRED\fP, \fBARGS_DOOR_REQUIRED\fP, \fBARGS_MISSING_KEY\fP, \fBARGS_MISSING_DOOR\fP, \fBARGS_UNRECOGNIZED\fP }"
+.br
+.ti -1c
+.RI "enum \fBe_fx_error\fP { \fBFT_MAP_CHECK\fP, \fBCHECK_ARGS\fP, \fBCONFIG_ERROR\fP, \fBSTORE_TEXTURES_IMG\fP, \fBFT_SETTINGS\fP, \fBCUB_INIT_RENDER\fP, \fBCUB_INIT\fP }"
+.br
+.RI "Enum used for main functions related errors\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Error types\&. 
+
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBe_arg_error\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIARGS_MISSING_GEN \fP
+.TP
+\f(BIARGS_DUPLICATE \fP
+.TP
+\f(BIARGS_NOT_CUB \fP
+.TP
+\f(BIARGS_NO_MAP \fP
+.TP
+\f(BIARGS_MAZE_REQUIRED \fP
+.TP
+\f(BIARGS_DOOR_REQUIRED \fP
+.TP
+\f(BIARGS_MISSING_KEY \fP
+.TP
+\f(BIARGS_MISSING_DOOR \fP
+.TP
+\f(BIARGS_UNRECOGNIZED \fP
+.SS "enum \fBe_fx_error\fP"
+
+.PP
+Enum used for main functions related errors\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIFT_MAP_CHECK \fP
+.TP
+\f(BICHECK_ARGS \fP
+.TP
+\f(BICONFIG_ERROR \fP
+.TP
+\f(BISTORE_TEXTURES_IMG \fP
+.TP
+\f(BIFT_SETTINGS \fP
+.TP
+\f(BICUB_INIT_RENDER \fP
+.TP
+\f(BICUB_INIT \fP
+.SS "enum \fBe_map_error\fP"
+
+.PP
+Enum used for map related errors\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BICONFIG_TOO_MANY_PARAMETERS \fP
+.TP
+\f(BICONFIG_ALREADY_STORED \fP
+.TP
+\f(BICONFIG_MISSING_PARAMETERS \fP
+.TP
+\f(BICONFIG_MAP_TOO_SOON \fP
+.TP
+\f(BICONFIG_FOUND_AFTER_MAP \fP
+.SS "enum \fBe_maze_error\fP"
+
+.PP
+Enum used for maze related errors\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\f(BIMAZE_SIZE_TOO_BIG \fP
+.TP
+\f(BIMAZE_SIZE_TOO_SMALL \fP
+.TP
+\f(BIMAZE_SIZE_NEGATIVE_VALUE \fP
+.TP
+\f(BIMAZE_ARGS_BAD_FORMAT \fP
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

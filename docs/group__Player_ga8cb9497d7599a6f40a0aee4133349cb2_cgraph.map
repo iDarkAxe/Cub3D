@@ -1,0 +1,7 @@
+<map id="resolve_collision_steps" name="resolve_collision_steps">
+<area shape="rect" id="Node000001" title="Solver of collision on x and y using steps smaller than 1 unit, To use only when moving faster than 1..." alt="" coords="5,31,179,56"/>
+<area shape="rect" id="Node000002" href="$group__Player.html#ga9ac4f15f3d5d26e82fa4d2cc0778c4b1" title="Solver of collision on x axis." alt="" coords="227,5,360,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="178,30,213,25,213,31,179,35"/>
+<area shape="rect" id="Node000003" href="$group__Player.html#gacae033dcea254050b56e2a4e016876f6" title="Solver of collision on y axis." alt="" coords="227,55,360,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="179,51,213,55,213,60,178,56"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="s_mlx" name="s_mlx">
+<area shape="rect" id="Node000001" title="Structure that handle the mlx instance." alt="" coords="125,225,187,251"/>
+<area shape="rect" id="Node000002" href="$structs__settings.html" title="Structure that handle the settings of the game." alt="" coords="112,123,200,148"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,162,159,225,153,225,153,162"/>
+<area shape="rect" id="Node000003" href="$structs__img.html" title="Structure used to store an image (buffer that contain image, and size)." alt="" coords="5,5,67,31"/>
+<area shape="poly" id="edge4_Node000001_Node000003" title=" " alt="" coords="30,44,20,94,21,121,29,147,48,173,73,194,126,223,124,228,70,199,44,177,24,149,16,122,14,93,24,43"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="60,38,146,121,142,125,56,42"/>
+<area shape="rect" id="Node000004" href="$structs__pos2.html" title="Structure that handle positions in the map. Same as t_coordinates but with signed integers." alt="" coords="224,123,291,148"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="249,162,237,183,220,203,185,227,182,223,217,199,232,180,244,159"/>
+</map>

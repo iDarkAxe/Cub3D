@@ -1,0 +1,128 @@
+.TH "Vector" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Vector \- Vector implementation with t_pos2
+.PP
+ \- Vector functions used to work woth \fBt_pos2\fP\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_posvec\fP * \fBposvecnew\fP (size_t size)"
+.br
+.RI "Create a vector with an initial starting size\&. "
+.ti -1c
+.RI "int \fBposvecpush\fP (\fBt_posvec\fP *vec, \fBt_pos2\fP data)"
+.br
+.RI "Add a new element to the vector\&. "
+.ti -1c
+.RI "int \fBposvecpop\fP (\fBt_posvec\fP *vec, \fBt_pos2\fP *pos)"
+.br
+.RI "Pops the last element of the vector if not empty\&. "
+.ti -1c
+.RI "int \fBposvecremove\fP (\fBt_posvec\fP *vec, size_t index, \fBt_pos2\fP *result)"
+.br
+.RI "Removes the element at the specified index from the vector if found\&. "
+.ti -1c
+.RI "void \fBposvecfree\fP (\fBt_posvec\fP *vec)"
+.br
+.RI "Free the vector\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Vector functions used to work woth \fBt_pos2\fP\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void posvecfree (\fBt_posvec\fP * vec)"
+
+.PP
+Free the vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvec\fP vector pointer 
+.RE
+.PP
+
+.SS "\fBt_posvec\fP * posvecnew (size_t size)"
+
+.PP
+Create a vector with an initial starting size\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIsize\fP initial size 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_posvec* pointer to the new vector 
+.RE
+.PP
+
+.SS "int posvecpop (\fBt_posvec\fP * vec, \fBt_pos2\fP * pos)"
+
+.PP
+Pops the last element of the vector if not empty\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvec\fP vector pointer 
+.br
+\fIpos\fP if non-null, copy the last element to this location 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, 0 otherwise 
+.RE
+.PP
+
+.SS "int posvecpush (\fBt_posvec\fP * vec, \fBt_pos2\fP data)"
+
+.PP
+Add a new element to the vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvec\fP vector pointer 
+.br
+\fIdata\fP payload to add 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, 0 otherwise 
+.RE
+.PP
+
+.SS "int posvecremove (\fBt_posvec\fP * vec, size_t index, \fBt_pos2\fP * result)"
+
+.PP
+Removes the element at the specified index from the vector if found\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvec\fP vector pointer 
+.br
+\fIindex\fP index of the element to define 
+.br
+\fIresult\fP if non-null, copy the removed element to this location 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

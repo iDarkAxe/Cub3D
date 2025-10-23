@@ -1,0 +1,46 @@
+.TH "src/ft_free.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/ft_free.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'cub3d\&.h'\fP
+.br
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'filter\&.h'\fP
+.br
+\fR#include 'mlx\&.h'\fP
+.br
+\fR#include <stdlib\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_free_all\fP (\fBt_data\fP *data)"
+.br
+.RI "Free all the memory allocated for the data structure\&. "
+.ti -1c
+.RI "void \fBft_free_map\fP (\fBt_map_raoul\fP *map)"
+.br
+.RI "Free the map structure\&. "
+.ti -1c
+.RI "void \fBft_free_file\fP (\fBt_map\fP *map)"
+.br
+.RI "Free the strings of the file\&. "
+.ti -1c
+.RI "void \fBft_free_textures\fP (\fBt_mlx\fP *mlx, \fBt_textures\fP *textures)"
+.br
+.RI "Free all the textures stored in mlx structure and map struct\&. "
+.ti -1c
+.RI "void \fBft_free_textures_path\fP (\fBt_map\fP *map)"
+.br
+.RI "Free the path (name) of the textures in memory\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

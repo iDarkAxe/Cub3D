@@ -1,0 +1,23 @@
+<map id="settings_hooks" name="settings_hooks">
+<area shape="rect" id="Node000001" title="Set the settings hooks on the settings window." alt="" coords="5,99,125,125"/>
+<area shape="rect" id="Node000002" href="$group__Hooks.html#ga349c8aecd6f3bcb2a7902fb77faac9b1" title="Hook used to close window or set the window size if MACRO Enabled." alt="" coords="385,63,540,103"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="126,105,371,87,372,92,126,110"/>
+<area shape="rect" id="Node000004" href="$group__Hooks.html#gaa2b2aa9564b18b3fa23e2496a6bc9d5c" title="Handle mouse click in the settings window." alt="" coords="173,120,337,160"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="126,118,160,123,160,129,125,123"/>
+<area shape="rect" id="Node000008" href="$group__Hooks.html#gafbf5265c039eb89652e5194c2e074760" title="Hook when the mouse is moved while clicking for the settings." alt="" coords="173,5,337,45"/>
+<area shape="poly" id="edge8_Node000001_Node000008" title=" " alt="" coords="93,97,197,49,199,53,95,102"/>
+<area shape="rect" id="Node000009" href="$group__Hooks.html#ga68d37ba2f74dea079fd1f756c4fd4cab" title="Hook when the mouse is moved for the settings." alt="" coords="173,201,337,241"/>
+<area shape="poly" id="edge10_Node000001_Node000009" title=" " alt="" coords="90,122,209,192,206,197,87,127"/>
+<area shape="rect" id="Node000003" href="$group__Settings.html#ga75b2cd9bd30c92a5cb9a33972f1a124d" title="Set screen size according to an enum." alt="" coords="588,70,729,95"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="540,80,574,80,574,85,540,85"/>
+<area shape="rect" id="Node000005" href="$group__Print.html#ga287e1f8890771e076d13e764f779e21a" title="Print the keycode name if registered or just its value if not." alt="" coords="413,127,512,153"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="338,137,399,137,399,143,338,143"/>
+<area shape="rect" id="Node000006" href="$group__Settings.html#gaf0d8b2783f978e0743efbccd9db10409" title="State machine for the settings window." alt="" coords="403,177,522,202"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="338,157,396,171,395,176,337,162"/>
+<area shape="poly" id="edge6_Node000006_Node000003" title=" " alt="" coords="511,174,539,163,588,133,630,102,633,106,591,138,541,168,513,179"/>
+<area shape="rect" id="Node000007" href="$group__Key.html#gabd000bbaaf9c5ad2d692c819475d18cf" title="Check if a keycode is a movement key." alt="" coords="613,177,704,202"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="522,187,599,187,599,192,522,192"/>
+<area shape="poly" id="edge9_Node000008_Node000003" title=" " alt="" coords="338,26,435,34,540,48,605,63,604,69,540,53,435,39,338,31"/>
+<area shape="rect" id="Node000010" href="$group__Settings.html#ga5c5a84c3c923c8fda6546d06bf0d51d0" title="Return an enum according to selected circle using coordinates." alt="" coords="414,226,511,251"/>
+<area shape="poly" id="edge11_Node000009_Node000010" title=" " alt="" coords="338,226,400,231,399,236,337,231"/>
+</map>

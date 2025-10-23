@@ -1,0 +1,40 @@
+.TH "src/ft_keys.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/ft_keys.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'cub3d\&.h'\fP
+.br
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'ft_keys\&.h'\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBset_key\fP (int keycode, \fBt_input\fP *input, bool set)"
+.br
+.RI "Set the input according to the keycode and the set value\&. "
+.ti -1c
+.RI "void \fBtoggle_key\fP (int keycode, \fBt_input\fP *input)"
+.br
+.RI "Toggle the input according to the keycode\&. "
+.ti -1c
+.RI "bool \fBis_mv_key\fP (enum \fBe_movement\fP expected, int keycode)"
+.br
+.RI "Check if a keycode is a movement key\&. "
+.ti -1c
+.RI "void \fBchange_fov\fP (\fBt_data\fP *data, int keycode)"
+.br
+.RI "Change the FOV according to the keycode\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

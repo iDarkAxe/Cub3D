@@ -1,0 +1,24 @@
+<map id="src/settings/ft_settings_state.c" name="src/settings/ft_settings_state.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="63,5,233,45"/>
+<area shape="rect" id="Node000002" href="$data__structure_8h.html" title="Header file for all the types and structures of the project." alt="" coords="84,167,212,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,46,151,153,145,153,145,46"/>
+<area shape="rect" id="Node000006" href="$ft__keys_8h.html" title="Header file for the key used in cub3d." alt="" coords="19,93,99,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="128,48,84,86,80,82,125,44"/>
+<area shape="rect" id="Node000007" href="$cub3d_8h.html" title="Header file for the cub3d project." alt="" coords="290,93,363,119"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="192,43,289,85,287,90,190,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="113,240,191,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="151,192,153,226,148,227,146,192"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,240,88,265"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="133,194,76,234,73,230,130,190"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="320,240,395,265"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="182,189,311,233,309,238,181,195"/>
+<area shape="poly" id="edge6_Node000006_Node000004" title=" " alt="" coords="60,119,51,227,46,226,55,119"/>
+<area shape="poly" id="edge8_Node000007_Node000002" title=" " alt="" coords="299,121,191,164,189,159,297,116"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="365,114,405,132,425,147,440,166,444,186,434,205,417,222,396,236,393,231,414,218,430,202,439,186,435,168,421,151,403,137,362,119"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="501,167,571,192"/>
+<area shape="poly" id="edge10_Node000007_Node000008" title=" " alt="" coords="361,116,490,160,488,165,359,121"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="236,167,311,192"/>
+<area shape="poly" id="edge11_Node000007_Node000009" title=" " alt="" coords="320,121,292,157,288,154,316,117"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="335,167,425,192"/>
+<area shape="poly" id="edge12_Node000007_Node000010" title=" " alt="" coords="338,117,365,154,361,157,333,121"/>
+</map>

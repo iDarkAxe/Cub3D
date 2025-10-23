@@ -1,0 +1,328 @@
+.TH "inc/cub3d.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/cub3d.h \- Header file for the cub3d project\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+\fR#include <stdint\&.h>\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+\fR#include <sys/time\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBPI\fP   3\&.141592653589793238462643383279502884197169399375105820974944592307"
+.br
+.RI "PI approximation\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_DEFAULT_VALUE\fP   true"
+.br
+.RI "Enable Minimap by default and can be toggled with the 'M' key\&. "
+.ti -1c
+.RI "#define \fBFIELD_OF_VIEW_DEFAULT_VALUE\fP   true"
+.br
+.RI "Enable Field of View by default and can be toggled with the 'F' key\&. "
+.ti -1c
+.RI "#define \fBCOLLISION_DEFAULT_VALUE\fP   true"
+.br
+.RI "Enable Collision by default and can be toggled with the 'C' key\&. "
+.ti -1c
+.RI "#define \fBENABLE_FILTERS\fP   true"
+.br
+.RI "Enable Filters features\&. "
+.ti -1c
+.RI "#define \fBMOUSE_SENSITIVITY_FACTOR\fP   0\&.001f"
+.br
+.RI "Value used to define the sensitivity of the mouse\&. This value is multiplied by the delta mouse x to get the turn amount\&. A higher value will make the mouse more sensitive and will turn faster\&. Anything higher or lower than 0\&.001f will be strange\&. "
+.ti -1c
+.RI "#define \fBMOVEMENT_SPEED_TURNING\fP   0\&.015f"
+.br
+.RI "Value used to define the turning speed of the player\&. This value is multiplied by the input to get the turn amount\&. A higher value will make the player turn faster\&. "
+.ti -1c
+.RI "#define \fBMOVEMENT_SPEED_FWD_BWD\fP   0\&.025f"
+.br
+.RI "Value used to define the movement speed of the player in forward or backward\&. This value is multiplied by the input to get the amount\&. A higher value will make the player walk faster\&. "
+.ti -1c
+.RI "#define \fBMOVEMENT_SPEED_LEFT_RIGHT\fP   0\&.015f"
+.br
+.RI "Value used to define the movement speed of the player when moving left or right\&. This value is multiplied by the input to get the amount\&. A higher value will make the player walk faster\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_COLOR\fP   0xffffff00"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_LINE_SIGHT_COLOR\fP   0xffffff00"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_CONE_SIGHT_COLOR\fP   0xffffaaaa"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_FLOOR_COLOR\fP   0xff000000"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_WALL_COLOR\fP   0xffffffff"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_KEY_COLOR\fP   0xffffff00"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_DOOR_COLOR\fP   0xff0000ff"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_NUM_TILES_X\fP   15"
+.br
+.RI "Number of tiles on X axis\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_NUM_TILES_Y\fP   15"
+.br
+.RI "Number of tiles on Y axis\&. "
+.ti -1c
+.RI "#define \fBMINIMAP_TILE_SIZE\fP   16"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_TILES_X\fP   15"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_TILES_Y\fP   15"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_PLAYER_SIZE\fP   4"
+.br
+.ti -1c
+.RI "#define \fBMINIMAP_LINE_OF_SIGHT_FACTOR\fP   2"
+.br
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_KEYCODE\fP   0"
+.br
+.RI "Enable to print key presses\&. "
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_FPS\fP   0"
+.br
+.RI "Enable if you want to see the FPS\&. "
+.ti -1c
+.RI "#define \fBDEBUG_FPS_REFRESH\fP   0"
+.br
+.RI "Enable to keep the FPS counter on a single line\&. "
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_TEXTURE_SWAP\fP   0"
+.br
+.RI "Enable printing of message to indicate texture swapping\&. "
+.ti -1c
+.RI "#define \fBDEBUG_PRINT_TEXTURE_ALTERED\fP   0"
+.br
+.RI "Enable printing message when a texture is altered with filters\&. "
+.ti -1c
+.RI "#define \fBCROSS_APPLY_SETTINGS\fP   0"
+.br
+.RI "Enable if closing the settings window should behave as 'Enter'\&. "
+.ti -1c
+.RI "#define \fBESCAPE_APPLY_SETTINGS\fP   0"
+.br
+.RI "Enable pressing Esc in the settings menu should behave as 'Enter'\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBcub3d\fP (int argc, char **argv)"
+.br
+.RI "Main function of the cub3d project\&. "
+.ti -1c
+.RI "int \fBcub_read_args\fP (int argc, char **argv, \fBt_args\fP *args)"
+.br
+.RI "Reads and verifies the arguments passed to the program\&. "
+.ti -1c
+.RI "char ** \fBfill_config_region\fP (\fBt_map\fP *map)"
+.br
+.RI "Fill the config region of the file\&. "
+.ti -1c
+.RI "char ** \fBfill_map_region\fP (\fBt_map\fP *map)"
+.br
+.RI "Fill the map region of the file\&. "
+.ti -1c
+.RI "char ** \fBread_file_lines\fP (\fBt_map\fP *map, char *map_name)"
+.br
+.RI "Read the map file line by line and return an array of strings\&. "
+.ti -1c
+.RI "size_t \fBcount_file_lines\fP (char *file_name)"
+.br
+.RI "Simple function to count the number of lines in a file\&. "
+.ti -1c
+.RI "void \fBft_exit\fP (\fBt_mlx\fP mlx, \fBt_map\fP *map)"
+.br
+.RI "Exit the program\&. "
+.ti -1c
+.RI "int \fBft_mlx_init\fP (\fBt_data\fP *data)"
+.br
+.RI "Initialize the mlx structure, create settings window, and load game\&. "
+.ti -1c
+.RI "void \fBft_mlx_end\fP (\fBt_mlx\fP *mlx)"
+.br
+.RI "Close and free the mlx structure\&. "
+.ti -1c
+.RI "void * \fBft_settings\fP (\fBt_mlx\fP *mlx)"
+.br
+.RI "Generate the window settings for the program\&. "
+.ti -1c
+.RI "enum \fBe_screen_size\fP \fBcircle_state\fP (int x, int y)"
+.br
+.RI "Return an enum according to selected circle using coordinates\&. "
+.ti -1c
+.RI "int \fBft_set_screen_size\fP (\fBt_mlx\fP *mlx, enum \fBe_screen_size\fP size)"
+.br
+.RI "Set screen size according to an enum\&. "
+.ti -1c
+.RI "void \fBft_free_settings\fP (\fBt_mlx\fP *mlx)"
+.br
+.RI "Free all the settings variables\&. "
+.ti -1c
+.RI "void \fBsettings_hooks\fP (\fBt_data\fP *data)"
+.br
+.RI "Set the settings hooks on the settings window\&. "
+.ti -1c
+.RI "void \fBstate_machine\fP (int keycode, \fBt_mlx\fP *mlx)"
+.br
+.RI "State machine for the settings window\&. "
+.ti -1c
+.RI "int \fBcub_keydown_hook\fP (int keycode, void *param)"
+.br
+.RI "Hook when a key is pressed\&. "
+.ti -1c
+.RI "int \fBcub_keyup_hook\fP (int keycode, void *param)"
+.br
+.RI "Hook when a key is released\&. "
+.ti -1c
+.RI "int \fBcub_mouse_click_hook\fP (int button, int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved while clicking\&. "
+.ti -1c
+.RI "int \fBcub_mouse_hook\fP (int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved\&. "
+.ti -1c
+.RI "int \fBhook_settings_handle_mouse_click\fP (int button, int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved while clicking for the settings\&. "
+.ti -1c
+.RI "int \fBhook_settings_handle_mouse_motion\fP (int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved for the settings\&. "
+.ti -1c
+.RI "int \fBhook_settings_close_window\fP (void *param)"
+.br
+.RI "Hook used to close window or set the window size if MACRO Enabled\&. "
+.ti -1c
+.RI "int \fBhook_settings_handle_keypress\fP (int keycode, void *param)"
+.br
+.RI "Handle mouse click in the settings window\&. "
+.ti -1c
+.RI "\fBt_map\fP \fBft_map_check_dimensions\fP (\fBt_map\fP *map, char *map_name)"
+.br
+.RI "Check the map structure and try to open the map file\&. sets error to -1 if an error occurred\&. "
+.ti -1c
+.RI "\fBt_map\fP \fBft_check_config\fP (\fBt_map\fP *map)"
+.br
+.RI "Check if the config is properly formatted or not\&. "
+.ti -1c
+.RI "\fBt_map\fP \fBft_check_floor_ceiling\fP (\fBt_map\fP *map)"
+.br
+.RI "Check the floor and ceiling colors\&. "
+.ti -1c
+.RI "size_t \fBis_config_line\fP (char *line)"
+.br
+.RI "Return a positive number if a config line is detected\&. "
+.ti -1c
+.RI "\fBt_map\fP \fBcheck_map_chars_borders\fP (\fBt_map\fP *map)"
+.br
+.RI "Check if the map has only acceptable characters and if there is borders everywhere, as it should be\&. "
+.ti -1c
+.RI "\fBt_coordinates\fP \fBfind_position\fP (\fBt_map\fP *map, const char *charset)"
+.br
+.RI "Find the position of the player with charset in the map\&. "
+.ti -1c
+.RI "int \fBvalidate_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Validate if the map has unclosed holes or an unfinished outer layer\&. "
+.ti -1c
+.RI "bool \fBis_only_whitespace\fP (const char *str)"
+.br
+.RI "Check if the string contains only whitespace characters\&. "
+.ti -1c
+.RI "void \fBsuppress_newlines\fP (char **lines)"
+.br
+.RI "Suppress newlines in the given lines\&. "
+.ti -1c
+.RI "int \fBis_walkable\fP (char c)"
+.br
+.RI "Check if a character is walkable or not\&. "
+.ti -1c
+.RI "int \fBis_in_bounds\fP (char **map, size_t y, size_t x)"
+.br
+.RI "Check if a position is in bounds of map or not\&. "
+.ti -1c
+.RI "int \fBsafe_open\fP (char *file_name)"
+.br
+.RI "Try to open the map file specified by map_name\&. "
+.ti -1c
+.RI "int \fBsafe_close\fP (int *fd)"
+.br
+.RI "Close safely the file descriptor Modify the file descriptor to -1 after closing it\&. "
+.ti -1c
+.RI "int \fBtry_to_open_close_file\fP (char *file_name)"
+.br
+.RI "Try to open the file specified by file_name\&. "
+.ti -1c
+.RI "size_t \fBcount_array_length\fP (char **array)"
+.br
+.RI "Count the number of strings that an array have Should absolutely be NULL-Terminated\&. "
+.ti -1c
+.RI "void \fBft_free_all\fP (\fBt_data\fP *data)"
+.br
+.RI "Free all the memory allocated for the data structure\&. "
+.ti -1c
+.RI "void \fBft_free_file\fP (\fBt_map\fP *map)"
+.br
+.RI "Free the strings of the file\&. "
+.ti -1c
+.RI "void \fBft_free_textures\fP (\fBt_mlx\fP *mlx, \fBt_textures\fP *textures)"
+.br
+.RI "Free all the textures stored in mlx structure and map struct\&. "
+.ti -1c
+.RI "void \fBft_free_textures_path\fP (\fBt_map\fP *map)"
+.br
+.RI "Free the path (name) of the textures in memory\&. "
+.ti -1c
+.RI "void \fBft_free_map\fP (\fBt_map_raoul\fP *map)"
+.br
+.RI "Free the map structure\&. "
+.ti -1c
+.RI "uint64_t \fBget_time_ms\fP (void)"
+.br
+.RI "Get time in milliseconds\&. "
+.ti -1c
+.RI "uint64_t \fBtimeval_to_us\fP (const struct timeval *tv)"
+.br
+.RI "Convert a timeval in microseconds\&. "
+.ti -1c
+.RI "uint16_t \fBcount_fps\fP (bool print)"
+.br
+.RI "Count the FPS and print it to the console\&. It will print the FPS every second if DEBUG_PRINT_FPS is set to 1\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for the cub3d project\&. 
+
+Contains all function prototypes used in the project\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

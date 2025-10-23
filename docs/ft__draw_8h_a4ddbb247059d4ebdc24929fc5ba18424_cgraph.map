@@ -1,0 +1,8 @@
+<map id="ft_put_circle_specific" name="ft_put_circle_specific">
+<area shape="rect" id="Node000001" title="Function to put the specific case of circles defined by the enum." alt="" coords="5,31,163,56"/>
+<area shape="rect" id="Node000002" href="$ft__settings__draw__img_8c.html#ade2cb410982302b7934977296af9171d" title="Function to pull all the circle to the window following their state." alt="" coords="211,5,385,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,31,197,27,197,33,163,37"/>
+<area shape="rect" id="Node000003" href="$ft__settings__draw__img_8c.html#a7b28d42b89180749bbc812716e3a9129" title="Put ON circle if is_enabled, put OFF circle if not." alt="" coords="433,31,584,56"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="163,41,419,41,419,46,163,46"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="386,26,420,30,419,35,385,31"/>
+</map>

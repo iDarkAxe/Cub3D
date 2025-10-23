@@ -1,0 +1,34 @@
+.TH "src/ft_safe.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/ft_safe.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'ft_print\&.h'\fP
+.br
+\fR#include 'ft_printf\&.h'\fP
+.br
+\fR#include <errno\&.h>\fP
+.br
+\fR#include <fcntl\&.h>\fP
+.br
+\fR#include <string\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBsafe_open\fP (char *file_name)"
+.br
+.RI "Try to open the map file specified by map_name\&. "
+.ti -1c
+.RI "int \fBsafe_close\fP (int *fd)"
+.br
+.RI "Close safely the file descriptor Modify the file descriptor to -1 after closing it\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

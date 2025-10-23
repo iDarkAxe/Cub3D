@@ -1,0 +1,7 @@
+<map id="cub_new_map_from_dimensions" name="cub_new_map_from_dimensions">
+<area shape="rect" id="Node000001" title="Allocates a new map with the given dimension." alt="" coords="5,31,240,56"/>
+<area shape="rect" id="Node000002" href="$group__Random.html#ga688110434a8b43fd7d0b18507bf40cbb" title="Parse the argument for generation." alt="" coords="288,5,481,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="240,29,274,26,274,31,240,35"/>
+<area shape="rect" id="Node000003" href="$group__Random.html#gade442cde11dab517643669f2bca558d9" title="Generate a random unsigned int." alt="" coords="351,55,418,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="240,51,338,60,337,66,240,57"/>
+</map>

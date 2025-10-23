@@ -1,0 +1,5 @@
+<map id="ft_put_circle_to_img" name="ft_put_circle_to_img">
+<area shape="rect" id="Node000001" title="Put a circle to the image." alt="" coords="5,5,159,31"/>
+<area shape="rect" id="Node000002" href="$ft__draw__img_8c.html#a479f19d6ae59f292309f365138284839" title="Should only be used for images with 32 bits per pixel. (standard) It will result as undefined behavio..." alt="" coords="207,5,356,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,15,193,15,193,21,159,21"/>
+</map>

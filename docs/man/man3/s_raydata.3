@@ -1,0 +1,79 @@
+.TH "s_raydata" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+s_raydata \- Structure used to store the raycasting data\&. It contains all the information needed to cast a ray\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <data_structure\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBt_vec2\fP \fBray_dir\fP"
+.br
+.ti -1c
+.RI "\fBt_vec2\fP \fBside_dist\fP"
+.br
+.ti -1c
+.RI "\fBt_vec2\fP \fBdelta_dist\fP"
+.br
+.ti -1c
+.RI "\fBt_vec2\fP \fBpos\fP"
+.br
+.ti -1c
+.RI "\fBt_vec2\fP \fBplane\fP"
+.br
+.ti -1c
+.RI "\fBt_pos2\fP \fBmap\fP"
+.br
+.ti -1c
+.RI "\fBt_pos2\fP \fBstep\fP"
+.br
+.ti -1c
+.RI "int \fBhit_wall\fP"
+.br
+.ti -1c
+.RI "int \fBhit_side\fP"
+.br
+.ti -1c
+.RI "int \fBceil_color\fP"
+.br
+.ti -1c
+.RI "int \fBfloor_color\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure used to store the raycasting data\&. It contains all the information needed to cast a ray\&. 
+.SH "Field Documentation"
+.PP 
+.SS "int s_raydata::ceil_color"
+
+.SS "\fBt_vec2\fP s_raydata::delta_dist"
+
+.SS "int s_raydata::floor_color"
+
+.SS "int s_raydata::hit_side"
+
+.SS "int s_raydata::hit_wall"
+
+.SS "\fBt_pos2\fP s_raydata::map"
+
+.SS "\fBt_vec2\fP s_raydata::plane"
+
+.SS "\fBt_vec2\fP s_raydata::pos"
+
+.SS "\fBt_vec2\fP s_raydata::ray_dir"
+
+.SS "\fBt_vec2\fP s_raydata::side_dist"
+
+.SS "\fBt_pos2\fP s_raydata::step"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

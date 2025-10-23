@@ -1,0 +1,7 @@
+<map id="s_textures" name="s_textures">
+<area shape="rect" id="Node000001" title="Structure that handle the textures of the game." alt="" coords="35,167,125,192"/>
+<area shape="rect" id="Node000002" href="$structs__img.html" title="Structure used to store an image (buffer that contain image, and size)." alt="" coords="5,5,67,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="41,44,47,90,61,142,74,165,69,167,56,144,42,91,35,45"/>
+<area shape="rect" id="Node000003" href="$unionu__color.html" title="Union used to store color information. It can be used to store color in RGBA format or as a separate ..." alt="" coords="91,5,160,31"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="123,45,113,91,99,144,88,167,83,165,93,142,108,90,118,44"/>
+</map>

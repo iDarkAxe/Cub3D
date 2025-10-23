@@ -1,0 +1,197 @@
+.TH "inc/ft_draw.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/ft_draw.h \- Header file for the draw functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include <stdbool\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBs_circle\fP"
+.br
+.RI "Structure used to store circle informations\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBs_circle\fP \fBt_circle\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_put_pixel_to_img\fP (\fBt_img\fP *img, int x, int y, int color)"
+.br
+.RI "Should only be used for images with 32 bits per pixel\&. (standard) It will result as undefined behavior if used on images with other bit depths\&. it's because of alignment issues with the pixel data\&. "
+.ti -1c
+.RI "void \fBft_put_pixel_to_img_24bp\fP (\fBt_img\fP *img, int x, int y, int color)"
+.br
+.RI "Special case for 24 bits per pixel images\&. "
+.ti -1c
+.RI "void \fBft_draw_circle\fP (\fBt_mlx\fP *mlx, void *win_ptr, \fBt_circle\fP element) __attribute__((deprecated))"
+.br
+.RI "Draw a circle directly on the window\&. "
+.ti -1c
+.RI "void \fBft_put_circle_to_img\fP (\fBt_mlx\fP *mlx, void *win_ptr, \fBt_img\fP *img, \fBt_circle\fP element)"
+.br
+.RI "Put a circle to the image\&. "
+.ti -1c
+.RI "void \fBft_put_circle_to_win\fP (\fBt_mlx\fP *mlx, void *win_ptr, \fBt_circle\fP element, bool is_enabled)"
+.br
+.RI "Put ON circle if is_enabled, put OFF circle if not\&. "
+.ti -1c
+.RI "void \fBft_put_circle_specific\fP (\fBt_mlx\fP *mlx, void *win_settings_ptr, enum \fBe_screen_size\fP num, bool is_enabled)"
+.br
+.RI "Function to put the specific case of circles defined by the enum\&. "
+.ti -1c
+.RI "void \fBft_put_all_circle_to_win\fP (\fBt_mlx\fP *mlx, void *win_settings_ptr, bool is_enabled)"
+.br
+.RI "Function to pull all the circle to the window following their state\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for the draw functions\&. 
+
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBs_circle\fP \fBt_circle\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "void ft_draw_circle (\fBt_mlx\fP * mlx, void * win_ptr, \fBt_circle\fP element)"
+
+.PP
+Draw a circle directly on the window\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Uses an old technique, should put pixels onto a img first and after onto the window (it's at least 10x faster)
+.RE
+.PP
+
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_ptr\fP window pointer 
+.br
+\fIelement\fP element 
+.RE
+.PP
+
+.SS "void ft_put_all_circle_to_win (\fBt_mlx\fP * mlx, void * win_settings_ptr, bool is_enabled)"
+
+.PP
+Function to pull all the circle to the window following their state\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_settings_ptr\fP settings window pointer 
+.br
+\fIis_enabled\fP true is ON, false is OFF 
+.RE
+.PP
+
+.SS "void ft_put_circle_specific (\fBt_mlx\fP * mlx, void * win_settings_ptr, enum \fBe_screen_size\fP num, bool is_enabled)"
+
+.PP
+Function to put the specific case of circles defined by the enum\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_settings_ptr\fP settings window pointer 
+.br
+\fInum\fP state to put 
+.br
+\fIis_enabled\fP true is ON, false is OFF 
+.RE
+.PP
+
+.SS "void ft_put_circle_to_img (\fBt_mlx\fP * mlx, void * win_ptr, \fBt_img\fP * img, \fBt_circle\fP element)"
+
+.PP
+Put a circle to the image\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_ptr\fP window pointer 
+.br
+\fIimg\fP img structure 
+.br
+\fIelement\fP circle element to draw 
+.RE
+.PP
+
+.SS "void ft_put_circle_to_win (\fBt_mlx\fP * mlx, void * win_ptr, \fBt_circle\fP element, bool is_enabled)"
+
+.PP
+Put ON circle if is_enabled, put OFF circle if not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_ptr\fP window pointer 
+.br
+\fIelement\fP element 
+.br
+\fIis_enabled\fP true is ON, false is OFF 
+.RE
+.PP
+
+.SS "void ft_put_pixel_to_img (\fBt_img\fP * img, int x, int y, int color)"
+
+.PP
+Should only be used for images with 32 bits per pixel\&. (standard) It will result as undefined behavior if used on images with other bit depths\&. it's because of alignment issues with the pixel data\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimg\fP image structure 
+.br
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.br
+\fIcolor\fP color 
+.RE
+.PP
+
+.SS "void ft_put_pixel_to_img_24bp (\fBt_img\fP * img, int x, int y, int color)"
+
+.PP
+Special case for 24 bits per pixel images\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIimg\fP image structure 
+.br
+\fIx\fP x axis 
+.br
+\fIy\fP y axis 
+.br
+\fIcolor\fP color 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

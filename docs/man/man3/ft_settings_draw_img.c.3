@@ -1,0 +1,85 @@
+.TH "src/settings/ft_settings_draw_img.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/settings/ft_settings_draw_img.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'ft_draw\&.h'\fP
+.br
+\fR#include 'mlx\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_put_circle_to_win\fP (\fBt_mlx\fP *mlx, void *win_ptr, \fBt_circle\fP element, bool is_enabled)"
+.br
+.RI "Put ON circle if is_enabled, put OFF circle if not\&. "
+.ti -1c
+.RI "void \fBft_put_circle_specific\fP (\fBt_mlx\fP *mlx, void *win_ptr, enum \fBe_screen_size\fP num, bool is_enabled)"
+.br
+.RI "Function to put the specific case of circles defined by the enum\&. "
+.ti -1c
+.RI "void \fBft_put_all_circle_to_win\fP (\fBt_mlx\fP *mlx, void *win_ptr, bool is_enabled)"
+.br
+.RI "Function to pull all the circle to the window following their state\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void ft_put_all_circle_to_win (\fBt_mlx\fP * mlx, void * win_settings_ptr, bool is_enabled)"
+
+.PP
+Function to pull all the circle to the window following their state\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_settings_ptr\fP settings window pointer 
+.br
+\fIis_enabled\fP true is ON, false is OFF 
+.RE
+.PP
+
+.SS "void ft_put_circle_specific (\fBt_mlx\fP * mlx, void * win_settings_ptr, enum \fBe_screen_size\fP num, bool is_enabled)"
+
+.PP
+Function to put the specific case of circles defined by the enum\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_settings_ptr\fP settings window pointer 
+.br
+\fInum\fP state to put 
+.br
+\fIis_enabled\fP true is ON, false is OFF 
+.RE
+.PP
+
+.SS "void ft_put_circle_to_win (\fBt_mlx\fP * mlx, void * win_ptr, \fBt_circle\fP element, bool is_enabled)"
+
+.PP
+Put ON circle if is_enabled, put OFF circle if not\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fIwin_ptr\fP window pointer 
+.br
+\fIelement\fP element 
+.br
+\fIis_enabled\fP true is ON, false is OFF 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

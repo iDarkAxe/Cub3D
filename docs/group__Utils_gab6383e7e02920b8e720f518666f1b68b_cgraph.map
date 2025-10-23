@@ -1,0 +1,15 @@
+<map id="ft_free_all" name="ft_free_all">
+<area shape="rect" id="Node000001" title="Free all the memory allocated for the data structure." alt="" coords="5,129,92,155"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#ga5d7f8087ed57221896ac54019750cdf8" title="Free the strings of the file." alt="" coords="175,5,266,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="56,128,88,85,112,61,139,40,161,29,163,34,141,44,115,65,92,88,60,131"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#ga6366e4237b795b9b93485ccf9404367f" title="Free the map structure." alt="" coords="171,55,271,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="68,127,139,89,157,82,159,87,141,94,71,132"/>
+<area shape="rect" id="Node000004" href="$group__Settings.html#ga1dfc6ac87190fc8d1724b9fda5d69320" title="Free all the settings variables." alt="" coords="159,104,282,129"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="92,133,145,125,146,130,93,138"/>
+<area shape="rect" id="Node000005" href="$group__Utils.html#gaf311648f97d1e23074b64302264eefef" title="Free all the textures stored in mlx structure and map struct." alt="" coords="158,153,283,179"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="93,145,145,153,144,158,92,151"/>
+<area shape="rect" id="Node000006" href="$group__Utils.html#ga50429a63ccf27bd42bb65fe8f946763d" title="Free the path (name) of the textures in memory." alt="" coords="140,203,301,228"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="73,152,141,188,163,196,161,201,139,192,70,157"/>
+<area shape="rect" id="Node000007" href="$group__Main.html#ga01da3c3fa8a5824bdd7218972093d16a" title="Close and free the mlx structure." alt="" coords="173,252,268,277"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="61,153,93,194,116,217,141,237,161,247,159,252,139,242,112,221,89,198,56,156"/>
+</map>

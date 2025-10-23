@@ -1,0 +1,17 @@
+<map id="src/settings/ft_settings_draw_img.c" name="src/settings/ft_settings_draw_img.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="140,5,309,45"/>
+<area shape="rect" id="Node000002" href="$data__structure_8h.html" title="Header file for all the types and structures of the project." alt="" coords="82,167,210,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="209,47,191,69,175,95,162,125,154,154,149,152,157,123,170,92,187,66,205,44"/>
+<area shape="rect" id="Node000006" href="$ft__draw_8h.html" title="Header file for the draw functions." alt="" coords="184,93,265,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="227,46,227,79,222,79,222,46"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="290,93,349,119"/>
+<area shape="poly" id="edge8_Node000001_Node000007" title=" " alt="" coords="249,43,296,82,293,86,246,48"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,240,84,265"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="131,194,74,234,71,230,128,190"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="207,240,290,265"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="164,190,222,230,219,234,161,194"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="109,240,183,265"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="149,192,149,226,143,226,143,192"/>
+<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="214,121,171,159,167,156,210,117"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="229,119,247,226,242,227,224,120"/>
+</map>

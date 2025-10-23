@@ -1,0 +1,7 @@
+<map id="count_fps" name="count_fps">
+<area shape="rect" id="Node000001" title="Count the FPS and print it to the console. It will print the FPS every second if DEBUG_PRINT_FPS is s..." alt="" coords="5,31,91,56"/>
+<area shape="rect" id="Node000002" href="$ft__time_8c.html#a68c0352f61bd7f19e1acbccbee488fe0" title=" " alt="" coords="157,5,235,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,33,143,24,144,30,91,39"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#ga27c05df32c4ac4355ee49429f7d66054" title="Convert a timeval in microseconds." alt="" coords="139,55,253,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="91,48,125,53,124,58,91,53"/>
+</map>

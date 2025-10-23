@@ -1,0 +1,5 @@
+<map id="cubmlx_putrect" name="cubmlx_putrect">
+<area shape="rect" id="Node000001" title="Puts a rectangle onto the backbuffer." alt="" coords="5,5,128,31"/>
+<area shape="rect" id="Node000002" href="$group__Backbuffer.html#gab6ead875eb5de1981e753269d7695df7" title="Puts a pixel onto the backbuffer." alt="" coords="176,5,305,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,15,162,15,162,21,128,21"/>
+</map>

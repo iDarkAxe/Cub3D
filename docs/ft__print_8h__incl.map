@@ -1,0 +1,21 @@
+<map id="inc/ft_print.h" name="inc/ft_print.h">
+<area shape="rect" id="Node000001" title="Header file for the print functions." alt="" coords="363,5,465,31"/>
+<area shape="rect" id="Node000002" href="$cub3d_8h.html" title="Header file for the cub3d project." alt="" coords="340,79,413,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="410,32,391,68,387,65,405,30"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="499,152,574,177"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="426,29,520,140,516,143,422,33"/>
+<area shape="rect" id="Node000003" href="$data__structure_8h.html" title="Header file for all the types and structures of the project." alt="" coords="86,152,214,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="341,107,201,150,199,145,339,101"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="215,225,290,251"/>
+<area shape="poly" id="edge6_Node000002_Node000006" title=" " alt="" coords="346,107,310,125,279,154,264,182,257,212,252,211,259,181,275,150,307,121,344,102"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="289,152,360,177"/>
+<area shape="poly" id="edge7_Node000002_Node000007" title=" " alt="" coords="370,106,343,142,339,139,366,103"/>
+<area shape="poly" id="edge8_Node000002_Node000008" title=" " alt="" coords="403,102,499,144,497,149,401,106"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="385,152,475,177"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="388,103,415,140,411,143,383,106"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,225,84,251"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="135,180,74,220,72,215,132,175"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="109,225,191,251"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="153,178,153,212,147,212,147,178"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="168,175,226,215,223,219,165,180"/>
+</map>

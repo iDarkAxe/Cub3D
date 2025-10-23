@@ -1,0 +1,137 @@
+.TH "inc/ft_print.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/ft_print.h \- Header file for the print functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'cub3d\&.h'\fP
+.br
+\fR#include <unistd\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRESET\fP   '\\033[0m'"
+.br
+.ti -1c
+.RI "#define \fBRESET_COLOR\fP   \fBRESET\fP"
+.br
+.ti -1c
+.RI "#define \fBBOLD\fP   '\\033[1m'"
+.br
+.ti -1c
+.RI "#define \fBUNDERLINE\fP   '\\033[4m'"
+.br
+.ti -1c
+.RI "#define \fBBLACK\fP   '\\033[30m'"
+.br
+.ti -1c
+.RI "#define \fBRED\fP   '\\033[31m'"
+.br
+.ti -1c
+.RI "#define \fBGREEN\fP   '\\033[32m'"
+.br
+.ti -1c
+.RI "#define \fBYELLOW\fP   '\\033[33m'"
+.br
+.ti -1c
+.RI "#define \fBBLUE\fP   '\\033[34m'"
+.br
+.ti -1c
+.RI "#define \fBPURPLE\fP   '\\033[35m'"
+.br
+.ti -1c
+.RI "#define \fBCYAN\fP   '\\033[36m'"
+.br
+.ti -1c
+.RI "#define \fBWHITE\fP   '\\033[37m'"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBe_map_error\fP { \fBCONFIG_TOO_MANY_PARAMETERS\fP, \fBCONFIG_ALREADY_STORED\fP, \fBCONFIG_MISSING_PARAMETERS\fP, \fBCONFIG_MAP_TOO_SOON\fP, \fBCONFIG_FOUND_AFTER_MAP\fP }"
+.br
+.RI "Enum used for map related errors\&. "
+.ti -1c
+.RI "enum \fBe_maze_error\fP { \fBMAZE_SIZE_TOO_BIG\fP, \fBMAZE_SIZE_TOO_SMALL\fP, \fBMAZE_SIZE_NEGATIVE_VALUE\fP, \fBMAZE_ARGS_BAD_FORMAT\fP }"
+.br
+.RI "Enum used for maze related errors\&. "
+.ti -1c
+.RI "enum \fBe_arg_error\fP { \fBARGS_MISSING_GEN\fP, \fBARGS_DUPLICATE\fP, \fBARGS_NOT_CUB\fP, \fBARGS_NO_MAP\fP, \fBARGS_MAZE_REQUIRED\fP, \fBARGS_DOOR_REQUIRED\fP, \fBARGS_MISSING_KEY\fP, \fBARGS_MISSING_DOOR\fP, \fBARGS_UNRECOGNIZED\fP }"
+.br
+.ti -1c
+.RI "enum \fBe_fx_error\fP { \fBFT_MAP_CHECK\fP, \fBCHECK_ARGS\fP, \fBCONFIG_ERROR\fP, \fBSTORE_TEXTURES_IMG\fP, \fBFT_SETTINGS\fP, \fBCUB_INIT_RENDER\fP, \fBCUB_INIT\fP }"
+.br
+.RI "Enum used for main functions related errors\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "ssize_t \fBft_print_position\fP (int x, int y)"
+.br
+.RI "Print a position\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_file\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the whole file\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_config\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the config\&. "
+.ti -1c
+.RI "ssize_t \fBft_print_map\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the map\&. "
+.ti -1c
+.RI "void \fBft_print_floor_ceiling\fP (\fBt_map\fP *map)"
+.br
+.RI "Print the colors of floor and ceiling\&. "
+.ti -1c
+.RI "void \fBft_print_color\fP (\fBt_color\fP *color)"
+.br
+.RI "Print a color\&. "
+.ti -1c
+.RI "void \fBprint_visited\fP (char **visited, char **map)"
+.br
+.RI "Print the map visited by the DFS (Depth First Search), DFS is used to search if the exterior is accessible by the player 'x' means visited '\&.' means not visited\&. "
+.ti -1c
+.RI "void \fBft_print_key\fP (int keycode)"
+.br
+.RI "Print the keycode name if registered or just its value if not\&. "
+.ti -1c
+.RI "void \fBprint_map_error\fP (\fBt_map\fP *map, enum \fBe_map_error\fP error)"
+.br
+.RI "Print the corresponding map error\&. "
+.ti -1c
+.RI "int \fBprint_map_validate_error\fP (\fBt_map\fP *map, enum \fBe_map_error\fP error)"
+.br
+.RI "Print the corresponding map validation error\&. "
+.ti -1c
+.RI "void \fBprint_maze_error\fP (enum \fBe_maze_error\fP error)"
+.br
+.RI "Print the corresponding maze error\&. "
+.ti -1c
+.RI "int \fBprint_error\fP (\fBt_map\fP *map, enum \fBe_fx_error\fP error)"
+.br
+.RI "Print a special message according to enum\&. "
+.ti -1c
+.RI "void \fBprint_leak_map\fP (char **map, size_t y, size_t x)"
+.br
+.RI "Print where a leak is located on the map\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Header file for the print functions\&. 
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

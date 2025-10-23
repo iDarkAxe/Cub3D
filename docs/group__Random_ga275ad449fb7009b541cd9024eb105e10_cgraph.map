@@ -1,0 +1,7 @@
+<map id="cub_spawn_objects" name="cub_spawn_objects">
+<area shape="rect" id="Node000001" title="Spawns a key and a door in the maze." alt="" coords="5,31,153,56"/>
+<area shape="rect" id="Node000002" href="$group__Vector.html#ga0ed413a46ed8c96c3d477aed9d874a3b" title="Free the vector." alt="" coords="201,5,296,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="153,30,187,24,188,30,154,35"/>
+<area shape="rect" id="Node000003" href="$group__Vector.html#ga2657bbef5f1e5da49770c0b4b6f3c5d0" title="Create a vector with an initial starting size." alt="" coords="201,55,296,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="154,51,188,56,187,61,153,56"/>
+</map>

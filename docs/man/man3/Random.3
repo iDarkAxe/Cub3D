@@ -1,0 +1,158 @@
+.TH "Random" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Random \- Random implementation based on libc
+.PP
+ \- Random functions used to generated randomness\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBft_srand\fP (unsigned int seed)"
+.br
+.RI "Sets the initial random state from the given seed\&. "
+.ti -1c
+.RI "unsigned int \fBft_rand\fP (void)"
+.br
+.RI "Generate a random unsigned int\&. "
+.ti -1c
+.RI "void \fBarray_shuffle\fP (int *arr, int len)"
+.br
+.RI "Shuffle an array\&. "
+.ti -1c
+.RI "int \fBcub_parse_generation_arg\fP (char *gen, size_t *width, size_t *height)"
+.br
+.RI "Parse the argument for generation\&. "
+.ti -1c
+.RI "\fBt_map_raoul\fP * \fBcub_new_map_from_dimensions\fP (char *dimensions)"
+.br
+.RI "Allocates a new map with the given dimension\&. "
+.ti -1c
+.RI "int \fBcub_growing_tree\fP (\fBt_map_raoul\fP *map)"
+.br
+.RI "Cub3D Maze Generator, uses dimensions from gen, store them in map and create a random perfect maze\&. "
+.ti -1c
+.RI "int \fBcub_spawn_objects\fP (\fBt_map_raoul\fP *map, int key)"
+.br
+.RI "Spawns a key and a door in the maze\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Random functions used to generated randomness\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void array_shuffle (int * arr, int len)"
+
+.PP
+Shuffle an array\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarr\fP array to shuffle 
+.br
+\fIlen\fP number of element to shuffle 
+.RE
+.PP
+
+.SS "int cub_growing_tree (\fBt_map_raoul\fP * map)"
+
+.PP
+Cub3D Maze Generator, uses dimensions from gen, store them in map and create a random perfect maze\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, 0 error 
+.RE
+.PP
+
+.SS "\fBt_map_raoul\fP * cub_new_map_from_dimensions (char * dimensions)"
+
+.PP
+Allocates a new map with the given dimension\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdimensions\fP dimensions 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_map_raoul* new map on success, NULL otherwise 
+.RE
+.PP
+
+.SS "int cub_parse_generation_arg (char * gen, size_t * width, size_t * height)"
+
+.PP
+Parse the argument for generation\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIgen\fP args to parse 
+.br
+\fIwidth\fP width of future maze 
+.br
+\fIheight\fP height of future maze 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 
+.RE
+.PP
+
+.SS "int cub_spawn_objects (\fBt_map_raoul\fP * map, int key)"
+
+.PP
+Spawns a key and a door in the maze\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP Pointer to map 
+.br
+\fIkey\fP whether a key should be placed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+1 OK, 0 otherwise 
+.RE
+.PP
+
+.SS "unsigned int ft_rand (void )"
+
+.PP
+Generate a random unsigned int\&. 
+.PP
+\fBReturns\fP
+.RS 4
+unsigned int number generated 
+.RE
+.PP
+
+.SS "void ft_srand (unsigned int seed)"
+
+.PP
+Sets the initial random state from the given seed\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIseed\fP random seed 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

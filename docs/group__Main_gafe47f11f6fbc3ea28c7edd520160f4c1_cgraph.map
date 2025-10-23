@@ -1,0 +1,7 @@
+<map id="count_file_lines" name="count_file_lines">
+<area shape="rect" id="Node000001" title="Simple function to count the number of lines in a file." alt="" coords="5,31,128,56"/>
+<area shape="rect" id="Node000002" href="$group__Utils.html#gad6d87adb1f10074bf9c114f9c0bdd040" title="Close safely the file descriptor Modify the file descriptor to &#45;1 after closing it." alt="" coords="176,5,267,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="128,31,162,25,163,30,129,36"/>
+<area shape="rect" id="Node000003" href="$group__Utils.html#gafee4cf256e5bc57a60f1a23bced82cd8" title="Try to open the map file specified by map_name." alt="" coords="177,55,266,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,50,163,56,162,61,128,55"/>
+</map>

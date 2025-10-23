@@ -1,0 +1,46 @@
+.TH "src/ft_mlx/ft_hooks.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/ft_mlx/ft_hooks.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include 'ft_keys\&.h'\fP
+.br
+\fR#include 'ft_print\&.h'\fP
+.br
+\fR#include 'mlx\&.h'\fP
+.br
+\fR#include <X11/X\&.h>\fP
+.br
+\fR#include 'maze\&.h'\fP
+.br
+\fR#include 'filter\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBcub_keydown_hook\fP (int keycode, void *param)"
+.br
+.RI "Hook when a key is pressed\&. "
+.ti -1c
+.RI "int \fBcub_keyup_hook\fP (int keycode, void *param)"
+.br
+.RI "Hook when a key is released\&. "
+.ti -1c
+.RI "int \fBcub_mouse_hook\fP (int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved\&. "
+.ti -1c
+.RI "int \fBcub_mouse_click_hook\fP (int button, int x, int y, void *param)"
+.br
+.RI "Hook when the mouse is moved while clicking\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

@@ -1,0 +1,270 @@
+.TH "inc/cub3d_render.h" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+inc/cub3d_render.h
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'data_structure\&.h'\fP
+.br
+\fR#include <stddef\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBt_data\fP * \fBcub_init\fP (\fBt_data\fP *data)"
+.br
+.RI "Initialize map and backbuffer for rendering\&. "
+.ti -1c
+.RI "int \fBcub_translate_map\fP (\fBt_data\fP *data)"
+.br
+.RI "Convert 2d map string to int vector\&. "
+.ti -1c
+.RI "int \fBcub3d_init_render\fP (\fBt_data\fP *data)"
+.br
+.RI "Init cub for rendering\&. "
+.ti -1c
+.RI "void \fBcub_render\fP (\fBt_data\fP *data)"
+.br
+.RI "Main rendering function\&. "
+.ti -1c
+.RI "void \fBcub_loop\fP (\fBt_data\fP *data)"
+.br
+.RI "Main loop function\&. Handles player update logic and rendering\&. "
+.ti -1c
+.RI "void \fBcub_player_update\fP (\fBt_data\fP *data)"
+.br
+.RI "Updates player based on input\&. "
+.ti -1c
+.RI "void \fBcub_render_minimap\fP (\fBt_data\fP *data)"
+.br
+.RI "Render the minimap\&. "
+.ti -1c
+.RI "void \fBdraw_column\fP (\fBt_data\fP *data, int x, const \fBt_raydata\fP *rdata)"
+.br
+.RI "Draw a column of pixels from a raycast result\&. "
+.ti -1c
+.RI "void \fBhitwall_loop\fP (const \fBt_data\fP *data, \fBt_raydata\fP *rdata)"
+.br
+.RI "Check which wall will be hit\&. "
+.ti -1c
+.RI "\fBt_img\fP * \fBhitside_texture\fP (\fBt_textures\fP *tex, int hitside, const \fBt_pos2\fP *step)"
+.br
+.RI "Function to select the texture based on the hit side and step direction\&. "
+.ti -1c
+.RI "void \fBraycalc\fP (const \fBt_pos2\fP win_size, int x, float cam_angle, \fBt_raydata\fP *rdata)"
+.br
+.RI "Function to calculate rays using window size and camera angle\&. "
+.ti -1c
+.RI "void \fBcubmlx_clear\fP (\fBt_mlx\fP *mlx, unsigned int color)"
+.br
+.RI "Clear the backbuffer with a specific color\&. "
+.ti -1c
+.RI "void \fBcubmlx_putpixel\fP (\fBt_data\fP *data, int x, int y, unsigned int color)"
+.br
+.RI "Puts a pixel onto the backbuffer\&. "
+.ti -1c
+.RI "void \fBcubmlx_putvertline\fP (\fBt_data\fP *data, \fBt_pos2\fP pos, int len, unsigned int color)"
+.br
+.RI "Puts a vertical line on the backbuffer\&. Optimized for vertical lines\&. "
+.ti -1c
+.RI "void \fBcubmlx_putrect\fP (\fBt_data\fP *data, \fBt_pos2\fP pos, \fBt_pos2\fP size, unsigned int color)"
+.br
+.RI "Puts a rectangle onto the backbuffer\&. "
+.ti -1c
+.RI "void \fBcubmlx_putline\fP (\fBt_data\fP *data, \fBt_pos2\fP p1, \fBt_pos2\fP p2, unsigned int color)"
+.br
+.RI "Puts a line onto the backbuffer\&. "
+.ti -1c
+.RI "void \fBsolve_collision_x\fP (\fBt_data\fP *data, float x_vel)"
+.br
+.RI "Solver of collision on x axis\&. "
+.ti -1c
+.RI "void \fBsolve_collision_y\fP (\fBt_data\fP *data, float y_vel)"
+.br
+.RI "Solver of collision on y axis\&. "
+.ti -1c
+.RI "void \fBresolve_collision_steps\fP (\fBt_data\fP *data, float vel_x, float vel_y)"
+.br
+.RI "Solver of collision on x and y using steps smaller than 1 unit, To use only when moving faster than 1 unit, when MOVEMENT_SPEED_FWD_BWD >= 1\&.0f or MOVEMENT_SPEED_LEFT_RIGHT >= 1\&.0f\&. "
+.ti -1c
+.RI "float \fBabsf\fP (float n)"
+.br
+.RI "Returns the absolute value of a float\&. "
+.ti -1c
+.RI "int \fBabs\fP (int n)"
+.br
+.RI "Returns the absolute value of an int\&. "
+.ti -1c
+.RI "int \fBmax\fP (int a, int b)"
+.br
+.RI "Returns the highest value between a and b\&. "
+.ti -1c
+.RI "double \fBmind\fP (double a, double b)"
+.br
+.RI "Returns the lowest value between doubles a and b\&. "
+.ti -1c
+.RI "\fBt_vec2\fP \fBvec2rotate\fP (\fBt_vec2\fP vec, float angle)"
+.br
+.RI "Returns a new vector rotated according to the angle\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int cub3d_init_render (\fBt_data\fP * data)"
+
+.PP
+Init cub for rendering\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, error otherwise 
+.RE
+.PP
+
+.SS "\fBt_data\fP * cub_init (\fBt_data\fP * data)"
+
+.PP
+Initialize map and backbuffer for rendering\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+t_data* data if successful, NULL otherwise 
+.RE
+.PP
+
+.SS "void cub_loop (\fBt_data\fP * data)"
+
+.PP
+Main loop function\&. Handles player update logic and rendering\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+
+.SS "void cub_player_update (\fBt_data\fP * data)"
+
+.PP
+Updates player based on input\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+
+.SS "void cub_render (\fBt_data\fP * data)"
+
+.PP
+Main rendering function\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+
+.SS "void cub_render_minimap (\fBt_data\fP * data)"
+
+.PP
+Render the minimap\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+
+.SS "int cub_translate_map (\fBt_data\fP * data)"
+
+.PP
+Convert 2d map string to int vector\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, 0 otherwise 
+.RE
+.PP
+
+.SS "void draw_column (\fBt_data\fP * data, int x, const \fBt_raydata\fP * rdata)"
+
+.PP
+Draw a column of pixels from a raycast result\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIx\fP x axis column 
+.br
+\fIrdata\fP structure to handle important values for rendering 
+.RE
+.PP
+
+.SS "\fBt_img\fP * hitside_texture (\fBt_textures\fP * tex, int hitside, const \fBt_pos2\fP * step)"
+
+.PP
+Function to select the texture based on the hit side and step direction\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fItex\fP pointer to texture structure 
+.br
+\fIhitside\fP hitside 
+.br
+\fIstep\fP step direction 
+.RE
+.PP
+
+.SS "void hitwall_loop (const \fBt_data\fP * data, \fBt_raydata\fP * rdata)"
+
+.PP
+Check which wall will be hit\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIrdata\fP structure to handle important values for rendering 
+.RE
+.PP
+
+.SS "void raycalc (const \fBt_pos2\fP win_size, int x, float cam_angle, \fBt_raydata\fP * rdata)"
+
+.PP
+Function to calculate rays using window size and camera angle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIwin_size\fP window size 
+.br
+\fIx\fP x axis column 
+.br
+\fIcam_angle\fP camera angle 
+.br
+\fIrdata\fP structure to handle important values for rendering 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

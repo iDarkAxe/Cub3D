@@ -1,0 +1,5 @@
+<map id="hook_settings_handle_mouse_motion" name="hook_settings_handle_mouse_motion">
+<area shape="rect" id="Node000001" title="Hook when the mouse is moved for the settings." alt="" coords="5,5,169,45"/>
+<area shape="rect" id="Node000002" href="$group__Settings.html#ga5c5a84c3c923c8fda6546d06bf0d51d0" title="Return an enum according to selected circle using coordinates." alt="" coords="217,13,315,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,23,203,23,203,28,169,28"/>
+</map>

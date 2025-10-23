@@ -1,0 +1,5 @@
+<map id="s_map_raoul" name="s_map_raoul">
+<area shape="rect" id="Node000001" title="Structure to handle the special map needed for rendering." alt="" coords="5,123,111,148"/>
+<area shape="rect" id="Node000002" href="$structs__pos2.html" title="Structure that handle positions in the map. Same as t_coordinates but with signed integers." alt="" coords="25,5,91,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="61,44,61,123,55,123,55,44"/>
+</map>

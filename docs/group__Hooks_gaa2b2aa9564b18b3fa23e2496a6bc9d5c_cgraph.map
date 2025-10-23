@@ -1,0 +1,11 @@
+<map id="hook_settings_handle_keypress" name="hook_settings_handle_keypress">
+<area shape="rect" id="Node000001" title="Handle mouse click in the settings window." alt="" coords="5,23,169,63"/>
+<area shape="rect" id="Node000002" href="$group__Print.html#ga287e1f8890771e076d13e764f779e21a" title="Print the keycode name if registered or just its value if not." alt="" coords="227,5,326,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="169,30,214,24,214,29,170,35"/>
+<area shape="rect" id="Node000003" href="$group__Settings.html#gaf0d8b2783f978e0743efbccd9db10409" title="State machine for the settings window." alt="" coords="217,55,336,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="170,51,204,55,203,61,169,56"/>
+<area shape="rect" id="Node000004" href="$group__Settings.html#ga75b2cd9bd30c92a5cb9a33972f1a124d" title="Set screen size according to an enum." alt="" coords="384,29,525,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="336,56,370,51,371,57,337,62"/>
+<area shape="rect" id="Node000005" href="$group__Key.html#gabd000bbaaf9c5ad2d692c819475d18cf" title="Check if a keycode is a movement key." alt="" coords="409,79,500,104"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="337,73,396,81,395,86,336,78"/>
+</map>

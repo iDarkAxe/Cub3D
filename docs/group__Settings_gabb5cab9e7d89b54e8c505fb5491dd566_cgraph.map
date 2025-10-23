@@ -1,0 +1,11 @@
+<map id="ft_settings" name="ft_settings">
+<area shape="rect" id="Node000001" title="Generate the window settings for the program." alt="" coords="5,31,96,56"/>
+<area shape="rect" id="Node000002" href="$ft__settings__draw__img_8c.html#ade2cb410982302b7934977296af9171d" title="Function to pull all the circle to the window following their state." alt="" coords="349,5,524,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,38,335,22,336,27,97,43"/>
+<area shape="rect" id="Node000004" href="$ft__settings__draw__img_8c.html#a1d6b4dbb6852bf7eef88f4ce15107ada" title="Function to put the specific case of circles defined by the enum." alt="" coords="144,56,301,81"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="96,47,130,52,130,58,96,53"/>
+<area shape="rect" id="Node000003" href="$ft__settings__draw__img_8c.html#a7b28d42b89180749bbc812716e3a9129" title="Put ON circle if is_enabled, put OFF circle if not." alt="" coords="572,31,723,56"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="525,26,558,30,558,35,524,31"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="277,53,369,31,370,36,278,58"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="301,61,558,46,558,51,302,67"/>
+</map>

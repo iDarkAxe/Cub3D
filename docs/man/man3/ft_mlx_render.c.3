@@ -1,0 +1,38 @@
+.TH "src/ft_mlx/ft_mlx_render.c" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/ft_mlx/ft_mlx_render.c
+.SH SYNOPSIS
+.br
+.PP
+\fR#include 'cub3d_render\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcubmlx_clear\fP (\fBt_mlx\fP *mlx, unsigned int color)"
+.br
+.RI "Clear the backbuffer with a specific color\&. "
+.ti -1c
+.RI "void \fBcubmlx_putpixel\fP (\fBt_data\fP *data, int x, int y, unsigned int color)"
+.br
+.RI "Puts a pixel onto the backbuffer\&. "
+.ti -1c
+.RI "void \fBcubmlx_putvertline\fP (\fBt_data\fP *data, \fBt_pos2\fP pos, int len, unsigned int color)"
+.br
+.RI "Puts a vertical line on the backbuffer\&. Optimized for vertical lines\&. "
+.ti -1c
+.RI "void \fBcubmlx_putrect\fP (\fBt_data\fP *data, \fBt_pos2\fP pos, \fBt_pos2\fP size, unsigned int color)"
+.br
+.RI "Puts a rectangle onto the backbuffer\&. "
+.ti -1c
+.RI "void \fBcubmlx_putline\fP (\fBt_data\fP *data, \fBt_pos2\fP p1, \fBt_pos2\fP p2, unsigned int color)"
+.br
+.RI "Puts a line onto the backbuffer\&. "
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

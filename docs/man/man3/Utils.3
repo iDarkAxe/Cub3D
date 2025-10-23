@@ -1,0 +1,338 @@
+.TH "Utils" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Utils \- Utils functions
+.PP
+ \- All the functions used to help the program\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBsafe_open\fP (char *file_name)"
+.br
+.RI "Try to open the map file specified by map_name\&. "
+.ti -1c
+.RI "int \fBsafe_close\fP (int *fd)"
+.br
+.RI "Close safely the file descriptor Modify the file descriptor to -1 after closing it\&. "
+.ti -1c
+.RI "int \fBtry_to_open_close_file\fP (char *file_name)"
+.br
+.RI "Try to open the file specified by file_name\&. "
+.ti -1c
+.RI "size_t \fBcount_array_length\fP (char **array)"
+.br
+.RI "Count the number of strings that an array have Should absolutely be NULL-Terminated\&. "
+.ti -1c
+.RI "void \fBft_free_all\fP (\fBt_data\fP *data)"
+.br
+.RI "Free all the memory allocated for the data structure\&. "
+.ti -1c
+.RI "void \fBft_free_file\fP (\fBt_map\fP *map)"
+.br
+.RI "Free the strings of the file\&. "
+.ti -1c
+.RI "void \fBft_free_textures\fP (\fBt_mlx\fP *mlx, \fBt_textures\fP *textures)"
+.br
+.RI "Free all the textures stored in mlx structure and map struct\&. "
+.ti -1c
+.RI "void \fBft_free_textures_path\fP (\fBt_map\fP *map)"
+.br
+.RI "Free the path (name) of the textures in memory\&. "
+.ti -1c
+.RI "void \fBft_free_map\fP (\fBt_map_raoul\fP *map)"
+.br
+.RI "Free the map structure\&. "
+.ti -1c
+.RI "uint64_t \fBget_time_ms\fP (void)"
+.br
+.RI "Get time in milliseconds\&. "
+.ti -1c
+.RI "uint64_t \fBtimeval_to_us\fP (const struct timeval *tv)"
+.br
+.RI "Convert a timeval in microseconds\&. "
+.ti -1c
+.RI "uint16_t \fBcount_fps\fP (bool print)"
+.br
+.RI "Count the FPS and print it to the console\&. It will print the FPS every second if DEBUG_PRINT_FPS is set to 1\&. "
+.ti -1c
+.RI "float \fBabsf\fP (float n)"
+.br
+.RI "Returns the absolute value of a float\&. "
+.ti -1c
+.RI "int \fBabs\fP (int n)"
+.br
+.RI "Returns the absolute value of an int\&. "
+.ti -1c
+.RI "int \fBmax\fP (int a, int b)"
+.br
+.RI "Returns the highest value between a and b\&. "
+.ti -1c
+.RI "double \fBmind\fP (double a, double b)"
+.br
+.RI "Returns the lowest value between doubles a and b\&. "
+.ti -1c
+.RI "\fBt_vec2\fP \fBvec2rotate\fP (\fBt_vec2\fP vec, float angle)"
+.br
+.RI "Returns a new vector rotated according to the angle\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to help the program\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "int abs (int n)"
+
+.PP
+Returns the absolute value of an int\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn\fP value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+float absolute vale of n 
+.RE
+.PP
+
+.SS "float absf (float n)"
+
+.PP
+Returns the absolute value of a float\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIn\fP value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+float absolute value of n 
+.RE
+.PP
+
+.SS "size_t count_array_length (char ** array)"
+
+.PP
+Count the number of strings that an array have Should absolutely be NULL-Terminated\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIarray\fP array of strings 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+size_t number of strings 
+.RE
+.PP
+
+.SS "uint16_t count_fps (bool print)"
+
+.PP
+Count the FPS and print it to the console\&. It will print the FPS every second if DEBUG_PRINT_FPS is set to 1\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIprint\fP 1 to print the FPS, 0 otherwise 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+uint16_t the current FPS 
+.RE
+.PP
+
+.SS "void ft_free_all (\fBt_data\fP * data)"
+
+.PP
+Free all the memory allocated for the data structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.RE
+.PP
+
+.SS "void ft_free_file (\fBt_map\fP * map)"
+
+.PP
+Free the strings of the file\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+
+.SS "void ft_free_map (\fBt_map_raoul\fP * map)"
+
+.PP
+Free the map structure\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+
+.SS "void ft_free_textures (\fBt_mlx\fP * mlx, \fBt_textures\fP * textures)"
+
+.PP
+Free all the textures stored in mlx structure and map struct\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImlx\fP mlx structure 
+.br
+\fItextures\fP textures structure 
+.RE
+.PP
+
+.SS "void ft_free_textures_path (\fBt_map\fP * map)"
+
+.PP
+Free the path (name) of the textures in memory\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fImap\fP map structure 
+.RE
+.PP
+
+.SS "uint64_t get_time_ms (void )"
+
+.PP
+Get time in milliseconds\&. 
+.PP
+\fBReturns\fP
+.RS 4
+uint64_t milliseconds 
+.RE
+.PP
+
+.SS "int max (int a, int b)"
+
+.PP
+Returns the highest value between a and b\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP first value 
+.br
+\fIb\fP second value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int highest between a and b 
+.RE
+.PP
+
+.SS "double mind (double a, double b)"
+
+.PP
+Returns the lowest value between doubles a and b\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIa\fP first value 
+.br
+\fIb\fP second value 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int lowest between a and b 
+.RE
+.PP
+
+.SS "int safe_close (int * fd)"
+
+.PP
+Close safely the file descriptor Modify the file descriptor to -1 after closing it\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfd\fP pointer to the file descriptor to close 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 0 OK, -1 if an error occurred 
+.RE
+.PP
+
+.SS "int safe_open (char * file_name)"
+
+.PP
+Try to open the map file specified by map_name\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile_name\fP file name to open 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int fd=OK, -1 if an error occurred 
+.RE
+.PP
+
+.SS "uint64_t timeval_to_us (const struct timeval * tv)"
+
+.PP
+Convert a timeval in microseconds\&. 
+.PP
+\fBReturns\fP
+.RS 4
+uint64_t microseconds 
+.RE
+.PP
+
+.SS "int try_to_open_close_file (char * file_name)"
+
+.PP
+Try to open the file specified by file_name\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIfile_name\fP map file name to open 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+int 1 OK, 0 if an error occurred 
+.RE
+.PP
+
+.SS "\fBt_vec2\fP vec2rotate (\fBt_vec2\fP vec, float angle)"
+
+.PP
+Returns a new vector rotated according to the angle\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIvec\fP vector 
+.br
+\fIangle\fP angle 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+\fBt_vec2\fP vector rotated 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.

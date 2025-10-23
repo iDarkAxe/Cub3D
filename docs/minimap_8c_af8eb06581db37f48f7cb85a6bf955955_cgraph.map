@@ -1,0 +1,9 @@
+<map id="cub_render_minimap" name="cub_render_minimap">
+<area shape="rect" id="Node000001" title="Render the minimap." alt="" coords="5,13,164,38"/>
+<area shape="rect" id="Node000002" href="$minimap__player_8c.html#acfade2de23e971d36acae5744112a2fe" title=" " alt="" coords="212,5,396,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="164,23,198,23,198,28,164,28"/>
+<area shape="rect" id="Node000003" href="$group__Backbuffer.html#ga756715be3d903b9f9e69e3bd15656fbd" title="Puts a rectangle onto the backbuffer." alt="" coords="444,13,567,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="397,23,430,23,430,28,397,28"/>
+<area shape="rect" id="Node000004" href="$group__Backbuffer.html#gab6ead875eb5de1981e753269d7695df7" title="Puts a pixel onto the backbuffer." alt="" coords="615,13,744,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="567,23,601,23,601,28,567,28"/>
+</map>

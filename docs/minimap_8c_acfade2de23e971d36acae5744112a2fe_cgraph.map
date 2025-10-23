@@ -1,0 +1,7 @@
+<map id="cubmlx_render_minimap_player" name="cubmlx_render_minimap_player">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,189,45"/>
+<area shape="rect" id="Node000002" href="$group__Backbuffer.html#ga756715be3d903b9f9e69e3bd15656fbd" title="Puts a rectangle onto the backbuffer." alt="" coords="237,13,360,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,23,223,23,223,28,190,28"/>
+<area shape="rect" id="Node000003" href="$group__Backbuffer.html#gab6ead875eb5de1981e753269d7695df7" title="Puts a pixel onto the backbuffer." alt="" coords="408,13,537,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="360,23,394,23,394,28,360,28"/>
+</map>

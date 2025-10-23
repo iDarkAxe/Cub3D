@@ -1,0 +1,32 @@
+<map id="cub_loop" name="cub_loop">
+<area shape="rect" id="Node000001" title="Main loop function. Handles player update logic and rendering." alt="" coords="5,297,85,323"/>
+<area shape="rect" id="Node000002" href="$group__Hooks.html#ga2ad68742c658ebdf7a922f4bd7eebcc5" title="Hook when a key is pressed." alt="" coords="145,199,294,224"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,295,182,229,185,233,70,300"/>
+<area shape="rect" id="Node000013" href="$group__Hooks.html#ga96e2d82ac318bf3d38c80e394ee2d385" title="Hook when a key is released." alt="" coords="154,272,285,297"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="85,302,140,294,140,299,86,307"/>
+<area shape="rect" id="Node000014" href="$group__Hooks.html#ga20db3fb88854ddb1553818c9f15f2957" title="Hook when the mouse is moved while clicking." alt="" coords="133,321,305,347"/>
+<area shape="poly" id="edge14_Node000001_Node000014" title=" " alt="" coords="86,313,120,318,120,323,85,318"/>
+<area shape="rect" id="Node000015" href="$group__Hooks.html#gae7b993c22b9bb4ed5dfc96e719bbd2f2" title="Hook when the mouse is moved." alt="" coords="152,371,287,396"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="67,320,134,357,153,364,151,369,132,362,65,325"/>
+<area shape="rect" id="Node000003" href="$filters-utils_8c.html#ae6b23020d096e5767cc87d9155a26cd9" title=" " alt="" coords="353,87,460,112"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="237,196,288,162,352,122,364,116,367,121,355,127,291,166,240,201"/>
+<area shape="rect" id="Node000009" href="$group__Key.html#gaee019b596ee28b5d6337d23b2cab4d1f" title="Change the FOV according to the keycode." alt="" coords="358,136,455,161"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="257,196,354,163,355,168,259,201"/>
+<area shape="rect" id="Node000010" href="$group__Print.html#ga287e1f8890771e076d13e764f779e21a" title="Print the keycode name if registered or just its value if not." alt="" coords="357,185,456,211"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="294,203,343,200,344,205,294,209"/>
+<area shape="rect" id="Node000011" href="$group__Key.html#ga50b70e19e404543bcf695d846cb0c87f" title="Set the input according to the keycode and the set value." alt="" coords="371,284,443,309"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="249,222,354,270,367,276,364,281,352,275,247,226"/>
+<area shape="rect" id="Node000012" href="$group__Key.html#gadca86ca5b1c3be45e56fd4d85c182635" title="Toggle the input according to the keycode." alt="" coords="360,235,453,260"/>
+<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="286,221,347,233,346,238,285,227"/>
+<area shape="rect" id="Node000004" href="$filters-utils_8c.html#a9a42560e3d2fb618950198f0f5bbc75e" title=" " alt="" coords="508,29,695,55"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="446,84,507,65,538,56,540,61,509,70,447,89"/>
+<area shape="rect" id="Node000007" href="$filters-bw_8c.html#a4ce35cd9b1214d22fe3c2cf33c5537e0" title=" " alt="" coords="525,79,677,119"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="460,97,512,97,512,102,460,102"/>
+<area shape="rect" id="Node000008" href="$filters-utils_8c.html#acf31ba25d224af6a2c0ce512d1e6b68e" title=" " alt="" coords="543,144,660,169"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="447,109,509,129,540,138,538,143,507,134,446,115"/>
+<area shape="rect" id="Node000005" href="$filters_8c.html#afefd0ff5ce78c71684269cf74a5a2de2" title=" " alt="" coords="743,5,825,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="694,27,729,22,730,28,695,32"/>
+<area shape="rect" id="Node000006" href="$group__Random.html#gade442cde11dab517643669f2bca558d9" title="Generate a random unsigned int." alt="" coords="751,55,817,80"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="694,52,737,58,737,64,693,57"/>
+<area shape="poly" id="edge13_Node000013_Node000011" title=" " alt="" coords="285,286,357,291,356,296,285,291"/>
+</map>

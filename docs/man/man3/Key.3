@@ -1,0 +1,103 @@
+.TH "Key" 3 "Cub3D" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Key \- Key functions
+.PP
+ \- All the functions used to manage key inputs\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBis_mv_key\fP (enum \fBe_movement\fP expected, int keycode)"
+.br
+.RI "Check if a keycode is a movement key\&. "
+.ti -1c
+.RI "void \fBset_key\fP (int keycode, \fBt_input\fP *input, bool set)"
+.br
+.RI "Set the input according to the keycode and the set value\&. "
+.ti -1c
+.RI "void \fBtoggle_key\fP (int keycode, \fBt_input\fP *input)"
+.br
+.RI "Toggle the input according to the keycode\&. "
+.ti -1c
+.RI "void \fBchange_fov\fP (\fBt_data\fP *data, int keycode)"
+.br
+.RI "Change the FOV according to the keycode\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+All the functions used to manage key inputs\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void change_fov (\fBt_data\fP * data, int keycode)"
+
+.PP
+Change the FOV according to the keycode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP data structure 
+.br
+\fIkeycode\fP key pressed 
+.RE
+.PP
+
+.SS "bool is_mv_key (enum \fBe_movement\fP expected, int keycode)"
+
+.PP
+Check if a keycode is a movement key\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIexpected\fP expected key 
+.br
+\fIkeycode\fP key pressed 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+true is_mv_key 
+
+.PP
+false isn't 
+.RE
+.PP
+
+.SS "void set_key (int keycode, \fBt_input\fP * input, bool set)"
+
+.PP
+Set the input according to the keycode and the set value\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP key pressed 
+.br
+\fIinput\fP structure containing all inputs 
+.br
+\fIset\fP value to set 
+.RE
+.PP
+
+.SS "void toggle_key (int keycode, \fBt_input\fP * input)"
+
+.PP
+Toggle the input according to the keycode\&. 
+.PP
+\fBParameters\fP
+.RS 4
+\fIkeycode\fP key pressed 
+.br
+\fIinput\fP structure containing all inputs 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cub3D from the source code\&.
