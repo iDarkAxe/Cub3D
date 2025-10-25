@@ -24,8 +24,8 @@ t_img	*hitside_texture(t_textures *tex, int hitside, const t_pos2 *step)
 	else
 	{
 		if (step->x < 0)
-			return (&tex->west);
-		else
 			return (&tex->east);
+		else
+			return (&tex->west);
 	}
 }
