@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 14:41:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/01 12:57:32 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 20:36:09 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ t_map	ft_map_check_dimensions(t_map *map, char *map_name)
 	if (fill_map_region(map) == NULL || map->error != 0)
 		return (*map);
 	*map = check_map_chars_borders(map);
-	if (map && map->error != 0)
-		return (*map);
 	return (*map);
 }
 
