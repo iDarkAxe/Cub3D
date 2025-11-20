@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 16:59:56 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 12:33:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:18:54 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,3 @@ char	*ft_strtrim(char const *s, char const *set)
 	pointer[index] = '\0';
 	return (pointer);
 }
-
-// int	main(void)
-// {
-// 	char	*pointer;
-// 	char	s1[] = "lorem \n ipsum \t dolor \n sit \t amet";
-
-// 	// char	*string;
-// 	// char	*set;
-// 	// string = "xxxz  test with x and z and x .  zx  xx z\0";
-// 	// set = "z x\0";
-// 	pointer = ft_strtrim(s1, " ");
-// 	printf("retour %s", pointer);
-// }

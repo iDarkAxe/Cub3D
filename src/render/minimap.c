@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/25 15:53:41 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 19:50:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ void	cub_render_minimap(t_data *data)
 	t_pos2	end_range;
 	t_vec2	offset;
 	t_pos2	ioffset;
-	t_vec2	player;
 
 	offset = data->player.pos;
 	start_range.x = (int)floor(offset.x) - (MINIMAP_NUM_TILES_X >> 1);
@@ -96,7 +95,5 @@ void	cub_render_minimap(t_data *data)
 	ioffset.x = (int)(offset.x * MINIMAP_TILE_SIZE);
 	ioffset.y = (int)(offset.y * MINIMAP_TILE_SIZE);
 	dynamic_minimap(data, start_range, end_range, ioffset);
-	player.x = 6 * MINIMAP_TILE_SIZE + offset.x;
-	player.y = 6 * MINIMAP_TILE_SIZE + offset.y;
 	cubmlx_render_minimap_player(data);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:34:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 13:06:49 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:18:01 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,51 +46,3 @@ int	ft_atoi(const char *nptr)
 		return ((int)-number);
 	return ((int)number);
 }
-
-// #include <stdlib.h>
-// #include "libft.h"
-// int main(int argc, char **argv)
-// {
-// 	char *nbr;
-// 	if (argc >= 2)
-// 	{
-//		ft_putendl_fd(argv[1], 1);
-// 		ft_putstr_fd("Resultat attendu : ", 1);
-// 		ft_putnbr_fd(atoi(argv[1]), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putstr_fd("Resultat test   : ", 1);
-// 		ft_putnbr_fd(ft_atoi(argv[1]), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putendl_fd("     -----     ", 1);
-// 	}
-// 	else
-// 	{
-// 		nbr = " 22246635";
-// 		ft_putendl_fd(nbr, 1);
-// 		ft_putstr_fd("Resultat attendu : ", 1);
-// 		ft_putnbr_fd(atoi(nbr), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putstr_fd("Resultat test   : ", 1);
-// 		ft_putnbr_fd(ft_atoi(nbr), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putendl_fd("     -----     ", 1);
-// 		nbr = " 195498494949809846841";
-// 		ft_putendl_fd(nbr, 1);
-// 		ft_putstr_fd("Resultat attendu : ", 1);
-// 		ft_putnbr_fd(atoi(nbr), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putstr_fd("Resultat test   : ", 1);
-// 		ft_putnbr_fd(ft_atoi(nbr), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putendl_fd("     -----     ", 1);
-// 		nbr = " -195498494949809846841";
-// 		ft_putendl_fd(nbr, 1);
-// 		ft_putstr_fd("Resultat attendu : ", 1);
-// 		ft_putnbr_fd(atoi(nbr), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putstr_fd("Resultat test   : ", 1);
-// 		ft_putnbr_fd(ft_atoi(nbr), 1);
-// 		ft_putendl_fd("", 1);
-// 		ft_putendl_fd("     -----     ", 1);
-// 	}
-// }

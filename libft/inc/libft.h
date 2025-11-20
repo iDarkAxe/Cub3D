@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:25:12 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/08 13:53:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 19:08:26 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ size_t		ft_strlcpy(char *dst, const char *src, size_t size);
 size_t		ft_strlcat(char *dst, const char *src, size_t size);
 char		*ft_strchr(const char *string, int searched_char);
 char		*ft_strrchr(const char *string, int searched_char);
-int			ft_strcmp(const char *str1, const char *str2);
+int			ft_strcmp(const char *first, const char *second);
 int			ft_strncmp(const char *first, const char *second, size_t length);
 const char	*ft_strnstr(const char *big, const char *little, size_t len);
 char		*ft_strdup(const char *source);
@@ -194,8 +194,8 @@ void		ft_swap_nodes(t_list **start, t_list *lst1, t_list *lst2);
  * @{
  */
 
-void		ft_frees(void **ptr);
 void		ft_free_array(char **ptr);
+void		ft_frees(void **ptr);
 # if (FX_VA == 1)
 
 void		ft_frees_va(void *ptr, ...);

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 15:15:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/11 18:39:51 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 19:48:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,15 @@ size_t	count_map_size(t_map *map)
 	return (count);
 }
 
+/**
+ * @brief Fill the map region in the t_map structure
+ * 
+ * As the map file contain at least 6 configuration lines,
+ * the number of map lines is at least lines in file - 6.
+ *
+ * @param[in,out] map map structure
+ * @return char** map_2d array, or NULL on error
+ */
 char	**fill_map_region(t_map *map)
 {
 	size_t		index;

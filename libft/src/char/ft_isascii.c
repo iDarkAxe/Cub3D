@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:23:43 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 12:40:45 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:16:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_isascii(int character);
  */
 int	ft_isascii(int character)
 {
-	if ((character >= 0 && character <= 127))
+	if (character >= 0 && character <= 127)
 		return (1);
 	return (0);
 }

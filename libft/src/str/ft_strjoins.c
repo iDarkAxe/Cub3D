@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 09:56:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/24 15:19:55 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:18:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,19 +59,3 @@ static size_t	count_len_array(char *array[])
 		count += ft_strlen(array[index++]);
 	return (count);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char *str1 = "test1";
-// 	char *str2 = "test2";
-// 	char *str3 = "test3";
-// 	char *str4 = "test4";
-// 	// char *str[] = {str1, str2, str3, str4, NULL};
-// 	char *new;
-
-// 	new = ft_strjoins((char *[]){str1, str2, str3, str4, NULL});
-// 	printf("%s", new);
-// 	free(new);
-// }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 15:45:58 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/15 11:41:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:18:21 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,21 +111,3 @@ static size_t	str_count_char(char const *s, char c)
 	}
 	return (count);
 }
-
-// int main(void)
-// {
-// 	char **ptr = ft_split("lorem ipsum spendisse\n", ' ');
-// 	char **tab = ft_split("tripouille", 0);
-// 	size_t index = 0;
-
-// 	// while (ptr[index] != NULL)
-// 	// {
-// 	// 	ft_putendl_fd(ptr[index], 1);
-// 	// 	index++;
-// 	// }
-// 	while (ptr[index] != NULL)
-// 	{
-// 		ft_putendl_fd(tab[index], 1);
-// 		index++;
-// 	}
-// }

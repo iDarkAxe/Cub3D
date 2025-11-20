@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 11:58:57 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 12:39:53 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:16:31 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_iswhitespace(int character);
  */
 int	ft_isspace(int character)
 {
-	if ((character >= 9 && character <= 13) || (character == ' '))
+	if ((character >= 9 && character <= 13) || character == ' ')
 		return (character);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:32:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/09 15:16:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 19:49:12 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,56 +21,7 @@ int	ft_isprint(int character);
  */
 int	ft_isprint(int character)
 {
-	if ((character >= 32 && character <= 126))
+	if (character >= 32 && character <= 126)
 		return (1);
 	return (0);
 }
-// #include "libft.h"
-// #include "unistd.h"
-// #include <ctype.h>
-
-// int main (void)
-// {
-// 	char character;
-
-// 	character = '1';
-// 	ft_putnbr_fd(character, 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat attendu : ", 1);
-// 	ft_putnbr_fd(isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat test   : ", 1);
-// 	ft_putnbr_fd(ft_isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putendl_fd("     -----     ", 1);
-// 	character = '9';
-// 	ft_putnbr_fd(character, 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat attendu : ", 1);
-// 	ft_putnbr_fd(isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat test   : ", 1);
-// 	ft_putnbr_fd(ft_isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putendl_fd("     -----     ", 1);
-// 	character = 'e';
-// 	ft_putnbr_fd(character, 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat attendu : ", 1);
-// 	ft_putnbr_fd(isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat test   : ", 1);
-// 	ft_putnbr_fd(ft_isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putendl_fd("     -----     ", 1);
-// 	character = -97;
-// 	ft_putnbr_fd(character, 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat attendu : ", 1);
-// 	ft_putnbr_fd(isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putstr_fd("Resultat test   : ", 1);
-// 	ft_putnbr_fd(ft_isprint(character), 1);
-// 	ft_putendl_fd("", 1);
-// 	ft_putendl_fd("     -----     ", 1);
-// }
