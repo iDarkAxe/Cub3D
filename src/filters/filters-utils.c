@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/08 16:14:05 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 20:43:34 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	apply_filters_on_textures(t_textures *textures)
 	if (RANDOM_FILTER_ON_ALL == 0)
 	{
 		temp = ft_rand();
-		temp = -temp & 0xEEEEEEEE;
 		add_filter(&textures->north, temp);
 		add_filter(&textures->south, temp);
 		add_filter(&textures->east, temp);
@@ -53,10 +52,10 @@ void	apply_filters_on_textures(t_textures *textures)
 	}
 	else
 	{
-		add_filter(&textures->north, -ft_rand() & 0xEEEEEEEE);
-		add_filter(&textures->south, -ft_rand() & 0xEEEEEEEE);
-		add_filter(&textures->east, -ft_rand() & 0xEEEEEEEE);
-		add_filter(&textures->west, -ft_rand() & 0xEEEEEEEE);
+		add_filter(&textures->north, ft_rand());
+		add_filter(&textures->south, ft_rand());
+		add_filter(&textures->east, ft_rand());
+		add_filter(&textures->west, ft_rand());
 	}
 }
 
