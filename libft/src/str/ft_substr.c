@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:03:57 by ppontet           #+#    #+#             */
-/*   Updated: 2025/02/17 18:30:58 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:18:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,3 @@ char	*ft_substr(char const *src, unsigned int start, size_t len)
 	pointer[index] = '\0';
 	return (pointer);
 }
-
-// #include <stdio.h>
-//
-// int		main(void)
-// {
-// 	char	str[] = "lorem ipsum dolor sit amet";
-// 	char	*strsub;
-
-// 	if (!(strsub = ft_substr(str, 7, 10)))
-// 			printf("NULL");
-// 		else
-// 			printf("%src", strsub);
-// 		if (str == strsub)
-// 			printf("\nA new string was not returned");
-// }

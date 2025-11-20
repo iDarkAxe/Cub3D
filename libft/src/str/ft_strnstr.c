@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:06:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/03/21 13:11:16 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:18:50 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,56 +44,3 @@ const char	*ft_strnstr(const char *big, const char *little, size_t len)
 		return (NULL);
 	return (&big[0]);
 }
-
-// #include <string.h>
-// #include "libft.h"
-
-// int main(void)
-// {
-//     char str[100] = "Je suis une chaine de caractere";
-//     char str2[100] = "chaine";
-//     char *result;
-//     int fd = 1;
-
-//     ft_putstr_fd("Resultat attendu   : ", fd);
-//     ft_putstr_fd(strstr(str, str2), fd);
-//     ft_putendl_fd("", fd);
-//     ft_putstr_fd("Resultat test   : ", fd);
-//     result = ft_strnstr(str, str2, ft_strlen(str));
-//     if (result != NULL)
-//         ft_putstr_fd(result, fd);
-//     else
-//         ft_putstr_fd("NULL", fd);
-//     ft_putendl_fd("", fd);
-//     ft_putendl_fd("     -----     ", fd);
-
-//     ft_strlcpy(str2, "caractere", 5);
-//     ft_putstr_fd("Resultat attendu   : ", fd);
-//     ft_putstr_fd(strstr(str, str2), fd);
-//     ft_putendl_fd("", fd);
-//     ft_putstr_fd("Resultat test   : ", fd);
-//     result = ft_strnstr(str, str2, ft_strlen(str));
-//     if (result != NULL)
-//         ft_putstr_fd(result, fd);
-//     else
-//         ft_putstr_fd("NULL", fd);
-//     ft_putendl_fd("", fd);
-//     ft_putendl_fd("     -----     ", fd);
-
-//     ft_strlcpy(str, "abdEfghijkl", 5);
-//     ft_strlcpy(str2, "sy", 5);
-//     ft_putstr_fd("Resultat attendu   : ", fd);
-//     result = strstr(str, str2);
-//     if (result != NULL)
-//         ft_putstr_fd(result, fd);
-//     else
-//         ft_putstr_fd("NULL", fd);
-//     ft_putendl_fd("", fd);
-//     ft_putstr_fd("Resultat test   : ", fd);
-//     result = ft_strnstr(str, str2, 1);
-//     if (result != NULL)
-//         ft_putstr_fd(result, fd);
-//     else
-//         ft_putstr_fd("NULL", fd);
-//     ft_putendl_fd("", fd);
-// }

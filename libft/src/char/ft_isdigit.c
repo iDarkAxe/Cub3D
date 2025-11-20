@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:50:20 by ppontet           #+#    #+#             */
-/*   Updated: 2025/04/09 11:37:18 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 18:16:38 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_isdigit(int character);
  */
 int	ft_isdigit(int character)
 {
-	if ((character >= '0' && character <= '9'))
+	if (character >= '0' && character <= '9')
 		return (1);
 	return (0);
 }
