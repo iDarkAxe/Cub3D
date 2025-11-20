@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/10 18:57:36 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/11/20 21:59:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "cub3d_render.h"
 #include "ft_print.h"
 #include <stdlib.h>
+#include <math.h>
 #include "data_structure.h"
 
 int	cub3d_init_render(t_data *data)
@@ -29,7 +30,7 @@ int	cub3d_init_render(t_data *data)
 	data->input.fov = FIELD_OF_VIEW_DEFAULT_VALUE;
 	data->player.pos.x = data->map.map->start_pos.x + 0.5f;
 	data->player.pos.y = data->map.map->start_pos.y + 0.5f;
-	data->player.angle = data->map.map->start_angle;
+	data->player.angle = fmodf(data->map.map->start_angle, (float)PI * 2.f);
 	data->player.fov = (float)(PI) / 2.0f;
 	data->map.textures.ceiling.argb = data->map.textures.ceiling.argb;
 	data->map.textures.floor.argb = data->map.textures.floor.argb;

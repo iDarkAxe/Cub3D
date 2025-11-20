@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/27 01:04:22 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 22:01:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	update_camera(t_data *data)
 		data->input.mouse_input = 0;
 	}
 	data->player.angle += turn_amount;
-	if (data->player.angle >= (two_pi))
-		data->player.angle -= (two_pi);
+	if (data->player.angle >= two_pi)
+		data->player.angle -= two_pi;
 	if (data->player.angle < 0.f)
-		data->player.angle += (two_pi);
+		data->player.angle += two_pi;
 }
 
 static void	update_movement(t_data *data)
