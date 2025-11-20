@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:12:50 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/08 14:57:19 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/20 19:27:47 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ t_map	ft_check_config(t_map *map)
 	if (map->error != 0)
 		return (*map);
 	*map = ft_check_floor_ceiling(map);
-	if (map->error != 0)
-		return (*map);
 	return (*map);
 }
 
