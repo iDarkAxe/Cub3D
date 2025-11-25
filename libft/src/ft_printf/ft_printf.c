@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:58:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/05/10 12:21:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/11/25 10:07:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ int	ft_printf(const char *str, ...)
 	{
 		write_count = ft_verify_param(&str, 1, arg_ptr);
 		if (write_count < 0)
+		{
+			va_end(arg_ptr);
 			return ((int)write_count);
+		}
 		count += (size_t)write_count;
 	}
 	va_end(arg_ptr);
@@ -67,7 +70,10 @@ int	ft_dprintf(int fd, const char *str, ...)
 	{
 		write_count = ft_verify_param(&str, fd, arg_ptr);
 		if (write_count < 0)
+		{
+			va_end(arg_ptr);
 			return ((int)write_count);
+		}
 		count += (size_t)write_count;
 	}
 	va_end(arg_ptr);

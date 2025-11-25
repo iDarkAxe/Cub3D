@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 18:34:00 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/29 14:39:52 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/11/25 09:55:35 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static int	find_deadends(t_map_raoul *map, t_posvec *deadends)
 	size_t	y;
 	int		c;
 
-	x = 0;
 	y = 0;
 	while (y < map->height)
 	{
