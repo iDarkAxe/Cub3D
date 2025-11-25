@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/09 10:04:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/11 08:35:28 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/11/25 10:07:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	cub_read_args(int argc, char **argv, t_args *args)
 	int	r;
 
 	i = 1;
-	r = 0;
 	ft_memset(args, 0, sizeof(t_args));
 	while (i < argc)
 	{
