@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/29 15:22:07 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/12/16 19:58:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -186,6 +186,14 @@ void	solve_collision_y(t_data *data, float y_vel);
  * @param[in] vel_y velocity on y axis
  */
 void	resolve_collision_steps(t_data *data, float vel_x, float vel_y);
+
+/**
+ * @brief Limit a position, if it is outside, it's modified
+ * 
+ * @param[in,out] pos pos to verify 
+ * @param[in] limit limit to not exceed
+ */
+void	pos_boundary(t_pos2 *pos, const t_pos2 limit);
 /** @} */
 
 /**

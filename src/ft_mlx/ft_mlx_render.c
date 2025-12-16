@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/16 19:11:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 19:53:13 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,13 +69,11 @@ void	cubmlx_putrect(t_data *data, t_pos2 pos, t_pos2 size,
 	int	x;
 	int	y;
 
-	if (pos.x < 0 || pos.y < 0
-		|| pos.x >= data->mlx.win_size.x || pos.y >= data->mlx.win_size.y)
-		return ;
+	pos_boundary(&pos, data->mlx.win_size);
 	if (size.x + pos.x > data->mlx.win_size.x)
-		size.x -= pos.x;
+		size.x = data->mlx.win_size.x;
 	if (size.y + pos.y > data->mlx.win_size.y)
-		size.y -= pos.y;
+		size.y = data->mlx.win_size.y;
 	y = 0;
 	while (y < size.y)
 	{
