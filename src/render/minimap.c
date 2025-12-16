@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/11/20 19:50:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 19:00:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void	render_tile(t_data *data, t_pos2 pos, int x, int y)
 	t_pos2				rect;
 
 	rect = (t_pos2){MINIMAP_TILE_SIZE, MINIMAP_TILE_SIZE};
-	(void)max_size;
 	if (pos.x + rect.x >= max_size.x)
 		rect.x = max_size.x - pos.x;
 	if (pos.y + rect.y >= max_size.y)

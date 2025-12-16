@@ -126,7 +126,6 @@ SETTINGS = \
 	ft_settings_draw_img.c
 
 DRAW = \
-	ft_draw_circle.c \
 	ft_draw_img.c
 
 PRINT = \
