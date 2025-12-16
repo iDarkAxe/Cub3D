@@ -104,6 +104,7 @@ FT_MLX = \
 	ft_init_mlx.c \
 	ft_hooks.c \
 	ft_mlx_render.c \
+	ft_boundaries.c \
 
 MAP_VERIF = \
 	ft_file_fill.c \
