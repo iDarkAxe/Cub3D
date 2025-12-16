@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/10/21 10:37:46 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 20:14:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	do_draw_line(t_data *data, t_img *img, t_pos2 *points, int tex_x)
 		tex_pos += step;
 		cubmlx_putpixel(data, points[0].x, draw_coords[0],
 			*(unsigned int *)(img->pxls + (img->mlx_width * tex_y
-					+ tex_x * (img->bits_per_pixel / 8))));
+					+ tex_x * img->nb_bytes_per_pixel)));
 		draw_coords[0]++;
 	}
 }

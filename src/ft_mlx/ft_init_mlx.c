@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 12:10:22 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/08 10:03:10 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 20:19:28 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ static int	load_mlx_texture(t_mlx *mlx, t_img *img)
 			&img->mlx_width, &img->endian);
 	if (img->pxls == NULL)
 		return (0);
+	if (img->bits_per_pixel == 32)
+		img->nb_bytes_per_pixel = 4;
+	else
+		img->nb_bytes_per_pixel = img->bits_per_pixel / 8;
 	return (1);
 }
 

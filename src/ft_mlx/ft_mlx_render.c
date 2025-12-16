@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/16 19:53:13 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 20:12:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	cubmlx_clear(t_mlx *mlx, unsigned int color)
 	while (i < sz)
 	{
 		*(unsigned int *)(mlx->backbuffer.pxls + i
-				* (mlx->backbuffer.bits_per_pixel / 8)) = color;
+				* (mlx->backbuffer.nb_bytes_per_pixel)) = color;
 		i++;
 	}
 }
@@ -36,7 +36,7 @@ void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color)
 	char	*dst;
 
 	dst = data->mlx.backbuffer.pxls + (y * data->mlx.backbuffer.width + x
-			* (data->mlx.backbuffer.bits_per_pixel / 8));
+			* (data->mlx.backbuffer.nb_bytes_per_pixel));
 	*(unsigned int *)dst = color;
 }
 
@@ -51,7 +51,7 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 	y = pos.y;
 	dst = y + len;
 	px = data->mlx.backbuffer.pxls + (pos.y * data->mlx.backbuffer.width + pos.x
-			* (data->mlx.backbuffer.bits_per_pixel / 8));
+			* (data->mlx.backbuffer.nb_bytes_per_pixel));
 	step = data->mlx.backbuffer.width;
 	if (dst > data->mlx.win_size.y)
 		dst = data->mlx.win_size.y;
