@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 18:18:12 by ppontet           #+#    #+#             */
-/*   Updated: 2025/08/08 18:09:04 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 19:07:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,27 +55,7 @@ void	ft_put_pixel_to_img(t_img *img, int x, int y, int color);
  * @param[in] color color
  */
 void	ft_put_pixel_to_img_24bp(t_img *img, int x, int y, int color);
-/**
- * @brief Draw a circle directly on the window
- * @deprecated Uses an old technique, should put pixels onto a img first 
- * and after onto the window (it's at least 10x faster)
- *
- * @param[in,out] mlx mlx structure
- * @param[in,out] win_ptr window pointer
- * @param[in] element element
- */
-void	ft_draw_circle(t_mlx *mlx, void *win_ptr,
-			t_circle element) __attribute__((deprecated));
-/**
- * @brief Put a circle to the image.
- *
- * @param[in,out] mlx mlx structure
- * @param[in,out] win_ptr window pointer
- * @param[in,out] img img structure
- * @param[in] element circle element to draw
- */
-void	ft_put_circle_to_img(t_mlx *mlx, void *win_ptr, t_img *img,
-			t_circle element);
+
 /**
  * @brief Put ON circle if is_enabled, put OFF circle if not
  * 

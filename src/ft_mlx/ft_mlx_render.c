@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 15:27:31 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/12/16 19:11:42 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ void	cubmlx_clear(t_mlx *mlx, unsigned int color)
 	}
 }
 
+// if (x < 0 || x >= data->mlx.win_size.x || y < 0
+// 		|| y >= data->mlx.win_size.y)
+// 		return ;
+
 void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color)
 {
 	char	*dst;
 
-	if (x < 0 || x >= data->mlx.win_size.x || y < 0
-		|| y >= data->mlx.win_size.y)
-		return ;
 	dst = data->mlx.backbuffer.pxls + (y * data->mlx.backbuffer.width + x
 			* (data->mlx.backbuffer.bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
@@ -52,10 +53,10 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 	px = data->mlx.backbuffer.pxls + (pos.y * data->mlx.backbuffer.width + pos.x
 			* (data->mlx.backbuffer.bits_per_pixel / 8));
 	step = data->mlx.backbuffer.width;
+	if (dst > data->mlx.win_size.y)
+		dst = data->mlx.win_size.y;
 	while (y < dst)
 	{
-		if (y >= data->mlx.win_size.y)
-			return ;
 		*(unsigned int *)px = color;
 		px += step;
 		y++;
@@ -68,6 +69,13 @@ void	cubmlx_putrect(t_data *data, t_pos2 pos, t_pos2 size,
 	int	x;
 	int	y;
 
+	if (pos.x < 0 || pos.y < 0
+		|| pos.x >= data->mlx.win_size.x || pos.y >= data->mlx.win_size.y)
+		return ;
+	if (size.x + pos.x > data->mlx.win_size.x)
+		size.x -= pos.x;
+	if (size.y + pos.y > data->mlx.win_size.y)
+		size.y -= pos.y;
 	y = 0;
 	while (y < size.y)
 	{
