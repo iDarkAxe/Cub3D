@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rdesprez <rdesprez@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 09:21:51 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/13 14:27:17 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/12/16 20:14:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static void	draw_sprite_stripe(t_data *data, t_img *img, t_spritedata *sdata,
 				* 128;
 			tex.y = ((d * img->height) / sdata->sprite_size.y) / 256;
 			color = *(unsigned int *)(img->pxls + (img->mlx_width * tex.y
-						+ tex.x * (img->bits_per_pixel / 8)));
+						+ tex.x * img->nb_bytes_per_pixel));
 			if ((color & 0xff000000) == 0)
 				cubmlx_putpixel(data, stripe, y, color);
 			y++;

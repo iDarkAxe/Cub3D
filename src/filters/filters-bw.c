@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:03:55 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/27 00:58:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 20:18:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ void	convert_texture_to_black_and_white(t_img *img)
 	pxls = 0;
 	while (pxls < sz)
 	{
-		pixel.argb = *(int *)(img->pxls + pxls * (img->bits_per_pixel / 8));
+		pixel.argb = *(int *)(img->pxls + pxls * img->nb_bytes_per_pixel);
 		convert_color_to_black_and_white(&pixel);
-		*(int *)(img->pxls + pxls * (img->bits_per_pixel / 8)) = pixel.argb;
+		*(int *)(img->pxls + pxls * img->nb_bytes_per_pixel) = pixel.argb;
 		pxls++;
 	}
 }
