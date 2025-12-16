@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 12:50:16 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/16 19:00:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/16 19:30:45 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,16 +57,16 @@ static void	dynamic_minimap(t_data *data, t_pos2 start_range, t_pos2 end_range,
 	int					y;
 	t_pos2				pos;
 
+	if (end_range.x > max_size.x)
+		end_range.x = max_size.x;
+	if (end_range.y > max_size.y)
+		end_range.y = max_size.y;
 	y = start_range.y;
 	while (y < end_range.y)
 	{
-		if (y >= max_size.y)
-			break ;
 		x = start_range.x;
 		while (x < end_range.x)
 		{
-			if (x >= max_size.x)
-				break ;
 			pos.x = (x - start_range.x) * MINIMAP_TILE_SIZE - offset.x;
 			pos.y = (y - start_range.y) * MINIMAP_TILE_SIZE - offset.y;
 			render_tile(data, pos, x, y);
