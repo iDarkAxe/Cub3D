@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/18 10:48:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 21:53:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@ static int	loop_hook(void *param)
 	mlx_mouse_move(data->mlx.mlx_ptr, data->mlx.win_ptr,
 		half_win_size.x, half_win_size.y);
 	cub_player_update(data);
-	if (data->needs_render == false)
+	if (data->input.needs_render == false)
 		return (1);
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);
 	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
 		data->mlx.backbuffer.img, 0, 0);
+	data->input.needs_render = false;
 	return (1);
 }
 
