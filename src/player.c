@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/18 10:50:27 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 21:55:46 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,10 @@ void	cub_player_update(t_data *data)
 	static t_player	prev_player = {{0.f, 0.f}, 0.f, 0.f};
 
 	update_movement(data);
-	if (prev_player.pos.x == data->player.pos.x
-		&& prev_player.pos.y == data->player.pos.y
-		&& prev_player.angle == data->player.angle)
-		data->needs_render = false;
-	else
-		data->needs_render = true;
+	if (prev_player.pos.x != data->player.pos.x
+		|| prev_player.pos.y != data->player.pos.y
+		|| prev_player.angle != data->player.angle)
+		data->input.needs_render = true;
 	prev_player = data->player;
 	key_door_logic(&data->player, data->map.map, data->mlx.mlx_ptr);
 }

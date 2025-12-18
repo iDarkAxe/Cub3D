@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:16:53 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/29 15:11:45 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/12/18 21:50:19 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	cub_keyup_hook(int keycode, void *param)
 	t_input	*input;
 
 	input = (t_input *)param;
+	input->needs_render = 1;
 	set_key(keycode, input, false);
 	return (0);
 }

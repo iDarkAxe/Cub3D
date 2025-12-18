@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/12/18 10:51:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 21:51:15 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,7 @@ struct							s_vec2
  */
 struct							s_input
 {
+	bool						needs_render;
 	bool						fwd;
 	bool						bckwd;
 	bool						left;
@@ -270,7 +271,6 @@ struct							s_data
 	t_map						map;
 	t_input						input;
 	t_player					player;
-	bool						needs_render;
 };
 
 /**
