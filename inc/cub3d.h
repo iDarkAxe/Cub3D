@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/22 15:55:20 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 10:52:17 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,10 @@
  * @brief Enable if you want to see the FPS
  */
 # define DEBUG_PRINT_FPS 0
+/**
+ * @brief Enable if you want to skip rendering when there is no movement
+ */
+# define SKIP_NO_MVMT 1
 /**
  * @brief Enable to keep the FPS counter on a single line
  * @warning if you use it with any of the other DEBUG, the output is undefined

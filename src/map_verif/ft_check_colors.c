@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:05:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/10/15 13:57:54 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 10:57:08 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int				are_all_chars_digits(char *str);
 /**
  * @brief Check that all chars in a string are digits or newline
  * 
- * @param[in] str 
+ * @param[in] str  string to check
  * @return int 1 all digits, 0 otherwise
  */
 int	are_all_chars_digits(char *str)

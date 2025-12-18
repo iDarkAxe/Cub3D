@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/10/08 15:59:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 10:47:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ void	cub_render(t_data *data)
 	int			x;
 	t_raydata	rdata;
 
-	x = 0;
-	count_fps(1);
 	rdata.plane = vec2rotate((t_vec2){0, data->player.fov * 0.5f},
 			data->player.angle);
+	x = 0;
 	while (x < data->mlx.win_size.x)
 	{
 		if (!raycast_column(data, x, &rdata))
