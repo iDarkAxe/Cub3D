@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/09/08 16:18:34 by rdesprez         ###   ########.fr       */
+/*   Updated: 2025/12/18 10:48:59 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "cub3d_render.h"
 #include "mlx.h"
 #include <X11/X.h>
+
+#if SKIP_NO_MVMT == 1
 
 static int	loop_hook(void *param)
 {
@@ -26,6 +28,35 @@ static int	loop_hook(void *param)
 		half_win_size.x = data->mlx.win_size.x * 0.5f;
 		half_win_size.y = data->mlx.win_size.y * 0.5f;
 	}
+	count_fps(1);
+	data->input.skip_next_mouse_input = 1;
+	mlx_mouse_move(data->mlx.mlx_ptr, data->mlx.win_ptr,
+		half_win_size.x, half_win_size.y);
+	cub_player_update(data);
+	if (data->needs_render == false)
+		return (1);
+	cub_render(data);
+	if (data->input.minimap)
+		cub_render_minimap(data);
+	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
+		data->mlx.backbuffer.img, 0, 0);
+	return (1);
+}
+
+#else
+
+static int	loop_hook(void *param)
+{
+	static t_pos2	half_win_size = {0};
+	t_data			*data;
+
+	data = (t_data *)param;
+	if (half_win_size.x == 0)
+	{
+		half_win_size.x = data->mlx.win_size.x * 0.5f;
+		half_win_size.y = data->mlx.win_size.y * 0.5f;
+	}
+	count_fps(1);
 	data->input.skip_next_mouse_input = 1;
 	mlx_mouse_move(data->mlx.mlx_ptr, data->mlx.win_ptr,
 		half_win_size.x, half_win_size.y);
@@ -37,6 +68,7 @@ static int	loop_hook(void *param)
 		data->mlx.backbuffer.img, 0, 0);
 	return (1);
 }
+#endif
 
 void	cub_loop(t_data *data)
 {
@@ -50,6 +82,11 @@ void	cub_loop(t_data *data)
 		&cub_mouse_hook, data);
 	mlx_hook(data->mlx.win_ptr, ButtonPress, ButtonPressMask,
 		&cub_mouse_click_hook, data);
+	cub_render(data);
+	if (data->input.minimap)
+		cub_render_minimap(data);
+	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
+		data->mlx.backbuffer.img, 0, 0);
 	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
 	mlx_loop(data->mlx.mlx_ptr);
 }

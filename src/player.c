@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 16:09:35 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/11/20 22:01:25 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2025/12/18 10:50:27 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,28 @@ static void	key_door_logic(t_player *player, t_map_raoul *map, void *mlx_ptr)
 	}
 }
 
-// TODO: add back view bobbing. Thank you, merge conflict
+#if SKIP_NO_MVMT == 1
+
+void	cub_player_update(t_data *data)
+{
+	static t_player	prev_player = {{0.f, 0.f}, 0.f, 0.f};
+
+	update_movement(data);
+	if (prev_player.pos.x == data->player.pos.x
+		&& prev_player.pos.y == data->player.pos.y
+		&& prev_player.angle == data->player.angle)
+		data->needs_render = false;
+	else
+		data->needs_render = true;
+	prev_player = data->player;
+	key_door_logic(&data->player, data->map.map, data->mlx.mlx_ptr);
+}
+
+#else
+
 void	cub_player_update(t_data *data)
 {
 	update_movement(data);
 	key_door_logic(&data->player, data->map.map, data->mlx.mlx_ptr);
 }
+#endif
