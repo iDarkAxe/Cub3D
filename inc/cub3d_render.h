@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/16 19:58:02 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 19:12:40 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,25 @@ void	cub_player_update(t_data *data);
  * @param[in,out] data data structure
  */
 void	cub_render_minimap(t_data *data);
+/**
+ * @brief Calculate the endpoint of a ray on the minimap
+ * 
+ * @param[in] data data structure
+ * @param[in] origin origin point of the ray
+ * @param[in] angle angle of the ray
+ * @param[in] dist distance of the ray
+ * @return t_pos2 endpoint of the ray
+ */
+t_pos2	minimap_ray_endpoint(t_data *data, t_pos2 origin, float angle,
+			float dist);
+/**
+ * @brief Perform a raycast on the minimap
+ * 
+ * @param[in] data data structure
+ * @param[in] ray_angle angle of the ray
+ * @return float distance to the wall hit
+ */
+float	minimap_raycast(t_data *data, float ray_angle);
 /**
  * @brief Draw a column of pixels from a raycast result
  * 

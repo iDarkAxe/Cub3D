@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2025/12/18 10:52:17 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/16 19:14:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,11 @@
 # define MINIMAP_TILES_Y 15
 // Any size higher half of MINIMAP_TILE_SIZE will be strange
 # define MINIMAP_PLAYER_SIZE 4
-# define MINIMAP_LINE_OF_SIGHT_FACTOR 2
+// # define MINIMAP_LINE_OF_SIGHT_FACTOR 2
+/**
+ * @brief Step angle division for minimap FOV zone rendering
+ */
+# define MINIMAP_STEP_ANGLE_DIV 20.0f
 
 // Debug printing settings
 /**
