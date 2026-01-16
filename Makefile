@@ -95,6 +95,7 @@ MATH = \
 RENDER = \
 	minimap.c \
 	minimap_player.c \
+	minimap_fov_zone.c \
 	render.c \
 	render_more.c \
 	draw_column.c \
