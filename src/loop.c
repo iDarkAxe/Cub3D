@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/17 11:13:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 14:51:36 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ static int	loop_hook(void *param)
 }
 #endif
 
+#if ENABLE_MULTI_THREAD_RENDERING == 1
+
 void	cub_loop(t_data *data)
 {
 	mlx_hook(data->mlx.win_ptr, DestroyNotify, StructureNotifyMask,
@@ -83,8 +85,11 @@ void	cub_loop(t_data *data)
 		&cub_mouse_hook, data);
 	mlx_hook(data->mlx.win_ptr, ButtonPress, ButtonPressMask,
 		&cub_mouse_click_hook, data);
-	if (data->pool.initialized == 0)
-		cub_render_pool_init(&data->pool);
+	if (cub_render_pool_init(&data->pool) != 0)
+	{
+		mlx_loop_end(data->mlx.mlx_ptr);
+		return ;
+	}
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);
@@ -93,3 +98,28 @@ void	cub_loop(t_data *data)
 	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
 	mlx_loop(data->mlx.mlx_ptr);
 }
+
+#else
+
+void	cub_loop(t_data *data)
+{
+	mlx_hook(data->mlx.win_ptr, DestroyNotify, StructureNotifyMask,
+		&mlx_loop_end, data->mlx.mlx_ptr);
+	mlx_hook(data->mlx.win_ptr, KeyPress, KeyPressMask, &cub_keydown_hook,
+		data);
+	mlx_hook(data->mlx.win_ptr, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
+		&data->input);
+	mlx_hook(data->mlx.win_ptr, MotionNotify, PointerMotionMask,
+		&cub_mouse_hook, data);
+	mlx_hook(data->mlx.win_ptr, ButtonPress, ButtonPressMask,
+		&cub_mouse_click_hook, data);
+	cub_render(data);
+	if (data->input.minimap)
+		cub_render_minimap(data);
+	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
+		data->mlx.backbuffer.img, 0, 0);
+	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
+	mlx_loop(data->mlx.mlx_ptr);
+}
+
+#endif

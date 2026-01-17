@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/17 12:49:06 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 14:51:24 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ void	cub_render_x_column(t_data *data, int x, const t_vec2 *plane);
  * @brief Initialize the thread pool
  * 
  * @param[out] pool thread pool
+ * @return bool true if error, false otherwise
  */
-void	cub_render_pool_init(t_render_pool *pool);
+bool	cub_render_pool_init(t_render_pool *pool);
 /**
  * @brief Fill the thread pool with work
  * 
