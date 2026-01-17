@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/16 19:14:36 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 08:44:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,11 +106,20 @@
 # define MINIMAP_TILES_Y 15
 // Any size higher half of MINIMAP_TILE_SIZE will be strange
 # define MINIMAP_PLAYER_SIZE 4
-// # define MINIMAP_LINE_OF_SIGHT_FACTOR 2
+# define MINIMAP_LINE_OF_SIGHT_FACTOR 2
+/**
+ * @brief Enable Minimap FOV Zone
+ */
+# define MINIMAP_ENABLE_FOV_ZONE 1
 /**
  * @brief Step angle division for minimap FOV zone rendering
  */
 # define MINIMAP_STEP_ANGLE_DIV 20.0f
+/**
+ * @brief Set a maximum length to the ray in the minimap fov zone
+ */
+# define MINIMAP_ENABLE_MAX_RAY_LENGTH 1
+# define MINIMAP_MAX_RAY_LENGTH 4.0f
 
 // Debug printing settings
 /**
@@ -120,11 +129,11 @@
 /**
  * @brief Enable if you want to see the FPS
  */
-# define DEBUG_PRINT_FPS 0
+# define DEBUG_PRINT_FPS 1
 /**
  * @brief Enable if you want to skip rendering when there is no movement
  */
-# define SKIP_NO_MVMT 1
+# define SKIP_NO_MVMT 0
 /**
  * @brief Enable to keep the FPS counter on a single line
  * @warning if you use it with any of the other DEBUG, the output is undefined
