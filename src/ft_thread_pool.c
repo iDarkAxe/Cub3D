@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 10:21:04 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/17 11:08:42 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 12:47:39 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ void	fill_thread_pool(t_data *data, t_vec2 plane)
 	}
 }
 
-void	wait_thread_pool(t_data *data)
+void	wait_thread_pool(t_render_pool *pool)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < RENDER_THREADS)
 	{
-		pthread_mutex_lock(&data->pool.tasks[i].mutex);
-		while (!data->pool.tasks[i].done)
-			pthread_cond_wait(&data->pool.tasks[i].cond,
-				&data->pool.tasks[i].mutex);
-		pthread_mutex_unlock(&data->pool.tasks[i].mutex);
+		pthread_mutex_lock(&pool->tasks[i].mutex);
+		while (!pool->tasks[i].done)
+			pthread_cond_wait(&pool->tasks[i].cond,
+				&pool->tasks[i].mutex);
+		pthread_mutex_unlock(&pool->tasks[i].mutex);
 		i++;
 	}
 }

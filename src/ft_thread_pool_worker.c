@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 10:21:04 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/17 11:12:12 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 12:50:43 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	cub_render_pool_init(t_render_pool *pool)
 
 void	cub_render_pool_destroy(t_render_pool *pool)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < RENDER_THREADS)

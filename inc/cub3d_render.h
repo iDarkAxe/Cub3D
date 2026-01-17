@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/17 11:11:57 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 12:49:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	cub_render_x_column(t_data *data, int x, const t_vec2 *plane);
 /**
  * @brief Initialize the thread pool
  * 
- * @param[in,out] pool thread pool
+ * @param[out] pool thread pool
  */
 void	cub_render_pool_init(t_render_pool *pool);
 /**
@@ -67,9 +67,9 @@ void	fill_thread_pool(t_data *data, t_vec2 plane);
 /**
  * @brief Waits for each thread to finish it's work
  * 
- * @param[in,out] data data structure
+ * @param[in,out] pool thread pool
  */
-void	wait_thread_pool(t_data *data);
+void	wait_thread_pool(t_render_pool *pool);
 /**
  * @brief Main loop function. Handles player update logic and rendering
  * 
