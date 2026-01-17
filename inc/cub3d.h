@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/17 08:44:03 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 12:18:23 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@
  * @brief Set a maximum length to the ray in the minimap fov zone
  */
 # define MINIMAP_ENABLE_MAX_RAY_LENGTH 1
-# define MINIMAP_MAX_RAY_LENGTH 4.0f
+# define MINIMAP_MAX_RAY_LENGTH 2.0f
 
 // Debug printing settings
 /**
@@ -129,11 +129,11 @@
 /**
  * @brief Enable if you want to see the FPS
  */
-# define DEBUG_PRINT_FPS 1
+# define DEBUG_PRINT_FPS 0
 /**
  * @brief Enable if you want to skip rendering when there is no movement
  */
-# define SKIP_NO_MVMT 0
+# define SKIP_NO_MVMT 1
 /**
  * @brief Enable to keep the FPS counter on a single line
  * @warning if you use it with any of the other DEBUG, the output is undefined
