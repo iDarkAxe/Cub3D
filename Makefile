@@ -11,9 +11,9 @@ NAME = cub3D
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -g3 -D DEBUG=1
 # Uncomment the line below to use DWARF-4 debugging information on WSL2
-CFLAGS_DEBUG =-Wall -Wextra -gdwarf-4 -D DEBUG=1
+# CFLAGS_DEBUG =-Wall -Wextra -gdwarf-4 -D DEBUG=1
 CC_DEBUG = clang
-CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes -Wno-packed
+CC_DEBUG_CFLAGS = -g3 -D DEBUG=1 -Weverything -Wno-padded -pedantic -O2 -Wwrite-strings -Wconversion -Wno-suggest-override -Wno-suggest-destructor-override -Wno-incompatible-pointer-types-discards-qualifiers -Wno-disabled-macro-expansion -Wno-strict-prototypes -Wno-packed -fsanitize=thread -fPIE -O3
 
 # Flag to hide output
 # 0 = Show output, 1 = Hide output
@@ -86,7 +86,9 @@ SRC = \
 	player_utils.c \
 	hitside.c \
 	hitwall.c \
-	ft_time.c
+	ft_time.c \
+	ft_thread_pool.c \
+	ft_thread_pool_worker.c
 
 MATH = \
 	utils.c \

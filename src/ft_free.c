@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 13:11:05 by ppontet           #+#    #+#             */
-/*   Updated: 2025/09/29 15:25:22 by rdesprez         ###   ########.fr       */
+/*   Updated: 2026/01/17 11:04:55 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_free_all(t_data *data)
 	ft_free_textures_path(&data->map);
 	ft_free_file(&data->map);
 	ft_free_map(data->map.map);
+	cub_render_pool_destroy(&data->pool);
 }
 
 void	ft_free_map(t_map_raoul *map)

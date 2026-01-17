@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/18 10:47:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 11:06:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,34 +15,39 @@
 #include <math.h>
 
 static int	raycast_column(t_data *data, int x, t_raydata *rdata);
-void		cub_render_sprites(t_data *data, t_raydata *rdata);
 
 void	cub_render(t_data *data)
 {
-	int			x;
+	t_vec2		plane;
 	t_raydata	rdata;
+	int			cols_per_thread;
 
-	rdata.plane = vec2rotate((t_vec2){0, data->player.fov * 0.5f},
+	plane = vec2rotate((t_vec2){0, data->player.fov * 0.5f},
 			data->player.angle);
-	x = 0;
-	while (x < data->mlx.win_size.x)
-	{
-		if (!raycast_column(data, x, &rdata))
-		{
-			data->mlx.z_buffer[x] = 1e30;
-			cubmlx_putvertline(data, (t_pos2){x, 0}, data->mlx.win_size.y * 0.5,
-				data->map.textures.ceiling.argb);
-			cubmlx_putvertline(data, (t_pos2){x, data->mlx.win_size.y * 0.5},
-				data->mlx.win_size.y * 0.5, data->map.textures.floor.argb);
-			x++;
-			continue ;
-		}
-		draw_column(data, x, &rdata);
-		x++;
-	}
+	cols_per_thread = data->mlx.win_size.x / RENDER_THREADS;
+	fill_thread_pool(data, plane);
+	wait_thread_pool(data);
+	rdata.plane = plane;
 	rdata.ray_dir.x = cos(data->player.angle);
 	rdata.ray_dir.y = sin(data->player.angle);
 	cub_render_sprites(data, &rdata);
+}
+
+void	cub_render_x_column(t_data *data, int x, const t_vec2 *plane)
+{
+	t_raydata	rdata;
+
+	rdata.plane = *plane;
+	if (!raycast_column(data, x, &rdata))
+	{
+		data->mlx.z_buffer[x] = 1e30;
+		cubmlx_putvertline(data, (t_pos2){x, 0}, data->mlx.win_size.y * 0.5,
+			data->map.textures.ceiling.argb);
+		cubmlx_putvertline(data, (t_pos2){x, data->mlx.win_size.y * 0.5},
+			data->mlx.win_size.y * 0.5, data->map.textures.floor.argb);
+		return ;
+	}
+	draw_column(data, x, &rdata);
 }
 
 static int	raycast_column(t_data *data, int x, t_raydata *rdata)

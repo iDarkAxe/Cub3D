@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2025/12/18 21:51:15 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 10:32:52 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,12 @@
 # include <endian.h>
 # include <stdbool.h>
 # include <stddef.h>
+# include <pthread.h>
+
+/**
+ * @brief Number of threads for the pool
+ */
+# define RENDER_THREADS 24
 
 typedef struct s_img			t_img;
 typedef struct s_textures		t_textures;
@@ -41,6 +47,8 @@ typedef union u_color			t_color;
 typedef struct s_raydata		t_raydata;
 typedef struct s_input			t_input;
 typedef struct s_player			t_player;
+typedef struct s_render_task	t_render_task;
+typedef struct s_render_pool	t_render_pool;
 
 /**
  * @brief Enum used to store the screen size.
@@ -261,6 +269,27 @@ struct							s_map
 	t_textures					alt_textures;
 };
 
+struct s_render_task
+{
+	t_data			*data;
+	t_vec2			plane;
+	int				x_start;
+	int				x_end;
+
+	pthread_mutex_t	mutex;
+	pthread_cond_t	cond;
+	bool			work_available;
+	bool			done;
+};
+
+struct s_render_pool
+{
+	pthread_t		threads[RENDER_THREADS];
+	t_render_task	tasks[RENDER_THREADS];
+	bool			stop;
+	bool			initialized;
+};
+
 /**
  * @brief Structure used to store the mlx and map structures.
  *
@@ -271,6 +300,7 @@ struct							s_data
 	t_map						map;
 	t_input						input;
 	t_player					player;
+	t_render_pool				pool;
 };
 
 /**

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 11:36:48 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/18 21:53:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 11:13:03 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,8 @@ void	cub_loop(t_data *data)
 		&cub_mouse_hook, data);
 	mlx_hook(data->mlx.win_ptr, ButtonPress, ButtonPressMask,
 		&cub_mouse_click_hook, data);
+	if (data->pool.initialized == 0)
+		cub_render_pool_init(&data->pool);
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);

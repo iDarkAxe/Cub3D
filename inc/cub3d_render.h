@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/16 19:12:40 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 11:11:57 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,33 @@ int		cub3d_init_render(t_data *data);
  * @param[in,out] data data structure
  */
 void	cub_render(t_data *data);
+/**
+ * @brief Render a full column on x axis
+ * 
+ * @param[in,out] data data structure
+ * @param[in] x x axis
+ * @param[in] plane camera plane
+ */
+void	cub_render_x_column(t_data *data, int x, const t_vec2 *plane);
+/**
+ * @brief Initialize the thread pool
+ * 
+ * @param[in,out] pool thread pool
+ */
+void	cub_render_pool_init(t_render_pool *pool);
+/**
+ * @brief Fill the thread pool with work
+ * 
+ * @param[in,out] data data structure
+ * @param[in,out] plane camera plane
+ */
+void	fill_thread_pool(t_data *data, t_vec2 plane);
+/**
+ * @brief Waits for each thread to finish it's work
+ * 
+ * @param[in,out] data data structure
+ */
+void	wait_thread_pool(t_data *data);
 /**
  * @brief Main loop function. Handles player update logic and rendering
  * 
@@ -114,6 +141,14 @@ t_img	*hitside_texture(t_textures *tex, int hitside, const t_pos2 *step);
  */
 void	raycalc(const t_pos2 win_size, int x, float cam_angle,
 			t_raydata *rdata);
+
+/**
+ * @brief Render the door and key sprites
+ * 
+ * @param[in,out] data data structure
+ * @param[in,out] rdata raydata structure
+ */
+void	cub_render_sprites(t_data *data, t_raydata *rdata);
 
 /**
  * @defgroup Backbuffer Backbuffer Manipulation
