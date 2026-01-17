@@ -6,11 +6,13 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 10:21:04 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/17 12:47:39 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 14:55:29 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+#if ENABLE_MULTI_THREAD_RENDERING == 1
 
 void	fill_thread_pool(t_data *data, t_vec2 plane)
 {
@@ -55,3 +57,5 @@ void	wait_thread_pool(t_render_pool *pool)
 		i++;
 	}
 }
+
+#endif

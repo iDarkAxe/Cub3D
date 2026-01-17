@@ -76,6 +76,7 @@ SRC = \
 	cub3d_raoul.c \
 	ft_safe.c \
 	ft_free.c \
+	ft_free_tex.c \
 	ft_free_mlx.c \
 	ft_utils.c \
 	ft_keys.c \

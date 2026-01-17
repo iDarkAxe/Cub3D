@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 11:28:00 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/17 10:32:52 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 15:00:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@
 # include <stdbool.h>
 # include <stddef.h>
 # include <pthread.h>
-
-/**
- * @brief Number of threads for the pool
- */
-# define RENDER_THREADS 24
+# include "ft_macro.h"
 
 typedef struct s_img			t_img;
 typedef struct s_textures		t_textures;
@@ -269,6 +265,12 @@ struct							s_map
 	t_textures					alt_textures;
 };
 
+# if ENABLE_MULTI_THREAD_RENDERING == 1
+
+/**
+ * @brief Structure used to store the render task for each thread.
+ *
+ */
 struct s_render_task
 {
 	t_data			*data;
@@ -282,10 +284,15 @@ struct s_render_task
 	bool			done;
 };
 
+/**
+ * @brief Structure used to store the render pool.
+ *
+ */
 struct s_render_pool
 {
 	pthread_t		threads[RENDER_THREADS];
 	t_render_task	tasks[RENDER_THREADS];
+	size_t			thread_count;
 	bool			stop;
 	bool			initialized;
 };
@@ -302,6 +309,22 @@ struct							s_data
 	t_player					player;
 	t_render_pool				pool;
 };
+
+# else // ENABLE_MULTI_THREAD_RENDERING == 0
+
+/**
+ * @brief Structure used to store the mlx and map structures.
+ *
+ */
+struct							s_data
+{
+	t_mlx						mlx;
+	t_map						map;
+	t_input						input;
+	t_player					player;
+};
+
+# endif // end of ENABLE_MULTI_THREAD_RENDERING
 
 /**
  * @brief Structure used to store the raycasting data.
