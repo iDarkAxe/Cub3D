@@ -23,15 +23,18 @@ Use only the following functions :
 * open, close, read, write,
 printf, malloc, free,
 perror, strerror, exit, gettimeofday
-* Toutes les fonctions de
-la lib math (-lm man man 3
+* All functions from `math.h` (-lm man man 3
 math)
-* Toutes les fonctions de la MinilibX
+* All functions from MinilibX given by 42 Lyon
+
+### Multi-threading rendering ###
+
+We use a thread pool to render entire column. We are using `pthread_mutex_t` and `pthread_t` as variables and the functions `pthread_mutex[...]`, `pthread_create` and `pthread_join`. What's new compared to [Philosopher](https://github.com/iDarkAxe/Philosopher) ? We are using `pthread_cond_t` with `pthread_cond_signal` and `pthread_cond_wait` to safely and efficiently wake other threads. In `Philosopher`, we were using `usleep()` to make the thread wait but it waste CPU cycles. `Philosopher` is a scheduling problem where `Cub3D` is a ray-casting optimisation problem.
 
 ### How does it work ###
 
 Ray casting is the most basic of many computer graphics rendering algorithms that use the geometric algorithm of ray tracing. Ray tracing-based rendering algorithms operate in image order to render three-dimensional scenes to two-dimensional images. Geometric rays are traced from the eye of the observer to sample the light travelling toward the observer from the ray direction.
-The idea behind ray casting is to trace rays from the eye, one per pixel, and find the closest object blocking the path of that ray—think of an image as a screen-door, with each square in the screen being a pixel. This is then the object the eye sees through that pixel.
+The idea behind ray casting is to trace rays from the eye, one per pixel, and find the closest object blocking the path of that ray, with each square in the screen being a pixel. This is then the object the eye sees through that pixel.
 
 ## <a name="start-en">🚀 How to start ##
 
@@ -56,6 +59,8 @@ The controls of the player are the following :
 
 `LEFT_ARROW_KEY` and `RIGHT_ARROW_KEY` for rotation.
 
+The mouse mouvement are converted in left and right rotations.
+
 ### Shortcuts ###
 
 `Esc_KEY` for closing program.
@@ -71,6 +76,8 @@ The controls of the player are the following :
 `C_KEY` for enabling/disabling custom textures filtering.
 
 `V_KEY` for changing filter on textures.
+
+`X_KEY` for applying Black & White filter on textures.
 
 ### How to end the game ###
 
@@ -91,7 +98,10 @@ In the `map/` folder, there is also invalid maps to help you understand what is 
 * Changing the FOV in game ✅
 * Windows resolution settings and full-screen ✅
 * Random Filter applied to textures ✅
+* Black & White Filter mode ✅
 * Key-Door system ✅
+* FOV Zone raycasting with length limiter ✅
+* Multi-threading rendering ✅
 * Anti-Aliasing (makes the edges smoother for cleaner lines) ⚠️/!\
 
 ---
