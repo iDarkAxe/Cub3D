@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/17 11:06:37 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 12:47:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	cub_render(t_data *data)
 			data->player.angle);
 	cols_per_thread = data->mlx.win_size.x / RENDER_THREADS;
 	fill_thread_pool(data, plane);
-	wait_thread_pool(data);
+	wait_thread_pool(&data->pool);
 	rdata.plane = plane;
 	rdata.ray_dir.x = cos(data->player.angle);
 	rdata.ray_dir.y = sin(data->player.angle);
