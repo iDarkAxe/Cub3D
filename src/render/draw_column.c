@@ -6,20 +6,19 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 22:13:06 by rdesprez          #+#    #+#             */
-/*   Updated: 2025/12/16 20:14:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 11:13:51 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_render.h"
 #include <math.h>
 
-static void	get_draw_coords(t_data *data, float line_height, float *draw_coords,
-		int x)
+void	get_draw_coords(const t_data *data, float line_height,
+	float *draw_coords, int x)
 {
-	static int	half_height = 0;
+	int	half_height;
 
-	if (half_height == 0)
-		half_height = data->mlx.win_size.y / 2;
+	half_height = data->mlx.win_size.y / 2;
 	if (data->input.minimap && x < data->mlx.minimap_size.x)
 	{
 		draw_coords[0] = -line_height / 2 + half_height;
@@ -54,7 +53,6 @@ static void	draw_ceiling_and_floor(t_data *data, float *draw_coords, int x)
 			data->map.textures.floor.argb);
 }
 
-// FIXME: color weirdness
 static void	do_draw_line(t_data *data, t_img *img, t_pos2 *points, int tex_x)
 {
 	float			step;

@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:08:27 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/17 12:18:23 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/17 12:33:37 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@
 /**
  * @brief Enable Minimap FOV Zone
  */
-# define MINIMAP_ENABLE_FOV_ZONE 1
+# define MINIMAP_ENABLE_FOV_ZONE 0
 /**
  * @brief Step angle division for minimap FOV zone rendering
  */
@@ -550,6 +550,13 @@ void				ft_free_textures_path(t_map *map);
  * @param map map structure
  */
 void				ft_free_map(t_map_raoul *map);
+
+/**
+ * @brief Destroy the thread poool structure
+ * 
+ * @param[in,out] pool thread pool
+ */
+void				cub_render_pool_destroy(t_render_pool *pool);
 
 /**
  * @brief Get time in milliseconds.
