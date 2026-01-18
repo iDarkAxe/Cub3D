@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 20:50:27 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/17 14:51:24 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/18 10:23:06 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,7 +167,12 @@ void	cub_render_sprites(t_data *data, t_raydata *rdata);
 void	cubmlx_clear(t_mlx *mlx, unsigned int color);
 
 /**
- * @brief Puts a pixel onto the backbuffer
+ * @brief Puts a pixel onto the backbuffer, 
+ * assumes multiple things like x and y are valid, 
+ * the backbuffer is properly allocated,
+ * and that bytes per pixel is 4.
+ * Faster than cubmlx_putpixel_old without optimizations 
+ * (but no differences in -O3).
  * 
  * @param[in,out] data data structure
  * @param[in] x x axis
@@ -175,6 +180,18 @@ void	cubmlx_clear(t_mlx *mlx, unsigned int color);
  * @param[in] color color
  */
 void	cubmlx_putpixel(t_data *data, int x, int y, unsigned int color);
+
+/**
+ * @brief Puts a pixel onto the backbuffer, 
+ * assumes multiple things like x and y are valid, 
+ * the backbuffer is properly allocated,
+ * 
+ * @param[in,out] data data structure
+ * @param[in] x x axis
+ * @param[in] y y axis
+ * @param[in] color color
+ */
+void	cubmlx_putpixel_old(t_data *data, int x, int y, unsigned int color);
 
 /**
  * @brief Puts a vertical line on the backbuffer. Optimized for vertical lines.

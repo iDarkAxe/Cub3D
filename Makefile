@@ -1,7 +1,7 @@
 .PHONY : all clean fclean re bonus clean-lib clean-bin clean-obj debug debug-cc debug-print
 
 CC = cc
-CFLAGS = -Wextra -Wall -Werror
+CFLAGS = -Wextra -Wall -Werror -Wno-incompatible-pointer-types
 DEPENDANCIES = -MMD -MP
 NO_DIR = --no-print-directory
 MAKE := $(MAKE) -j $(NO_DIR)
@@ -108,6 +108,7 @@ FT_MLX = \
 	ft_init_mlx.c \
 	ft_hooks.c \
 	ft_mlx_render.c \
+	ft_mlx_render_shapes.c \
 	ft_boundaries.c \
 
 MAP_VERIF = \
