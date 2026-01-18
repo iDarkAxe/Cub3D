@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:59:36 by ppontet           #+#    #+#             */
-/*   Updated: 2026/01/17 15:15:48 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/01/18 20:58:07 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@
 /**
  * @brief Enable Multi-Threaded Rendering
  */
-# define ENABLE_MULTI_THREAD_RENDERING 0
+# ifndef ENABLE_MULTI_THREAD_RENDERING
+#  define ENABLE_MULTI_THREAD_RENDERING 0
+# endif
 /**
  * @brief Number of threads for the pool
  */
@@ -104,7 +106,7 @@
 /**
  * @brief Enable Minimap FOV Zone
  */
-# define MINIMAP_ENABLE_FOV_ZONE 0
+# define MINIMAP_ENABLE_FOV_ZONE 1
 /**
  * @brief Step angle division for minimap FOV zone rendering
  */
@@ -112,7 +114,7 @@
 /**
  * @brief Set a maximum length to the ray in the minimap fov zone
  */
-# define MINIMAP_ENABLE_MAX_RAY_LENGTH 1
+# define MINIMAP_ENABLE_MAX_RAY_LENGTH 0
 # define MINIMAP_MAX_RAY_LENGTH 2.0f
 
 // Debug printing settings
@@ -123,7 +125,7 @@
 /**
  * @brief Enable if you want to see the FPS
  */
-# define DEBUG_PRINT_FPS 1
+# define DEBUG_PRINT_FPS 0
 /**
  * @brief Enable if you want to skip rendering when there is no movement
  */

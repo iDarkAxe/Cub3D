@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/08 10:50:26 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/16 19:10:25 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/09/08 10:50:26 by ppontet          #+#    #+#             */
+/*   Updated: 2026/01/18 20:59:53 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,42 @@
 #include "cub3d_render.h"
 #include <math.h>
 
-static void	ray_dir_calc(t_raydata *rdata);
+static void		ray_dir_calc(t_raydata *rdata);
+static float	ray_exit_rect(t_pos2 o, float angle, float max_t,
+					t_pos2 size);
+
+float	ray_exit_rect(t_pos2 o, float angle, float max_t,
+	t_pos2 size)
+{
+	t_vec2	ray_len;
+	float	dx;
+	float	dy;
+
+	dx = cosf(angle);
+	dy = sinf(angle);
+	ray_len = (t_vec2){max_t, max_t};
+	if (dx > 0)
+		ray_len.x = (size.x - 1 - o.x) / dx;
+	else if (dx < 0)
+		ray_len.x = -o.x / dx;
+	if (dy > 0)
+		ray_len.y = (size.y - 1 - o.y) / dy;
+	else if (dy < 0)
+		ray_len.y = -o.y / dy;
+	if (ray_len.x < ray_len.y)
+		return (fmin(ray_len.x, max_t));
+	return (fmin(ray_len.y, max_t));
+}
 
 t_pos2	minimap_ray_endpoint(t_data *data, t_pos2 origin, float angle,
 	float dist)
 {
-	t_pos2	end;
+	float	travel_dist;
 
-	end.x = origin.x + cosf(angle) * dist * MINIMAP_TILE_SIZE;
-	if (end.x < 0)
-		end.x = 0;
-	else if (end.x >= data->mlx.minimap_size.x)
-		end.x = data->mlx.minimap_size.x - 1;
-	end.y = origin.y + sinf(angle) * dist * MINIMAP_TILE_SIZE;
-	if (end.y < 0)
-		end.y = 0;
-	else if (end.y >= data->mlx.minimap_size.y)
-		end.y = data->mlx.minimap_size.y - 1;
-	return (end);
+	travel_dist = ray_exit_rect(origin, angle, dist * MINIMAP_TILE_SIZE,
+			data->mlx.minimap_size);
+	return ((t_pos2){origin.x + cosf(angle) * travel_dist,
+		origin.y + sinf(angle) * travel_dist});
 }
 
 float	minimap_raycast(t_data *data, float ray_angle)

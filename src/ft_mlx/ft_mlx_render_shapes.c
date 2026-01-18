@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/17 22:03:01 by rdesprez          #+#    #+#             */
-/*   Updated: 2026/01/18 11:31:47 by ppontet          ###   ########lyon.fr   */
+/*   Created: 2025/06/17 22:03:01 by ppontet          #+#    #+#             */
+/*   Updated: 2026/01/18 20:31:02 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ void	cubmlx_putvertline(t_data *data, t_pos2 pos, int len,
 
 	y = pos.y;
 	dst = y + len;
-	px = data->mlx.backbuffer.pxls + (pos.y * data->mlx.backbuffer.mlx_width + pos.x
-			* (data->mlx.backbuffer.nb_bytes_per_pixel));
+	px = data->mlx.backbuffer.pxls
+		+ (pos.y * data->mlx.backbuffer.mlx_width
+			+ pos.x * data->mlx.backbuffer.nb_bytes_per_pixel);
 	step = data->mlx.backbuffer.mlx_width;
 	if (dst > data->mlx.win_size.y)
 		dst = data->mlx.win_size.y;
