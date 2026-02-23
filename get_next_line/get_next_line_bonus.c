@@ -6,7 +6,7 @@
 /*   By: ppontet <ppontet@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 16:09:19 by ppontet           #+#    #+#             */
-/*   Updated: 2025/07/19 12:26:59 by ppontet          ###   ########lyon.fr   */
+/*   Updated: 2026/02/23 16:02:25 by ppontet          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char	*ft_filler(int fd, char *backup, char *buffer);
-char	*ft_make_line(char *buffer, char *backup);
-char	*ft_strjoin_gnl(char *s1, char *s2);
+static char	*ft_filler(int fd, char *backup, char *buffer);
+static char	*ft_make_line(char *buffer, char *backup);
 
 /**
  * @brief Main function :
@@ -41,7 +40,9 @@ char	*get_next_line(int fd)
 		return (NULL);
 	buffer[0] = '\0';
 	line = ft_filler(fd, backup[fd], buffer);
-	if (line == NULL || line[0] == '\0')
+	if (line == NULL)
+		return (NULL);
+	if (line[0] == '\0')
 	{
 		free(line);
 		return (NULL);
@@ -62,9 +63,10 @@ char	*get_next_line(int fd)
 char	*ft_filler(int fd, char *backup, char *buffer)
 {
 	ssize_t	read_ret;
+	char	*tmp;
 
 	read_ret = 1;
-	while (read_ret > 0)
+	while (read_ret > 0 && buffer)
 	{
 		if (backup[0] == '\0')
 		{
@@ -76,10 +78,11 @@ char	*ft_filler(int fd, char *backup, char *buffer)
 			}
 			backup[read_ret] = '\0';
 		}
-		buffer = ft_strjoin_gnl(buffer, backup);
-		if (buffer == NULL)
-			return (NULL);
-		if (ft_strchr(buffer, '\n'))
+		tmp = ft_strjoin(buffer, backup);
+		free(buffer);
+		buffer = tmp;
+		backup[0] = '\0';
+		if (buffer && ft_strchr(buffer, '\n'))
 			return (ft_make_line(buffer, backup));
 	}
 	return (buffer);
@@ -118,23 +121,4 @@ char	*ft_make_line(char *buffer, char *backup)
 		backup[0] = '\0';
 	free(buffer);
 	return (line);
-}
-
-/**
- * @brief Modified strjoin to work with GNL
- * Frees s1 after use
- * Sets s2 to empty string after use
- *
- * @param s1 First array to copy from
- * @param s2 Second array to concatenate
- * @return char* Array containing s1 and s2
- */
-char	*ft_strjoin_gnl(char *s1, char *s2)
-{
-	char	*result;
-
-	result = ft_strjoin(s1, s2);
-	free(s1);
-	s2[0] = '\0';
-	return (result);
 }
