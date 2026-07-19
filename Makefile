@@ -206,23 +206,23 @@ all:
 # Create cub3d executable
 $(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx_Linux.a $(GET_NEXT_LINE)
 	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS); then \
-		echo "$(Green)Creating executable $@$(Color_Off)"; \
+		echo -e "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
-		echo "$(Red)Error creating $@$(Color_Off)"; \
+		echo -e "$(Red)Error creating $@$(Color_Off)"; \
 	fi
 
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
 	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX) -I $(P_LIBFT)inc -c $< -o $@; then \
-		echo "$(Cyan)Compiling $<$(Color_Off)"; \
+		echo -e "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
-		echo "$(Red)Error creating $@$(Color_Off)"; \
+		echo -e "$(Red)Error creating $@$(Color_Off)"; \
 	fi
 
 bonus:
 	@$(MAKE) all
-	@echo "$(Green)Creating executable $(NAME)_bonus$(Color_Off)";
+	@echo -e "$(Green)Creating executable $(NAME)_bonus$(Color_Off)";
 	@cp $(NAME) $(NAME)_bonus
 
 force:
@@ -245,26 +245,26 @@ $(P_MLX)libmlx_Linux.a: force
 # Rules for clean up
 clean:
 ifeq ($(HIDE),1)
-	@echo "$(Green)Cleaned P_OBJ, OBJS, DEPS and minilibx-linux$(Color_Off)"
+	@echo -e "$(Green)Cleaned P_OBJ, OBJS, DEPS and minilibx-linux$(Color_Off)"
 else
-	@echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)"
+	@echo -e "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)"
 endif
 	@rm -rfd $(P_OBJ)
 	@rm -rfd $(OBJS)
 	@rm -rfd $(DEPS)
 	@$(MAKE) -C $(P_MLX) clean HIDE=0
-# @echo "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)" $(HIDE_STDOUT)
+# @echo -e "$(Green)Cleaned $(P_OBJ), $(OBJS), $(DEPS) and minilibx-linux$(Color_Off)" $(HIDE_STDOUT)
 
 clean-lib:
 	@rm -rfd $(P_LIB)
 	$(MAKE) -C $(P_LIBFT) fclean $(HIDE_STDOUT)
-	@echo "$(Green)Cleaned $(P_LIB)$(Color_Off)" 
-	@echo "$(Green)Cleaned $(P_LIBFT)$(Color_Off)"
+	@echo -e "$(Green)Cleaned $(P_LIB)$(Color_Off)" 
+	@echo -e "$(Green)Cleaned $(P_LIBFT)$(Color_Off)"
 
 clean-bin:
 	@rm -f $(NAME)
 	@rm -f $(NAME_TEST)
-	@echo "$(Green)Cleaned $(NAME)$(Color_Off)"
+	@echo -e "$(Green)Cleaned $(NAME)$(Color_Off)"
 
 clean-obj:
 	@$(MAKE) clean
@@ -302,15 +302,15 @@ debug-print:
 	@$(MAKE) debug-print-project
 
 debug-print-separator:
-	@echo ""
-	@echo "$(On_Yellow)____________________$(Color_Off)"
-	@echo ""
+	@echo -e ""
+	@echo -e "$(On_Yellow)____________________$(Color_Off)"
+	@echo -e ""
 
 define check_var
 	@if [ "$(strip $(1))" = "" ]; then \
-		echo "$(Red)No $(2) found$(Color_Off)"; \
+		echo -e "$(Red)No $(2) found$(Color_Off)"; \
 	else \
-		echo "$(Red)$(2): \n\t$(Blue)$(1)$(Color_Off)"; \
+		echo -e "$(Red)$(2): \n\t$(Blue)$(1)$(Color_Off)"; \
 	fi
 endef
 
