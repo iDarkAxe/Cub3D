@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 #include "ft_keys.h"
 
 #if SKIP_NO_MVMT == 1

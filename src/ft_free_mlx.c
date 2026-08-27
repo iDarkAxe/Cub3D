@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 #include "data_structure.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 #include <stdlib.h>
 
 void	ft_mlx_end(t_mlx *mlx)

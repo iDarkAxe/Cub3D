@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 #include <stdlib.h>
 
 void	ft_free_textures(t_mlx *mlx, t_textures *textures)

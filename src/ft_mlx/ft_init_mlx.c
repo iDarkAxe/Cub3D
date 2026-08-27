@@ -13,7 +13,7 @@
 #include "cub3d.h"
 #include "ft_print.h"
 #include "libft.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 #include <unistd.h>
 #include <stdio.h>
 

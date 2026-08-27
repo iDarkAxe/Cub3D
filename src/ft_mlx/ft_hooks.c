@@ -13,7 +13,7 @@
 #include "data_structure.h"
 #include "ft_keys.h"
 #include "ft_print.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 
 // These functions are not used with MLX42 anymore
 // They are kept for reference but should not be called

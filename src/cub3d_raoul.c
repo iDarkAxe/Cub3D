@@ -17,7 +17,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "data_structure.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 
 int	cub3d_init_render(t_data *data)
 {
