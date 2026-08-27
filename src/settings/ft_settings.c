@@ -14,7 +14,7 @@
 #include "cub3d_render.h"
 #include "data_structure.h"
 #include "ft_draw.h"
-#include "mlx.h"
+#include "MLX42.h"
 #include <X11/X.h>
 #include <stdlib.h>
 

@@ -12,7 +12,7 @@
 
 #include "data_structure.h"
 #include "ft_draw.h"
-#include "mlx.h"
+#include "MLX42.h"
 
 void	ft_put_circle_to_win(t_mlx *mlx, void *win_ptr, t_circle element,
 		bool is_enabled)

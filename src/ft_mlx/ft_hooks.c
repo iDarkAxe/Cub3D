@@ -13,7 +13,7 @@
 #include "data_structure.h"
 #include "ft_keys.h"
 #include "ft_print.h"
-#include "mlx.h"
+#include "MLX42.h"
 #include <X11/X.h>
 #include "maze.h"
 #include "filter.h"

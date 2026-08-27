@@ -14,7 +14,7 @@
 #include "filter.h"
 #include "ft_keys.h"
 #include "maze.h"
-#include "mlx.h"
+#include "MLX42.h"
 #include "cub3d.h"
 #include "ft_printf.h"
 

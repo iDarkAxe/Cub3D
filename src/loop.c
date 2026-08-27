@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-#include "mlx.h"
+#include "MLX42.h"
 #include <X11/X.h>
 
 #if SKIP_NO_MVMT == 1

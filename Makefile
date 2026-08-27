@@ -53,7 +53,7 @@ P_INC_MLX = $(P_MLX)
 P_LIB = lib/
 P_LIBFT = libft/
 P_GET_NEXT_LINE = get_next_line/
-P_MLX = mlx/
+P_MLX = MLX42/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -158,7 +158,7 @@ LIBS = \
 	-L$(P_LIBFT) -lft \
 	-L$(P_GET_NEXT_LINE) -lgnl \
 	-L$(P_LIBFT) -lft \
-	-L$(P_MLX) -lmlx_Linux \
+	-L$(P_MLX)/build -lmlx42 \
 	-lXext \
 	-lX11 \
 	-lm
@@ -204,8 +204,8 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create cub3d executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx_Linux.a $(GET_NEXT_LINE)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS); then \
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx42.a $(GET_NEXT_LINE)
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX)/include/MLX42 -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS); then \
 		echo -e "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
 		echo -e "$(Red)Error creating $@$(Color_Off)"; \
@@ -214,7 +214,7 @@ $(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx_Linux.a $(GET_NEXT_LINE)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX) -I $(P_LIBFT)inc -c $< -o $@; then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX)/include/MLX42 -I $(P_LIBFT)inc -c $< -o $@; then \
 		echo -e "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
 		echo -e "$(Red)Error creating $@$(Color_Off)"; \
@@ -234,8 +234,8 @@ $(GET_NEXT_LINE): force
 	@$(MAKE) -C $(P_GET_NEXT_LINE)
 
 # Create mlx library
-$(P_MLX)libmlx_Linux.a: force
-	@$(MAKE) -C $(P_MLX) --silent CFLAGS="$(CFLAGS_MLX)" CC="gcc -std=gnu17" all $(HIDE_STDOUT)
+$(P_MLX)libmlx42.a: force
+	cd $(P_MLX) && cmake --build build -j4
 
 #############################################################################################
 #                                                                                           #

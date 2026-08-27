@@ -13,7 +13,7 @@
 #include "cub3d.h"
 #include "ft_print.h"
 #include "libft.h"
-#include "mlx.h"
+#include "MLX42.h"
 #include <unistd.h>
 
 static t_mlx	*store_textures_mlx(t_mlx *mlx, t_textures *tex);
