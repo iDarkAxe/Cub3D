@@ -17,25 +17,37 @@
 void	ft_free_textures(t_mlx *mlx, t_textures *textures)
 {
 	if (mlx == NULL || mlx->mlx_ptr == NULL)
-		return ;
+		return;
 	if (textures->north.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, textures->north.img);
+		mlx_delete_image(mlx->mlx_ptr, textures->north.img);
+	if (textures->north.texture != NULL)
+		mlx_delete_texture(mlx->mlx_ptr, textures->north.texture);
 	if (textures->south.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, textures->south.img);
+		mlx_delete_image(mlx->mlx_ptr, textures->south.img);
+	if (textures->south.texture != NULL)
+		mlx_delete_texture(mlx->mlx_ptr, textures->south.texture);
 	if (textures->west.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, textures->west.img);
+		mlx_delete_image(mlx->mlx_ptr, textures->west.img);
+	if (textures->west.texture != NULL)
+		mlx_delete_texture(mlx->mlx_ptr, textures->west.texture);
 	if (textures->east.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, textures->east.img);
+		mlx_delete_image(mlx->mlx_ptr, textures->east.img);
+	if (textures->east.texture != NULL)
+		mlx_delete_texture(mlx->mlx_ptr, textures->east.texture);
 	if (textures->key.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, textures->key.img);
+		mlx_delete_image(mlx->mlx_ptr, textures->key.img);
+	if (textures->key.texture != NULL)
+		mlx_delete_texture(mlx->mlx_ptr, textures->key.texture);
 	if (textures->door.img != NULL)
-		mlx_destroy_image(mlx->mlx_ptr, textures->door.img);
+		mlx_delete_image(mlx->mlx_ptr, textures->door.img);
+	if (textures->door.texture != NULL)
+		mlx_delete_texture(mlx->mlx_ptr, textures->door.texture);
 }
 
 void	ft_free_textures_path(t_map *map)
 {
 	if (map == NULL)
-		return ;
+		return;
 	if (map->textures.north.path != NULL)
 	{
 		free(map->textures.north.path);

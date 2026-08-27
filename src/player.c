@@ -66,7 +66,7 @@ static void	update_movement(t_data *data)
 	update_camera(data);
 }
 
-static void	key_door_logic(t_player *player, t_map_raoul *map, void *mlx_ptr)
+static void	key_door_logic(t_player *player, t_map_raoul *map, t_mlx *mlx)
 {
 	if (map->key.x > -1)
 	{
@@ -81,7 +81,7 @@ static void	key_door_logic(t_player *player, t_map_raoul *map, void *mlx_ptr)
 	{
 		if ((int)player->pos.x == map->door.x
 			&& (int)player->pos.y == map->door.y)
-			mlx_loop_end(mlx_ptr);
+			mlx_close_window(mlx->win_ptr);
 	}
 }
 
@@ -97,7 +97,7 @@ void	cub_player_update(t_data *data)
 		|| prev_player.angle != data->player.angle)
 		data->input.needs_render = true;
 	prev_player = data->player;
-	key_door_logic(&data->player, data->map.map, data->mlx.mlx_ptr);
+	key_door_logic(&data->player, data->map.map, &data->mlx);
 }
 
 #else
@@ -105,6 +105,7 @@ void	cub_player_update(t_data *data)
 void	cub_player_update(t_data *data)
 {
 	update_movement(data);
-	key_door_logic(&data->player, data->map.map, data->mlx.mlx_ptr);
+	key_door_logic(&data->player, data->map.map, &data->mlx);
 }
+
 #endif

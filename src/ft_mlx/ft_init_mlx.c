@@ -15,6 +15,7 @@
 #include "libft.h"
 #include "MLX42.h"
 #include <unistd.h>
+#include <stdio.h>
 
 static t_mlx	*store_textures_mlx(t_mlx *mlx, t_textures *tex);
 static void		copy_path_alt_textures(t_data *data);
@@ -27,9 +28,15 @@ int	ft_mlx_init(t_data *data)
 	data->mlx.mouse_x = -1;
 	data->mlx.mouse_y = -1;
 	data->mlx.settings.state = SIZE_FULL_SCREEN;
-	data->mlx.win_size = (t_pos2){0, 0};
+	// Set default window size to fullscreen
+	ft_set_screen_size(&data->mlx, SIZE_FULL_SCREEN);
 	data->mlx.mlx_ptr = mlx_init();
 	if (data->mlx.mlx_ptr == NULL)
+		return (-1);
+	// Create main window with the selected size
+	data->mlx.win_ptr = mlx_new_window(data->mlx.mlx_ptr, data->mlx.win_size.x,
+			data->mlx.win_size.y, "cub3D", true);
+	if (data->mlx.win_ptr == NULL)
 		return (-1);
 	copy_path_alt_textures(data);
 	if (store_textures_mlx(&data->mlx, &data->map.textures) == NULL
@@ -56,18 +63,22 @@ void	copy_path_alt_textures(t_data *data)
 
 static int	load_mlx_texture(t_mlx *mlx, t_img *img)
 {
-	img->img = mlx_xpm_file_to_image(mlx->mlx_ptr, img->path, &img->width,
-			&img->height);
+	mlx_texture_t	*texture;
+
+	texture = mlx_load_xpm42(mlx->mlx_ptr, img->path);
+	if (texture == NULL)
+		return (0);
+	img->texture = texture;
+	img->img = mlx_texture_to_image(mlx->mlx_ptr, texture);
 	if (img->img == NULL)
 		return (0);
-	img->pxls = mlx_get_data_addr(img->img, &img->bits_per_pixel,
-			&img->mlx_width, &img->endian);
-	if (img->pxls == NULL)
-		return (0);
-	if (img->bits_per_pixel == 32)
-		img->nb_bytes_per_pixel = 4;
-	else
-		img->nb_bytes_per_pixel = img->bits_per_pixel / 8;
+	img->pxls = (char *)img->img->pixels;
+	img->width = img->img->width;
+	img->height = img->img->height;
+	img->mlx_width = img->img->width;
+	img->bits_per_pixel = 32;
+	img->nb_bytes_per_pixel = 4;
+	img->endian = 0;
 	return (1);
 }
 

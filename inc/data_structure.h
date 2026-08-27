@@ -24,6 +24,7 @@
 # include <stddef.h>
 # include <pthread.h>
 # include "ft_macro.h"
+# include "MLX42.h"
 
 typedef struct s_img			t_img;
 typedef struct s_textures		t_textures;
@@ -113,7 +114,8 @@ struct							s_img
 {
 	char						*path;
 	char						*pxls;
-	void						*img;
+	mlx_image_t						*img;
+	mlx_texture_t				*texture;
 	/* 4 bytes padding here : char padding[4];*/
 	int							width;
 	int							mlx_width;
@@ -207,7 +209,7 @@ struct							s_player
  */
 struct							s_settings
 {
-	void						*win_ptr;
+	mlx_window_t						*win_ptr;
 	enum e_screen_size			state;
 	t_img						background;
 	t_img						circle_yes;
@@ -220,8 +222,8 @@ struct							s_settings
  */
 struct							s_mlx
 {
-	void						*mlx_ptr;
-	void						*win_ptr;
+	mlx_t						*mlx_ptr;
+	mlx_window_t						*win_ptr;
 	t_settings					settings;
 	int							mouse_x;
 	int							mouse_y;

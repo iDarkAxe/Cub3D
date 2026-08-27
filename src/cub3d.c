@@ -103,7 +103,12 @@ int	cub3d(int argc, char **argv)
 		ft_free_all(&data);
 		return (-1);
 	}
-	mlx_loop(data.mlx.mlx_ptr);
+	if (cub3d_init_render(&data) != 0)
+	{
+		ft_free_all(&data);
+		return (-1);
+	}
+	cub_loop(&data);
 	ft_free_all(&data);
 	return (0);
 }

@@ -14,22 +14,20 @@
 #include "ft_draw.h"
 #include "MLX42.h"
 
-void	ft_put_circle_to_win(t_mlx *mlx, void *win_ptr, t_circle element,
+void	ft_put_circle_to_win(t_mlx *mlx, mlx_window_t *win_ptr, t_circle element,
 		bool is_enabled)
 {
 	if (!mlx || !mlx->mlx_ptr || !win_ptr)
-		return ;
+		return;
 	if (is_enabled == 1)
-		mlx_put_image_to_window(mlx->mlx_ptr, win_ptr,
-			mlx->settings.circle_yes.img, element.x - element.radius, element.y
-			- element.radius);
+		mlx_image_to_window(mlx->mlx_ptr, mlx->settings.circle_yes.img,
+			element.x - element.radius, element.y - element.radius);
 	else
-		mlx_put_image_to_window(mlx->mlx_ptr, win_ptr,
-			mlx->settings.circle_no.img, element.x - element.radius, element.y
-			- element.radius);
+		mlx_image_to_window(mlx->mlx_ptr, mlx->settings.circle_no.img,
+			element.x - element.radius, element.y - element.radius);
 }
 
-void	ft_put_circle_specific(t_mlx *mlx, void *win_ptr,
+void	ft_put_circle_specific(t_mlx *mlx, mlx_window_t *win_ptr,
 		enum e_screen_size num, bool is_enabled)
 {
 	if (num == 0)
@@ -54,7 +52,7 @@ void	ft_put_circle_specific(t_mlx *mlx, void *win_ptr,
 			is_enabled);
 }
 
-void	ft_put_all_circle_to_win(t_mlx *mlx, void *win_ptr, bool is_enabled)
+void	ft_put_all_circle_to_win(t_mlx *mlx, mlx_window_t *win_ptr, bool is_enabled)
 {
 	ft_put_circle_to_win(mlx, win_ptr, (t_circle){35, 75, 20, 0x0}, is_enabled);
 	ft_put_circle_to_win(mlx, win_ptr, (t_circle){35, 140, 20, 0x0},

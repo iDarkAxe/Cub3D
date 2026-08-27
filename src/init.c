@@ -22,18 +22,13 @@ static int	setup_backbuffer(t_data *data)
 			data->mlx.win_size.x, data->mlx.win_size.y);
 	if (data->mlx.backbuffer.img == NULL)
 		return (0);
-	data->mlx.backbuffer.pxls = mlx_get_data_addr(data->mlx.backbuffer.img,
-			&data->mlx.backbuffer.bits_per_pixel,
-			&data->mlx.backbuffer.mlx_width, &data->mlx.backbuffer.endian);
-	if (data->mlx.backbuffer.pxls == NULL)
-		return (0);
-	if (data->mlx.backbuffer.bits_per_pixel == 32)
-		data->mlx.backbuffer.nb_bytes_per_pixel = 4;
-	else
-		data->mlx.backbuffer.nb_bytes_per_pixel
-			= data->mlx.backbuffer.bits_per_pixel / 8;
+	data->mlx.backbuffer.pxls = (char *)data->mlx.backbuffer.img->pixels;
 	data->mlx.backbuffer.width = data->mlx.win_size.x;
 	data->mlx.backbuffer.height = data->mlx.win_size.y;
+	data->mlx.backbuffer.mlx_width = data->mlx.win_size.x;
+	data->mlx.backbuffer.bits_per_pixel = 32;
+	data->mlx.backbuffer.nb_bytes_per_pixel = 4;
+	data->mlx.backbuffer.endian = 0;
 	data->mlx.z_buffer = ft_calloc(data->mlx.win_size.x, sizeof(float));
 	if (data->mlx.z_buffer == NULL)
 		return (0);

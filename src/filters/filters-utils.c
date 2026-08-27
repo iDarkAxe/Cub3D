@@ -77,13 +77,13 @@ void	swap_textures(t_map *map)
 	t_textures	temp;
 
 	if (!map)
-		return ;
+		return;
 	if (!map->alt_textures.north.pxls || !map->alt_textures.south.pxls
 		|| !map->alt_textures.east.pxls || !map->alt_textures.west.pxls)
-		return ;
+		return;
 	if (!map->textures.north.pxls || !map->textures.south.pxls
 		|| !map->textures.east.pxls || !map->textures.west.pxls)
-		return ;
+		return;
 	if (DEBUG_PRINT_TEXTURE_SWAP && map->is_alt_textures == 1)
 		ft_printf("Textures swapped to normal\n");
 	else if (DEBUG_PRINT_TEXTURE_SWAP)
@@ -97,25 +97,25 @@ void	swap_textures(t_map *map)
 void	ft_free_alt_textures(t_mlx *mlx, t_map *map)
 {
 	if (map == NULL || mlx == NULL || mlx->mlx_ptr == NULL)
-		return ;
+		return;
 	if (map->alt_textures.north.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->alt_textures.north.img);
+		mlx_delete_image(mlx->mlx_ptr, map->alt_textures.north.img);
 		map->alt_textures.north.img = NULL;
 	}
 	if (map->alt_textures.south.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->alt_textures.south.img);
+		mlx_delete_image(mlx->mlx_ptr, map->alt_textures.south.img);
 		map->alt_textures.south.img = NULL;
 	}
 	if (map->alt_textures.west.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->alt_textures.west.img);
+		mlx_delete_image(mlx->mlx_ptr, map->alt_textures.west.img);
 		map->alt_textures.west.img = NULL;
 	}
 	if (map->alt_textures.east.img != NULL)
 	{
-		mlx_destroy_image(mlx->mlx_ptr, map->alt_textures.east.img);
+		mlx_delete_image(mlx->mlx_ptr, map->alt_textures.east.img);
 		map->alt_textures.east.img = NULL;
 	}
 }

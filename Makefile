@@ -45,15 +45,15 @@ P_FILTERS = filters/
 # Object directories
 P_OBJ = .obj/
 
-# Header directories
-P_INC = inc/
-P_INC_MLX = $(P_MLX)
-
 # Libraries directories
 P_LIB = lib/
 P_LIBFT = libft/
 P_GET_NEXT_LINE = get_next_line/
 P_MLX = MLX42/
+
+# Header directories
+P_INC = inc/
+P_INC_MLX = $(P_MLX)/include/MLX42/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -205,7 +205,7 @@ all:
 
 # Create cub3d executable
 $(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx42.a $(GET_NEXT_LINE)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX)/include/MLX42 -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS); then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS); then \
 		echo -e "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
 		echo -e "$(Red)Error creating $@$(Color_Off)"; \
@@ -214,7 +214,7 @@ $(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx42.a $(GET_NEXT_LINE)
 # Custom rule to compilate all .c with there path
 $(P_OBJ)%.o: $(P_SRC)%.c $(INCS)
 	@mkdir -p $(dir $@)
-	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX)/include/MLX42 -I $(P_LIBFT)inc -c $< -o $@; then \
+	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX) -I $(P_LIBFT)inc -c $< -o $@; then \
 		echo -e "$(Cyan)Compiling $<$(Color_Off)"; \
 	else \
 		echo -e "$(Red)Error creating $@$(Color_Off)"; \

@@ -13,11 +13,11 @@
 #include "cub3d.h"
 #include "cub3d_render.h"
 #include "MLX42.h"
-#include <X11/X.h>
+#include "ft_keys.h"
 
 #if SKIP_NO_MVMT == 1
 
-static int	loop_hook(void *param)
+static void	loop_hook(void *param)
 {
 	static t_pos2	half_win_size = {0};
 	t_data			*data;
@@ -30,23 +30,20 @@ static int	loop_hook(void *param)
 	}
 	count_fps(1);
 	data->input.skip_next_mouse_input = 1;
-	mlx_mouse_move(data->mlx.mlx_ptr, data->mlx.win_ptr,
-		half_win_size.x, half_win_size.y);
+	mlx_set_mouse_pos(data->mlx.win_ptr, half_win_size.x, half_win_size.y);
 	cub_player_update(data);
 	if (data->input.needs_render == false)
-		return (1);
+		return;
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);
-	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
-		data->mlx.backbuffer.img, 0, 0);
+	mlx_image_to_window(data->mlx.mlx_ptr, data->mlx.backbuffer.img, 0, 0);
 	data->input.needs_render = false;
-	return (1);
 }
 
 #else
 
-static int	loop_hook(void *param)
+static void	loop_hook(void *param)
 {
 	static t_pos2	half_win_size = {0};
 	t_data			*data;
@@ -59,42 +56,98 @@ static int	loop_hook(void *param)
 	}
 	count_fps(1);
 	data->input.skip_next_mouse_input = 1;
-	mlx_mouse_move(data->mlx.mlx_ptr, data->mlx.win_ptr,
-		half_win_size.x, half_win_size.y);
+	mlx_set_mouse_pos(data->mlx.win_ptr, half_win_size.x, half_win_size.y);
 	cub_player_update(data);
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);
-	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
-		data->mlx.backbuffer.img, 0, 0);
-	return (1);
+	mlx_image_to_window(data->mlx.mlx_ptr, data->mlx.backbuffer.img, 0, 0);
 }
+
 #endif
+
+static void	handle_close(void *param)
+{
+	t_data	*data;
+
+	data = (t_data *)param;
+	mlx_close_window(data->mlx.win_ptr);
+}
+
+static void	handle_key(keys_t key, void *param)
+{
+	t_data	*data;
+
+	data = (t_data *)param;
+	if (key == MLX_KEY_ESCAPE)
+		handle_close(data);
+	if (key == MLX_KEY_DOWN || key == MLX_KEY_UP)
+		change_fov(data, (int)key);
+	if (ENABLE_FILTERS)
+		change_filter(data, (int)key);
+	set_key((int)key, &data->input, true);
+	toggle_key((int)key, &data->input);
+}
+
+static void	handle_key_release(keys_t key, void *param)
+{
+	t_input	*input;
+
+	input = (t_input *)param;
+	input->needs_render = 1;
+	set_key((int)key, input, false);
+}
+
+static void	handle_mouse(double xpos, double ypos, void *param)
+{
+	t_data			*data;
+
+	(void)ypos;
+	data = (t_data *)param;
+	if (data->input.skip_next_mouse_input)
+	{
+		data->input.skip_next_mouse_input = 0;
+		return;
+	}
+	data->input.delta_mouse_x = (int)xpos - (data->mlx.win_size.x >> 1);
+	data->input.mouse_input = 1;
+}
+
+static void	handle_mouse_press(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
+{
+	t_data			*data;
+
+	(void)button;
+	(void)action;
+	(void)mods;
+	data = (t_data *)param;
+	if (data->input.skip_next_mouse_input)
+	{
+		data->input.skip_next_mouse_input = 0;
+		return;
+	}
+	data->input.delta_mouse_x = data->mlx.mouse_x - (data->mlx.win_size.x >> 1);
+	data->input.mouse_input = 1;
+}
 
 #if ENABLE_MULTI_THREAD_RENDERING == 1
 
 void	cub_loop(t_data *data)
 {
-	mlx_hook(data->mlx.win_ptr, DestroyNotify, StructureNotifyMask,
-		&mlx_loop_end, data->mlx.mlx_ptr);
-	mlx_hook(data->mlx.win_ptr, KeyPress, KeyPressMask, &cub_keydown_hook,
-		data);
-	mlx_hook(data->mlx.win_ptr, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
-		&data->input);
-	mlx_hook(data->mlx.win_ptr, MotionNotify, PointerMotionMask,
-		&cub_mouse_hook, data);
-	mlx_hook(data->mlx.win_ptr, ButtonPress, ButtonPressMask,
-		&cub_mouse_click_hook, data);
+	mlx_close_hook(data->mlx.win_ptr, &handle_close, data);
+	mlx_key_hook(data->mlx.win_ptr, &handle_key, data);
+	mlx_key_hook(data->mlx.win_ptr, &handle_key_release, &data->input);
+	mlx_cursor_hook(data->mlx.win_ptr, &handle_mouse, data);
+	mlx_mouse_hook(data->mlx.win_ptr, &handle_mouse_press, data);
 	if (cub_render_pool_init(&data->pool) != 0)
 	{
-		mlx_loop_end(data->mlx.mlx_ptr);
-		return ;
+		handle_close(data);
+		return;
 	}
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);
-	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
-		data->mlx.backbuffer.img, 0, 0);
+	mlx_image_to_window(data->mlx.mlx_ptr, data->mlx.backbuffer.img, 0, 0);
 	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
 	mlx_loop(data->mlx.mlx_ptr);
 }
@@ -103,21 +156,15 @@ void	cub_loop(t_data *data)
 
 void	cub_loop(t_data *data)
 {
-	mlx_hook(data->mlx.win_ptr, DestroyNotify, StructureNotifyMask,
-		&mlx_loop_end, data->mlx.mlx_ptr);
-	mlx_hook(data->mlx.win_ptr, KeyPress, KeyPressMask, &cub_keydown_hook,
-		data);
-	mlx_hook(data->mlx.win_ptr, KeyRelease, KeyReleaseMask, &cub_keyup_hook,
-		&data->input);
-	mlx_hook(data->mlx.win_ptr, MotionNotify, PointerMotionMask,
-		&cub_mouse_hook, data);
-	mlx_hook(data->mlx.win_ptr, ButtonPress, ButtonPressMask,
-		&cub_mouse_click_hook, data);
+	mlx_close_hook(data->mlx.win_ptr, &handle_close, data);
+	mlx_key_hook(data->mlx.win_ptr, &handle_key, data);
+	mlx_key_hook(data->mlx.win_ptr, &handle_key_release, &data->input);
+	mlx_cursor_hook(data->mlx.win_ptr, &handle_mouse, data);
+	mlx_mouse_hook(data->mlx.win_ptr, &handle_mouse_press, data);
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);
-	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr,
-		data->mlx.backbuffer.img, 0, 0);
+	mlx_image_to_window(data->mlx.mlx_ptr, data->mlx.backbuffer.img, 0, 0);
 	mlx_loop_hook(data->mlx.mlx_ptr, &loop_hook, data);
 	mlx_loop(data->mlx.mlx_ptr);
 }

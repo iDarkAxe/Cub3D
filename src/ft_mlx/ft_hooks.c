@@ -14,70 +14,65 @@
 #include "ft_keys.h"
 #include "ft_print.h"
 #include "MLX42.h"
-#include <X11/X.h>
-#include "maze.h"
-#include "filter.h"
 
-int	cub_keydown_hook(int keycode, void *param)
+// These functions are not used with MLX42 anymore
+// They are kept for reference but should not be called
+
+int	cub_keydown_hook(keys_t key, void *param)
 {
 	t_data	*data;
 
 	data = (t_data *)param;
 	if (DEBUG_PRINT_KEYCODE == 1)
-		ft_print_key(keycode);
-	if (keycode == KEY_ESCAPE)
-	{
-		mlx_loop_end(data->mlx.mlx_ptr);
-		return (0);
-	}
-	if (keycode == KEY_ARROW_DOWN || keycode == KEY_ARROW_UP)
-		change_fov(data, keycode);
+		ft_print_key((int)key);
+	if (key == MLX_KEY_ESCAPE)
+		mlx_close_window(data->mlx.win_ptr);
+	if (key == MLX_KEY_DOWN || key == MLX_KEY_UP)
+		change_fov(data, (int)key);
 	if (ENABLE_FILTERS)
-		change_filter(data, keycode);
-	set_key(keycode, &data->input, true);
-	toggle_key(keycode, &data->input);
+		change_filter(data, (int)key);
+	set_key((int)key, &data->input, true);
+	toggle_key((int)key, &data->input);
 	return (0);
 }
 
-int	cub_keyup_hook(int keycode, void *param)
+int	cub_keyup_hook(keys_t key, void *param)
 {
 	t_input	*input;
 
 	input = (t_input *)param;
 	input->needs_render = 1;
-	set_key(keycode, input, false);
+	set_key((int)key, input, false);
 	return (0);
 }
 
-static int	interpret_mouse_mouvement(t_data *data, int x, int y, int click)
+static int	interpret_mouse_mouvement(t_data *data, double x, double y, int click)
 {
-	(void)y;
 	(void)click;
 	if (data->input.skip_next_mouse_input)
 	{
 		data->input.skip_next_mouse_input = 0;
 		return (0);
 	}
-	data->input.delta_mouse_x = x - (data->mlx.win_size.x >> 1);
+	data->input.delta_mouse_x = (int)x - (data->mlx.win_size.x >> 1);
 	data->input.mouse_input = 1;
 	return (0);
 }
 
-int	cub_mouse_hook(int x, int y, void *param)
+int	cub_mouse_hook(double x, double y, void *param)
 {
 	t_data	*data;
 
-	(void)y;
 	data = (t_data *)param;
 	return (interpret_mouse_mouvement(data, x, y, 0));
 }
 
-int	cub_mouse_click_hook(int button, int x, int y, void *param)
+int	cub_mouse_click_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
 {
 	t_data	*data;
 
-	(void)y;
-	(void)button;
+	(void)action;
+	(void)mods;
 	data = (t_data *)param;
-	return (interpret_mouse_mouvement(data, x, y, button));
+	return (interpret_mouse_mouvement(data, (double)data->mlx.mouse_x, (double)data->mlx.mouse_y, (int)button));
 }
