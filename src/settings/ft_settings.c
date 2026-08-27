@@ -14,7 +14,7 @@
 #include "cub3d_render.h"
 #include "data_structure.h"
 #include "ft_draw.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 #include <stdlib.h>
 
 static void	settings_loop_hook(void *param);

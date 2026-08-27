@@ -13,7 +13,7 @@
 #include "data_structure.h"
 #include "ft_keys.h"
 #include "ft_print.h"
-#include "MLX42.h"
+#include "MLX42/MLX42.h"
 
 void	hook_settings_close_window(void *param)
 {
