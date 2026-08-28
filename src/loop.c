@@ -12,7 +12,8 @@
 
 #include "cub3d.h"
 #include "cub3d_render.h"
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
+#include "filter.h"
 #include "ft_keys.h"
 
 #if SKIP_NO_MVMT == 1
@@ -30,7 +31,7 @@ static void	loop_hook(void *param)
 	}
 	count_fps(1);
 	data->input.skip_next_mouse_input = 1;
-	mlx_set_mouse_pos(data->mlx.win_ptr, half_win_size.x, half_win_size.y);
+	mlx_set_mouse_pos(data->mlx.mlx_ptr, half_win_size.x, half_win_size.y);
 	cub_player_update(data);
 	if (data->input.needs_render == false)
 		return;
@@ -56,7 +57,7 @@ static void	loop_hook(void *param)
 	}
 	count_fps(1);
 	data->input.skip_next_mouse_input = 1;
-	mlx_set_mouse_pos(data->mlx.win_ptr, half_win_size.x, half_win_size.y);
+	mlx_set_mouse_pos(data->mlx.mlx_ptr, half_win_size.x, half_win_size.y);
 	cub_player_update(data);
 	cub_render(data);
 	if (data->input.minimap)
@@ -71,7 +72,7 @@ static void	handle_close(void *param)
 	t_data	*data;
 
 	data = (t_data *)param;
-	mlx_close_window(data->mlx.win_ptr);
+	mlx_close_window(data->mlx.mlx_ptr);
 }
 
 static void	handle_key(keys_t key, void *param)
@@ -134,11 +135,11 @@ static void	handle_mouse_press(mouse_key_t button, action_t action, modifier_key
 
 void	cub_loop(t_data *data)
 {
-	mlx_close_hook(data->mlx.win_ptr, &handle_close, data);
-	mlx_key_hook(data->mlx.win_ptr, &handle_key, data);
-	mlx_key_hook(data->mlx.win_ptr, &handle_key_release, &data->input);
-	mlx_cursor_hook(data->mlx.win_ptr, &handle_mouse, data);
-	mlx_mouse_hook(data->mlx.win_ptr, &handle_mouse_press, data);
+	mlx_close_hook(data->mlx.mlx_ptr, &handle_close, data);
+	mlx_key_hook(data->mlx.mlx_ptr, &handle_key, data);
+	mlx_key_hook(data->mlx.mlx_ptr, &handle_key_release, &data->input);
+	mlx_cursor_hook(data->mlx.mlx_ptr, &handle_mouse, data);
+	mlx_mouse_hook(data->mlx.mlx_ptr, &handle_mouse_press, data);
 	if (cub_render_pool_init(&data->pool) != 0)
 	{
 		handle_close(data);
@@ -156,11 +157,11 @@ void	cub_loop(t_data *data)
 
 void	cub_loop(t_data *data)
 {
-	mlx_close_hook(data->mlx.win_ptr, &handle_close, data);
-	mlx_key_hook(data->mlx.win_ptr, &handle_key, data);
-	mlx_key_hook(data->mlx.win_ptr, &handle_key_release, &data->input);
-	mlx_cursor_hook(data->mlx.win_ptr, &handle_mouse, data);
-	mlx_mouse_hook(data->mlx.win_ptr, &handle_mouse_press, data);
+	mlx_close_hook(data->mlx.mlx_ptr, &handle_close, data);
+	mlx_key_hook(data->mlx.mlx_ptr, &handle_key, data);
+	mlx_key_hook(data->mlx.mlx_ptr, &handle_key_release, &data->input);
+	mlx_cursor_hook(data->mlx.mlx_ptr, &handle_mouse, data);
+	mlx_mouse_hook(data->mlx.mlx_ptr, &handle_mouse_press, data);
 	cub_render(data);
 	if (data->input.minimap)
 		cub_render_minimap(data);

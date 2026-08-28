@@ -13,7 +13,7 @@
 #include "cub3d.h"
 #include "cub3d_render.h"
 #include <math.h>
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 
 static void	update_camera(t_data *data)
 {

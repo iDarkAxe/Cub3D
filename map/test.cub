@@ -1,7 +1,7 @@
-NO ./img/north.xpm
-SO ./img/south.xpm
-WE ./img/east.xpm
-EA ./img/west.xpm
+NO ./img/north.PNG
+SO ./img/south.PNG
+WE ./img/east.PNG
+EA ./img/west.PNG
 
 F 221,221,221
 C 100,148,237

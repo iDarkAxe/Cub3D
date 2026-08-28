@@ -1,6 +1,6 @@
-SO ./img/BRICK_3D.xpm
-WE ./img/TILE_1A.xpm
-EA ./img/TILE_2C.xpm
+SO ./img/BRICK_3D.PNG
+WE ./img/TILE_1A.PNG
+EA ./img/TILE_2C.PNG
 
 F 255,255,255
 C 255,0,0

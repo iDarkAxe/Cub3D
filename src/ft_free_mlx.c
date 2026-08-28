@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 #include "data_structure.h"
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 #include <stdlib.h>
 
 void	ft_mlx_end(t_mlx *mlx)
@@ -26,13 +26,9 @@ void	ft_mlx_end(t_mlx *mlx)
 		mlx_delete_image(mlx->mlx_ptr, mlx->backbuffer.img);
 		mlx->backbuffer.img = NULL;
 	}
-	if (mlx->win_ptr != NULL)
-	{
-		mlx_delete_window(mlx->mlx_ptr, mlx->win_ptr);
-		mlx->win_ptr = NULL;
-	}
 	if (mlx->mlx_ptr != NULL)
 	{
+		mlx_close_window(mlx->mlx_ptr);
 		mlx_terminate(mlx->mlx_ptr);
 		mlx->mlx_ptr = NULL;
 	}
@@ -59,7 +55,8 @@ void	ft_free_settings(t_mlx *mlx)
 	}
 	if (mlx->settings.win_ptr)
 	{
-		mlx_delete_window(mlx->mlx_ptr, mlx->settings.win_ptr);
+		mlx_close_window(mlx->settings.win_ptr);
+		mlx_terminate(mlx->settings.win_ptr);
 		mlx->settings.win_ptr = NULL;
 	}
 }

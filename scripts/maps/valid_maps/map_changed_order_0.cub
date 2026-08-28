@@ -1,7 +1,7 @@
-NO ./img/BRICK_3B.xpm
-EA ./img/TILE_2C.xpm
-SO ./img/BRICK_3D.xpm
-WE ./img/TILE_1A.xpm
+NO ./img/BRICK_3B.PNG
+EA ./img/TILE_2C.PNG
+SO ./img/BRICK_3D.PNG
+WE ./img/TILE_1A.PNG
 
 F 70,70,70
 C 70,70,70

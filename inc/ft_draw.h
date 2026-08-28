@@ -64,7 +64,7 @@ void	ft_put_pixel_to_img_24bp(t_img *img, int x, int y, int color);
  * @param[in] element element
  * @param[in] is_enabled true is ON, false is OFF
  */
-void	ft_put_circle_to_win(t_mlx *mlx, void *win_ptr, t_circle element,
+void	ft_put_circle_to_win(t_mlx *mlx, mlx_t *win_ptr, t_circle element,
 			bool is_enabled);
 /**
  * @brief Function to put the specific case of circles defined by the enum
@@ -74,7 +74,7 @@ void	ft_put_circle_to_win(t_mlx *mlx, void *win_ptr, t_circle element,
  * @param[in,out] num state to put
  * @param[in] is_enabled true is ON, false is OFF
  */
-void	ft_put_circle_specific(t_mlx *mlx, void *win_settings_ptr,
+void	ft_put_circle_specific(t_mlx *mlx, mlx_t *win_settings_ptr,
 			enum e_screen_size num, bool is_enabled);
 /**
  * @brief Function to pull all the circle to the window following their state
@@ -83,7 +83,7 @@ void	ft_put_circle_specific(t_mlx *mlx, void *win_settings_ptr,
  * @param[in,out] win_settings_ptr settings window pointer
  * @param[in] is_enabled true is ON, false is OFF
  */
-void	ft_put_all_circle_to_win(t_mlx *mlx, void *win_settings_ptr,
+void	ft_put_all_circle_to_win(t_mlx *mlx, mlx_t *win_settings_ptr,
 			bool is_enabled);
 
 #endif

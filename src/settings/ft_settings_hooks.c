@@ -13,7 +13,7 @@
 #include "data_structure.h"
 #include "ft_keys.h"
 #include "ft_print.h"
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 
 void	hook_settings_close_window(void *param)
 {
@@ -26,17 +26,17 @@ void	hook_settings_close_window(void *param)
 		mlx_close_window(mlx->settings.win_ptr);
 }
 
-void	hook_settings_handle_keypress(keys_t key, void *param)
+void	hook_settings_handle_keypress(mlx_key_data_t keydata, void *param)
 {
 	t_mlx	*mlx;
 
 	mlx = (t_mlx *)param;
 	if (DEBUG_PRINT_KEYCODE == 1)
-		ft_print_key((int)key);
-	if (key == MLX_KEY_ESCAPE && ESCAPE_APPLY_SETTINGS == 0)
+		ft_print_key((int)keydata.key);
+	if (keydata.key == MLX_KEY_ESCAPE && ESCAPE_APPLY_SETTINGS == 0)
 		mlx_close_window(mlx->settings.win_ptr);
 	else
-		state_machine((int)key, mlx);
+		state_machine(keydata.key, mlx);
 }
 
 void	hook_settings_handle_mouse_click(mouse_key_t button, action_t action, modifier_key_t mods, void *param)

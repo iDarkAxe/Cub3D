@@ -13,12 +13,13 @@
 #include "data_structure.h"
 #include "ft_keys.h"
 #include "ft_print.h"
-#include "MLX42/MLX42.h"
+#include "cub3d.h"
+#include "filter.h"
+#include <MLX42.h>
 
-// These functions are not used with MLX42 anymore
-// They are kept for reference but should not be called
+// These functions are used with MLX42
 
-int	cub_keydown_hook(keys_t key, void *param)
+void	cub_keydown_hook(keys_t key, void *param)
 {
 	t_data	*data;
 
@@ -33,46 +34,44 @@ int	cub_keydown_hook(keys_t key, void *param)
 		change_filter(data, (int)key);
 	set_key((int)key, &data->input, true);
 	toggle_key((int)key, &data->input);
-	return (0);
 }
 
-int	cub_keyup_hook(keys_t key, void *param)
+void	cub_keyup_hook(keys_t key, void *param)
 {
 	t_input	*input;
 
 	input = (t_input *)param;
 	input->needs_render = 1;
 	set_key((int)key, input, false);
-	return (0);
 }
 
-static int	interpret_mouse_mouvement(t_data *data, double x, double y, int click)
+static void	interpret_mouse_mouvement(t_data *data, double x, int click)
 {
 	(void)click;
 	if (data->input.skip_next_mouse_input)
 	{
 		data->input.skip_next_mouse_input = 0;
-		return (0);
+		return;
 	}
 	data->input.delta_mouse_x = (int)x - (data->mlx.win_size.x >> 1);
 	data->input.mouse_input = 1;
-	return (0);
 }
 
-int	cub_mouse_hook(double x, double y, void *param)
+void	cub_mouse_hook(double x, double y, void *param)
 {
 	t_data	*data;
 
+	(void)y;
 	data = (t_data *)param;
-	return (interpret_mouse_mouvement(data, x, y, 0));
+	interpret_mouse_mouvement(data, x, 0);
 }
 
-int	cub_mouse_click_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
+void	cub_mouse_click_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
 {
 	t_data	*data;
 
 	(void)action;
 	(void)mods;
 	data = (t_data *)param;
-	return (interpret_mouse_mouvement(data, (double)data->mlx.mouse_x, (double)data->mlx.mouse_y, (int)button));
+	interpret_mouse_mouvement(data, (double)data->mlx.mouse_x, (int)button);
 }

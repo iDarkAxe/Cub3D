@@ -30,7 +30,7 @@
 #include "ft_print.h"
 #include "ft_printf.h"
 #include "maze.h"
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 #include "maze.h"
 
 static int	try_place_objects(t_map_raoul *map, t_args *args)

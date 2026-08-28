@@ -43,6 +43,21 @@
 int					cub3d(int argc, char **argv);
 
 /**
+ * @brief Initialize the render
+ *
+ * @param data data structure
+ * @return int 0 on success, -1 on error
+ */
+int				cub3d_init_render(t_data *data);
+
+/**
+ * @brief Main loop function
+ *
+ * @param data data structure
+ */
+void				cub_loop(t_data *data);
+
+/**
  * @brief Reads and verifies the arguments passed to the program
  *
  * @param argc argument count
@@ -153,10 +168,10 @@ void				settings_hooks(t_data *data);
 /**
  * @brief State machine for the settings window.
  *
- * @param[in] keycode keycode of the key pressed
+ * @param[in] key key pressed
  * @param[in,out] mlx Pointer to the mlx structure
  */
-void				state_machine(int keycode, t_mlx *mlx);
+void				state_machine(keys_t key, t_mlx *mlx);
 /** @} */
 
 /**
@@ -168,76 +183,68 @@ void				state_machine(int keycode, t_mlx *mlx);
 /**
  * @brief Hook when a key is pressed
  * 
- * @param[in] keycode keycode of key pressed
+ * @param[in] key key pressed
  * @param[in,out] param param 
- * @return int keycode
  */
-int					cub_keydown_hook(int keycode, void *param);
+void		cub_keydown_hook(keys_t key, void *param);
 /**
  * @brief Hook when a key is released
  * 
- * @param[in] keycode keycode of key released
+ * @param[in] key key released
  * @param[in,out] param param 
- * @return int keycode
  */
-int					cub_keyup_hook(int keycode, void *param);
+void		cub_keyup_hook(keys_t key, void *param);
 /**
  * @brief Hook when the mouse is moved while clicking
  * 
  * @param[in] button button pressed
- * @param[in] x x axis 
- * @param[in] y y axis 
+ * @param[in] action action type
+ * @param[in] mods modifier keys
  * @param[in,out] param param
- * @return int 0 always
  */
-int					cub_mouse_click_hook(int button, int x, int y, void *param);
+void		cub_mouse_click_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param);
 /**
  * @brief Hook when the mouse is moved
  * 
  * @param[in] x x axis 
  * @param[in] y y axis 
  * @param[in,out] param param
- * @return int 0 always
  */
-int					cub_mouse_hook(int x, int y, void *param);
+void		cub_mouse_hook(double x, double y, void *param);
+// Settings hooks
+
 // Settings hooks
 /**
  * @brief Hook when the mouse is moved while clicking for the settings
  * 
  * @param[in] button button pressed
- * @param[in] x x axis 
- * @param[in] y y axis 
+ * @param[in] action action type
+ * @param[in] mods modifier keys
  * @param[in,out] param param
- * @return int 0 OK, -1 otherwise
  */
-int					hook_settings_handle_mouse_click(int button, int x, int y,
-						void *param);
+void		hook_settings_handle_mouse_click(mouse_key_t button, action_t action, modifier_key_t mods, void *param);
 /**
  * @brief Hook when the mouse is moved for the settings
  * 
  * @param[in] x x axis 
  * @param[in] y y axis 
  * @param[in,out] param param
- * @return int 0 OK, -1 otherwise
  */
-int					hook_settings_handle_mouse_motion(int x, int y,
-						void *param);
+void		hook_settings_handle_mouse_motion(double x, double y, void *param);
 /**
  * @brief Hook used to close window or set the window size if MACRO Enabled
  * 
  * @param[in,out] param param
- * @return int 0 always
  */
-int					hook_settings_close_window(void *param);
+void		hook_settings_close_window(void *param);
 
 /**
  * @brief Handle mouse click in the settings window.
  *
- * @param[in] keycode keycode of the key pressed
+ * @param[in] keydata key data structure
  * @param[in,out] param Pointer to the mlx structure
- * @return int
  */
-int					hook_settings_handle_keypress(int keycode, void *param);
+void		hook_settings_handle_keypress(mlx_key_data_t keydata, void *param);
 /** @} */
 
 /**

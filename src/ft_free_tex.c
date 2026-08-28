@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 #include <stdlib.h>
 
 void	ft_free_textures(t_mlx *mlx, t_textures *textures)
@@ -21,27 +21,27 @@ void	ft_free_textures(t_mlx *mlx, t_textures *textures)
 	if (textures->north.img != NULL)
 		mlx_delete_image(mlx->mlx_ptr, textures->north.img);
 	if (textures->north.texture != NULL)
-		mlx_delete_texture(mlx->mlx_ptr, textures->north.texture);
+		mlx_delete_texture(textures->north.texture);
 	if (textures->south.img != NULL)
 		mlx_delete_image(mlx->mlx_ptr, textures->south.img);
 	if (textures->south.texture != NULL)
-		mlx_delete_texture(mlx->mlx_ptr, textures->south.texture);
+		mlx_delete_texture(textures->south.texture);
 	if (textures->west.img != NULL)
 		mlx_delete_image(mlx->mlx_ptr, textures->west.img);
 	if (textures->west.texture != NULL)
-		mlx_delete_texture(mlx->mlx_ptr, textures->west.texture);
+		mlx_delete_texture(textures->west.texture);
 	if (textures->east.img != NULL)
 		mlx_delete_image(mlx->mlx_ptr, textures->east.img);
 	if (textures->east.texture != NULL)
-		mlx_delete_texture(mlx->mlx_ptr, textures->east.texture);
+		mlx_delete_texture(textures->east.texture);
 	if (textures->key.img != NULL)
 		mlx_delete_image(mlx->mlx_ptr, textures->key.img);
 	if (textures->key.texture != NULL)
-		mlx_delete_texture(mlx->mlx_ptr, textures->key.texture);
+		mlx_delete_texture(textures->key.texture);
 	if (textures->door.img != NULL)
 		mlx_delete_image(mlx->mlx_ptr, textures->door.img);
 	if (textures->door.texture != NULL)
-		mlx_delete_texture(mlx->mlx_ptr, textures->door.texture);
+		mlx_delete_texture(textures->door.texture);
 }
 
 void	ft_free_textures_path(t_map *map)

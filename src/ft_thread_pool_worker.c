@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 #include "cub3d.h"
 #include "cub3d_render.h"
 

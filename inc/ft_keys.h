@@ -20,7 +20,7 @@
  */
 
 # include <stdbool.h>
-# include "MLX42/MLX42.h"
+# include <MLX42.h>
 
 /**
  * @defgroup Keys Keys macros

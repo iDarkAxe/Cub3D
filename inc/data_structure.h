@@ -209,7 +209,7 @@ struct							s_player
  */
 struct							s_settings
 {
-	mlx_window_t						*win_ptr;
+	mlx_t						*win_ptr;
 	enum e_screen_size			state;
 	t_img						background;
 	t_img						circle_yes;
@@ -223,7 +223,7 @@ struct							s_settings
 struct							s_mlx
 {
 	mlx_t						*mlx_ptr;
-	mlx_window_t						*win_ptr;
+	mlx_t						*win_ptr;
 	t_settings					settings;
 	int							mouse_x;
 	int							mouse_y;

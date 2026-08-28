@@ -13,7 +13,7 @@
 #include "cub3d.h"
 #include "cub3d_render.h"
 #include "libft.h"
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 #include <stdlib.h>
 
 static int	setup_backbuffer(t_data *data)

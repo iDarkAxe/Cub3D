@@ -14,21 +14,21 @@
 #include "ft_keys.h"
 #include "cub3d.h"
 
-void	state_machine(int keycode, t_mlx *mlx)
+void	state_machine(keys_t key, t_mlx *mlx)
 {
-	if (keycode == KEY_ESCAPE && mlx->settings.state == 0)
+	if (key == KEY_ESCAPE && mlx->settings.state == 0)
 		ft_set_screen_size(mlx, SIZE_FULL_SCREEN);
-	else if ((keycode == KEY_ESCAPE || keycode == KEY_ENTER
-			|| keycode == KEY_SPACE) && mlx->settings.state != 0)
+	else if ((key == KEY_ESCAPE || key == KEY_ENTER
+			|| key == KEY_SPACE) && mlx->settings.state != 0)
 		ft_set_screen_size(mlx, mlx->settings.state);
-	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings.state == SIZE_480P)
+	else if (is_mv_key(MV_DOWN, (int)key) && mlx->settings.state == SIZE_480P)
 		mlx->settings.state = SIZE_FULL_SCREEN;
-	else if (is_mv_key(MV_UP, keycode)
+	else if (is_mv_key(MV_UP, (int)key)
 		&& mlx->settings.state == SIZE_FULL_SCREEN)
 		mlx->settings.state = SIZE_480P;
-	else if (is_mv_key(MV_DOWN, keycode) && mlx->settings.state < SIZE_480P)
+	else if (is_mv_key(MV_DOWN, (int)key) && mlx->settings.state < SIZE_480P)
 		mlx->settings.state++;
-	else if (is_mv_key(MV_UP, keycode)
+	else if (is_mv_key(MV_UP, (int)key)
 		&& mlx->settings.state > SIZE_FULL_SCREEN)
 		mlx->settings.state--;
 }

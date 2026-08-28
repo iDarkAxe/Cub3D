@@ -53,7 +53,7 @@ P_MLX = MLX42/
 
 # Header directories
 P_INC = inc/
-P_INC_MLX = $(P_MLX)/include/MLX42/
+P_INC_MLX = $(P_MLX)include/MLX42/
 #############################################################################################
 #                                                                                           #
 #                                           FILES                                           #
@@ -159,6 +159,8 @@ LIBS = \
 	-L$(P_GET_NEXT_LINE) -lgnl \
 	-L$(P_LIBFT) -lft \
 	-L$(P_MLX)/build -lmlx42 \
+	-lglfw \
+	-lGL \
 	-lXext \
 	-lX11 \
 	-lm
@@ -204,7 +206,7 @@ all:
 	@$(MAKE) $(NAME)
 
 # Create cub3d executable
-$(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)libmlx42.a $(GET_NEXT_LINE)
+$(NAME): $(OBJS) $(INCS) $(LIBFT) $(P_MLX)build/libmlx42.a $(GET_NEXT_LINE)
 	@if $(CC) $(CFLAGS) $(DEPENDANCIES) $(DEBUG_STATE) -I $(P_INC) -I $(P_GET_NEXT_LINE) -I $(P_INC_MLX) -I $(P_LIBFT)inc -o $(NAME) $(OBJS) $(LIBS); then \
 		echo -e "$(Green)Creating executable $@$(Color_Off)"; \
 	else \
@@ -234,8 +236,8 @@ $(GET_NEXT_LINE): force
 	@$(MAKE) -C $(P_GET_NEXT_LINE)
 
 # Create mlx library
-$(P_MLX)libmlx42.a: force
-	cd $(P_MLX) && cmake --build build -j4
+$(P_MLX)build/libmlx42.a: force
+	cd $(P_MLX) && LD_PRELOAD="" LD_LIBRARY_PATH="" /usr/bin/cmake --build build -j4
 
 #############################################################################################
 #                                                                                           #

@@ -13,7 +13,7 @@
 #include "cub3d.h"
 #include "data_structure.h"
 #include "filter.h"
-#include "MLX42/MLX42.h"
+#include <MLX42.h>
 #include <stdlib.h>
 
 #if ENABLE_MULTI_THREAD_RENDERING == 1
